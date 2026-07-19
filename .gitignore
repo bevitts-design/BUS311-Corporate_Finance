@@ -1,0 +1,11 @@
+.DS_Store
+/node_modules
+__pycache__/
+*.py[cod]
+.codex-tmp/
+*.log
+~$*
+audits/migration-manifest.csv
+grading/output/
+student-submissions/
+gradebooks/

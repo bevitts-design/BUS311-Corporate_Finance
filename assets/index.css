@@ -1,0 +1,42 @@
+:root {
+  --ink: #0E1116;
+  --paper: #FAF8F3;
+  --sage: #4A7C5E;
+  --gold: #B8843D;
+  --terra: #9C4A2B;
+  --steel: #355773;
+  --text: #1A1F2C;
+  --soft: #5B6472;
+  --border: #DED9CD;
+  --white: #FFFFFF;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--text); font: 16px/1.55 system-ui, sans-serif; }
+a { color: inherit; }
+.hero { background: var(--ink); color: var(--white); padding: 64px max(24px, calc((100vw - 1180px) / 2)); }
+.eyebrow { color: #E0B47A; font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+h1 { font: 400 clamp(2.7rem, 6vw, 5.6rem)/.95 Georgia, serif; margin: 14px 0 18px; max-width: 900px; }
+.hero p { color: #D7DAE0; max-width: 720px; font-size: 1.1rem; }
+.current { margin-top: 30px; display: inline-flex; gap: 12px; align-items: center; padding: 14px 18px; border: 1px solid #38414D; border-radius: 12px; background: #171C23; }
+.current strong { color: #FFD8B7; }
+main { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 36px 0 72px; }
+.controls { display: grid; grid-template-columns: 1fr auto; gap: 16px; margin-bottom: 28px; }
+.controls input, .controls select { min-height: 46px; border: 1px solid var(--border); border-radius: 10px; background: var(--white); padding: 0 14px; font: inherit; }
+.track { margin: 42px 0; }
+.track h2 { font: 400 2.25rem/1 Georgia, serif; margin: 0 0 8px; }
+.track-intro { color: var(--soft); margin: 0 0 18px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 18px; }
+.lesson { background: var(--white); border: 1px solid var(--border); border-radius: 15px; padding: 24px; display: flex; flex-direction: column; gap: 15px; }
+.lesson.current-card { border-color: var(--terra); box-shadow: inset 0 4px 0 var(--terra); }
+.meta { display: flex; justify-content: space-between; gap: 12px; color: var(--soft); font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; }
+.state { border-radius: 999px; padding: 3px 9px; background: #EFE8DF; color: #70472F; }
+.lesson h3 { margin: 0; font-size: 1.3rem; line-height: 1.2; }
+.outcomes, .skills { display: flex; flex-wrap: wrap; gap: 7px; }
+.tag { border: 1px solid var(--border); border-radius: 999px; padding: 4px 9px; color: var(--soft); font-size: .78rem; }
+.materials { display: flex; flex-wrap: wrap; gap: 9px; margin-top: auto; }
+.materials a { text-decoration: none; border-radius: 8px; padding: 8px 11px; background: var(--ink); color: var(--white); font-size: .87rem; }
+.materials a:hover, .materials a:focus { background: var(--terra); }
+.hidden { display: none !important; }
+footer { border-top: 1px solid var(--border); color: var(--soft); padding: 28px 20px; text-align: center; }
+@media (max-width: 620px) { .controls { grid-template-columns: 1fr; } .hero { padding-top: 44px; } }

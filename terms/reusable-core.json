@@ -1,0 +1,19 @@
+{
+  "id": "reusable-core",
+  "label": "Reusable Core",
+  "canvasUrl": "",
+  "currentLessonId": "foundations-m01-l01",
+  "schedule": [
+    {"lessonId": "foundations-m01-l01", "week": 1, "releaseState": "Draft"},
+    {"lessonId": "foundations-m01-l02", "week": 1, "releaseState": "Draft"},
+    {"lessonId": "foundations-m02-l01", "week": 2, "releaseState": "Draft"},
+    {"lessonId": "foundations-m02-l02", "week": 3, "releaseState": "Draft"},
+    {"lessonId": "valuation-m01-l01", "week": 5, "releaseState": "Draft"},
+    {"lessonId": "valuation-m02-l01", "week": 6, "releaseState": "Draft"},
+    {"lessonId": "valuation-m03-l01", "week": 7, "releaseState": "Draft"},
+    {"lessonId": "valuation-m04-l01", "week": 8, "releaseState": "Draft"},
+    {"lessonId": "decisions-m01-l01", "week": 10, "releaseState": "Draft"},
+    {"lessonId": "decisions-m02-l01", "week": 11, "releaseState": "Draft"},
+    {"lessonId": "decisions-m03-l01", "week": 12, "releaseState": "Draft"}
+  ]
+}
