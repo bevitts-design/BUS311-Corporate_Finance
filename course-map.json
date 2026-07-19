@@ -35,8 +35,7 @@
       "skillFocus": ["financial decision framework", "value creation", "stakeholder trade-offs"],
       "caseStudy": "Costco",
       "materials": [
-        {"type": "Slides", "path": "INTRO/M01/bus311-intro-m01-l01-slides.html"},
-        {"type": "Reading", "url": "https://github.com/bevitts-design/BUS311-Corporate_Finance/blob/main/INTRO/M01/source/bus311-intro-m01-l01-prereading.md"}
+        {"type": "Slides", "path": "INTRO/M01/bus311-intro-m01-l01-slides.html"}
       ]
     },
     {
@@ -46,7 +45,6 @@
       "caseStudy": "Apple",
       "materials": [
         {"type": "Slides", "path": "FOUNDATIONS/M01/bus311-foundations-m01-l02-slides.html"},
-        {"type": "Reading", "url": "https://github.com/bevitts-design/BUS311-Corporate_Finance/blob/main/FOUNDATIONS/M01/source/bus311-foundations-m01-l02-prereading.md"},
         {"type": "Starter Workbook", "path": "FOUNDATIONS/M01/bus311-foundations-m01-l02-starter.xlsx"}
       ]
     },
@@ -57,7 +55,6 @@
       "caseStudy": "Microsoft",
       "materials": [
         {"type": "Slides", "path": "FOUNDATIONS/M02/bus311-foundations-m02-l01-slides.html"},
-        {"type": "Reading", "url": "https://github.com/bevitts-design/BUS311-Corporate_Finance/blob/main/FOUNDATIONS/M02/source/bus311-foundations-m02-l01-prereading.md"},
         {"type": "Starter Workbook", "path": "FOUNDATIONS/M02/bus311-foundations-m02-l01-starter.xlsx"}
       ]
     },
@@ -68,7 +65,6 @@
       "caseStudy": "Nike",
       "materials": [
         {"type": "Slides", "path": "FOUNDATIONS/M02/bus311-foundations-m02-l02-slides.html"},
-        {"type": "Reading", "url": "https://github.com/bevitts-design/BUS311-Corporate_Finance/blob/main/FOUNDATIONS/M02/source/bus311-foundations-m02-l02-prereading.md"},
         {"type": "Starter Workbook", "path": "FOUNDATIONS/M02/bus311-foundations-m02-l02-starter.xlsx"}
       ]
     },
@@ -79,7 +75,6 @@
       "caseStudy": "Berkshire Hathaway",
       "materials": [
         {"type": "Slides", "path": "VALUATION/M01/bus311-valuation-m01-l01-slides.html"},
-        {"type": "Reading", "url": "https://github.com/bevitts-design/BUS311-Corporate_Finance/blob/main/VALUATION/M01/source/bus311-valuation-m01-l01-prereading.md"},
         {"type": "Starter Workbook", "path": "VALUATION/M01/bus311-valuation-m01-l01-starter.xlsx"}
       ]
     },
@@ -90,7 +85,6 @@
       "caseStudy": "Meridian Industrial Corp.",
       "materials": [
         {"type": "Slides", "path": "VALUATION/M02/bus311-valuation-m02-l01-slides.html"},
-        {"type": "Reading", "url": "https://github.com/bevitts-design/BUS311-Corporate_Finance/blob/main/VALUATION/M02/source/bus311-valuation-m02-l01-prereading.md"},
         {"type": "Starter Workbook", "path": "VALUATION/M02/bus311-valuation-m02-l01-starter.xlsx"}
       ]
     },
@@ -101,7 +95,6 @@
       "caseStudy": "Apex Technologies",
       "materials": [
         {"type": "Slides", "path": "VALUATION/M03/bus311-valuation-m03-l01-slides.html"},
-        {"type": "Reading", "url": "https://github.com/bevitts-design/BUS311-Corporate_Finance/blob/main/VALUATION/M03/source/bus311-valuation-m03-l01-prereading.md"},
         {"type": "Starter Workbook", "path": "VALUATION/M03/bus311-valuation-m03-l01-starter.xlsx"}
       ]
     },
@@ -112,7 +105,6 @@
       "caseStudy": "Harborside Medical Center",
       "materials": [
         {"type": "Slides", "path": "VALUATION/M04/bus311-valuation-m04-l01-slides.html"},
-        {"type": "Reading", "url": "https://github.com/bevitts-design/BUS311-Corporate_Finance/blob/main/VALUATION/M04/source/bus311-valuation-m04-l01-prereading.md"},
         {"type": "Starter Workbook", "path": "VALUATION/M04/bus311-valuation-m04-l01-starter.xlsx"}
       ]
     },
@@ -123,7 +115,6 @@
       "caseStudy": "Boeing",
       "materials": [
         {"type": "Slides", "path": "DECISIONS/M01/bus311-decisions-m01-l01-slides.html"},
-        {"type": "Reading", "url": "https://github.com/bevitts-design/BUS311-Corporate_Finance/blob/main/DECISIONS/M01/source/bus311-decisions-m01-l01-prereading.md"},
         {"type": "Starter Workbook", "path": "DECISIONS/M01/bus311-decisions-m01-l01-starter.xlsx"}
       ]
     },
@@ -134,7 +125,6 @@
       "caseStudy": "Target",
       "materials": [
         {"type": "Slides", "path": "DECISIONS/M02/bus311-decisions-m02-l01-slides.html"},
-        {"type": "Reading", "url": "https://github.com/bevitts-design/BUS311-Corporate_Finance/blob/main/DECISIONS/M02/source/bus311-decisions-m02-l01-prereading.md"},
         {"type": "Starter Workbook", "path": "DECISIONS/M02/bus311-decisions-m02-l01-starter.xlsx"}
       ]
     },
@@ -145,7 +135,6 @@
       "caseStudy": "Delta Air Lines",
       "materials": [
         {"type": "Slides", "path": "DECISIONS/M03/bus311-decisions-m03-l01-slides.html"},
-        {"type": "Reading", "url": "https://github.com/bevitts-design/BUS311-Corporate_Finance/blob/main/DECISIONS/M03/source/bus311-decisions-m03-l01-prereading.md"},
         {"type": "Starter Workbook", "path": "DECISIONS/M03/bus311-decisions-m03-l01-starter.xlsx"}
       ]
     }
