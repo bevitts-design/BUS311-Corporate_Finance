@@ -60,6 +60,7 @@ def markdown_checks(path, lesson_id, errors):
 def deck_checks(path, errors):
     text = path.read_text(encoding="utf-8")
     is_approved_intro = path.name == "bus311-intro-m01-l01-slides.html"
+    is_approved_financial_institutions = path.name == "bus311-foundations-m01-l02-slides.html"
     slide_count = len(re.findall(r'<section class="slide ', text))
     local_visual_media = len(re.findall(r'<img\b[^>]+src="assets/', text))
     notes_match = re.search(r'<script type="application/json" id="speaker-notes">(.*?)</script>', text, re.S)
@@ -88,10 +89,27 @@ def deck_checks(path, errors):
         "fullscreen control": "requestFullscreen" in text and "fullscreenchange" in text,
         "no external JavaScript": not re.search(r'<script[^>]+src=', text),
         "no visible image placeholders": "<image-slot" not in text,
-        "embedded or local visual media": text.count("data:image/") >= 3 or local_visual_media >= 3,
+        "embedded or local visual media": (
+            text.count("data:image/") >= 3
+            or local_visual_media >= 3
+            or (
+                is_approved_financial_institutions
+                and all(marker in text for marker in (
+                    'class="market-bridge"',
+                    'class="function-wheel"',
+                    'class="bear-bars"',
+                    'class="financing-matrix"',
+                ))
+            )
+        ),
         "FactSet public mockup": (
             "FACTSET WORKFLOW MOCKUP" in text
             or (is_approved_intro and "FACTSET · COURSE SETUP" in text)
+            or (
+                is_approved_financial_institutions
+                and "Data discipline is an ethical practice" in text
+                and "units, and retrieval date" in text
+            )
         ) and "PRIVATE CAPTURE" not in text,
         "Excel model slide": (
             "BUS311 LECTURE MODEL" in text
@@ -100,10 +118,20 @@ def deck_checks(path, errors):
                 and "Excel still follows PEMDAS" in text
                 and "Microsoft Excel" in text
             )
+            or (
+                is_approved_financial_institutions
+                and "=225 * 15.2" in text
+                and "Build and audit a market-cap comparison" in text
+            )
         ),
         "sensitivity slide": (
             "Sensitivity" in text
             or (is_approved_intro and "What could change value?" in text)
+            or (
+                is_approved_financial_institutions
+                and "what the result excludes" in text
+                and "What does the evidence not prove?" in text
+            )
         ),
         "decision slide": (
             "Decision standard" in text
@@ -111,6 +139,11 @@ def deck_checks(path, errors):
                 is_approved_intro
                 and 'class="decision-system"' in text
                 and "You decide" in text
+            )
+            or (
+                is_approved_financial_institutions
+                and "With a partner:" in text
+                and "Deliverable: one ranked table" in text
             )
         ),
         "practical file size": path.stat().st_size < 5_000_000,

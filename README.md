@@ -25,3 +25,15 @@ The Fall 2026 course introduction and Chapter 1 pilot was approved on July 19, 2
 - Validation: `scripts/validate-bus311-intro-m01-l01.mjs`
 
 The approved deck uses the normal filename already referenced by `course-map.json`. Rebuild it with the bundled or system Node.js runtime, then run the lesson validator and `python3 scripts/validate-public.py`. The former `build-canva-pilot.mjs`, `validate-canva-pilot.mjs`, and `canva-pilot-content.mjs` paths remain as compatibility wrappers.
+
+## Financial Institutions chapter rebuild
+
+The Fall 2026 Financial Institutions chapter is maintained as a source-audited, 40-slide presenter deck. It represents all 33 source PPTX slides, adds current BlackRock and Coinbase examples from official company sources, and rebuilds the crisis evidence from SEC, Federal Reserve, and FDIC sources. The extracted PPTX media remains outside the public repository.
+
+- Rebuild brief: `audits/bus311-foundations-m01-l02-rebuild-brief.md`
+- Maintained content: `scripts/decks/bus311-foundations-m01-l02-content.mjs`
+- Builder: `scripts/build-bus311-foundations-m01-l02.mjs`
+- Output: `FOUNDATIONS/M01/bus311-foundations-m01-l02-slides.html`
+- Source inventory: `audits/bus311-foundations-m01-l02-source-inventory.md`
+- Review log: `audits/bus311-foundations-m01-l02-review-log.md`
+- Validation: `scripts/validate-bus311-foundations-m01-l02.mjs`
