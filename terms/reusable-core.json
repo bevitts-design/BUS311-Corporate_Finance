@@ -2,9 +2,9 @@
   "id": "reusable-core",
   "label": "Reusable Core",
   "canvasUrl": "",
-  "currentLessonId": "foundations-m01-l01",
+  "currentLessonId": "intro-m01-l01",
   "schedule": [
-    {"lessonId": "foundations-m01-l01", "week": 1, "releaseState": "Draft"},
+    {"lessonId": "intro-m01-l01", "week": 1, "releaseState": "Draft"},
     {"lessonId": "foundations-m01-l02", "week": 1, "releaseState": "Draft"},
     {"lessonId": "foundations-m02-l01", "week": 2, "releaseState": "Draft"},
     {"lessonId": "foundations-m02-l02", "week": 3, "releaseState": "Draft"},

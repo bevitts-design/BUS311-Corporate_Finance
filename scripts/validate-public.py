@@ -59,7 +59,7 @@ def markdown_checks(path, lesson_id, errors):
 
 def deck_checks(path, errors):
     text = path.read_text(encoding="utf-8")
-    is_approved_foundations_intro = path.name == "bus311-foundations-m01-l01-slides.html"
+    is_approved_intro = path.name == "bus311-intro-m01-l01-slides.html"
     slide_count = len(re.findall(r'<section class="slide ', text))
     local_visual_media = len(re.findall(r'<img\b[^>]+src="assets/', text))
     notes_match = re.search(r'<script type="application/json" id="speaker-notes">(.*?)</script>', text, re.S)
@@ -91,24 +91,24 @@ def deck_checks(path, errors):
         "embedded or local visual media": text.count("data:image/") >= 3 or local_visual_media >= 3,
         "FactSet public mockup": (
             "FACTSET WORKFLOW MOCKUP" in text
-            or (is_approved_foundations_intro and "FACTSET · COURSE SETUP" in text)
+            or (is_approved_intro and "FACTSET · COURSE SETUP" in text)
         ) and "PRIVATE CAPTURE" not in text,
         "Excel model slide": (
             "BUS311 LECTURE MODEL" in text
             or (
-                is_approved_foundations_intro
+                is_approved_intro
                 and "Excel still follows PEMDAS" in text
                 and "Microsoft Excel" in text
             )
         ),
         "sensitivity slide": (
             "Sensitivity" in text
-            or (is_approved_foundations_intro and "What could change value?" in text)
+            or (is_approved_intro and "What could change value?" in text)
         ),
         "decision slide": (
             "Decision standard" in text
             or (
-                is_approved_foundations_intro
+                is_approved_intro
                 and 'class="decision-system"' in text
                 and "You decide" in text
             )

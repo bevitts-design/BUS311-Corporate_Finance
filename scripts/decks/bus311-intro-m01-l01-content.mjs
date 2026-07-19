@@ -57,8 +57,8 @@ const financeAreasGraphic = `<div class="finance-map-wrap"><svg class="finance-m
   <g class="finance-node"><rect x="1070" y="400" width="360" height="130" rx="28"/><circle cx="1120" cy="465" r="16" class="node-dot fintech"/><text x="1250" y="476">Fintech</text></g>
 </svg><div class="finance-map-caption"><strong>One decision system</strong><span>Corporate decisions draw evidence from every area.</span></div></div>`;
 
-export const foundationsM01L01Deck = {
-  id: 'foundations-m01-l01',
+export const introM01L01Deck = {
+  id: 'intro-m01-l01',
   title: 'Corporate Finance: Course Introduction and Chapter 1',
   sourceTitle: 'CorpFin311 - Intro and Chapter 1 - Spring 2026.pptx',
   sourceDesignId: 'DAG-TdqAkXs',

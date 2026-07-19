@@ -1,13 +1,13 @@
 ---
 course: BUS311
-lesson_id: foundations-m01-l01
-title: "Corporate Finance and Value Creation"
+lesson_id: intro-m01-l01
+title: "Course Introduction and Corporate Finance Overview"
 outcomes: [LO1]
 status: draft
 factset_required: true
 ---
 
-# Corporate Finance and Value Creation
+# Course Introduction and Corporate Finance Overview
 
 ## Why this matters
 

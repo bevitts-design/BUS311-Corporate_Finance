@@ -23,19 +23,20 @@
     "LO6": ["Capital-budgeting and financing workbooks", "Exam 3", "Cumulative final"]
   },
   "tracks": [
-    {"id": "foundations", "label": "Foundations", "displayOrder": 1},
-    {"id": "valuation", "label": "Valuation", "displayOrder": 2},
-    {"id": "decisions", "label": "Financing Decisions", "displayOrder": 3}
+    {"id": "intro", "label": "Intro", "displayOrder": 1},
+    {"id": "foundations", "label": "Foundations", "displayOrder": 2},
+    {"id": "valuation", "label": "Valuation", "displayOrder": 3},
+    {"id": "decisions", "label": "Financing Decisions", "displayOrder": 4}
   ],
   "lessons": [
     {
-      "id": "foundations-m01-l01", "track": "foundations", "module": "M01", "lesson": "L01", "displayOrder": 1,
-      "title": "Corporate Finance and Value Creation", "outcomes": ["LO1"],
+      "id": "intro-m01-l01", "track": "intro", "module": "M01", "lesson": "L01", "displayOrder": 1,
+      "title": "Course Introduction and Corporate Finance Overview", "outcomes": ["LO1"],
       "skillFocus": ["financial decision framework", "value creation", "stakeholder trade-offs"],
       "caseStudy": "Costco",
       "materials": [
-        {"type": "Slides", "path": "FOUNDATIONS/M01/bus311-foundations-m01-l01-slides.html"},
-        {"type": "Reading", "url": "https://github.com/bevitts-design/BUS311-Corporate_Finance/blob/main/FOUNDATIONS/M01/source/bus311-foundations-m01-l01-prereading.md"}
+        {"type": "Slides", "path": "INTRO/M01/bus311-intro-m01-l01-slides.html"},
+        {"type": "Reading", "url": "https://github.com/bevitts-design/BUS311-Corporate_Finance/blob/main/INTRO/M01/source/bus311-intro-m01-l01-prereading.md"}
       ]
     },
     {

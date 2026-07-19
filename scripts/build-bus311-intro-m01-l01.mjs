@@ -1,20 +1,20 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-import { foundationsM01L01Deck } from './decks/bus311-foundations-m01-l01-content.mjs';
+import { introM01L01Deck } from './decks/bus311-intro-m01-l01-content.mjs';
 import { deckRuntime } from './deck-runtime.mjs';
 
 
 const root = path.resolve(import.meta.dirname, '..');
-const output = path.join(root, 'FOUNDATIONS', 'M01', 'bus311-foundations-m01-l01-slides.html');
-const legacyPilotOutput = path.join(root, 'FOUNDATIONS', 'M01', 'bus311-foundations-m01-l01-canva-pilot-slides.html');
+const output = path.join(root, 'INTRO', 'M01', 'bus311-intro-m01-l01-slides.html');
+const legacyPilotOutput = path.join(root, 'INTRO', 'M01', 'bus311-intro-m01-l01-canva-pilot-slides.html');
 const esc = (value = '') => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 
-const slides = foundationsM01L01Deck.slides.map((slide, index) => {
+const slides = introM01L01Deck.slides.map((slide, index) => {
   const number = String(index + 1).padStart(2, '0');
   return `<section class="slide ${slide.classes}" data-label="${number} ${esc(slide.label)}" data-source-slides="${esc(slide.slides)}">${slide.body}</section>`;
 });
-const notes = foundationsM01L01Deck.slides.map((slide) => slide.note);
+const notes = introM01L01Deck.slides.map((slide) => slide.note);
 
 const css = `
 :root{
@@ -506,7 +506,7 @@ const html = `<!doctype html>
   <style>${css}</style>
 </head>
 <body>
-  <!-- Source: Canva design ${esc(foundationsM01L01Deck.sourceDesignId)} and supplied PPTX export. Rebuilt read-only; the original Canva design and PPTX were not modified. Visual reference: BUS209 FactSet decks. -->
+  <!-- Source: Canva design ${esc(introM01L01Deck.sourceDesignId)} and supplied PPTX export. Rebuilt read-only; the original Canva design and PPTX were not modified. Visual reference: BUS209 FactSet decks. -->
   <deck-stage width="1920" height="1080" no-rail>${slides.join('')}</deck-stage>
   <script>${deckRuntime()}</script>
 </body>

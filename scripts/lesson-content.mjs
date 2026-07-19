@@ -2,8 +2,8 @@ const idea = (title, body, note, image) => ({ title, body, note, image });
 
 export const lessonContent = [
   {
-    id: 'foundations-m01-l01', track: 'foundations', module: 'M01', lesson: 'L01',
-    title: 'Corporate Finance and Value Creation', caseStudy: 'Costco', outcomes: ['LO1'],
+    id: 'intro-m01-l01', track: 'intro', module: 'M01', lesson: 'L01',
+    title: 'Course Introduction and Corporate Finance Overview', caseStudy: 'Costco', outcomes: ['LO1'],
     objectives: ['Frame the financial manager’s three decisions', 'Distinguish value creation from accounting profit', 'Evaluate stakeholder trade-offs ethically'],
     bridge: 'BUS210 measured money over time; BUS311 decides where corporate money should go.',
     parts: [

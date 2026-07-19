@@ -9,7 +9,7 @@ const timing = (modelMinutes = 15) => ({
 });
 
 export const visualProfiles = {
-  'foundations-m01-l01': {
+  'intro-m01-l01': {
     lectureCase: 'Costco', practiceCase: 'Costco', hero: 'foundations',
     factsetView: 'Company overview · cash flow · capital allocation',
     evidenceLabel: 'Value is a decision, not a reported subtotal',

@@ -13,6 +13,7 @@ const mediaById = new Map(mediaManifest.assets.map((asset) => [asset.id, asset])
 const variantIndex = process.argv.indexOf('--variant');
 const requestedVariant = variantIndex >= 0 ? process.argv[variantIndex + 1] : 'both';
 if (!['public', 'classroom', 'both'].includes(requestedVariant)) throw new Error(`Unknown --variant ${requestedVariant}`);
+const approvedPublicDeckIds = new Set(['intro-m01-l01']);
 
 const esc = (value = '') => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const formulaSafe = (value) => String(value).replaceAll('`', '\\`');
@@ -283,9 +284,13 @@ for (const lesson of lessonContent) {
   await fs.mkdir(privateDir, { recursive: true });
   let teachingMeta;
   if (requestedVariant === 'public' || requestedVariant === 'both') {
-    const deck = await buildDeck(lesson, 'public');
-    await fs.writeFile(path.join(publicDir, `bus311-${lesson.id}-slides.html`), deck.html);
-    teachingMeta = deck;
+    if (approvedPublicDeckIds.has(lesson.id)) {
+      console.log(`Preserved approved public deck for ${lesson.id}.`);
+    } else {
+      const deck = await buildDeck(lesson, 'public');
+      await fs.writeFile(path.join(publicDir, `bus311-${lesson.id}-slides.html`), deck.html);
+      teachingMeta = deck;
+    }
   }
   if (requestedVariant === 'classroom' || requestedVariant === 'both') {
     const classroom = await buildDeck(lesson, 'classroom');

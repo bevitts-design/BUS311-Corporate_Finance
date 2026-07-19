@@ -16,12 +16,12 @@ The Fall 2026 course introduction and Chapter 1 pilot was approved on July 19, 2
 
 - Approved standard: `docs/bus311-html-deck-standard.md`
 - Chapter brief template: `docs/templates/bus311-chapter-rebuild-brief.md`
-- Maintained content: `scripts/decks/bus311-foundations-m01-l01-content.mjs`
-- Builder: `scripts/build-bus311-foundations-m01-l01.mjs`
-- Output: `FOUNDATIONS/M01/bus311-foundations-m01-l01-slides.html`
-- Legacy review alias: `FOUNDATIONS/M01/bus311-foundations-m01-l01-canva-pilot-slides.html`
+- Maintained content: `scripts/decks/bus311-intro-m01-l01-content.mjs`
+- Builder: `scripts/build-bus311-intro-m01-l01.mjs`
+- Output: `INTRO/M01/bus311-intro-m01-l01-slides.html`
+- Legacy review alias: `INTRO/M01/bus311-intro-m01-l01-canva-pilot-slides.html`
 - Source audit: `audits/canva-intro-ch1-pilot-inventory.md`
-- Review log: `audits/foundations-m01-l01-review-log.md`
-- Validation: `scripts/validate-bus311-foundations-m01-l01.mjs`
+- Review log: `audits/intro-m01-l01-review-log.md`
+- Validation: `scripts/validate-bus311-intro-m01-l01.mjs`
 
 The approved deck uses the normal filename already referenced by `course-map.json`. Rebuild it with the bundled or system Node.js runtime, then run the lesson validator and `python3 scripts/validate-public.py`. The former `build-canva-pilot.mjs`, `validate-canva-pilot.mjs`, and `canva-pilot-content.mjs` paths remain as compatibility wrappers.

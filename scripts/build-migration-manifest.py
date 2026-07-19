@@ -16,7 +16,7 @@ STUDENT = re.compile(r"student|classroom assignment|activity|exercise|template",
 def lesson_for(path):
     text = str(path).lower()
     rules = [
-        (r"chapter 1|intro and chapter 1", "foundations-m01-l01", "FOUNDATIONS/M01"),
+        (r"chapter 1|intro and chapter 1", "intro-m01-l01", "INTRO/M01"),
         (r"chapter 2|market cap|financial markets", "foundations-m01-l02", "FOUNDATIONS/M01"),
         (r"chapter 3|accounting and finance|lemonade|cat - class", "foundations-m02-l01", "FOUNDATIONS/M02"),
         (r"chapter 4|ratio activity|measuring corporate", "foundations-m02-l02", "FOUNDATIONS/M02"),
