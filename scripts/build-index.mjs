@@ -16,10 +16,11 @@ const current = lessons.find((lesson) => lesson.id === term.currentLessonId);
 const trackHtml = tracks.map((track) => {
   const cards = lessons.filter((lesson) => lesson.track === track.id).map((lesson) => {
     const termInfo = schedule.get(lesson.id) || {week: '—', releaseState: 'Unscheduled'};
+    const displayModule = lesson.displayModule || lesson.module;
     const searchText = [lesson.title, lesson.caseStudy, ...lesson.outcomes, ...lesson.skillFocus].join(' ').toLowerCase();
     const materials = lesson.materials.map((item) => `<a href="${esc(href(item))}">${esc(item.label || item.type)}</a>`).join('');
     return `<article class="lesson ${lesson.id === term.currentLessonId ? 'current-card' : ''}" data-lesson-card data-track="${esc(track.id)}" data-search-text="${esc(searchText)}">
-      <div class="meta"><span>Week ${esc(termInfo.week)} · ${esc(lesson.module)} ${esc(lesson.lesson)}</span><span class="state">${esc(termInfo.releaseState)}</span></div>
+      <div class="meta"><span>Week ${esc(termInfo.week)} · ${esc(displayModule)}</span><span class="state">${esc(termInfo.releaseState)}</span></div>
       <h3>${esc(lesson.title)}</h3>
       <div class="outcomes">${lesson.outcomes.map((item) => `<span class="tag">${esc(item)}</span>`).join('')}</div>
       <div class="skills">${lesson.skillFocus.map((item) => `<span class="tag">${esc(item)}</span>`).join('')}</div>
