@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "policy": "Only newly authored, generated, public-domain, or explicitly licensed media may enter the public repository.",
+  "assets": [
+    {
+      "id": "hero-foundations",
+      "path": "assets/lesson-media/heroes/foundations.webp",
+      "creator": "OpenAI image generation for BUS311",
+      "sourceUrl": null,
+      "licenseClass": "newly-authored-generated",
+      "credit": "Original BUS311 course artwork",
+      "alt": "Corporate finance team reviewing financial statements and market charts in a modern boardroom.",
+      "publicAllowed": true,
+      "created": "2026-07-17"
+    },
+    {
+      "id": "hero-valuation",
+      "path": "assets/lesson-media/heroes/valuation.webp",
+      "creator": "OpenAI image generation for BUS311",
+      "sourceUrl": null,
+      "licenseClass": "newly-authored-generated",
+      "credit": "Original BUS311 course artwork",
+      "alt": "Finance leaders evaluating an industrial investment model with valuation charts behind them.",
+      "publicAllowed": true,
+      "created": "2026-07-17"
+    },
+    {
+      "id": "hero-decisions",
+      "path": "assets/lesson-media/heroes/decisions.webp",
+      "creator": "OpenAI image generation for BUS311",
+      "sourceUrl": null,
+      "licenseClass": "newly-authored-generated",
+      "credit": "Original BUS311 course artwork",
+      "alt": "Treasury team comparing financing, risk, and cost-of-capital evidence in an executive meeting.",
+      "publicAllowed": true,
+      "created": "2026-07-17"
+    }
+  ]
+}
