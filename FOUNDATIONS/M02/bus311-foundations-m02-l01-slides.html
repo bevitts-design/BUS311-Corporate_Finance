@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="BUS311 Accounting and Finance classroom slides">
+  <title>Accounting and Finance — BUS311</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#0E1116;--paper:#FAF8F3;--paper-2:#F2EEE5;--white:#FFFFFF;
+      --text:#1A1F2C;--text-soft:#4A5567;--muted:#7A8290;--border:#E5E1D6;
+      --sage:#4A7C5E;--gold:#B8843D;--terra:#9C4A2B;--steel:#355773;
+      --accent:var(--terra);--gradient:linear-gradient(90deg,#B8843D 0%,#9C4A2B 50%,#4A7C5E 100%);
+      --type-display:112px;--type-title:72px;--type-subtitle:44px;--type-lead:34px;
+      --type-body:28px;--type-small:24px;--type-eyebrow:24px;--type-mono:24px;
+      --deck-scale:1;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--ink)}
+    body{font-family:"Geist";color:var(--text)}
+    deck-stage{display:block;width:100vw;height:100vh;position:relative;overflow:hidden}
+    .slide{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform:translate(-50%,-50%) scale(var(--deck-scale));transform-origin:center;display:none;overflow:hidden;padding:104px 128px 96px;background:var(--paper)}
+    .slide.active{display:block}
+    .slide.dark{background:var(--ink);color:var(--white)}
+    .slide.section:after,.slide.title:after,.slide.close:after{content:"";position:absolute;left:0;right:0;bottom:0;height:18px;background:var(--gradient)}
+    h1,h2,h3,p{margin:0}
+    h1,h2{font-family:"Instrument Serif";font-weight:400;letter-spacing:-.025em;line-height:.97}
+    h1{font-size:var(--type-display)}
+    h2{font-size:var(--type-title);max-width:1580px}
+    h3{font-size:var(--type-subtitle);line-height:1.04;font-weight:600}
+    p,li,td,th{font-size:var(--type-body);line-height:1.35}
+    .eyebrow{font:500 var(--type-eyebrow)/1.2 "JetBrains Mono";letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:28px}
+    .dark .eyebrow{color:#E7B18D}
+    .subtitle{font-size:var(--type-subtitle);line-height:1.22;color:var(--text-soft);max-width:1320px;margin-top:32px}
+    .dark .subtitle{color:#CDD3DD}
+    .lead{font-size:var(--type-lead);line-height:1.32;color:var(--text-soft)}
+    .dark .lead{color:#D9DDE5}
+    .small{font-size:var(--type-small);line-height:1.35;color:var(--text-soft)}
+    .mono{font-family:"JetBrains Mono"}
+    .accent{color:var(--accent)}.sage{color:var(--sage)}.gold{color:var(--gold)}.steel{color:var(--steel)}
+    .slide-header{display:flex;justify-content:space-between;gap:48px;align-items:flex-start;margin-bottom:58px}
+    .slide-header .chapter{font:500 24px/1.2 "JetBrains Mono";color:var(--muted);text-transform:uppercase;letter-spacing:.08em;padding-top:16px;white-space:nowrap}
+    .hero-grid,.split{display:grid;grid-template-columns:1.02fr .98fr;gap:88px;align-items:center}
+    .hero-grid{height:100%}
+    .split.narrow{grid-template-columns:.78fr 1.22fr}
+    .stack{display:grid;gap:28px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .cards.two{grid-template-columns:repeat(2,1fr)}
+    .cards.four{grid-template-columns:repeat(4,1fr)}
+    .card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:34px;min-height:220px}
+    .card h3{font-size:36px;margin-bottom:18px}
+    .card .num{font:500 26px/1 "JetBrains Mono";color:var(--accent);margin-bottom:32px}
+    .dark .card{background:#171C24;border-color:#2B3340;color:var(--white)}
+    .dark .card p{color:#CDD3DD}
+    .formula{font:500 38px/1.3 "JetBrains Mono";background:#EAF3EC;border-left:6px solid var(--sage);border-radius:8px;padding:30px 38px;color:var(--ink)}
+    .formula.big{font-size:52px;padding:38px 48px}
+    .callout{border-left:8px solid var(--accent);padding:10px 0 10px 34px;font-size:34px;line-height:1.34}
+    .media{width:100%;height:100%;min-height:420px;border-radius:8px;overflow:hidden;background:var(--paper-2);display:block}
+    .media img{display:block;width:100%;height:100%;object-fit:cover}
+    .media.contain img{object-fit:contain;padding:22px}.media.no-pad img{padding:0}
+    .photo-frame{height:720px;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--white)}
+    .photo-frame image-slot,.photo-frame img{width:100%;height:100%}
+    .photo-frame image-slot img{width:100%;height:100%;object-fit:cover}
+    .diagram{width:100%;height:610px;display:block}
+    .diagram text{font-family:"Geist";fill:var(--text)}
+    .diagram .label{font-size:32px;font-weight:600}.diagram .small-label{font-size:25px}.diagram .mono-label{font:500 25px "JetBrains Mono"}
+    .diagram .node{fill:var(--white);stroke:var(--border);stroke-width:2}.diagram .terra-node{fill:#F6E6DF;stroke:var(--terra);stroke-width:3}.diagram .sage-node{fill:#EAF3EC;stroke:var(--sage);stroke-width:3}.diagram .gold-node{fill:#F7EFDF;stroke:var(--gold);stroke-width:3}.diagram .steel-node{fill:#E7EEF4;stroke:var(--steel);stroke-width:3}
+    .diagram .line{stroke:#8C95A3;stroke-width:5;fill:none}.diagram .terra-line{stroke:var(--terra);stroke-width:7;fill:none}.diagram .sage-line{stroke:var(--sage);stroke-width:7;fill:none}
+    .statement-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:54px}
+    .statement{padding:34px 34px 30px;background:var(--white);border-top:10px solid var(--accent);border-radius:8px;border-left:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .statement:nth-child(2){border-top-color:var(--gold)}.statement:nth-child(3){border-top-color:var(--sage)}
+    .statement h3{font-size:38px;margin:14px 0}.statement .equation{font:500 25px/1.35 "JetBrains Mono";margin-top:24px;color:var(--text-soft)}
+    .equation-row{display:flex;align-items:center;justify-content:center;gap:34px;margin-top:85px}
+    .equation-box{min-width:410px;padding:44px 36px;text-align:center;border:2px solid var(--border);background:var(--white);border-radius:8px;font-size:40px;font-weight:600}
+    .operator{font:500 64px/1 "JetBrains Mono";color:var(--accent)}
+    .table{width:100%;border-collapse:collapse;margin-top:34px;background:var(--white);border-radius:8px;overflow:hidden}
+    .table th{background:var(--steel);color:var(--white);text-align:left;font-weight:600;padding:22px 28px}
+    .table td{padding:20px 28px;border-bottom:1px solid var(--border)}
+    .table tr:last-child td{border-bottom:0}.table .value{text-align:right;font-family:"JetBrains Mono"}
+    .metric{font:500 86px/1 "JetBrains Mono";color:var(--accent);margin:14px 0 20px}
+    .quote{font:italic 72px/1.08 "Instrument Serif";max-width:1420px}
+    .pill{display:inline-block;padding:12px 18px;border-radius:999px;background:#F6E6DF;color:var(--terra);font:500 24px/1 "JetBrains Mono"}
+    .checklist{display:grid;gap:22px;margin-top:34px}.check{display:grid;grid-template-columns:54px 1fr;gap:20px;align-items:start}.check b{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--accent);color:white;font:500 24px/1 "JetBrains Mono"}
+    .section-center{height:100%;display:flex;flex-direction:column;justify-content:center;max-width:1500px}
+    .section-center .eyebrow{margin-bottom:34px}
+    .source-note{position:absolute;left:128px;bottom:38px;font:400 24px/1 "JetBrains Mono";color:var(--muted)}
+    .dark .source-note{color:#98A2B1}
+    .deck-controls{position:fixed;z-index:10001;left:50%;bottom:14px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;padding:7px;background:rgba(14,17,22,.88);border:1px solid #39414E;border-radius:999px;color:white;font:500 16px/1 "JetBrains Mono";backdrop-filter:blur(10px)}
+    .deck-controls button{width:42px;height:34px;border:0;border-radius:999px;background:transparent;color:white;font-size:20px;cursor:pointer}.deck-controls button:hover{background:#39414E}.deck-count{min-width:76px;text-align:center}
+    .tweaks-panel{position:fixed;right:16px;bottom:16px;z-index:10002;font-family:"Geist"}.tweaks-panel button{border:1px solid #555F6E;background:#171C24;color:white;border-radius:8px;padding:10px 14px;font-size:14px;cursor:pointer}.tweaks-menu{position:absolute;right:0;bottom:48px;width:165px;padding:8px;border:1px solid #555F6E;background:#171C24;border-radius:8px}.tweaks-menu button{width:100%;margin:3px 0;text-align:left}
+    body.show-grid .slide:before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(156,74,43,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(156,74,43,.12) 1px,transparent 1px);background-size:64px 64px;z-index:1000}
+    body.high-contrast{--paper:#fff;--paper-2:#fff;--text:#000;--text-soft:#111;--border:#666}
+    @media print{html,body{overflow:visible;background:white}.slide{display:block!important;position:relative;left:auto;top:auto;transform:none;page-break-after:always}.deck-controls,.tweaks-panel{display:none!important}}
+  </style>
+</head>
+<body>
+<deck-stage width="1920" height="1080" no-rail>
+
+  <section class="slide dark" data-label="01 Caterpillar financial analysis" data-source-slide="1">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Applied finance warm-up</p>
+        <h1>Caterpillar financial analysis</h1>
+        <p class="subtitle">Before we build the statements, let’s read the business behind the numbers.</p>
+      </div>
+      <div class="photo-frame" style="background:#fff;height:650px">
+        <image-slot src="assets/media/image3.png" alt="Green Caterpillar-style tractor illustration" fit="contain" eager></image-slot>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-label="02 CAT analysis instructions" data-source-slide="2">
+    <div class="slide-header"><div><p class="eyebrow">In class or homework</p><h2>Build a year-end view of Caterpillar</h2></div><span class="chapter">Applied finance</span></div>
+    <div class="split narrow">
+      <div class="stack">
+        <div class="check"><b>1</b><p>Open the CAT activity workbook from Canvas.</p></div>
+        <div class="check"><b>2</b><p>Use FactSet to fill the requested financial, cash-flow, and stock data in the green cells.</p></div>
+        <div class="check"><b>3</b><p>Calculate percentage changes in the blue cells, then submit the completed file in Canvas.</p></div>
+        <p class="small">Use year-end data and document the period you selected.</p>
+      </div>
+      <div class="photo-frame" style="height:600px"><image-slot src="assets/media/image5.png" alt="Caterpillar activity workbook preview" fit="contain"></image-slot></div>
+    </div>
+  </section>
+
+  <section class="slide dark title" data-label="03 Accounting and finance" data-source-slide="3">
+    <div class="section-center">
+      <p class="eyebrow">BUS311 · Corporate Finance</p>
+      <h1>Accounting<br><span class="accent">and Finance</span></h1>
+      <p class="subtitle">How financial statements become cash-flow evidence for valuation and decisions</p>
+      <p class="source-note">Professor Bethany Evitts · Endicott College · Gerrish School of Business</p>
+    </div>
+  </section>
+
+  <section class="slide" data-label="04 Three pillars of corporate finance" data-source-slide="4">
+    <div class="slide-header"><div><p class="eyebrow">The management job</p><h2>Corporate finance balances three connected decisions</h2></div><span class="chapter">Orientation</span></div>
+    <svg class="diagram" viewBox="0 0 1640 610" role="img" aria-label="Three connected pillars: capital budgeting, capital structure, and working capital management">
+      <defs><marker id="arrow-terra" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#9C4A2B"/></marker></defs>
+      <path class="terra-line" d="M500 300 H650" marker-end="url(#arrow-terra)"/><path class="terra-line" d="M990 300 H1140" marker-end="url(#arrow-terra)"/>
+      <rect class="steel-node" x="40" y="105" width="460" height="390" rx="8"/><rect class="terra-node" x="650" y="105" width="340" height="390" rx="8"/><rect class="sage-node" x="1140" y="105" width="460" height="390" rx="8"/>
+      <text class="mono-label" x="80" y="165">01 · INVEST</text><text class="label" x="80" y="225">Capital budgeting</text><text class="small-label" x="80" y="285">Which long-term assets</text><text class="small-label" x="80" y="322">should the firm buy?</text>
+      <text class="mono-label" x="690" y="165">02 · FUND</text><text class="label" x="690" y="225">Capital structure</text><text class="small-label" x="690" y="285">What mix of debt and</text><text class="small-label" x="690" y="322">equity should finance them?</text>
+      <text class="mono-label" x="1180" y="165">03 · OPERATE</text><text class="label" x="1180" y="225">Working capital</text><text class="small-label" x="1180" y="285">How will the firm manage</text><text class="small-label" x="1180" y="322">day-to-day cash needs?</text>
+    </svg>
+  </section>
+
+  <section class="slide" data-label="05 Key financial statements" data-source-slide="5">
+    <div class="slide-header"><div><p class="eyebrow">The evidence base</p><h2>Three statements answer three different questions</h2></div><span class="chapter">Financial statements</span></div>
+    <div class="statement-grid">
+      <article class="statement"><span class="pill">Snapshot</span><h3>Balance sheet</h3><p>What does the firm own, and what does it owe, at one point in time?</p><p class="equation">Assets = Liabilities + Equity</p></article>
+      <article class="statement"><span class="pill" style="background:#F7EFDF;color:#8A6226">Performance</span><h3>Income statement</h3><p>How much profit did the firm generate over a period?</p><p class="equation">Revenue − Expenses = Income</p></article>
+      <article class="statement"><span class="pill" style="background:#EAF3EC;color:#355F46">Movement</span><h3>Cash flow statement</h3><p>Where did cash come from, and where did it go?</p><p class="equation">Operating + Investing + Financing</p></article>
+    </div>
+    <p class="callout" style="margin-top:44px">Common-size statements turn dollars into percentages so firms of different sizes can be compared.</p>
+  </section>
+
+  <section class="slide" data-label="06 The balance sheet" data-source-slide="6">
+    <div class="slide-header"><div><p class="eyebrow">Statement 1</p><h2>The balance sheet is a point-in-time snapshot</h2></div><span class="chapter">Balance sheet</span></div>
+    <div class="split">
+      <div class="stack"><p class="lead">It reports the resources the company controls, the claims creditors hold, and the residual interest belonging to shareholders.</p><div class="formula big">Assets = Liabilities + Equity</div><p class="small">Finance uses this statement to assess liquidity, capital structure, and the resources available to generate future returns.</p></div>
+      <div class="photo-frame"><image-slot src="assets/media/image9.jpeg" alt="Balance sheet, calculator, pen, and financial charts" fit="cover"></image-slot></div>
+    </div>
+  </section>
+
+  <section class="slide" data-label="07 Mind the GAAP" data-source-slide="7">
+    <div class="slide-header"><div><p class="eyebrow">Comparability</p><h2>GAAP makes the comparison rules visible</h2></div><span class="chapter">Balance sheet</span></div>
+    <div class="split">
+      <div class="stack"><p class="lead">Generally Accepted Accounting Principles govern how U.S. companies prepare, present, and report financial information.</p><div class="cards two"><div class="card"><div class="num">01</div><h3>Consistency</h3><p>Similar transactions are classified and measured using shared conventions.</p></div><div class="card"><div class="num">02</div><h3>Comparability</h3><p>Analysts can make a more credible apples-to-apples comparison.</p></div></div></div>
+      <div class="photo-frame"><image-slot src="assets/media/image10.jpeg" alt="Accounting concepts written around connected gears on a chalkboard" fit="cover"></image-slot></div>
+    </div>
+  </section>
+
+  <section class="slide" data-label="08 Common-size financial statements" data-source-slide="8">
+    <div class="slide-header"><div><p class="eyebrow">Standardize before comparing</p><h2>Common-size statements reveal structure, not scale</h2></div><span class="chapter">Analysis</span></div>
+    <div class="split">
+      <div class="photo-frame"><image-slot src="assets/media/image12.jpeg" alt="Financial reports and charts on a desk" fit="cover"></image-slot></div>
+      <div class="stack">
+        <div class="card"><div class="num">Balance sheet</div><h3>Percent of total assets</h3><p>Shows how the firm allocates resources and finances those resources.</p></div>
+        <div class="card"><div class="num">Income statement</div><h3>Percent of sales</h3><p>Shows margins and the cost structure behind each revenue dollar.</p></div>
+        <div class="card"><div class="num">Cash flow statement</div><h3>Percent of sources or uses</h3><p>Shows which activities create or consume cash.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-label="09 Common-size walk-through" data-source-slide="9">
+    <div class="slide-header"><div><p class="eyebrow">FactSet walk-through</p><h2>Convert each balance-sheet line into a share of total assets</h2></div><span class="chapter">Analysis</span></div>
+    <div class="split narrow">
+      <div class="stack"><div class="formula">Line item ÷ Total assets × 100%</div><p class="lead">The percentage answers a cleaner question: “How much of the asset base sits in this account?”</p><div class="card"><h3>Compare with care</h3><p>Use the same fiscal period, accounting basis, and currency before interpreting differences.</p></div></div>
+      <div class="photo-frame"><image-slot src="assets/media/image17.png" alt="FactSet common-size balance sheet view for Caterpillar" fit="contain"></image-slot></div>
+    </div>
+  </section>
+
+  <section class="slide" data-label="10 Assets liabilities and equity" data-source-slide="10">
+    <div class="slide-header"><div><p class="eyebrow">The balance-sheet architecture</p><h2>Resources sit on one side; claims sit on the other</h2></div><span class="chapter">Balance sheet</span></div>
+    <svg class="diagram" viewBox="0 0 1640 610" role="img" aria-label="Assets equal liabilities plus equity, with examples under each category">
+      <rect class="steel-node" x="40" y="70" width="700" height="460" rx="8"/><rect class="terra-node" x="900" y="70" width="700" height="210" rx="8"/><rect class="gold-node" x="900" y="320" width="700" height="210" rx="8"/>
+      <text class="mono-label" x="90" y="130">RESOURCES</text><text class="label" x="90" y="195">Assets</text><text class="small-label" x="90" y="255">Cash · Inventory · Equipment</text><text class="small-label" x="90" y="300">Receivables · Patents · Goodwill</text><text class="small-label" x="90" y="380">Value the company owns or controls</text>
+      <text class="mono-label" x="950" y="130">CREDITOR CLAIMS</text><text class="label" x="950" y="195">Liabilities</text><text class="small-label" x="950" y="245">Payables · Notes · Debt</text>
+      <text class="mono-label" x="950" y="380">OWNER CLAIMS</text><text class="label" x="950" y="445">Equity</text><text class="small-label" x="950" y="495">Contributed capital · Retained earnings</text>
+      <text x="790" y="330" style="font:500 76px 'JetBrains Mono';fill:#9C4A2B">=</text>
+    </svg>
+  </section>
+
+  <section class="slide dark section" data-label="11 Key balance-sheet equation" data-source-slide="11">
+    <div class="section-center">
+      <p class="eyebrow">The balancing relationship</p>
+      <h2>Equity is what remains after every liability is paid</h2>
+      <div class="formula big" style="margin-top:64px">Equity = Assets − Liabilities</div>
+    </div>
+  </section>
+
+  <section class="slide" data-label="12 Homeowner balance sheet" data-source-slide="12">
+    <div class="slide-header"><div><p class="eyebrow">Personal analogy</p><h2>A home makes the balance-sheet equation tangible</h2></div><span class="chapter">Balance sheet</span></div>
+    <div class="split">
+      <div class="photo-frame" style="height:620px"><image-slot src="assets/media/image20.png" alt="Illustration of a two-story house" fit="contain"></image-slot></div>
+      <div class="stack"><div class="equation-row" style="margin:0;display:grid;grid-template-columns:1fr 1fr;gap:22px"><div class="card"><div class="num">Asset</div><div class="metric" style="font-size:62px">$700K</div><p>Home value</p></div><div class="card"><div class="num">Liability</div><div class="metric" style="font-size:62px">$560K</div><p>Mortgage</p></div></div><div class="formula big">$700K − $560K = <span class="accent">$140K equity</span></div><p class="small">The homeowner’s equity is the residual claim—not the full value of the house.</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-label="13 Short term versus long term" data-source-slide="13">
+    <div class="slide-header"><div><p class="eyebrow">Classification</p><h2>Timing separates current accounts from long-term accounts</h2></div><span class="chapter">Balance sheet</span></div>
+    <div class="cards two">
+      <article class="card"><div class="num">Assets</div><h3>Current</h3><p>Expected to become cash, be sold, or be used within one year.</p><p class="small" style="margin-top:24px">Cash · Receivables · Inventory</p></article>
+      <article class="card"><div class="num">Assets</div><h3>Long term</h3><p>Support operations and growth beyond the next year.</p><p class="small" style="margin-top:24px">Property · Equipment · Intangibles</p></article>
+      <article class="card"><div class="num">Liabilities</div><h3>Current</h3><p>Must be settled within one year.</p><p class="small" style="margin-top:24px">Payables · Accrued expenses · Short-term debt</p></article>
+      <article class="card"><div class="num">Liabilities</div><h3>Long term</h3><p>Come due after one year.</p><p class="small" style="margin-top:24px">Bonds · Bank loans · Lease obligations</p></article>
+    </div>
+  </section>
+
+  <section class="slide" data-label="14 Net working capital" data-source-slide="14">
+    <div class="slide-header"><div><p class="eyebrow">Short-term financial health</p><h2>Net working capital measures the liquidity cushion</h2></div><span class="chapter">Balance sheet</span></div>
+    <div class="equation-row">
+      <div class="equation-box" style="border-top:10px solid var(--sage)">Current assets</div><div class="operator">−</div><div class="equation-box" style="border-top:10px solid var(--terra)">Current liabilities</div><div class="operator">=</div><div class="equation-box" style="border-top:10px solid var(--gold)">NWC</div>
+    </div>
+    <p class="callout" style="margin-top:72px">Positive NWC can support day-to-day operations—but too much may signal cash tied up in inventory or receivables.</p>
+  </section>
+
+  <section class="slide" data-label="15 Debt versus equity" data-source-slide="15">
+    <div class="slide-header"><div><p class="eyebrow">Funding the firm</p><h2>Debt promises repayment; equity shares ownership</h2></div><span class="chapter">Capital structure</span></div>
+    <div class="cards two" style="margin-top:40px">
+      <article class="card" style="border-top:10px solid var(--steel)"><div class="num">Debt financing</div><h3>Borrow capital</h3><p>Interest and principal create contractual claims. Debt can be cheaper, but it increases financial risk.</p><div class="formula" style="margin-top:32px;font-size:30px">Lender return = interest + principal</div></article>
+      <article class="card" style="border-top:10px solid var(--terra)"><div class="num">Equity financing</div><h3>Exchange ownership</h3><p>No required repayment, but new owners share control and future upside.</p><div class="formula" style="margin-top:32px;font-size:30px">Owner return = dividends + price gain</div></article>
+    </div>
+    <p class="callout" style="margin-top:48px">Most firms use both. The decision is about cost, flexibility, control, and risk.</p>
+  </section>
+
+  <section class="slide" data-label="16 The income statement" data-source-slide="16">
+    <div class="slide-header"><div><p class="eyebrow">Statement 2</p><h2>The income statement explains profitability over time</h2></div><span class="chapter">Income statement</span></div>
+    <div class="split"><div class="stack"><p class="lead">Revenue shows what the company earned. Expenses show what it consumed to earn that revenue. The residual is profit.</p><div class="formula big">Revenue − Expenses = Income</div><p class="small">Unlike the balance sheet, the income statement covers a period: a month, quarter, or year.</p></div><div class="photo-frame"><image-slot src="assets/media/image27.jpeg" alt="Printed income statement with pen" fit="cover"></image-slot></div></div>
+  </section>
+
+  <section class="slide dark section" data-label="17 Income statement math" data-source-slide="17">
+    <div class="section-center">
+      <p class="eyebrow">The simplest version</p><h2>The top line funds every cost before it becomes the bottom line</h2>
+      <div class="equation-row" style="margin-top:72px"><div class="equation-box" style="color:var(--ink)">Revenue<br><span class="small">Top line</span></div><div class="operator">−</div><div class="equation-box" style="color:var(--ink)">Expenses</div><div class="operator">=</div><div class="equation-box" style="color:var(--ink)">Income<br><span class="small">Bottom line</span></div></div>
+    </div>
+  </section>
+
+  <section class="slide" data-label="18 Per-share metrics" data-source-slide="18">
+    <div class="slide-header"><div><p class="eyebrow">Translate totals into ownership units</p><h2>Per-share metrics connect company results to one share</h2></div><span class="chapter">Income statement</span></div>
+    <div class="cards two" style="margin-top:68px">
+      <article class="card"><div class="num">EPS</div><h3>Earnings per share</h3><div class="formula" style="margin-top:30px">Net income ÷ Shares outstanding</div><p class="small" style="margin-top:26px">How much profit is attributable to each common share?</p></article>
+      <article class="card"><div class="num">DPS</div><h3>Dividends per share</h3><div class="formula" style="margin-top:30px">Total dividends ÷ Shares outstanding</div><p class="small" style="margin-top:26px">How much cash distribution is paid for each share?</p></article>
+    </div>
+  </section>
+
+  <section class="slide dark section" data-label="19 Taxes" data-source-slide="19">
+    <div class="hero-grid">
+      <div><p class="eyebrow">A profit is not fully available to investors</p><h1>Taxes change the cash that remains</h1><p class="subtitle">Finance distinguishes the rate paid on total income from the rate applied to the next dollar earned.</p></div>
+      <div class="photo-frame" style="height:650px"><image-slot src="assets/media/image30.jpeg" alt="Businessperson working with tax symbols" fit="cover"></image-slot></div>
+    </div>
+  </section>
+
+  <section class="slide" data-label="20 Marginal versus effective tax rates" data-source-slide="20">
+    <div class="slide-header"><div><p class="eyebrow">Tax vocabulary</p><h2>Marginal and effective rates answer different questions</h2></div><span class="chapter">Taxes</span></div>
+    <div class="cards two" style="margin-top:48px">
+      <article class="card" style="border-top:10px solid var(--terra)"><div class="num">Marginal tax rate</div><h3>The next dollar</h3><p>The statutory rate applied to an additional dollar of taxable income.</p><p class="callout" style="margin-top:36px">Useful for forecasting how an incremental decision changes taxes.</p></article>
+      <article class="card" style="border-top:10px solid var(--gold)"><div class="num">Effective tax rate</div><h3>The total result</h3><p>Total tax expense divided by pretax income.</p><p class="callout" style="margin-top:36px;border-color:var(--gold)">Useful for understanding the overall tax burden reported by the company.</p></article>
+    </div>
+  </section>
+
+  <section class="slide" data-label="21 Average versus marginal tax rate" data-source-slide="21">
+    <div class="slide-header"><div><p class="eyebrow">The denominator matters</p><h2>The average rate uses all income; the marginal rate uses the last dollar</h2></div><span class="chapter">Taxes</span></div>
+    <div class="split">
+      <div class="photo-frame" style="height:620px"><image-slot src="assets/media/image34.jpeg" alt="Stacks of coins beside blocks spelling tax" fit="cover"></image-slot></div>
+      <div class="stack"><div class="formula">Average rate = Total tax ÷ Total income</div><div class="formula" style="border-color:var(--terra);background:#F6E6DF">Marginal rate = Tax on the next dollar</div><div class="card"><h3>Decision rule</h3><p>For a new project, use the marginal rate because the project creates incremental taxable income.</p></div></div>
+    </div>
+  </section>
+
+  <section class="slide dark section" data-label="22 Depreciation amortization and cash flow" data-source-slide="22">
+    <div class="hero-grid"><div><p class="eyebrow">Accounting expense, cash-flow adjustment</p><h1>Depreciation and amortization</h1><p class="subtitle">They reduce accounting income without using cash in the current period.</p></div><div class="photo-frame" style="height:650px"><image-slot src="assets/media/image35.jpeg" alt="Document labeled depreciation and amortization beside calculator and charts" fit="cover"></image-slot></div></div>
+  </section>
+
+  <section class="slide" data-label="23 Depreciation versus amortization" data-source-slide="23">
+    <div class="slide-header"><div><p class="eyebrow">Match the expense to the asset</p><h2>Both allocate cost over time—but for different assets</h2></div><span class="chapter">Cash flow</span></div>
+    <div class="cards two" style="margin-top:48px">
+      <article class="card"><div class="num">Tangible assets</div><h3>Depreciation</h3><p>Spreads the cost of physical assets such as equipment, buildings, and vehicles across their useful lives.</p><div class="formula" style="margin-top:30px">Non-cash expense → add back</div></article>
+      <article class="card"><div class="num">Intangible assets</div><h3>Amortization</h3><p>Spreads the cost of patents, trademarks, and other finite-lived intangibles across their useful lives.</p><div class="formula" style="margin-top:30px">Non-cash expense → add back</div></article>
+    </div>
+  </section>
+
+  <section class="slide" data-label="24 The cash flow statement" data-source-slide="24">
+    <div class="slide-header"><div><p class="eyebrow">Statement 3</p><h2>The cash flow statement tracks money moving through the firm</h2></div><span class="chapter">Cash flow</span></div>
+    <div class="split"><div class="stack"><p class="lead">Accrual accounting explains performance. Cash flow explains liquidity and the funds available to creditors and shareholders.</p><div class="formula big">Cash flow from assets = Cash flow to creditors + Cash flow to stockholders</div></div><div class="photo-frame"><image-slot src="assets/media/image37.jpeg" alt="Golden faucet symbolizing cash flow" fit="contain"></image-slot></div></div>
+  </section>
+
+  <section class="slide" data-label="25 The illusion versus the reality" data-source-slide="25">
+    <div class="slide-header"><div><p class="eyebrow">Case: the bakery</p><h2>A profitable business can still run out of cash</h2></div><span class="chapter">Cash flow</span></div>
+    <svg class="diagram" viewBox="0 0 1640 610" role="img" aria-label="Comparison between accounting profit from prebooked orders and insufficient cash to buy flour">
+      <defs><marker id="arrow25" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#9C4A2B"/></marker></defs>
+      <rect class="steel-node" x="40" y="80" width="610" height="430" rx="8"/><rect class="terra-node" x="990" y="80" width="610" height="430" rx="8"/><path class="terra-line" d="M680 295 H940" marker-end="url(#arrow25)"/>
+      <text class="mono-label" x="90" y="145">ACCOUNTING VIEW</text><text class="label" x="90" y="215">Orders booked today</text><text class="small-label" x="90" y="275">Revenue recognized</text><text class="small-label" x="90" y="320">Profit appears positive</text><text class="small-label" x="90" y="400">Accruals can lead cash timing</text>
+      <text class="mono-label" x="1040" y="145">ECONOMIC REALITY</text><text class="label" x="1040" y="215">Flour is due today</text><text class="small-label" x="1040" y="275">Cash has not arrived</text><text class="small-label" x="1040" y="320">Production stops</text><text class="small-label" x="1040" y="400">Liquidity determines survival</text>
+      <text x="755" y="250" style="font:italic 52px 'Instrument Serif';fill:#9C4A2B">Timing</text>
+    </svg>
+  </section>
+
+  <section class="slide dark section" data-label="26 Profit is an opinion cash is a fact" data-source-slide="26">
+    <div class="section-center"><p class="eyebrow">The finance lens</p><p class="quote">“Profit is an opinion. Cash is a fact.”</p><p class="subtitle">Net income contains estimates and accruals. Cash flow focuses on money the firm can spend, reinvest, or return.</p></div>
+  </section>
+
+  <section class="slide" data-label="27 Free cash flow analogy" data-source-slide="27">
+    <div class="slide-header"><div><p class="eyebrow">The personal analogy</p><h2>Free cash flow is the firm’s discretionary income</h2></div><span class="chapter">Free cash flow</span></div>
+    <svg class="diagram" viewBox="0 0 1640 610" role="img" aria-label="Parallel flows from gross salary to discretionary income and revenue to free cash flow">
+      <defs><marker id="arrow27" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#4A7C5E"/></marker></defs>
+      <text class="mono-label" x="40" y="90">PERSONAL</text><rect class="steel-node" x="40" y="130" width="350" height="150" rx="8"/><rect class="terra-node" x="640" y="130" width="350" height="150" rx="8"/><rect class="sage-node" x="1240" y="130" width="350" height="150" rx="8"/>
+      <text class="label" x="95" y="220">Gross salary</text><text class="label" x="690" y="200">Taxes, rent,</text><text class="label" x="690" y="242">car repairs</text><text class="label" x="1292" y="220">Discretionary</text><text class="label" x="1330" y="260">income</text>
+      <path class="sage-line" d="M405 205 H615" marker-end="url(#arrow27)"/><path class="sage-line" d="M1005 205 H1215" marker-end="url(#arrow27)"/>
+      <text class="mono-label" x="40" y="390">CORPORATE</text><rect class="steel-node" x="40" y="430" width="350" height="150" rx="8"/><rect class="terra-node" x="640" y="430" width="350" height="150" rx="8"/><rect class="gold-node" x="1240" y="430" width="350" height="150" rx="8"/>
+      <text class="label" x="145" y="520">Revenue</text><text class="label" x="680" y="500">Operations +</text><text class="label" x="690" y="542">reinvestment</text><text class="label" x="1310" y="520">Free cash flow</text>
+      <path class="sage-line" d="M405 505 H615" marker-end="url(#arrow27)"/><path class="sage-line" d="M1005 505 H1215" marker-end="url(#arrow27)"/>
+    </svg>
+  </section>
+
+  <section class="slide" data-label="28 Defining free cash flow" data-source-slide="28">
+    <div class="section-center" style="max-width:1640px"><p class="eyebrow">Cash flow from assets</p><h2>Free cash flow is the surplus available to all capital providers</h2><p class="subtitle">The firm has already covered operations, taxes, and the reinvestment required to sustain the business.</p><div class="formula big" style="margin-top:68px">FCF = Operating cash flow − Net capital spending − Change in NWC</div></div>
+  </section>
+
+  <section class="slide" data-label="29 Operating cash flow" data-source-slide="29">
+    <div class="slide-header"><div><p class="eyebrow">Component 1</p><h2>Operating cash flow isolates cash generated by the business</h2></div><span class="chapter">Free cash flow</span></div>
+    <div class="split">
+      <div class="stack"><div class="formula big">OCF = EBIT + D&amp;A − Taxes</div><p class="lead">D&amp;A is added back because it reduced accounting income without using cash in the current period.</p></div>
+      <table class="table" aria-label="Operating cash flow calculation"><thead><tr><th>2024 U.S. Corporation</th><th class="value">$</th></tr></thead><tbody><tr><td>EBIT</td><td class="value">694</td></tr><tr><td>Add: Depreciation</td><td class="value">65</td></tr><tr><td>Less: Taxes</td><td class="value">(131)</td></tr><tr><td><strong>Operating cash flow</strong></td><td class="value"><strong>628</strong></td></tr></tbody></table>
+    </div>
+  </section>
+
+  <section class="slide" data-label="30 Operating cash flow bridge" data-source-slide="30">
+    <div class="slide-header"><div><p class="eyebrow">From accounting to cash</p><h2>Start with operating earnings, reverse non-cash expense, then pay taxes</h2></div><span class="chapter">Free cash flow</span></div>
+    <div class="equation-row"><div class="equation-box" style="border-top:10px solid var(--steel)">EBIT</div><div class="operator">+</div><div class="equation-box" style="border-top:10px solid var(--sage)">D&amp;A</div><div class="operator">−</div><div class="equation-box" style="border-top:10px solid var(--terra)">Taxes</div><div class="operator">=</div><div class="equation-box" style="border-top:10px solid var(--gold)">OCF</div></div>
+    <p class="callout" style="margin-top:72px">Interest is excluded because OCF focuses on asset operations before financing decisions.</p>
+  </section>
+
+  <section class="slide" data-label="31 Reinvestment requirements" data-source-slide="31">
+    <div class="slide-header"><div><p class="eyebrow">Components 2 and 3</p><h2>Growth consumes cash through fixed assets and working capital</h2></div><span class="chapter">Free cash flow</span></div>
+    <div class="cards two" style="margin-top:56px"><article class="card"><div class="num">Fixed assets</div><h3>Net capital spending</h3><p>Cash invested in property, plant, equipment, and other long-lived operating assets.</p></article><article class="card"><div class="num">Operating assets</div><h3>Change in NWC</h3><p>Cash tied up—or released—through inventory, receivables, payables, and other current accounts.</p></article></div>
+    <div class="formula big" style="margin-top:54px">Reinvestment = Net capital spending + Change in NWC</div>
+  </section>
+
+  <section class="slide" data-label="32 Investing for growth" data-source-slide="32">
+    <div class="slide-header"><div><p class="eyebrow">You have to spend money to make money</p><h2>Reinvestment moves cash out today to support cash in tomorrow</h2></div><span class="chapter">Free cash flow</span></div>
+    <svg class="diagram" viewBox="0 0 1640 610" role="img" aria-label="Operating cash flows into two reinvestment buckets: capital expenditures and net working capital">
+      <defs><marker id="arrow32" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#9C4A2B"/></marker></defs>
+      <circle cx="360" cy="305" r="175" fill="#E7EEF4" stroke="#355773" stroke-width="4"/><text class="label" x="260" y="290">Operating</text><text class="label" x="290" y="340">cash</text>
+      <path class="terra-line" d="M550 250 H860" marker-end="url(#arrow32)"/><path class="terra-line" d="M550 360 H860" marker-end="url(#arrow32)"/>
+      <rect class="terra-node" x="900" y="115" width="650" height="190" rx="8"/><rect class="gold-node" x="900" y="335" width="650" height="190" rx="8"/>
+      <text class="label" x="955" y="195">Net capital spending</text><text class="small-label" x="955" y="245">Plant · Equipment · Technology</text>
+      <text class="label" x="955" y="415">Change in working capital</text><text class="small-label" x="955" y="465">Inventory · Receivables · Payables</text>
+    </svg>
+  </section>
+
+  <section class="slide" data-label="33 Capital spending" data-source-slide="33">
+    <div class="slide-header"><div><p class="eyebrow">Net capital spending</p><h2>CapEx measures the cash committed to long-lived assets</h2></div><span class="chapter">Free cash flow</span></div>
+    <div class="split">
+      <div class="stack"><div class="formula">Ending fixed assets − Beginning fixed assets + Depreciation</div><p class="small">Depreciation is added because the ending balance is shown after accounting depreciation.</p></div>
+      <table class="table" aria-label="Net capital spending calculation"><thead><tr><th>2024 U.S. Corporation</th><th class="value">$</th></tr></thead><tbody><tr><td>Ending fixed assets</td><td class="value">1,709</td></tr><tr><td>Less: Beginning fixed assets</td><td class="value">(1,644)</td></tr><tr><td>Add: Depreciation</td><td class="value">65</td></tr><tr><td><strong>Net capital spending</strong></td><td class="value"><strong>130</strong></td></tr></tbody></table>
+    </div>
+  </section>
+
+  <section class="slide" data-label="34 Cost of growth" data-source-slide="34">
+    <div class="slide-header"><div><p class="eyebrow">Reinvestment drags</p><h2>Growth can reduce current free cash flow for good reasons</h2></div><span class="chapter">Free cash flow</span></div>
+    <div class="cards two" style="margin-top:52px"><article class="card" style="border-top:10px solid var(--terra)"><div class="num">CapEx</div><h3>Build capacity</h3><p>New equipment, facilities, and technology consume cash now but may expand future operating cash flow.</p></article><article class="card" style="border-top:10px solid var(--gold)"><div class="num">ΔNWC</div><h3>Fund the operating cycle</h3><p>More sales can require more inventory and receivables before the related cash is collected.</p></article></div>
+    <p class="callout" style="margin-top:50px">Negative free cash flow is a signal to investigate—not an automatic verdict.</p>
+  </section>
+
+  <section class="slide" data-label="35 Change in net working capital" data-source-slide="35">
+    <div class="slide-header"><div><p class="eyebrow">Working capital over time</p><h2>The change in NWC measures cash tied up between periods</h2></div><span class="chapter">Free cash flow</span></div>
+    <div class="split"><div class="photo-frame"><image-slot src="assets/media/image49.jpeg" alt="Calculator and paperwork with working capital label" fit="cover"></image-slot></div><div class="stack"><div class="formula big">ΔNWC = Ending NWC − Beginning NWC</div><div class="card"><h3>Interpret the sign</h3><p><strong>Increase in NWC:</strong> cash outflow.</p><p style="margin-top:18px"><strong>Decrease in NWC:</strong> cash inflow.</p></div></div></div>
+  </section>
+
+  <section class="slide" data-label="36 Change in net working capital calculation" data-source-slide="36">
+    <div class="slide-header"><div><p class="eyebrow">Calculation</p><h2>Working capital rose by $391, so $391 of cash was reinvested</h2></div><span class="chapter">Free cash flow</span></div>
+    <div class="split"><div class="stack"><div class="formula">Ending NWC − Beginning NWC</div><p class="lead">A positive change reduces free cash flow because more cash is tied up in current operating assets.</p></div><table class="table" aria-label="Change in net working capital calculation"><thead><tr><th>2024 U.S. Corporation</th><th class="value">$</th></tr></thead><tbody><tr><td>Ending NWC</td><td class="value">1,075</td></tr><tr><td>Less: Beginning NWC</td><td class="value">(684)</td></tr><tr><td><strong>Change in NWC</strong></td><td class="value"><strong>391</strong></td></tr></tbody></table></div>
+  </section>
+
+  <section class="slide dark section" data-label="37 Master formula" data-source-slide="37">
+    <div class="section-center"><p class="eyebrow">The master formula</p><h2>Operations create cash; reinvestment claims part of it</h2><div class="formula big" style="margin-top:64px">Free cash flow = OCF − Net capital spending − ΔNWC</div></div>
+  </section>
+
+  <section class="slide" data-label="38 Cash flow from assets" data-source-slide="38">
+    <div class="slide-header"><div><p class="eyebrow">Put all three components together</p><h2>The firm generated $107 of free cash flow</h2></div><span class="chapter">Free cash flow</span></div>
+    <div class="split"><table class="table" aria-label="Cash flow from assets calculation"><thead><tr><th>2024 U.S. Corporation</th><th class="value">$</th></tr></thead><tbody><tr><td>Operating cash flow</td><td class="value">628</td></tr><tr><td>Less: Net capital spending</td><td class="value">(130)</td></tr><tr><td>Less: Change in NWC</td><td class="value">(391)</td></tr><tr><td><strong>Cash flow from assets</strong></td><td class="value"><strong>107</strong></td></tr></tbody></table><div class="card" style="min-height:430px;display:flex;flex-direction:column;justify-content:center"><div class="num">Interpretation</div><div class="metric">$107</div><p>Cash remained for creditors and stockholders after operations and reinvestment.</p></div></div>
+  </section>
+
+  <section class="slide" data-label="39 Free cash flow waterfall" data-source-slide="39">
+    <div class="slide-header"><div><p class="eyebrow">Follow the cash</p><h2>Strong operating cash flow can be absorbed by reinvestment</h2></div><span class="chapter">Free cash flow</span></div>
+    <svg class="diagram" viewBox="0 0 1640 610" role="img" aria-label="Waterfall from 628 operating cash flow, less 130 capital spending and 391 change in working capital, to 107 free cash flow">
+      <line x1="70" y1="520" x2="1570" y2="520" stroke="#B9BFC8" stroke-width="3"/>
+      <rect x="110" y="90" width="280" height="430" fill="#355773"/><text x="180" y="70" class="mono-label">+$628</text><text x="145" y="565" class="small-label">Operating cash flow</text>
+      <rect x="500" y="90" width="280" height="90" fill="#9C4A2B"/><line x1="390" y1="90" x2="500" y2="90" stroke="#8C95A3" stroke-width="3"/><text x="570" y="65" class="mono-label">−$130</text><text x="555" y="220" class="small-label">CapEx</text>
+      <rect x="890" y="180" width="280" height="270" fill="#C97855"/><line x1="780" y1="180" x2="890" y2="180" stroke="#8C95A3" stroke-width="3"/><text x="955" y="155" class="mono-label">−$391</text><text x="935" y="490" class="small-label">Change in NWC</text>
+      <rect x="1280" y="450" width="280" height="70" fill="#B8843D"/><text x="1355" y="425" class="mono-label">$107</text><text x="1325" y="565" class="small-label">Free cash flow</text>
+    </svg>
+  </section>
+
+  <section class="slide dark section" data-label="40 What to do with cash flow" data-source-slide="40">
+    <div class="hero-grid"><div><p class="eyebrow">Capital allocation</p><h1>What should the firm do with its cash?</h1><p class="subtitle">The answer should depend on value creation—not simply on whether cash is available.</p></div><div class="photo-frame" style="height:650px"><image-slot src="assets/media/image54.jpeg" alt="Overlapping U.S. currency" fit="cover"></image-slot></div></div>
+  </section>
+
+  <section class="slide" data-label="41 Where does the cash go" data-source-slide="41">
+    <div class="slide-header"><div><p class="eyebrow">The distributable surplus</p><h2>Free cash flow belongs to creditors and stockholders</h2></div><span class="chapter">Capital providers</span></div>
+    <svg class="diagram" viewBox="0 0 1640 610" role="img" aria-label="Free cash flow of 107 splits into 24 for creditors and 83 for stockholders">
+      <defs><marker id="arrow41" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#355773"/></marker></defs>
+      <rect class="gold-node" x="610" y="40" width="420" height="170" rx="8"/><text class="mono-label" x="690" y="100">TOTAL FCF</text><text x="700" y="175" style="font:500 64px 'JetBrains Mono';fill:#B8843D">$107</text>
+      <path d="M820 210 V300 H350 V380" stroke="#355773" stroke-width="7" fill="none" marker-end="url(#arrow41)"/><path d="M820 300 H1290 V380" stroke="#355773" stroke-width="7" fill="none" marker-end="url(#arrow41)"/>
+      <rect class="steel-node" x="100" y="390" width="500" height="170" rx="8"/><rect class="terra-node" x="1040" y="390" width="500" height="170" rx="8"/>
+      <text class="label" x="185" y="455">Creditors</text><text x="210" y="520" style="font:500 54px 'JetBrains Mono';fill:#355773">$24</text>
+      <text class="label" x="1125" y="455">Stockholders</text><text x="1180" y="520" style="font:500 54px 'JetBrains Mono';fill:#9C4A2B">$83</text>
+    </svg>
+  </section>
+
+  <section class="slide" data-label="42 Cash flow to creditors" data-source-slide="42">
+    <div class="slide-header"><div><p class="eyebrow">Debt holders</p><h2>Creditors receive interest, net of new borrowing</h2></div><span class="chapter">Capital providers</span></div>
+    <div class="split"><div class="stack"><div class="formula big">Cash flow to creditors = Interest paid − Net new borrowing</div><p class="small">Issuing new debt brings cash into the firm, so it reduces the net cash paid to creditors.</p></div><table class="table" aria-label="Cash flow to creditors calculation"><thead><tr><th>2024 U.S. Corporation</th><th class="value">$</th></tr></thead><tbody><tr><td>Interest paid</td><td class="value">70</td></tr><tr><td>Less: Net new borrowing</td><td class="value">(46)</td></tr><tr><td><strong>Cash flow to creditors</strong></td><td class="value"><strong>24</strong></td></tr></tbody></table></div>
+  </section>
+
+  <section class="slide" data-label="43 Cash flow to stockholders" data-source-slide="43">
+    <div class="slide-header"><div><p class="eyebrow">Owners</p><h2>Stockholders receive distributions, net of new equity raised</h2></div><span class="chapter">Capital providers</span></div>
+    <div class="split"><div class="stack"><div class="formula big">Cash flow to stockholders = Dividends paid − Net new equity raised</div><p class="small">Selling new shares brings cash into the firm, so it offsets the cash paid out to existing owners.</p></div><table class="table" aria-label="Cash flow to stockholders calculation"><thead><tr><th>2024 U.S. Corporation</th><th class="value">$</th></tr></thead><tbody><tr><td>Dividends paid</td><td class="value">123</td></tr><tr><td>Less: Net new equity</td><td class="value">(40)</td></tr><tr><td><strong>Cash flow to stockholders</strong></td><td class="value"><strong>83</strong></td></tr></tbody></table></div>
+  </section>
+
+  <section class="slide dark section" data-label="44 Free cash flow heartbeat" data-source-slide="44">
+    <div class="section-center"><p class="eyebrow">The heartbeat of the firm</p><p class="quote">Profit is an opinion. Cash is a fact. Free cash flow is the heartbeat of the firm.</p><svg viewBox="0 0 1500 180" role="img" aria-label="Heartbeat line rising into a dollar sign" style="width:1450px;height:180px;margin-top:64px"><path d="M20 100 H210 L260 40 L330 150 L410 25 L480 100 H980 Q1130 95 1250 50 T1460 18" fill="none" stroke="#6FA17F" stroke-width="12"/><text x="1310" y="95" style="font:500 82px 'JetBrains Mono';fill:#6FA17F">$</text></svg></div>
+  </section>
+
+  <section class="slide" data-label="45 Accounting to valuation" data-source-slide="45">
+    <div class="slide-header"><div><p class="eyebrow">The bridge</p><h2>Statements describe the past; cash flow connects that history to value</h2></div><span class="chapter">Valuation</span></div>
+    <svg class="diagram" viewBox="0 0 1640 610" role="img" aria-label="Bridge from historical financial statements across free cash flow to future valuation">
+      <defs><marker id="arrow45" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#9C4A2B"/></marker></defs>
+      <rect class="steel-node" x="40" y="140" width="470" height="330" rx="8"/><rect class="gold-node" x="630" y="140" width="380" height="330" rx="8"/><rect class="sage-node" x="1130" y="140" width="470" height="330" rx="8"/>
+      <path class="terra-line" d="M525 305 H605" marker-end="url(#arrow45)"/><path class="terra-line" d="M1025 305 H1105" marker-end="url(#arrow45)"/>
+      <text class="mono-label" x="90" y="205">PAST</text><text class="label" x="90" y="270">Financial statements</text><text class="small-label" x="90" y="325">Balance sheet</text><text class="small-label" x="90" y="365">Income statement</text><text class="small-label" x="90" y="405">Cash flow statement</text>
+      <text class="mono-label" x="680" y="205">BRIDGE</text><text class="label" x="680" y="285">Free cash flow</text><text class="small-label" x="680" y="345">Normalize · Forecast</text>
+      <text class="mono-label" x="1180" y="205">FUTURE</text><text class="label" x="1180" y="270">Valuation</text><text class="small-label" x="1180" y="325">Forecast cash flows</text><text class="small-label" x="1180" y="365">Assess risk</text><text class="small-label" x="1180" y="405">Discount to today</text>
+    </svg>
+  </section>
+
+  <section class="slide" data-label="46 FCFF from cash flow from operations" data-source-slide="46">
+    <div class="slide-header"><div><p class="eyebrow">Route 1: start with CFO</p><h2>Unlever operating cash flow before valuing the entire firm</h2></div><span class="chapter">FCFF</span></div>
+    <div class="split"><div class="stack"><div class="formula big">FCFF = CFO + Interest × (1 − t) − CapEx</div><p class="lead">U.S. GAAP classifies interest paid in operating cash flow. Adding back after-tax interest removes the financing choice.</p></div><div class="card" style="min-height:520px"><div class="num">Why unlever?</div><h3>Value operations first</h3><p>FCFF is available to debt and equity holders, so the cash flow should be independent of how the business is financed.</p><p class="callout" style="margin-top:44px">Discount FCFF at WACC.</p></div></div>
+  </section>
+
+  <section class="slide" data-label="47 Deriving FCFF from EBIT" data-source-slide="47">
+    <div class="slide-header"><div><p class="eyebrow">Route 2: start with EBIT</p><h2>The operating engine builds FCFF directly</h2></div><span class="chapter">FCFF</span></div>
+    <div class="equation-row" style="margin-top:48px;gap:18px"><div class="equation-box" style="min-width:260px">EBIT × (1−t)<br><span class="small">NOPAT</span></div><div class="operator">+</div><div class="equation-box" style="min-width:230px">D&amp;A</div><div class="operator">−</div><div class="equation-box" style="min-width:230px">CapEx</div><div class="operator">−</div><div class="equation-box" style="min-width:230px">ΔNWC</div><div class="operator">=</div><div class="equation-box" style="min-width:230px;border-top:10px solid var(--terra)">FCFF</div></div>
+    <p class="callout" style="margin-top:70px">NOPAT measures after-tax operating profit before financing; D&amp;A is added back because it is non-cash.</p>
+  </section>
+
+  <section class="slide" data-label="48 Who gets the cash" data-source-slide="48">
+    <div class="slide-header"><div><p class="eyebrow">The great bifurcation</p><h2>Firm cash flow and equity cash flow value different claims</h2></div><span class="chapter">FCFF vs. FCFE</span></div>
+    <svg class="diagram" viewBox="0 0 1640 610" role="img" aria-label="FCFF available to debt and equity, with interest separating FCFF from residual FCFE">
+      <circle cx="600" cy="310" r="235" fill="#E7EEF4" stroke="#355773" stroke-width="5"/><path d="M600 310 L600 75 A235 235 0 0 1 798 183 Z" fill="#F7EFDF" stroke="#B8843D" stroke-width="4"/>
+      <text class="mono-label" x="420" y="295">FCFF · FIRM</text><text class="small-label" x="420" y="345">Debt + equity</text><text class="small-label" x="650" y="130">Debt share</text>
+      <path class="terra-line" d="M875 310 H1080"/><rect class="terra-node" x="1090" y="135" width="500" height="350" rx="8"/>
+      <text class="mono-label" x="1140" y="210">FCFE · EQUITY</text><text class="label" x="1140" y="285">Residual cash</text><text class="small-label" x="1140" y="345">After interest and</text><text class="small-label" x="1140" y="385">net borrowing</text>
+    </svg>
+  </section>
+
+  <section class="slide" data-label="49 Whole pie versus slice" data-source-slide="49">
+    <div class="slide-header"><div><p class="eyebrow">Two perspectives</p><h2>FCFF values the whole business; FCFE values the owners’ slice</h2></div><span class="chapter">FCFF vs. FCFE</span></div>
+    <div class="cards two" style="margin-top:52px"><article class="card" style="border-top:10px solid var(--steel)"><div class="num">Unlevered perspective</div><h3>The whole house</h3><p>Looks at cash generated by operations before debt claims.</p><div class="formula" style="margin-top:30px">Metric: Enterprise value</div></article><article class="card" style="border-top:10px solid var(--terra)"><div class="num">Levered perspective</div><h3>The homeowner’s equity</h3><p>Looks at cash remaining after the mortgage and other debt effects.</p><div class="formula" style="margin-top:30px">Metric: Equity value</div></article></div>
+  </section>
+
+  <section class="slide" data-label="50 Levered free cash flow" data-source-slide="50">
+    <div class="slide-header"><div><p class="eyebrow">Value the owners’ claim</p><h2>FCFE is the cash available after servicing debt</h2></div><span class="chapter">FCFE</span></div>
+    <div class="section-center" style="height:710px;max-width:1640px"><div class="formula big">FCFE = FCFF − After-tax interest + Net borrowing</div><div class="cards three" style="margin-top:54px"><div class="card"><div class="num">Perspective</div><h3>Shareholders</h3><p>Residual owners of the business.</p></div><div class="card"><div class="num">Use case</div><h3>Payout capacity</h3><p>Dividends and share repurchases.</p></div><div class="card"><div class="num">Discount rate</div><h3>Cost of equity</h3><p>Match the risk of the equity claim.</p></div></div></div>
+  </section>
+
+  <section class="slide" data-label="51 Shareholder residual" data-source-slide="51">
+    <div class="slide-header"><div><p class="eyebrow">From firm value to equity value</p><h2>New borrowing is a current cash inflow to shareholders</h2></div><span class="chapter">FCFE</span></div>
+    <div class="split"><div class="stack"><div class="formula">FCFE = FCFF − Interest × (1−t) + Net borrowing</div><div class="formula" style="border-color:var(--terra);background:#F6E6DF">FCFE = CFO − CapEx + Net borrowing</div></div><div class="card" style="min-height:520px"><div class="num">The counter-intuitive lever</div><h3>Borrowing adds cash today</h3><p>Net borrowing equals new debt issued minus debt repaid. It increases current FCFE, but it also creates future obligations.</p><p class="callout" style="margin-top:42px">Cash inflow today is not free value.</p></div></div>
+  </section>
+
+  <section class="slide dark" data-label="52 Give it a try" data-source-slide="52">
+    <div class="slide-header"><div><p class="eyebrow">Live you try it</p><h2>Calculate FCFF, then FCFE</h2></div><span class="chapter">Practice</span></div>
+    <div class="cards four" style="margin-top:28px"><div class="card"><div class="num">Revenue</div><div class="metric" style="font-size:58px">$100M</div></div><div class="card"><div class="num">EBIT</div><div class="metric" style="font-size:58px">$20M</div></div><div class="card"><div class="num">D&amp;A</div><div class="metric" style="font-size:58px">$5M</div></div><div class="card"><div class="num">Tax rate</div><div class="metric" style="font-size:58px">25%</div></div><div class="card"><div class="num">CapEx</div><div class="metric" style="font-size:58px">$6M</div></div><div class="card"><div class="num">ΔNWC</div><div class="metric" style="font-size:58px">$2M</div></div><div class="card"><div class="num">Interest</div><div class="metric" style="font-size:58px">$2M</div></div><div class="card"><div class="num">Net borrowing</div><div class="metric" style="font-size:58px">$0</div></div></div>
+    <p class="source-note">Write both formulas before substituting values.</p>
+  </section>
+
+  <section class="slide" data-label="53 Give it a try solution" data-source-slide="53">
+    <div class="slide-header"><div><p class="eyebrow">Solution</p><h2>The business generates $12M for the firm and $10.5M for equity</h2></div><span class="chapter">Practice</span></div>
+    <div class="cards two" style="margin-top:42px"><article class="card"><div class="num">FCFF · Unlevered</div><h3>Build from EBIT</h3><div class="formula" style="margin-top:28px">20 × (1−25%) + 5 − 6 − 2</div><div class="metric" style="font-size:70px">$12.0M</div></article><article class="card"><div class="num">FCFE · Levered</div><h3>Remove after-tax interest</h3><div class="formula" style="margin-top:28px">12 − 2 × (1−25%) + 0</div><div class="metric" style="font-size:70px">$10.5M</div></article></div>
+  </section>
+
+  <section class="slide dark section" data-label="54 Strategic decisions based on cash flow" data-source-slide="54">
+    <div class="section-center"><p class="eyebrow">From measurement to management</p><h1>Do firms make strategic decisions based on cash flow?</h1><p class="subtitle">Yes—but the decision depends on when cash arrives, how risky it is, and what alternatives are available.</p></div>
+  </section>
+
+  <section class="slide" data-label="55 Connecting FCF to decision making" data-source-slide="55">
+    <div class="slide-header"><div><p class="eyebrow">Capital budgeting</p><h2>Invest when the present value of future FCF exceeds the cost</h2></div><span class="chapter">Decision making</span></div>
+    <div class="equation-row"><div class="equation-box" style="border-top:10px solid var(--sage)">PV of future FCF</div><div class="operator">−</div><div class="equation-box" style="border-top:10px solid var(--terra)">Investment cost</div><div class="operator">=</div><div class="equation-box" style="border-top:10px solid var(--gold)">NPV</div></div>
+    <div class="cards two" style="margin-top:64px"><div class="card"><div class="num">NPV &gt; 0</div><h3>Invest</h3><p>The project is expected to create value.</p></div><div class="card"><div class="num">NPV &lt; 0</div><h3>Reject</h3><p>The project is expected to destroy value.</p></div></div>
+  </section>
+
+  <section class="slide" data-label="56 Using FCF for decision making" data-source-slide="56">
+    <div class="slide-header"><div><p class="eyebrow">Capital allocation choices</p><h2>Positive free cash flow creates options—not an automatic payout</h2></div><span class="chapter">Decision making</span></div>
+    <svg class="diagram" viewBox="0 0 1640 610" role="img" aria-label="Positive free cash flow branches to invest, pay dividends, buy back stock, or pay down debt">
+      <defs><marker id="arrow56" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#4A7C5E"/></marker></defs>
+      <circle cx="820" cy="160" r="115" fill="#EAF3EC" stroke="#4A7C5E" stroke-width="5"/><text class="label" x="735" y="145">Positive</text><text class="label" x="760" y="190">FCF</text>
+      <path class="sage-line" d="M760 265 L320 390" marker-end="url(#arrow56)"/><path class="sage-line" d="M800 278 L690 390" marker-end="url(#arrow56)"/><path class="sage-line" d="M840 278 L980 390" marker-end="url(#arrow56)"/><path class="sage-line" d="M880 265 L1320 390" marker-end="url(#arrow56)"/>
+      <rect class="steel-node" x="90" y="410" width="420" height="150" rx="8"/><rect class="terra-node" x="540" y="410" width="310" height="150" rx="8"/><rect class="gold-node" x="890" y="410" width="310" height="150" rx="8"/><rect class="sage-node" x="1230" y="410" width="320" height="150" rx="8"/>
+      <text class="label" x="205" y="500">Invest</text><text class="label" x="585" y="500">Dividends</text><text class="label" x="940" y="500">Buybacks</text><text class="label" x="1280" y="500">Pay debt</text>
+    </svg>
+  </section>
+
+  <section class="slide" data-label="57 Connecting cash flow to valuation" data-source-slide="57">
+    <div class="slide-header"><div><p class="eyebrow">Discounted cash flow</p><h2>Value is the present value of cash the asset can generate</h2></div><span class="chapter">Valuation</span></div>
+    <div class="split"><div class="stack"><div class="formula big">Value = Σ FCF<sub>t</sub> ÷ (1 + r)<sup>t</sup></div><p class="lead">Forecast cash flow, choose the rate that matches its risk, then discount each future amount to today.</p></div><div class="cards two"><div class="card"><div class="num">g</div><h3>Growth</h3><p>Changes in long-run growth can move value materially.</p></div><div class="card"><div class="num">r</div><h3>Discount rate</h3><p>More risk raises the required return and reduces present value.</p></div></div></div>
+  </section>
+
+  <section class="slide dark section" data-label="58 Fundamental theorem of finance" data-source-slide="58">
+    <div class="section-center"><p class="eyebrow">The fundamental theorem of finance</p><p class="quote">“The value of any asset is the present value of its future cash flows.”</p><svg viewBox="0 0 1500 230" role="img" aria-label="Four future cash flows discounted back to present value" style="width:1500px;height:230px;margin-top:60px"><defs><marker id="arrow58" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#E7B18D"/></marker></defs><line x1="140" y1="150" x2="1360" y2="150" stroke="#6B7482" stroke-width="5"/><circle cx="300" cy="150" r="26" fill="#E7B18D"/><circle cx="650" cy="150" r="34" fill="#E7B18D"/><circle cx="1000" cy="150" r="43" fill="#E7B18D"/><circle cx="1350" cy="150" r="52" fill="#E7B18D"/><path d="M1320 95 C1000 10 550 20 190 95" fill="none" stroke="#E7B18D" stroke-width="6" marker-end="url(#arrow58)"/><text x="110" y="215" style="font:500 25px 'JetBrains Mono';fill:#CDD3DD">Present value</text><text x="1265" y="215" style="font:500 25px 'JetBrains Mono';fill:#CDD3DD">Future cash flow</text></svg></div>
+  </section>
+
+  <section class="slide" data-label="59 Corporate finance cheat sheet" data-source-slide="59">
+    <div class="slide-header"><div><p class="eyebrow">Match cash flow to discount rate</p><h2>Use the firm lens or the equity lens—then stay consistent</h2></div><span class="chapter">Cheat sheet</span></div>
+    <div class="cards two" style="margin-top:40px"><article class="card"><div class="num">FCFF · Unlevered</div><div class="formula" style="margin:22px 0">EBIT(1−t) + D&amp;A − ΔNWC − CapEx</div><h3>Discount at WACC</h3><p>Produces enterprise value.</p></article><article class="card"><div class="num">FCFE · Levered</div><div class="formula" style="margin:22px 0">FCFF − Interest(1−t) + Net borrowing</div><h3>Discount at cost of equity</h3><p>Produces equity value.</p></article></div>
+    <p class="callout" style="margin-top:48px">Golden rule: never discount FCFE at WACC.</p>
+  </section>
+
+  <section class="slide" data-label="60 Reading the signals" data-source-slide="60">
+    <div class="slide-header"><div><p class="eyebrow">Interpretation and nuance</p><h2>Negative FCF means “investigate,” not always “avoid”</h2></div><span class="chapter">Interpretation</span></div>
+    <svg class="diagram" viewBox="0 0 1640 610" role="img" aria-label="Decision tree for interpreting negative free cash flow at a startup or mature firm, plus a stock-based compensation caution">
+      <defs><marker id="arrow60" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#355773"/></marker></defs>
+      <rect class="steel-node" x="60" y="60" width="430" height="150" rx="8"/><text class="label" x="140" y="150">Is FCF negative?</text>
+      <path d="M275 210 V315 H730" stroke="#355773" stroke-width="6" fill="none" marker-end="url(#arrow60)"/><path d="M275 315 H1100" stroke="#355773" stroke-width="6" fill="none" marker-end="url(#arrow60)"/>
+      <rect class="sage-node" x="520" y="335" width="450" height="220" rx="8"/><text class="mono-label" x="570" y="400">STARTUP / HIGH GROWTH</text><text class="small-label" x="570" y="460">Potentially expected:</text><text class="small-label" x="570" y="500">check growth CapEx and runway.</text>
+      <rect class="terra-node" x="1080" y="335" width="500" height="220" rx="8"/><text class="mono-label" x="1130" y="400">MATURE FIRM</text><text class="small-label" x="1130" y="460">Potential danger:</text><text class="small-label" x="1130" y="500">check operations and reinvestment quality.</text>
+    </svg>
+    <p class="callout" style="position:absolute;left:128px;bottom:72px;width:1480px">SBC caution: stock-based compensation is non-cash today but dilutes owners. Treat an automatic add-back with care.</p>
+  </section>
+
+  <section class="slide close" data-label="61 Key takeaways" data-source-slide="61">
+    <div class="slide-header"><div><p class="eyebrow">Key takeaways</p><h2>Accounting tells the story; cash flow tells us what the story may be worth</h2></div><span class="chapter">Synthesis</span></div>
+    <div class="cards four" style="margin-top:50px"><div class="card"><div class="num">01</div><h3>Statements</h3><p>Start with comparable, well-understood accounting data.</p></div><div class="card"><div class="num">02</div><h3>Cash</h3><p>Add back non-cash expense and subtract reinvestment.</p></div><div class="card"><div class="num">03</div><h3>Perspective</h3><p>FCFF values the firm; FCFE values equity.</p></div><div class="card"><div class="num">04</div><h3>Consistency</h3><p>Match the cash flow to its discount rate.</p></div></div>
+  </section>
+
+  <section class="slide dark section" data-label="62 Appendix" data-source-slide="62">
+    <div class="section-center"><p class="eyebrow">Reference</p><h1>Appendix</h1><p class="subtitle">Core corporate-finance decisions and non-cash expense reminders</p></div>
+  </section>
+
+  <section class="slide" data-label="63 Capital budgeting" data-source-slide="63">
+    <div class="slide-header"><div><p class="eyebrow">Appendix · Decision 1</p><h2>Capital budgeting chooses long-term investments</h2></div><span class="chapter">Reference</span></div>
+    <div class="section-center" style="height:700px"><p class="lead" style="max-width:1450px">Managers identify opportunities whose future cash flows are worth more than the resources required to acquire them.</p><div class="formula big" style="margin-top:64px">Invest when value created &gt; cost to acquire</div><p class="small" style="margin-top:40px">Typical focus: property, plant, equipment, technology, acquisitions, and new products.</p></div>
+  </section>
+
+  <section class="slide" data-label="64 Capital structure" data-source-slide="64">
+    <div class="slide-header"><div><p class="eyebrow">Appendix · Decision 2</p><h2>Capital structure selects the mix of debt and equity</h2></div><span class="chapter">Reference</span></div>
+    <div class="cards two" style="margin-top:64px"><article class="card" style="border-top:10px solid var(--steel)"><div class="num">Debt</div><h3>Contractual claim</h3><p>Interest and repayment commitments can lower flexibility but may reduce the cost of capital.</p></article><article class="card" style="border-top:10px solid var(--terra)"><div class="num">Equity</div><h3>Residual ownership</h3><p>No promised repayment, but investors require compensation for greater risk.</p></article></div>
+    <p class="callout" style="margin-top:52px">The objective is not “least debt” or “most debt.” It is a financing mix that supports value and resilience.</p>
+  </section>
+
+  <section class="slide" data-label="65 Working capital management" data-source-slide="65">
+    <div class="slide-header"><div><p class="eyebrow">Appendix · Decision 3</p><h2>Working capital management keeps daily operations funded</h2></div><span class="chapter">Reference</span></div>
+    <div class="statement-grid" style="margin-top:58px"><article class="statement"><span class="pill">Collect</span><h3>Receivables</h3><p>Set credit terms and collect cash without sacrificing healthy sales.</p></article><article class="statement"><span class="pill" style="background:#F7EFDF;color:#8A6226">Hold</span><h3>Inventory</h3><p>Keep enough stock to operate without trapping too much cash.</p></article><article class="statement"><span class="pill" style="background:#EAF3EC;color:#355F46">Pay</span><h3>Payables</h3><p>Use supplier credit responsibly while protecting relationships and liquidity.</p></article></div>
+  </section>
+
+  <section class="slide" data-label="66 Capital spending appendix" data-source-slide="66">
+    <div class="slide-header"><div><p class="eyebrow">Appendix · Investing cash flow</p><h2>Negative investing cash flow can signal deliberate growth</h2></div><span class="chapter">Reference</span></div>
+    <div class="split"><div class="stack"><p class="lead">Capital spending appears in cash flow from investing and includes purchases of long-lived assets.</p><p>Large outflows may reflect expansion, new technology, or research and development—not necessarily distress.</p></div><div class="card" style="min-height:500px"><div class="num">Investigate the purpose</div><h3>Ask what the spending buys</h3><div class="checklist"><div class="check"><b>1</b><p>Maintenance or growth?</p></div><div class="check"><b>2</b><p>Expected return and timing?</p></div><div class="check"><b>3</b><p>Funding capacity?</p></div></div></div></div>
+  </section>
+
+  <section class="slide" data-label="67 Depreciation appendix" data-source-slide="67">
+    <div class="slide-header"><div><p class="eyebrow">Appendix · Tangible assets</p><h2>Depreciation allocates cost; it does not use current-period cash</h2></div><span class="chapter">Reference</span></div>
+    <div class="split"><div class="photo-frame"><image-slot src="assets/media/image75.jpeg" alt="A person reviewing a document labeled depreciation" fit="cover"></image-slot></div><div class="stack"><p class="lead">Wear, use, and obsolescence reduce a tangible asset’s accounting value over its useful life.</p><div class="formula big">Depreciation is added back in OCF</div><p class="small">The original asset purchase was a cash outflow when the asset was acquired.</p></div></div>
+  </section>
+
+  <section class="slide" data-label="68 Amortization appendix" data-source-slide="68">
+    <div class="slide-header"><div><p class="eyebrow">Appendix · Intangible assets</p><h2>Amortization spreads an intangible asset’s cost over its useful life</h2></div><span class="chapter">Reference</span></div>
+    <div class="section-center" style="height:700px;max-width:1640px"><div class="cards three"><div class="card"><div class="num">Patent</div><h3>Legal protection</h3><p>Rights to an invention or process.</p></div><div class="card"><div class="num">Trademark</div><h3>Brand identity</h3><p>Protected names, symbols, and marks.</p></div><div class="card"><div class="num">Finite-lived IP</div><h3>Economic benefit</h3><p>Value consumed over a measurable life.</p></div></div><div class="formula big" style="margin-top:56px">Amortization is a non-cash expense → add back in OCF</div></div>
+  </section>
+</deck-stage>
+<script src="../../deck-stage.js"></script>
+<script src="../../image-slot.js"></script>
+<script src="../../tweaks-panel.jsx"></script>
+</body>
+</html>
