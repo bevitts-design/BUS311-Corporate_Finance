@@ -142,7 +142,7 @@ def deck_checks(path, errors):
             )
             or (
                 is_approved_financial_institutions
-                and "With a partner:" in text
+                and "Where does the cash go?" in text
                 and "Deliverable: one ranked table" in text
             )
         ),

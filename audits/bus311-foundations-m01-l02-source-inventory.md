@@ -59,6 +59,6 @@
 - The PPTX contains 157 extracted media relationships, including stock photography, icons, logos, and rasterized charts.
 - Important numerical or instructional visuals were recreated as HTML/CSS/SVG.
 - No extracted image, logo, Endicott mark, proprietary screen, or source chart was copied into the public repository.
+- Seven original editorial images were generated specifically for the Fall 2026 rebuild and placed locally in `FOUNDATIONS/M01/assets/`; the payment image supports both its section bridge and the later Coinbase case.
 - The public deck uses company names as editable text and provides source links for current claims.
 - The original PPTX and temporary extraction remain outside the public repository.
-

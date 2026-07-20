@@ -48,12 +48,12 @@
 
 ## Graphical plan
 
-- **Image-led slides:** Title, section breaks, current-company cases, crisis severity, and Bear Stearns liquidity use large graphic/stat compositions
-- **Images approved for local use:** None from the PPTX; rights basis was not sufficiently documented for public reuse
+- **Image-led slides:** Title, all four section breaks, both current-company cases, and the closing transition use full-bleed editorial imagery; crisis severity and Bear Stearns liquidity retain large data graphics
+- **Images approved for local use:** Seven original images generated for this Fall 2026 rebuild; no PPTX media was reused because its public-rights basis was not sufficiently documented
 - **Charts/tables rebuilt:** Bear Stearns liquidity, crisis severity, market taxonomy, debt/equity matrix, and market-cap calculation
 - **Processes and diagrams rebuilt:** Cash-flow ecosystem, savings lanes, five-function wheel, information feedback loop, crisis chain, and September 2008 timeline
 - **Dense slides split:** Source slides 8, 9, 13, 15–19, 21–27, and 31–32
-- **Visual breaks:** Four dark section slides and two current-company stat slides
+- **Visual breaks:** Eight image-led slides distributed across the 40-slide sequence, supported by editable diagrams, charts, and activity layouts
 
 ## Numerical teaching thread
 
@@ -78,7 +78,7 @@
 - **Publisher or licensed material:** Source PPTX contains numerous stock photos, icons, and chart images with no public-repository rights record
 - **Proprietary FactSet content:** None copied
 - **Logos requiring verification:** Source logos and exchange/institution imagery were not copied
-- **Assets approved for public repository:** Newly authored HTML/CSS/SVG only; existing public starter workbook remains linked through course-map.json
+- **Assets approved for public repository:** Newly authored HTML/CSS/SVG plus seven original generated PNGs in `FOUNDATIONS/M01/assets/`; existing public starter workbook remains linked through course-map.json
 - **Items omitted or private:** All extracted PPTX media; source-only Canvas path; private workbook key and teaching key
 
 ## Approval gates
@@ -88,10 +88,9 @@
 - [x] Numerical examples verified
 - [x] Assets and rights reviewed
 - [ ] Instructor browser review complete
-- [ ] Review comments classified and resolved
+- [x] Review comments classified and resolved
 - [x] Deck validator passes
 - [x] Public validator passes
 - [x] Browser overflow/navigation/console QA passes
 - [ ] Instructor approval recorded
 - [x] Course map and generated homepage checked; no path change required
-

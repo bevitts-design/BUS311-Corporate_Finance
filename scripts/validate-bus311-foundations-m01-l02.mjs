@@ -6,6 +6,25 @@ const deckPath = path.join(root, 'FOUNDATIONS', 'M01', 'bus311-foundations-m01-l
 const html = await fs.readFile(deckPath, 'utf8');
 const errors = [];
 
+const expectedImages = [
+  'financial-institutions-title.png',
+  'market-trading.png',
+  'digital-payments.png',
+  'asset-management.png',
+  'crisis-funding-stress.png',
+  'debt-equity-decision.png',
+  'financial-statements.png',
+  'saving-future.png',
+  'productive-borrowing.png',
+];
+for (const image of expectedImages) {
+  try {
+    await fs.access(path.join(root, 'FOUNDATIONS', 'M01', 'assets', image));
+  } catch {
+    errors.push(`Expected local image is missing: ${image}.`);
+  }
+}
+
 const sections = [...html.matchAll(/<section class="slide [\s\S]*?<\/section>/g)].map((match) => match[0]);
 const notesMatch = html.match(/<script type="application\/json" id="speaker-notes">([\s\S]*?)<\/script>/);
 let notes = [];
@@ -41,6 +60,11 @@ for (let index = 1; index <= 33; index += 1) {
   if (!sourceSlides.has(index)) errors.push(`PPTX source slide ${index} is not represented.`);
 }
 const projectedMarkup = sections.join('\n');
+const imageTags = [...projectedMarkup.matchAll(/<img\b[^>]*>/g)].map((match) => match[0]);
+if (imageTags.length < 8) errors.push(`Expected at least 8 image-led slide placements; found ${imageTags.length}.`);
+for (const tag of imageTags) {
+  if (!/\balt="[^"]+"/.test(tag)) errors.push(`Image is missing meaningful alt text: ${tag}`);
+}
 
 const banned = [
   ['Spring 2026 term', /Spring 2026/i],
@@ -77,9 +101,22 @@ const runtimeChecks = {
   'Coinbase current example': html.includes('100M+') && html.includes('May 7, 2026') && html.includes('investor.coinbase.com'),
   'official Bear Stearns data': html.includes('$18.1B') && html.includes('$2.0B') && html.includes('sec.gov/news/press/2008/2008-48'),
   'official crisis source': html.includes('federalreservehistory.org/essays/great-recession-of-200709'),
-  'explicit classroom instructions': html.includes('With a partner:') && html.includes('Small groups · 4 minutes') && html.includes('Classroom activity · 10 minutes'),
+  'editable Great Recession change charts': html.includes('class="impact-chart-grid"') && (html.match(/class="impact-chart-card /g) || []).length === 4 && (html.match(/class="impact-bar-row"/g) || []).length === 8 && html.includes('--bar:95.7%') && html.includes('DEC 2007') && html.includes('OCT 2009'),
+  'explicit classroom instructions': html.includes('Choose independently') && html.includes('Small groups · 4 minutes') && html.includes('Classroom activity · 10 minutes'),
   'market-cap numerical consistency': html.includes('$225/share × 15.2 billion shares') && html.includes('$3.42 trillion'),
-  'editable graphics': ['market-bridge', 'taxonomy-map', 'function-wheel', 'information-loop', 'bear-bars', 'financing-matrix'].every((name) => html.includes(`class="${name}`)),
+  'editable graphics': ['market-bridge', 'taxonomy-map', 'function-system', 'information-loop', 'bear-bars', 'financing-matrix'].every((name) => html.includes(`class="${name}`)),
+  'illustrated five-function system': html.includes('class="function-system"') && (html.match(/class="function-node f/g) || []).length === 5 && (html.match(/class="function-icon"/g) || []).length === 5 && (html.match(/class="function-link"/g) || []).length === 5 && html.includes('marker-end:url(#function-arrow)'),
+  'graphical financing decision map': html.includes('class="financing-matrix financing-map"') && html.includes('class="risk-axis"') && html.includes('class="stage-axis"') && (html.match(/class="financing-quadrant /g) || []).length === 4 && (html.match(/class="financing-icon"/g) || []).length === 4 && (html.match(/class="mix-emphasis/g) || []).length === 4,
+  'colorful illustrated takeaways': html.includes('class="takeaway-grid"') && (html.match(/class="takeaway-card /g) || []).length === 4 && (html.match(/class="takeaway-icon"/g) || []).length === 4 && html.includes('Markets reduce friction') && html.includes('Numbers need context'),
+  'illustrated market bridge': (html.match(/class="market-scene"/g) || []).length === 3 && (html.match(/class="flow-arrow /g) || []).length === 4,
+  'primary-secondary cash destination': html.includes('Company receives the cash') && html.includes('Company receives nothing from this trade') && html.includes('EXISTING SHARE'),
+  'SpaceX private-share example': html.includes('NEW SPACEX FINANCING') && html.includes('newly issued private shares') && !html.includes('Tesla'),
+  'taxonomy linkage': html.includes('class="taxonomy-links"') && (html.match(/marker-end:url\(#taxonomy-arrow\)/g) || []).length === 1 && html.includes('4 dimensions at once'),
+  'three clear savings routes': html.includes('class="funding-lanes"') && (html.match(/class="funding-lane /g) || []).length === 3 && (html.match(/class="funding-connector"/g) || []).length === 5 && html.includes('LOANS + INVESTMENTS'),
+  'numbered corporate cash cycle': html.includes('class="cash-cycle"') && (html.match(/class="cycle-flow /g) || []).length === 4 && html.includes('CAPITAL FOR SECURITIES') && html.includes('OPERATING CASH RETURNS') && html.includes('TAXES + OTHER CLAIMS'),
+  'image-led intertemporal choice': html.includes('assets/saving-future.png') && html.includes('assets/productive-borrowing.png') && (html.match(/class="time-leg /g) || []).length === 2 && html.includes('CLAIM ON FUTURE CASH'),
+  'illustrated payment evolution': html.includes('class="payment-evolution"') && (html.match(/class="payment-art"/g) || []).length === 4 && (html.match(/class="payment-stage-arrow"/g) || []).length === 3 && html.includes('class="money-function-band"'),
+  'image-led visual breaks': imageTags.length >= 8 && expectedImages.every((name) => html.includes(`assets/${name}`)),
   'no remote image dependency': !/<img[^>]+src="https?:/i.test(html),
   'practical file size': Buffer.byteLength(html) < 500_000,
 };
