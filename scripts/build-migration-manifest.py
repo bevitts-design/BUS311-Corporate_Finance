@@ -17,16 +17,16 @@ def lesson_for(path):
     text = str(path).lower()
     rules = [
         (r"chapter 1|intro and chapter 1", "intro-m01-l01", "01-INTRO/M01"),
-        (r"chapter 2|market cap|financial markets", "foundations-m01-l02", "02-VALUATION/M02"),
-        (r"chapter 3|accounting and finance|lemonade|cat - class", "foundations-m02-l01", "02-VALUATION/M03"),
-        (r"chapter 4|ratio activity|measuring corporate", "foundations-m02-l02", "02-VALUATION/M04"),
+        (r"chapter 2|market cap|financial markets", "foundations-m01-l02", "01-INTRO/M02"),
+        (r"chapter 3|accounting and finance|lemonade|cat - class", "foundations-m02-l01", "01-INTRO/M03"),
+        (r"chapter 4|ratio activity|measuring corporate", "foundations-m02-l02", "01-INTRO/M04"),
         (r"chapter 5|time value|valuation of cashflows", "valuation-m01-l01", "02-VALUATION/M05"),
         (r"chapter 6|valuing bonds|bond assignment", "valuation-m02-l01", "02-VALUATION/M06"),
         (r"chapter 7|valuing stocks|ipo|equity valuation", "valuation-m03-l01", "02-VALUATION/M07"),
         (r"chapter 8|net present value|npv assignment", "valuation-m04-l01", "02-VALUATION/M08"),
-        (r"chapter 11|chapter 12|risk.return|calculating_beta", "decisions-m01-l01", "03-FIRM-DECISIONS/M09"),
-        (r"chapter 13|wacc", "decisions-m02-l01", "03-FIRM-DECISIONS/M10"),
-        (r"chapter 14|chapter 15|chapter 16|chapter 17|corporate decision|debt to equity|equityaccounts", "decisions-m03-l01", "03-FIRM-DECISIONS/M11"),
+        (r"chapter 11|chapter 12|risk.return|calculating_beta", "decisions-m01-l01", "03-FIRM-DECISIONS/M12"),
+        (r"chapter 13|wacc", "decisions-m02-l01", "03-FIRM-DECISIONS/M13"),
+        (r"chapter 14|chapter 15|chapter 16|chapter 17|corporate decision|debt to equity|equityaccounts", "decisions-m03-l01", "03-FIRM-DECISIONS/M14"),
         (r"semester long project|revised project design|red team", "CAPSTONE-PLANNING", "CAPSTONE/planning"),
     ]
     for pattern, lesson_id, target in rules:

@@ -73,7 +73,7 @@ async function exportPair(definition) {
 
 const definitions = [
   {
-    id: 'foundations-m02-l01', track: '02-VALUATION', module: 'M03',
+    id: 'foundations-m02-l01', track: '01-INTRO', module: 'M03',
     build(keyed) {
       const wb = baseWorkbook('Financial Statements and Cash Flow', 'foundations-m02-l01');
       const s = wb.worksheets.add('Financial Statements');
@@ -139,7 +139,7 @@ const definitions = [
     }
   },
   {
-    id: 'decisions-m01-l01', track: '03-FIRM-DECISIONS', module: 'M09',
+    id: 'decisions-m01-l01', track: '03-FIRM-DECISIONS', module: 'M12',
     build(keyed) {
       const wb = baseWorkbook('Risk, Return, and CAPM', 'decisions-m01-l01');
       const s = wb.worksheets.add('CAPM Lab'); styleTitle(s, 'Boeing Risk and Required Return', 'G');

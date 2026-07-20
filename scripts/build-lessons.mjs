@@ -9,6 +9,7 @@ const privateRoot = process.env.BUS311_PRIVATE_ROOT || '/private/tmp/BUS311-inst
 const courseMap = JSON.parse(await fs.readFile(path.join(root, 'course-map.json'), 'utf8'));
 const mediaManifest = JSON.parse(await fs.readFile(path.join(root, 'assets', 'lesson-media', 'media-manifest.json'), 'utf8'));
 const mapById = new Map(courseMap.lessons.map((lesson) => [lesson.id, lesson]));
+const trackById = new Map(courseMap.tracks.map((track) => [track.id, track]));
 const mediaById = new Map(mediaManifest.assets.map((asset) => [asset.id, asset]));
 const variantIndex = process.argv.indexOf('--variant');
 const requestedVariant = variantIndex >= 0 ? process.argv[variantIndex + 1] : 'both';
@@ -129,6 +130,9 @@ async function privateCapture(lessonId) {
 
 async function buildDeck(lesson, variant) {
   const profile = visualProfiles[lesson.id];
+  const mapLesson = mapById.get(lesson.id);
+  const displayTrack = trackById.get(mapLesson?.track)?.label || lesson.track;
+  const displayModule = mapLesson?.displayModule || lesson.module;
   if (!profile) throw new Error(`Missing visual profile for ${lesson.id}`);
   if (totalMinutes(profile) !== 75) throw new Error(`Teaching time for ${lesson.id} must total 75 minutes.`);
   const hero = heroAsset(profile);
@@ -143,7 +147,7 @@ async function buildDeck(lesson, variant) {
     notes.push(note);
   };
 
-  add('Title', 'dark hero', `<img class="hero-image" src="${heroUri}" alt="${esc(hero.alt)}"><div class="hero-overlay"></div><div class="hero-copy"><div class="eyebrow">BUS311 · ${esc(lesson.track.toUpperCase())} ${esc(lesson.module)} ${esc(lesson.lesson)}</div><h1>${esc(lesson.title)}</h1><p>${esc(profile.lectureCase)} · executive decision brief</p></div><div class="hero-credit">${esc(hero.credit)}</div>`, `Open with ${profile.lectureCase}. Frame ${lesson.title} as a decision the finance team must defend.`);
+  add('Title', 'dark hero', `<img class="hero-image" src="${heroUri}" alt="${esc(hero.alt)}"><div class="hero-overlay"></div><div class="hero-copy"><div class="eyebrow">BUS311 · ${esc(displayTrack.toUpperCase())} ${esc(displayModule)}</div><h1>${esc(lesson.title)}</h1><p>${esc(profile.lectureCase)} · executive decision brief</p></div><div class="hero-credit">${esc(hero.credit)}</div>`, `Open with ${profile.lectureCase}. Frame ${lesson.title} as a decision the finance team must defend.`);
   add('Agenda', 'cream', `<div class="header-row"><h2>Today’s decision path</h2><span class="eyebrow">75 minutes</span></div><div class="rule"></div><div class="number-grid">${lesson.parts.map((part, index) => `<div class="numbered"><div class="n">0${index + 1}</div><div class="n-body">${esc(part.title)}</div></div>`).join('')}</div><div class="timing-strip">${esc(timingLabel(profile))}</div>`, `Preview the three-part path and the calculation sequence. The deck length follows the topic; the class clock remains 75 minutes.`);
   add('Learning objectives', 'cream', `<div class="header-row"><h2>What you will be able to do</h2><span class="eyebrow">${esc(lesson.outcomes.join(' · '))}</span></div><div class="rule"></div><div class="number-grid">${lesson.objectives.map((objective, index) => `<div class="numbered"><div class="n">0${index + 1}</div><div class="n-body">${esc(objective)}</div></div>`).join('')}</div>`, `Read the objectives as performance expectations and connect them to ${lesson.outcomes.join(', ')}.`);
   add('Decision bridge', 'cream', `<div class="header-row"><h2>The decision starts before the formula</h2><span class="eyebrow">Bridge</span></div><div class="rule"></div><div class="visual-split"><div class="lead">${esc(lesson.bridge)}</div>${flowGraphic(lesson.parts.map((part) => part.title))}</div>`, lesson.bridge);
@@ -173,7 +177,7 @@ async function buildDeck(lesson, variant) {
 
   const deckStage = deckRuntime();
   const titleSuffix = variant === 'classroom' ? ' · Classroom' : '';
-  return { html: `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BUS311 · ${esc(lesson.module)} · ${esc(lesson.lesson)} — ${esc(lesson.title)}${titleSuffix}</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><script type="application/json" id="speaker-notes">${JSON.stringify(notes).replaceAll('</', '<\\/')}</script><style>${css}</style></head><body><deck-stage width="1920" height="1080" no-rail>${slides.join('')}</deck-stage><script>${deckStage}</script></body></html>`, slideCount: slides.length, hasPrivateCapture: Boolean(captureUri), profile };
+  return { html: `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BUS311 · ${esc(displayModule)} — ${esc(lesson.title)}${titleSuffix}</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><script type="application/json" id="speaker-notes">${JSON.stringify(notes).replaceAll('</', '<\\/')}</script><style>${css}</style></head><body><deck-stage width="1920" height="1080" no-rail>${slides.join('')}</deck-stage><script>${deckStage}</script></body></html>`, slideCount: slides.length, hasPrivateCapture: Boolean(captureUri), profile };
 }
 
 function buildTeachingKey(lesson, mapLesson, deckMeta) {

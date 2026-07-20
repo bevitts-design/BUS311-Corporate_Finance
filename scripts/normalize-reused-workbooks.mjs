@@ -7,13 +7,13 @@ const privateRoot = process.env.BUS311_PRIVATE_ROOT || '/private/tmp/BUS311-inst
 const qaRoot = '/private/tmp/bus311-workbook-qa';
 
 const lessons = [
-  ['02-VALUATION', 'M02', 'foundations-m01-l02', 'Financial Institutions, Markets, and Ethics'],
-  ['02-VALUATION', 'M04', 'foundations-m02-l02', 'Ratio Analysis and Corporate Performance'],
+  ['01-INTRO', 'M02', 'foundations-m01-l02', 'Financial Institutions, Markets, and Ethics'],
+  ['01-INTRO', 'M04', 'foundations-m02-l02', 'Ratio Analysis and Corporate Performance'],
   ['02-VALUATION', 'M06', 'valuation-m02-l01', 'Bond Valuation, Interest Rates, and YTM'],
   ['02-VALUATION', 'M07', 'valuation-m03-l01', 'Equity Valuation and IPO Analysis'],
   ['02-VALUATION', 'M08', 'valuation-m04-l01', 'Capital Budgeting and Project Selection'],
-  ['03-FIRM-DECISIONS', 'M10', 'decisions-m02-l01', 'Cost of Capital and WACC'],
-  ['03-FIRM-DECISIONS', 'M11', 'decisions-m03-l01', 'Capital Structure and Financing Decisions']
+  ['03-FIRM-DECISIONS', 'M13', 'decisions-m02-l01', 'Cost of Capital and WACC'],
+  ['03-FIRM-DECISIONS', 'M14', 'decisions-m03-l01', 'Capital Structure and Financing Decisions']
 ];
 
 const colors = {

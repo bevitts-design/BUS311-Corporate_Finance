@@ -5,7 +5,7 @@ import { foundationsM01L02Deck } from './decks/bus311-foundations-m01-l02-conten
 import { deckRuntime } from './deck-runtime.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
-const output = path.join(root, '02-VALUATION', 'M02', 'bus311-foundations-m01-l02-slides.html');
+const output = path.join(root, '01-INTRO', 'M02', 'bus311-foundations-m01-l02-slides.html');
 const esc = (value = '') => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 
 const slides = foundationsM01L02Deck.slides.map((slide, index) => {

@@ -33,7 +33,7 @@ The Fall 2026 Financial Institutions chapter is maintained as a source-audited, 
 - Rebuild brief: `audits/bus311-foundations-m01-l02-rebuild-brief.md`
 - Maintained content: `scripts/decks/bus311-foundations-m01-l02-content.mjs`
 - Builder: `scripts/build-bus311-foundations-m01-l02.mjs`
-- Output: `02-VALUATION/M02/bus311-foundations-m01-l02-slides.html`
+- Output: `01-INTRO/M02/bus311-foundations-m01-l02-slides.html`
 - Source inventory: `audits/bus311-foundations-m01-l02-source-inventory.md`
 - Review log: `audits/bus311-foundations-m01-l02-review-log.md`
 - Validation: `scripts/validate-bus311-foundations-m01-l02.mjs`

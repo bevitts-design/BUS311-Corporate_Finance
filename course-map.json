@@ -38,33 +38,33 @@
       ]
     },
     {
-      "id": "foundations-m01-l02", "track": "valuation", "module": "M01", "lesson": "L02", "displayOrder": 2, "displayModule": "M02",
+      "id": "foundations-m01-l02", "track": "intro", "module": "M01", "lesson": "L02", "displayOrder": 2, "displayModule": "M02",
       "title": "Financial Institutions, Markets, and Ethics", "outcomes": ["LO1", "LO5"],
       "skillFocus": ["capital allocation", "market capitalization", "CFA ethical reasoning", "FactSet navigation"],
       "caseStudy": "Apple",
       "materials": [
-        {"type": "Slides", "path": "02-VALUATION/M02/bus311-foundations-m01-l02-slides.html"},
-        {"type": "Starter Workbook", "path": "02-VALUATION/M02/bus311-foundations-m01-l02-starter.xlsx"}
+        {"type": "Slides", "path": "01-INTRO/M02/bus311-foundations-m01-l02-slides.html"},
+        {"type": "Starter Workbook", "path": "01-INTRO/M02/bus311-foundations-m01-l02-starter.xlsx"}
       ]
     },
     {
-      "id": "foundations-m02-l01", "track": "valuation", "module": "M02", "lesson": "L01", "displayOrder": 3, "displayModule": "M03",
+      "id": "foundations-m02-l01", "track": "intro", "module": "M02", "lesson": "L01", "displayOrder": 3, "displayModule": "M03",
       "title": "Financial Statements and Cash Flow", "outcomes": ["LO2"],
       "skillFocus": ["income statement", "balance sheet", "cash-flow statement", "10-K navigation"],
       "caseStudy": "Microsoft",
       "materials": [
-        {"type": "Slides", "path": "02-VALUATION/M03/bus311-foundations-m02-l01-slides.html"},
-        {"type": "Starter Workbook", "path": "02-VALUATION/M03/bus311-foundations-m02-l01-starter.xlsx"}
+        {"type": "Slides", "path": "01-INTRO/M03/bus311-foundations-m02-l01-slides.html"},
+        {"type": "Starter Workbook", "path": "01-INTRO/M03/bus311-foundations-m02-l01-starter.xlsx"}
       ]
     },
     {
-      "id": "foundations-m02-l02", "track": "valuation", "module": "M02", "lesson": "L02", "displayOrder": 4, "displayModule": "M04",
+      "id": "foundations-m02-l02", "track": "intro", "module": "M02", "lesson": "L02", "displayOrder": 4, "displayModule": "M04",
       "title": "Ratio Analysis and Corporate Performance", "outcomes": ["LO2", "LO3"],
       "skillFocus": ["liquidity", "profitability", "leverage", "peer benchmarking"],
       "caseStudy": "Nike",
       "materials": [
-        {"type": "Slides", "path": "02-VALUATION/M04/bus311-foundations-m02-l02-slides.html"},
-        {"type": "Starter Workbook", "path": "02-VALUATION/M04/bus311-foundations-m02-l02-starter.xlsx"}
+        {"type": "Slides", "path": "01-INTRO/M04/bus311-foundations-m02-l02-slides.html"},
+        {"type": "Starter Workbook", "path": "01-INTRO/M04/bus311-foundations-m02-l02-starter.xlsx"}
       ]
     },
     {
@@ -108,33 +108,33 @@
       ]
     },
     {
-      "id": "decisions-m01-l01", "track": "decisions", "module": "M01", "lesson": "L01", "displayOrder": 9, "displayModule": "M09",
+      "id": "decisions-m01-l01", "track": "decisions", "module": "M01", "lesson": "L01", "displayOrder": 9, "displayModule": "M12",
       "title": "Risk, Return, and CAPM", "outcomes": ["LO5"],
       "skillFocus": ["expected return", "standard deviation", "beta", "CAPM"],
       "caseStudy": "Boeing",
       "materials": [
-        {"type": "Slides", "path": "03-FIRM-DECISIONS/M09/bus311-decisions-m01-l01-slides.html"},
-        {"type": "Starter Workbook", "path": "03-FIRM-DECISIONS/M09/bus311-decisions-m01-l01-starter.xlsx"}
+        {"type": "Slides", "path": "03-FIRM-DECISIONS/M12/bus311-decisions-m01-l01-slides.html"},
+        {"type": "Starter Workbook", "path": "03-FIRM-DECISIONS/M12/bus311-decisions-m01-l01-starter.xlsx"}
       ]
     },
     {
-      "id": "decisions-m02-l01", "track": "decisions", "module": "M02", "lesson": "L01", "displayOrder": 10, "displayModule": "M10",
+      "id": "decisions-m02-l01", "track": "decisions", "module": "M02", "lesson": "L01", "displayOrder": 10, "displayModule": "M13",
       "title": "Cost of Capital and WACC", "outcomes": ["LO5", "LO6"],
       "skillFocus": ["cost of equity", "after-tax cost of debt", "capital weights", "hurdle rate"],
       "caseStudy": "Target",
       "materials": [
-        {"type": "Slides", "path": "03-FIRM-DECISIONS/M10/bus311-decisions-m02-l01-slides.html"},
-        {"type": "Starter Workbook", "path": "03-FIRM-DECISIONS/M10/bus311-decisions-m02-l01-starter.xlsx"}
+        {"type": "Slides", "path": "03-FIRM-DECISIONS/M13/bus311-decisions-m02-l01-slides.html"},
+        {"type": "Starter Workbook", "path": "03-FIRM-DECISIONS/M13/bus311-decisions-m02-l01-starter.xlsx"}
       ]
     },
     {
-      "id": "decisions-m03-l01", "track": "decisions", "module": "M03", "lesson": "L01", "displayOrder": 11, "displayModule": "M11",
+      "id": "decisions-m03-l01", "track": "decisions", "module": "M03", "lesson": "L01", "displayOrder": 11, "displayModule": "M14",
       "title": "Capital Structure and Financing Decisions", "outcomes": ["LO5", "LO6"],
       "skillFocus": ["debt versus equity", "financial flexibility", "tax shields", "financing recommendation"],
       "caseStudy": "Delta Air Lines",
       "materials": [
-        {"type": "Slides", "path": "03-FIRM-DECISIONS/M11/bus311-decisions-m03-l01-slides.html"},
-        {"type": "Starter Workbook", "path": "03-FIRM-DECISIONS/M11/bus311-decisions-m03-l01-starter.xlsx"}
+        {"type": "Slides", "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m03-l01-slides.html"},
+        {"type": "Starter Workbook", "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m03-l01-starter.xlsx"}
       ]
     }
   ]

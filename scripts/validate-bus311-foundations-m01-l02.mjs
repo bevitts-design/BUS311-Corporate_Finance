@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
-const deckPath = path.join(root, '02-VALUATION', 'M02', 'bus311-foundations-m01-l02-slides.html');
+const deckPath = path.join(root, '01-INTRO', 'M02', 'bus311-foundations-m01-l02-slides.html');
 const html = await fs.readFile(deckPath, 'utf8');
 const errors = [];
 
@@ -19,7 +19,7 @@ const expectedImages = [
 ];
 for (const image of expectedImages) {
   try {
-    await fs.access(path.join(root, '02-VALUATION', 'M02', 'assets', image));
+    await fs.access(path.join(root, '01-INTRO', 'M02', 'assets', image));
   } catch {
     errors.push(`Expected local image is missing: ${image}.`);
   }
