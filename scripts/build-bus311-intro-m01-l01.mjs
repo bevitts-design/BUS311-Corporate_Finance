@@ -6,8 +6,8 @@ import { deckRuntime } from './deck-runtime.mjs';
 
 
 const root = path.resolve(import.meta.dirname, '..');
-const output = path.join(root, 'INTRO', 'M01', 'bus311-intro-m01-l01-slides.html');
-const legacyPilotOutput = path.join(root, 'INTRO', 'M01', 'bus311-intro-m01-l01-canva-pilot-slides.html');
+const output = path.join(root, '01-INTRO', 'M01', 'bus311-intro-m01-l01-slides.html');
+const legacyPilotOutput = path.join(root, '01-INTRO', 'M01', 'bus311-intro-m01-l01-canva-pilot-slides.html');
 const esc = (value = '') => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 
 const slides = introM01L01Deck.slides.map((slide, index) => {

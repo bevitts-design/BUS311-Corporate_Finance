@@ -34,7 +34,7 @@
       "skillFocus": ["financial decision framework", "value creation", "stakeholder trade-offs"],
       "caseStudy": "Costco",
       "materials": [
-        {"type": "Slides", "path": "INTRO/M01/bus311-intro-m01-l01-slides.html"}
+        {"type": "Slides", "path": "01-INTRO/M01/bus311-intro-m01-l01-slides.html"}
       ]
     },
     {
@@ -43,8 +43,8 @@
       "skillFocus": ["capital allocation", "market capitalization", "CFA ethical reasoning", "FactSet navigation"],
       "caseStudy": "Apple",
       "materials": [
-        {"type": "Slides", "path": "FOUNDATIONS/M01/bus311-foundations-m01-l02-slides.html"},
-        {"type": "Starter Workbook", "path": "FOUNDATIONS/M01/bus311-foundations-m01-l02-starter.xlsx"}
+        {"type": "Slides", "path": "02-VALUATION/M02/bus311-foundations-m01-l02-slides.html"},
+        {"type": "Starter Workbook", "path": "02-VALUATION/M02/bus311-foundations-m01-l02-starter.xlsx"}
       ]
     },
     {
@@ -53,8 +53,8 @@
       "skillFocus": ["income statement", "balance sheet", "cash-flow statement", "10-K navigation"],
       "caseStudy": "Microsoft",
       "materials": [
-        {"type": "Slides", "path": "FOUNDATIONS/M02/bus311-foundations-m02-l01-slides.html"},
-        {"type": "Starter Workbook", "path": "FOUNDATIONS/M02/bus311-foundations-m02-l01-starter.xlsx"}
+        {"type": "Slides", "path": "02-VALUATION/M03/bus311-foundations-m02-l01-slides.html"},
+        {"type": "Starter Workbook", "path": "02-VALUATION/M03/bus311-foundations-m02-l01-starter.xlsx"}
       ]
     },
     {
@@ -63,8 +63,8 @@
       "skillFocus": ["liquidity", "profitability", "leverage", "peer benchmarking"],
       "caseStudy": "Nike",
       "materials": [
-        {"type": "Slides", "path": "FOUNDATIONS/M02/bus311-foundations-m02-l02-slides.html"},
-        {"type": "Starter Workbook", "path": "FOUNDATIONS/M02/bus311-foundations-m02-l02-starter.xlsx"}
+        {"type": "Slides", "path": "02-VALUATION/M04/bus311-foundations-m02-l02-slides.html"},
+        {"type": "Starter Workbook", "path": "02-VALUATION/M04/bus311-foundations-m02-l02-starter.xlsx"}
       ]
     },
     {
@@ -73,8 +73,8 @@
       "skillFocus": ["cash-flow timelines", "present value", "future value", "annuities"],
       "caseStudy": "Berkshire Hathaway",
       "materials": [
-        {"type": "Slides", "path": "VALUATION/M01/bus311-valuation-m01-l01-slides.html"},
-        {"type": "Starter Workbook", "path": "VALUATION/M01/bus311-valuation-m01-l01-starter.xlsx"}
+        {"type": "Slides", "path": "02-VALUATION/M05/bus311-valuation-m01-l01-slides.html"},
+        {"type": "Starter Workbook", "path": "02-VALUATION/M05/bus311-valuation-m01-l01-starter.xlsx"}
       ]
     },
     {
@@ -83,8 +83,8 @@
       "skillFocus": ["bond pricing", "yield to maturity", "interest-rate risk", "debt capacity"],
       "caseStudy": "Meridian Industrial Corp.",
       "materials": [
-        {"type": "Slides", "path": "VALUATION/M02/bus311-valuation-m02-l01-slides.html"},
-        {"type": "Starter Workbook", "path": "VALUATION/M02/bus311-valuation-m02-l01-starter.xlsx"}
+        {"type": "Slides", "path": "02-VALUATION/M06/bus311-valuation-m02-l01-slides.html"},
+        {"type": "Starter Workbook", "path": "02-VALUATION/M06/bus311-valuation-m02-l01-starter.xlsx"}
       ]
     },
     {
@@ -93,8 +93,8 @@
       "skillFocus": ["dividend discount model", "multiples", "IPO pricing", "scenario analysis"],
       "caseStudy": "Apex Technologies",
       "materials": [
-        {"type": "Slides", "path": "VALUATION/M03/bus311-valuation-m03-l01-slides.html"},
-        {"type": "Starter Workbook", "path": "VALUATION/M03/bus311-valuation-m03-l01-starter.xlsx"}
+        {"type": "Slides", "path": "02-VALUATION/M07/bus311-valuation-m03-l01-slides.html"},
+        {"type": "Starter Workbook", "path": "02-VALUATION/M07/bus311-valuation-m03-l01-starter.xlsx"}
       ]
     },
     {
@@ -103,8 +103,8 @@
       "skillFocus": ["NPV", "IRR", "profitability index", "incremental cash flow"],
       "caseStudy": "Harborside Medical Center",
       "materials": [
-        {"type": "Slides", "path": "VALUATION/M04/bus311-valuation-m04-l01-slides.html"},
-        {"type": "Starter Workbook", "path": "VALUATION/M04/bus311-valuation-m04-l01-starter.xlsx"}
+        {"type": "Slides", "path": "02-VALUATION/M08/bus311-valuation-m04-l01-slides.html"},
+        {"type": "Starter Workbook", "path": "02-VALUATION/M08/bus311-valuation-m04-l01-starter.xlsx"}
       ]
     },
     {
@@ -113,8 +113,8 @@
       "skillFocus": ["expected return", "standard deviation", "beta", "CAPM"],
       "caseStudy": "Boeing",
       "materials": [
-        {"type": "Slides", "path": "DECISIONS/M01/bus311-decisions-m01-l01-slides.html"},
-        {"type": "Starter Workbook", "path": "DECISIONS/M01/bus311-decisions-m01-l01-starter.xlsx"}
+        {"type": "Slides", "path": "03-FIRM-DECISIONS/M09/bus311-decisions-m01-l01-slides.html"},
+        {"type": "Starter Workbook", "path": "03-FIRM-DECISIONS/M09/bus311-decisions-m01-l01-starter.xlsx"}
       ]
     },
     {
@@ -123,8 +123,8 @@
       "skillFocus": ["cost of equity", "after-tax cost of debt", "capital weights", "hurdle rate"],
       "caseStudy": "Target",
       "materials": [
-        {"type": "Slides", "path": "DECISIONS/M02/bus311-decisions-m02-l01-slides.html"},
-        {"type": "Starter Workbook", "path": "DECISIONS/M02/bus311-decisions-m02-l01-starter.xlsx"}
+        {"type": "Slides", "path": "03-FIRM-DECISIONS/M10/bus311-decisions-m02-l01-slides.html"},
+        {"type": "Starter Workbook", "path": "03-FIRM-DECISIONS/M10/bus311-decisions-m02-l01-starter.xlsx"}
       ]
     },
     {
@@ -133,8 +133,8 @@
       "skillFocus": ["debt versus equity", "financial flexibility", "tax shields", "financing recommendation"],
       "caseStudy": "Delta Air Lines",
       "materials": [
-        {"type": "Slides", "path": "DECISIONS/M03/bus311-decisions-m03-l01-slides.html"},
-        {"type": "Starter Workbook", "path": "DECISIONS/M03/bus311-decisions-m03-l01-starter.xlsx"}
+        {"type": "Slides", "path": "03-FIRM-DECISIONS/M11/bus311-decisions-m03-l01-slides.html"},
+        {"type": "Starter Workbook", "path": "03-FIRM-DECISIONS/M11/bus311-decisions-m03-l01-starter.xlsx"}
       ]
     }
   ]

@@ -24,7 +24,7 @@
 
 - **Maintained content module:** `scripts/decks/bus311-foundations-m01-l02-content.mjs`
 - **Builder:** `scripts/build-bus311-foundations-m01-l02.mjs`
-- **Output:** `FOUNDATIONS/M01/bus311-foundations-m01-l02-slides.html`
+- **Output:** `02-VALUATION/M02/bus311-foundations-m01-l02-slides.html`
 - **Source inventory:** `audits/bus311-foundations-m01-l02-source-inventory.md`
 - **Review log:** `audits/bus311-foundations-m01-l02-review-log.md`
 
@@ -78,7 +78,7 @@
 - **Publisher or licensed material:** Source PPTX contains numerous stock photos, icons, and chart images with no public-repository rights record
 - **Proprietary FactSet content:** None copied
 - **Logos requiring verification:** Source logos and exchange/institution imagery were not copied
-- **Assets approved for public repository:** Newly authored HTML/CSS/SVG plus seven original generated PNGs in `FOUNDATIONS/M01/assets/`; existing public starter workbook remains linked through course-map.json
+- **Assets approved for public repository:** Newly authored HTML/CSS/SVG plus seven original generated PNGs in `02-VALUATION/M02/assets/`; existing public starter workbook remains linked through course-map.json
 - **Items omitted or private:** All extracted PPTX media; source-only Canvas path; private workbook key and teaching key
 
 ## Approval gates

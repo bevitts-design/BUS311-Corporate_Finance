@@ -3,8 +3,8 @@ import path from 'node:path';
 
 
 const root = path.resolve(import.meta.dirname, '..');
-const deckPath = path.join(root, 'INTRO', 'M01', 'bus311-intro-m01-l01-slides.html');
-const legacyPilotPath = path.join(root, 'INTRO', 'M01', 'bus311-intro-m01-l01-canva-pilot-slides.html');
+const deckPath = path.join(root, '01-INTRO', 'M01', 'bus311-intro-m01-l01-slides.html');
+const legacyPilotPath = path.join(root, '01-INTRO', 'M01', 'bus311-intro-m01-l01-canva-pilot-slides.html');
 const html = await fs.readFile(deckPath, 'utf8');
 const errors = [];
 const expectedImageAssets = [
@@ -21,7 +21,7 @@ const expectedImageAssets = [
 
 for (const filename of expectedImageAssets) {
   try {
-    await fs.access(path.join(root, 'INTRO', 'M01', 'assets', filename));
+    await fs.access(path.join(root, '01-INTRO', 'M01', 'assets', filename));
   } catch {
     errors.push(`Missing local deck image asset: ${filename}.`);
   }

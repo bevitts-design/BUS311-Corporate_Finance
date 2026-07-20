@@ -2,7 +2,7 @@
 
 **Deck:** Corporate Finance: Course Introduction and Chapter 1
 **Source:** Canva/PPTX, 46 source slides
-**Approved output:** `INTRO/M01/bus311-intro-m01-l01-slides.html`
+**Approved output:** `01-INTRO/M01/bus311-intro-m01-l01-slides.html`
 **Approval status:** Approved July 19, 2026
 
 This log records instructor feedback from the pilot review. `Global` and `Pattern` decisions are incorporated into `docs/bus311-html-deck-standard.md`. `Deck-specific` decisions remain limited to this lesson.

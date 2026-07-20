@@ -2,7 +2,7 @@
 
 **Deck:** Financial Institutions, Markets, and Ethics  
 **Source:** Canva/PPTX, 33 source slides  
-**Output:** `FOUNDATIONS/M01/bus311-foundations-m01-l02-slides.html`  
+**Output:** `02-VALUATION/M02/bus311-foundations-m01-l02-slides.html`
 **Review status:** Classroom-ready first pass; instructor approval pending
 
 | Topic | Decision | Classification | Disposition |

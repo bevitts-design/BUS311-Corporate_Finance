@@ -9,8 +9,8 @@
 - **Approval status:** Approved July 19, 2026
 - **Source slides inspected:** 46 of 46, using read-only Canva content and page thumbnails
 - **Approved unit:** Intro
-- **Approved output:** `INTRO/M01/bus311-intro-m01-l01-slides.html`
-- **Legacy review alias:** `INTRO/M01/bus311-intro-m01-l01-canva-pilot-slides.html`
+- **Approved output:** `01-INTRO/M01/bus311-intro-m01-l01-slides.html`
+- **Legacy review alias:** `01-INTRO/M01/bus311-intro-m01-l01-canva-pilot-slides.html`
 - **Maintained source:** `scripts/decks/bus311-intro-m01-l01-content.mjs`
 - **Builder:** `scripts/build-bus311-intro-m01-l01.mjs`
 - **Validator:** `scripts/validate-bus311-intro-m01-l01.mjs`
@@ -34,7 +34,7 @@ The maintained runtime standardizes `#slide-N` URL hashes, previous/next control
 
 ## Generated asset record
 
-The seven public editorial images were created with the built-in image-generation tool in `photorealistic-natural` mode, reviewed visually, and copied into `INTRO/M01/assets/`. No source Canva image or personal photograph was copied. Two additional local historical-logo SVGs are used for Tyco and Enron after rights review; WorldCom remains a course-authored typographic identifier.
+The seven public editorial images were created with the built-in image-generation tool in `photorealistic-natural` mode, reviewed visually, and copied into `01-INTRO/M01/assets/`. No source Canva image or personal photograph was copied. Two additional local historical-logo SVGs are used for Tyco and Enron after rights review; WorldCom remains a course-authored typographic identifier.
 
 | Local asset | Final generation prompt |
 |---|---|

@@ -18,8 +18,8 @@ The Fall 2026 course introduction and Chapter 1 pilot was approved on July 19, 2
 - Chapter brief template: `docs/templates/bus311-chapter-rebuild-brief.md`
 - Maintained content: `scripts/decks/bus311-intro-m01-l01-content.mjs`
 - Builder: `scripts/build-bus311-intro-m01-l01.mjs`
-- Output: `INTRO/M01/bus311-intro-m01-l01-slides.html`
-- Legacy review alias: `INTRO/M01/bus311-intro-m01-l01-canva-pilot-slides.html`
+- Output: `01-INTRO/M01/bus311-intro-m01-l01-slides.html`
+- Legacy review alias: `01-INTRO/M01/bus311-intro-m01-l01-canva-pilot-slides.html`
 - Source audit: `audits/canva-intro-ch1-pilot-inventory.md`
 - Review log: `audits/intro-m01-l01-review-log.md`
 - Validation: `scripts/validate-bus311-intro-m01-l01.mjs`
@@ -33,7 +33,7 @@ The Fall 2026 Financial Institutions chapter is maintained as a source-audited, 
 - Rebuild brief: `audits/bus311-foundations-m01-l02-rebuild-brief.md`
 - Maintained content: `scripts/decks/bus311-foundations-m01-l02-content.mjs`
 - Builder: `scripts/build-bus311-foundations-m01-l02.mjs`
-- Output: `FOUNDATIONS/M01/bus311-foundations-m01-l02-slides.html`
+- Output: `02-VALUATION/M02/bus311-foundations-m01-l02-slides.html`
 - Source inventory: `audits/bus311-foundations-m01-l02-source-inventory.md`
 - Review log: `audits/bus311-foundations-m01-l02-review-log.md`
 - Validation: `scripts/validate-bus311-foundations-m01-l02.mjs`

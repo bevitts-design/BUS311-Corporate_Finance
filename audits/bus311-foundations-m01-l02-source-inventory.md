@@ -8,7 +8,7 @@
 - **Source slides inspected:** 33 of 33
 - **Target:** Fall 2026 public presenter deck
 - **Maintained content:** `scripts/decks/bus311-foundations-m01-l02-content.mjs`
-- **Output:** `FOUNDATIONS/M01/bus311-foundations-m01-l02-slides.html`
+- **Output:** `02-VALUATION/M02/bus311-foundations-m01-l02-slides.html`
 - **Source media policy:** PPTX media remained in a temporary audit area; none was copied into the public repository because reusable rights were not documented
 
 ## Compact source audit
@@ -59,6 +59,6 @@
 - The PPTX contains 157 extracted media relationships, including stock photography, icons, logos, and rasterized charts.
 - Important numerical or instructional visuals were recreated as HTML/CSS/SVG.
 - No extracted image, logo, Endicott mark, proprietary screen, or source chart was copied into the public repository.
-- Seven original editorial images were generated specifically for the Fall 2026 rebuild and placed locally in `FOUNDATIONS/M01/assets/`; the payment image supports both its section bridge and the later Coinbase case.
+- Seven original editorial images were generated specifically for the Fall 2026 rebuild and placed locally in `02-VALUATION/M02/assets/`; the payment image supports both its section bridge and the later Coinbase case.
 - The public deck uses company names as editable text and provides source links for current claims.
 - The original PPTX and temporary extraction remain outside the public repository.

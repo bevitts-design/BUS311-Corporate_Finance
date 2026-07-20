@@ -73,7 +73,7 @@ async function exportPair(definition) {
 
 const definitions = [
   {
-    id: 'foundations-m02-l01', track: 'FOUNDATIONS', module: 'M02',
+    id: 'foundations-m02-l01', track: '02-VALUATION', module: 'M03',
     build(keyed) {
       const wb = baseWorkbook('Financial Statements and Cash Flow', 'foundations-m02-l01');
       const s = wb.worksheets.add('Financial Statements');
@@ -105,7 +105,7 @@ const definitions = [
     }
   },
   {
-    id: 'valuation-m01-l01', track: 'VALUATION', module: 'M01',
+    id: 'valuation-m01-l01', track: '02-VALUATION', module: 'M05',
     build(keyed) {
       const wb = baseWorkbook('Time Value of Money', 'valuation-m01-l01');
       const s = wb.worksheets.add('TVM Lab'); styleTitle(s, 'Berkshire Capital Allocation — TVM Lab', 'F');
@@ -139,7 +139,7 @@ const definitions = [
     }
   },
   {
-    id: 'decisions-m01-l01', track: 'DECISIONS', module: 'M01',
+    id: 'decisions-m01-l01', track: '03-FIRM-DECISIONS', module: 'M09',
     build(keyed) {
       const wb = baseWorkbook('Risk, Return, and CAPM', 'decisions-m01-l01');
       const s = wb.worksheets.add('CAPM Lab'); styleTitle(s, 'Boeing Risk and Required Return', 'G');

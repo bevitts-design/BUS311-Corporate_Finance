@@ -2,7 +2,7 @@
 
 **Status:** Approved
 **Pilot approved:** July 19, 2026
-**Approved reference deck:** `INTRO/M01/bus311-intro-m01-l01-slides.html`
+**Approved reference deck:** `01-INTRO/M01/bus311-intro-m01-l01-slides.html`
 **Visual reference:** BUS209 FactSet decks
 **Default mode:** Presenter
 

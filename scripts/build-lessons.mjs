@@ -19,7 +19,10 @@ const esc = (value = '') => String(value).replace(/[&<>"']/g, (char) => ({ '&': 
 const formulaSafe = (value) => String(value).replaceAll('`', '\\`');
 
 function moduleDir(base, lesson) {
-  return path.join(base, lesson.track.toUpperCase(), lesson.module);
+  const mapLesson = mapById.get(lesson.id);
+  const publicMaterial = mapLesson?.materials.find((material) => material.path);
+  if (!publicMaterial) throw new Error(`Missing public material path for ${lesson.id}`);
+  return path.join(base, path.dirname(publicMaterial.path));
 }
 
 async function dataUri(relativePath) {
