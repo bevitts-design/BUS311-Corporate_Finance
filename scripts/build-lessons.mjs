@@ -181,7 +181,7 @@ async function buildDeck(lesson, variant) {
 }
 
 function buildTeachingKey(lesson, mapLesson, deckMeta) {
-  const workbook = mapLesson.materials.find((material) => material.type === 'Starter Workbook');
+  const workbook = mapLesson.materials.find((material) => material.type === 'Starter Workbook' || material.type === 'Excel Activity');
   const publicLinks = mapLesson.materials.map((material) => `- ${material.type}: ${material.path || material.url}`).join('\n');
   const expected = lesson.parts.flatMap((part) => part.items.map((item) => `- **${item.title}:** ${item.note}`)).join('\n');
   const profile = deckMeta.profile;
