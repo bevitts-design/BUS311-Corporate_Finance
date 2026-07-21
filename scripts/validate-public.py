@@ -61,7 +61,7 @@ def markdown_checks(path, lesson_id, errors):
 def deck_checks(path, errors):
     text = path.read_text(encoding="utf-8")
     is_approved_intro = path.name == "bus311-intro-m01-l01-slides.html"
-    is_approved_financial_institutions = path.name == "bus311-foundations-m01-l02-slides.html"
+    is_approved_financial_institutions = path.name == "bus311-intro-m02-l01-slides.html"
     slide_count = len(re.findall(r'<section class="slide ', text))
     local_visual_media = len(re.findall(r'<img\b[^>]+src="assets/', text))
     notes_match = re.search(r'<script type="application/json" id="speaker-notes">(.*?)</script>', text, re.S)

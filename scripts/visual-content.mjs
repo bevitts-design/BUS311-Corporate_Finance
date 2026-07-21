@@ -17,7 +17,7 @@ export const visualProfiles = {
     calculationSteps: ['Forecast incremental cash flows', 'Discount at the opportunity cost of capital', 'Accept only if the value margin survives risk'],
     decision: 'Fund the opportunity only when evidence-adjusted NPV remains positive.', timing: timing(12)
   },
-  'foundations-m01-l02': {
+  'intro-m02-l01': {
     lectureCase: 'Apple', practiceCase: 'Apple', hero: 'foundations',
     factsetView: 'Market snapshot · price · diluted shares · field definitions',
     evidenceLabel: 'Price × shares measures common equity value',
@@ -25,7 +25,7 @@ export const visualProfiles = {
     calculationSteps: ['Confirm the price date', 'Confirm diluted shares and units', 'Multiply, reconcile, and distinguish equity value from enterprise value'],
     decision: 'Use market capitalization only after the date, units, and claim definition reconcile.', timing: timing(14)
   },
-  'foundations-m02-l01': {
+  'intro-m03-l01': {
     lectureCase: 'Microsoft', practiceCase: 'Microsoft', hero: 'foundations',
     factsetView: 'Financials · standardized statements · filing reconciliation',
     evidenceLabel: 'Three statements must tell one cash story',
@@ -33,7 +33,7 @@ export const visualProfiles = {
     calculationSteps: ['Build gross profit and EBIT', 'Subtract financing costs and taxes', 'Reconcile net income to operating cash flow'],
     decision: 'Trust the conclusion only when the statements reconcile and definitions match.', timing: timing(16)
   },
-  'foundations-m02-l02': {
+  'intro-m04-l01': {
     lectureCase: 'Nike', practiceCase: 'Nike', hero: 'foundations',
     factsetView: 'Ratios · peer comparison · period and denominator definitions',
     evidenceLabel: 'A ratio becomes useful when its driver is visible',

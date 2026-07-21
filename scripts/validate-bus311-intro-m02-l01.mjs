@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
-const deckPath = path.join(root, '01-INTRO', 'M02', 'bus311-foundations-m01-l02-slides.html');
+const deckPath = path.join(root, '01-INTRO', 'M02', 'bus311-intro-m02-l01-slides.html');
 const html = await fs.readFile(deckPath, 'utf8');
 const errors = [];
 

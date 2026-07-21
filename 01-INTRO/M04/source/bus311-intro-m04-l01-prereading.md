@@ -1,6 +1,6 @@
 ---
 course: BUS311
-lesson_id: foundations-m02-l02
+lesson_id: intro-m04-l01
 title: "Ratio Analysis and Corporate Performance"
 outcomes: [LO2, LO3]
 status: draft

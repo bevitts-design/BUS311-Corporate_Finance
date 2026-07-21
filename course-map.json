@@ -38,34 +38,34 @@
       ]
     },
     {
-      "id": "foundations-m01-l02", "track": "intro", "module": "M01", "lesson": "L02", "displayOrder": 2, "displayModule": "M02",
+      "id": "intro-m02-l01", "track": "intro", "module": "M02", "lesson": "L01", "displayOrder": 2, "displayModule": "M02",
       "title": "Financial Institutions, Markets, and Ethics", "outcomes": ["LO1", "LO5"],
       "skillFocus": ["capital allocation", "market capitalization", "CFA ethical reasoning", "FactSet navigation"],
       "caseStudy": "Apple",
       "materials": [
-        {"type": "Slides", "path": "01-INTRO/M02/bus311-foundations-m01-l02-slides.html"},
-        {"type": "Starter Workbook", "path": "01-INTRO/M02/bus311-foundations-m01-l02-starter.xlsx"},
-        {"type": "Excel Activity", "label": "Market Capitalization Activity", "path": "01-INTRO/M02/bus311-foundations-m01-l02-market-cap-activity.xlsx"}
+        {"type": "Slides", "path": "01-INTRO/M02/bus311-intro-m02-l01-slides.html"},
+        {"type": "Starter Workbook", "path": "01-INTRO/M02/bus311-intro-m02-l01-starter.xlsx"},
+        {"type": "Excel Activity", "label": "Market Capitalization Activity", "path": "01-INTRO/M02/bus311-intro-m02-l01-market-cap-activity.xlsx"}
       ]
     },
     {
-      "id": "foundations-m02-l01", "track": "intro", "module": "M02", "lesson": "L01", "displayOrder": 3, "displayModule": "M03",
+      "id": "intro-m03-l01", "track": "intro", "module": "M03", "lesson": "L01", "displayOrder": 3, "displayModule": "M03",
       "title": "Financial Statements and Cash Flow", "outcomes": ["LO2"],
       "skillFocus": ["income statement", "balance sheet", "cash-flow statement", "10-K navigation"],
       "caseStudy": "Microsoft",
       "materials": [
-        {"type": "Slides", "path": "01-INTRO/M03/bus311-foundations-m02-l01-slides.html"},
-        {"type": "Starter Workbook", "path": "01-INTRO/M03/bus311-foundations-m02-l01-starter.xlsx"}
+        {"type": "Slides", "path": "01-INTRO/M03/bus311-intro-m03-l01-slides.html"},
+        {"type": "Starter Workbook", "path": "01-INTRO/M03/bus311-intro-m03-l01-starter.xlsx"}
       ]
     },
     {
-      "id": "foundations-m02-l02", "track": "intro", "module": "M02", "lesson": "L02", "displayOrder": 4, "displayModule": "M04",
+      "id": "intro-m04-l01", "track": "intro", "module": "M04", "lesson": "L01", "displayOrder": 4, "displayModule": "M04",
       "title": "Ratio Analysis and Corporate Performance", "outcomes": ["LO2", "LO3"],
       "skillFocus": ["liquidity", "profitability", "leverage", "peer benchmarking"],
       "caseStudy": "Nike",
       "materials": [
-        {"type": "Slides", "path": "01-INTRO/M04/bus311-foundations-m02-l02-slides.html"},
-        {"type": "Starter Workbook", "path": "01-INTRO/M04/bus311-foundations-m02-l02-starter.xlsx"}
+        {"type": "Slides", "path": "01-INTRO/M04/bus311-intro-m04-l01-slides.html"},
+        {"type": "Starter Workbook", "path": "01-INTRO/M04/bus311-intro-m04-l01-starter.xlsx"}
       ]
     },
     {

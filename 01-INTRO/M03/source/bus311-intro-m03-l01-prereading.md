@@ -1,6 +1,6 @@
 ---
 course: BUS311
-lesson_id: foundations-m02-l01
+lesson_id: intro-m03-l01
 title: "Financial Statements and Cash Flow"
 outcomes: [LO2]
 status: draft

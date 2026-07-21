@@ -2,7 +2,7 @@
 
 ## Lesson identity
 
-- **Lesson ID:** foundations-m01-l02
+- **Lesson ID:** intro-m02-l01
 - **Track / module / lesson:** Foundations / M01 / L02
 - **Chapter or topic:** Chapter 2 — Financial Institutions
 - **Course-map title:** Financial Institutions, Markets, and Ethics
@@ -22,11 +22,11 @@
 
 ## Target
 
-- **Maintained content module:** `scripts/decks/bus311-foundations-m01-l02-content.mjs`
-- **Builder:** `scripts/build-bus311-foundations-m01-l02.mjs`
-- **Output:** `01-INTRO/M02/bus311-foundations-m01-l02-slides.html`
-- **Source inventory:** `audits/bus311-foundations-m01-l02-source-inventory.md`
-- **Review log:** `audits/bus311-foundations-m01-l02-review-log.md`
+- **Maintained content module:** `scripts/decks/bus311-intro-m02-l01-content.mjs`
+- **Builder:** `scripts/build-bus311-intro-m02-l01.mjs`
+- **Output:** `01-INTRO/M02/bus311-intro-m02-l01-slides.html`
+- **Source inventory:** `audits/bus311-intro-m02-l01-source-inventory.md`
+- **Review log:** `audits/bus311-intro-m02-l01-review-log.md`
 
 ## Term and schedule
 

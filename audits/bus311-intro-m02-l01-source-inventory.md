@@ -2,13 +2,13 @@
 
 ## Source and rebuild scope
 
-- **Lesson:** `foundations-m01-l02`
+- **Lesson:** `intro-m02-l01`
 - **Source:** `CF - Chapter 2- Financial Institutions - Spring 2026.pptx`
 - **Canva review link:** <https://canva.link/v03t25xsskwquvk>
 - **Source slides inspected:** 33 of 33
 - **Target:** Fall 2026 public presenter deck
-- **Maintained content:** `scripts/decks/bus311-foundations-m01-l02-content.mjs`
-- **Output:** `01-INTRO/M02/bus311-foundations-m01-l02-slides.html`
+- **Maintained content:** `scripts/decks/bus311-intro-m02-l01-content.mjs`
+- **Output:** `01-INTRO/M02/bus311-intro-m02-l01-slides.html`
 - **Source media policy:** PPTX media remained in a temporary audit area; none was copied into the public repository because reusable rights were not documented
 
 ## Compact source audit

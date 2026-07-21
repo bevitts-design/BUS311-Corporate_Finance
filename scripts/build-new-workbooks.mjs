@@ -73,9 +73,9 @@ async function exportPair(definition) {
 
 const definitions = [
   {
-    id: 'foundations-m02-l01', track: '01-INTRO', module: 'M03',
+    id: 'intro-m03-l01', track: '01-INTRO', module: 'M03',
     build(keyed) {
-      const wb = baseWorkbook('Financial Statements and Cash Flow', 'foundations-m02-l01');
+      const wb = baseWorkbook('Financial Statements and Cash Flow', 'intro-m03-l01');
       const s = wb.worksheets.add('Financial Statements');
       styleTitle(s, 'Coastal Outfitters — Statement Bridge', 'F');
       s.getRange('A3:B3').values = [['Income Statement ($ millions)', 'Value']];

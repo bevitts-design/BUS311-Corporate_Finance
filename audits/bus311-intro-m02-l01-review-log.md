@@ -1,8 +1,8 @@
-# BUS311 Foundations M01 L02 review log
+# BUS311 Intro M02 L01 review log
 
 **Deck:** Financial Institutions, Markets, and Ethics  
 **Source:** Canva/PPTX, 33 source slides  
-**Output:** `01-INTRO/M02/bus311-foundations-m01-l02-slides.html`
+**Output:** `01-INTRO/M02/bus311-intro-m02-l01-slides.html`
 **Review status:** Classroom-ready first pass; instructor approval pending
 
 | Topic | Decision | Classification | Disposition |

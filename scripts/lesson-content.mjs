@@ -28,7 +28,7 @@ export const lessonContent = [
     next: 'Trace capital from savers through institutions and markets.'
   },
   {
-    id: 'foundations-m01-l02', track: 'foundations', module: 'M01', lesson: 'L02',
+    id: 'intro-m02-l01', track: 'intro', module: 'M02', lesson: 'L01',
     title: 'Financial Institutions, Markets, and Ethics', caseStudy: 'Apple', outcomes: ['LO1', 'LO5'],
     objectives: ['Map institutions to capital-allocation roles', 'Explain primary and secondary markets', 'Use FactSet data without overstating evidence'],
     bridge: 'Corporate decisions require capital; markets connect those decisions to investors.',
@@ -54,7 +54,7 @@ export const lessonContent = [
     next: 'Follow market information into the financial statements.'
   },
   {
-    id: 'foundations-m02-l01', track: 'foundations', module: 'M02', lesson: 'L01',
+    id: 'intro-m03-l01', track: 'intro', module: 'M03', lesson: 'L01',
     title: 'Financial Statements and Cash Flow', caseStudy: 'Microsoft', outcomes: ['LO2'],
     objectives: ['Connect the three primary statements', 'Separate operating performance from financing', 'Locate decision-useful 10-K evidence'],
     bridge: 'Markets price claims; financial statements reveal the operating engine behind those claims.',
@@ -80,7 +80,7 @@ export const lessonContent = [
     next: 'Turn statements into comparable performance signals.'
   },
   {
-    id: 'foundations-m02-l02', track: 'foundations', module: 'M02', lesson: 'L02',
+    id: 'intro-m04-l01', track: 'intro', module: 'M04', lesson: 'L01',
     title: 'Ratio Analysis and Corporate Performance', caseStudy: 'Nike', outcomes: ['LO2', 'LO3'],
     objectives: ['Calculate ratios from consistent inputs', 'Interpret ratios through drivers and peers', 'Avoid denominator and period mismatches'],
     bridge: 'Statements organize the evidence; ratios make patterns and comparisons visible.',

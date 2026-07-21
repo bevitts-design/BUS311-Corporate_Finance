@@ -1,6 +1,6 @@
 ---
 course: BUS311
-lesson_id: foundations-m01-l02
+lesson_id: intro-m02-l01
 title: "Financial Institutions, Markets, and Ethics"
 outcomes: [LO1, LO5]
 status: draft

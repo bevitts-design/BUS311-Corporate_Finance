@@ -14,7 +14,7 @@ const mediaById = new Map(mediaManifest.assets.map((asset) => [asset.id, asset])
 const variantIndex = process.argv.indexOf('--variant');
 const requestedVariant = variantIndex >= 0 ? process.argv[variantIndex + 1] : 'both';
 if (!['public', 'classroom', 'both'].includes(requestedVariant)) throw new Error(`Unknown --variant ${requestedVariant}`);
-const approvedPublicDeckIds = new Set(['intro-m01-l01', 'foundations-m01-l02']);
+const approvedPublicDeckIds = new Set(['intro-m01-l01', 'intro-m02-l01']);
 
 const esc = (value = '') => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const formulaSafe = (value) => String(value).replaceAll('`', '\\`');

@@ -1,18 +1,18 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-import { foundationsM01L02Deck } from './decks/bus311-foundations-m01-l02-content.mjs';
+import { introM02L01Deck } from './decks/bus311-intro-m02-l01-content.mjs';
 import { deckRuntime } from './deck-runtime.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
-const output = path.join(root, '01-INTRO', 'M02', 'bus311-foundations-m01-l02-slides.html');
+const output = path.join(root, '01-INTRO', 'M02', 'bus311-intro-m02-l01-slides.html');
 const esc = (value = '') => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 
-const slides = foundationsM01L02Deck.slides.map((slide, index) => {
+const slides = introM02L01Deck.slides.map((slide, index) => {
   const number = String(index + 1).padStart(2, '0');
   return `<section class="slide ${slide.classes}" data-label="${number} ${esc(slide.label)}" data-source-slides="${esc(slide.slides)}">${slide.body}</section>`;
 });
-const notes = foundationsM01L02Deck.slides.map((slide) => slide.note);
+const notes = introM02L01Deck.slides.map((slide) => slide.note);
 
 const css = `
 :root{
@@ -71,7 +71,7 @@ h1,h2,h3,p,figure{margin:0}h1{font:650 var(--type-display)/.94 var(--font-body);
 .activity-slide .number-grid{grid-template-columns:repeat(3,1fr)}.activity-slide .numbered{min-height:250px}.activity-prompt{background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.22)}
 `;
 
-const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BUS311 · M01 · L02 — ${esc(foundationsM01L02Deck.title)}</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><script type="application/json" id="speaker-notes">${JSON.stringify(notes).replaceAll('</', '<\\/')}</script><style>${css}</style></head><body><deck-stage width="1920" height="1080" no-rail>${slides.join('')}</deck-stage><script>${deckRuntime()}</script></body></html>`;
+const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BUS311 · M01 · L02 — ${esc(introM02L01Deck.title)}</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><script type="application/json" id="speaker-notes">${JSON.stringify(notes).replaceAll('</', '<\\/')}</script><style>${css}</style></head><body><deck-stage width="1920" height="1080" no-rail>${slides.join('')}</deck-stage><script>${deckRuntime()}</script></body></html>`;
 
 await fs.mkdir(path.dirname(output), { recursive: true });
 await fs.writeFile(output, html);
