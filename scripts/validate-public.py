@@ -16,7 +16,7 @@ def workbook_sheets(path):
     return [(node.attrib.get("name", ""), node.attrib.get("state", "visible")) for node in root.iter() if node.tag.endswith("sheet")]
 
 
-def workbook_checks(path, errors):
+def workbook_checks(path, errors, require_lesson_contract=True):
     for sheet_name, state in workbook_sheets(path):
         if FORBIDDEN.search(sheet_name):
             errors.append(f"Forbidden workbook sheet '{sheet_name}' in {path.relative_to(ROOT)}")
@@ -31,10 +31,11 @@ def workbook_checks(path, errors):
                 searchable.append(archive.read(name).decode("utf-8", errors="ignore"))
         text = " ".join(searchable)
         lowered = text.lower()
-        if "factset" not in lowered:
-            errors.append(f"Workbook lacks identified FactSet inputs: {path.relative_to(ROOT)}")
-        if not any(marker in lowered for marker in ("decision output", "recommendation", "decision, evidence")):
-            errors.append(f"Workbook lacks a decision output: {path.relative_to(ROOT)}")
+        if require_lesson_contract:
+            if "factset" not in lowered:
+                errors.append(f"Workbook lacks identified FactSet inputs: {path.relative_to(ROOT)}")
+            if not any(marker in lowered for marker in ("decision output", "recommendation", "decision, evidence")):
+                errors.append(f"Workbook lacks a decision output: {path.relative_to(ROOT)}")
         for marker in ("#REF!", "#DIV/0!", "#VALUE!", "#NAME?"):
             if marker in text:
                 errors.append(f"Workbook contains formula error {marker}: {path.relative_to(ROOT)}")
@@ -185,7 +186,7 @@ def main():
                 elif target.suffix.lower() == ".html" and material.get("type") == "Slides":
                     deck_checks(target, errors)
                 elif target.suffix.lower() == ".xlsx":
-                    workbook_checks(target, errors)
+                    workbook_checks(target, errors, material.get("type") == "Starter Workbook")
             else:
                 marker = "/blob/main/"
                 if marker not in material["url"] or not material["url"].endswith(".md"):

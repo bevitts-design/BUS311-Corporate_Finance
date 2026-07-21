@@ -44,7 +44,8 @@
       "caseStudy": "Apple",
       "materials": [
         {"type": "Slides", "path": "01-INTRO/M02/bus311-foundations-m01-l02-slides.html"},
-        {"type": "Starter Workbook", "path": "01-INTRO/M02/bus311-foundations-m01-l02-starter.xlsx"}
+        {"type": "Starter Workbook", "path": "01-INTRO/M02/bus311-foundations-m01-l02-starter.xlsx"},
+        {"type": "Excel Activity", "label": "Market Capitalization Activity", "path": "01-INTRO/M02/bus311-foundations-m01-l02-market-cap-activity.xlsx"}
       ]
     },
     {
