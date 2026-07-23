@@ -62,8 +62,9 @@ def deck_checks(path, errors):
     text = path.read_text(encoding="utf-8")
     is_approved_intro = path.name == "bus311-intro-m01-l01-slides.html"
     is_approved_financial_institutions = path.name == "bus311-intro-m02-l01-slides.html"
-    slide_count = len(re.findall(r'<section class="slide ', text))
-    local_visual_media = len(re.findall(r'<img\b[^>]+src="assets/', text))
+    is_approved_npv = path.name == "bus311-valuation-m04-l01-slides.html"
+    slide_count = len(re.findall(r'<section\b[^>]*class=["\'][^"\']*\bslide\b', text))
+    local_visual_media = len(re.findall(r'<img\b[^>]+src=["\']assets/', text))
     notes_match = re.search(r'<script type="application/json" id="speaker-notes">(.*?)</script>', text, re.S)
     try:
         notes_count = len(json.loads(unescape(notes_match.group(1)))) if notes_match else 0
@@ -102,6 +103,15 @@ def deck_checks(path, errors):
                     'class="financing-matrix"',
                 ))
             )
+            or (
+                is_approved_npv
+                and local_visual_media >= 2
+                and all(marker in text for marker in (
+                    "class='cash-timeline'",
+                    "class='npv-profile'",
+                    "class='objective-orbit'",
+                ))
+            )
         ),
         "FactSet public mockup": (
             "FACTSET WORKFLOW MOCKUP" in text
@@ -110,6 +120,11 @@ def deck_checks(path, errors):
                 is_approved_financial_institutions
                 and "Data discipline is an ethical practice" in text
                 and "units, and retrieval date" in text
+            )
+            or (
+                is_approved_npv
+                and "Corporate red team · Walmart context" in text
+                and "Company announcements provide the context" in text
             )
         ) and "PRIVATE CAPTURE" not in text,
         "Excel model slide": (
@@ -124,6 +139,11 @@ def deck_checks(path, errors):
                 and "=225 * 15.2" in text
                 and "Build and audit a market-cap comparison" in text
             )
+            or (
+                is_approved_npv
+                and "=NPV(B3,C6:G6)+B6" in text
+                and "Excel syntax comes first" in text
+            )
         ),
         "sensitivity slide": (
             "Sensitivity" in text
@@ -132,6 +152,11 @@ def deck_checks(path, errors):
                 is_approved_financial_institutions
                 and "what the result excludes" in text
                 and "What does the evidence not prove?" in text
+            )
+            or (
+                is_approved_npv
+                and "id='rate-slider'" in text
+                and "data-risk='utilization'" in text
             )
         ),
         "decision slide": (
@@ -145,6 +170,11 @@ def deck_checks(path, errors):
                 is_approved_financial_institutions
                 and "Where does the cash go?" in text
                 and "Deliverable: one ranked table" in text
+            )
+            or (
+                is_approved_npv
+                and "data-interactive='exit'" in text
+                and "Would you fund Harborside now?" in text
             )
         ),
         "practical file size": path.stat().st_size < 5_000_000,
