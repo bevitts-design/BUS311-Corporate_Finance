@@ -62,6 +62,13 @@ The approved deck is image-supported, graphic-led, and speaker-driven.
 - Enlarge pills, circles, hubs, and panels when the wording needs more room.
 - Ensure every graphical element has sufficient contrast and an accessible text alternative or ARIA label.
 
+### Numeric-label discipline
+
+- Do not use ornamental numeric labels such as `01`, `02`, or `03` as card headers, agenda markers, takeaway labels, or section tags.
+- Use descriptive labels that communicate the concept, stage, action, or decision.
+- Keep numbers when they are meaningful instructional or financial content, dates or years, formulas, slide navigation, or course/module identity.
+- Numbering may appear in a true instructional sequence only when the order itself is part of the lesson; it must not function as decoration.
+
 ## Images and editable elements
 
 Keep as local images only when rights, purpose, and resolution are confirmed:
@@ -117,7 +124,8 @@ Do not copy into the public repository:
 ## Source notes, citations, and projected content
 
 - Projected slides should not show internal production notes, licensing explanations, or comments such as `editable SVG`.
-- Keep source caveats, rights decisions, and undated-claim warnings in speaker notes, the source inventory, or review log.
+- Speaker notes are the instructor's teaching script. Do not use them to document source-slide mapping, original-deck or PPTX provenance, carryover decisions, rebuild choices, rights decisions, or production commentary.
+- Keep source caveats, rights decisions, source mapping, original-deck provenance, and undated-claim warnings in the source inventory, audit, or review log.
 - Keep concise student-useful citations on the slide when the source itself supports learning, such as an official SEC or PCAOB link.
 - Verify time-sensitive statistics, laws, schedules, product instructions, and external links before reusing them.
 - If a source claim cannot be dated or verified, preserve it only when instructionally necessary and mark it clearly in the audit for review.
@@ -165,6 +173,8 @@ Before approval:
 8. Check the browser console for warnings and errors.
 9. Verify numerical accuracy and source-slide coverage.
 10. Confirm no private, instructor-only, proprietary, or licensed source material entered the public deck.
+11. Confirm projected slide content contains no ornamental numeric labels.
+12. Confirm speaker notes contain teaching guidance only and no original-deck sourcing, carryover, or rebuild documentation.
 
 After instructor approval:
 

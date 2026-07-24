@@ -47,6 +47,7 @@ Complete this brief before rebuilding a new Canva, PowerPoint, PDF, or legacy ch
 - **Content to split or combine:**
 - **Terminology corrections:**
 - **Known factual or sourcing questions:**
+- **Descriptive labels replacing ornamental numbers:**
 
 ## Graphical plan
 
@@ -74,6 +75,11 @@ Complete this brief before rebuilding a new Canva, PowerPoint, PDF, or legacy ch
 - **Answer/reveal slide needed:**
 - **Any content that belongs only in the private teaching key:**
 
+## Speaker-note standard
+
+- **Teaching guidance the instructor needs:**
+- **Source/provenance and rebuild documentation location:** Source inventory, audit, or review log; never speaker notes
+
 ## Privacy and rights review
 
 - **Personal/student information present in source:**
@@ -88,6 +94,8 @@ Complete this brief before rebuilding a new Canva, PowerPoint, PDF, or legacy ch
 - [ ] Every source slide inventoried
 - [ ] First graphical HTML rebuild complete
 - [ ] Numerical examples verified
+- [ ] No ornamental numeric labels appear in projected slide content
+- [ ] Speaker notes contain teaching guidance only and no original-deck provenance or rebuild commentary
 - [ ] Assets and rights reviewed
 - [ ] Instructor browser review complete
 - [ ] Review comments classified and resolved

@@ -12,6 +12,8 @@
 - Treat `course-map.json` as the source of truth for tracks, lessons, outcome coverage, and public material links.
 - Treat `terms/*.json` as the source of truth for term-specific ordering, release state, Canvas URL, and current lesson.
 - Treat `docs/bus311-html-deck-standard.md` as the approved design, teaching-pattern, and verification standard for BUS311 Canva/PPTX-to-HTML deck rebuilds.
+- BUS311 projected slide content must not use ornamental numeric labels such as `01`, `02`, or `03`. Keep numbers only when they carry instructional or financial meaning, identify dates/years, appear in formulas, support slide navigation, or identify the course/module.
+- BUS311 speaker notes are teaching guidance only. Keep source-slide mapping, original-deck provenance, carryover/rebuild decisions, rights notes, and production commentary in source inventories, audits, review logs, or `data-source-slides` metadata.
 - Regenerate `index.html` with `scripts/build-index.mjs`; do not hand-edit the generated page.
 - Pre-readings are Markdown-only. Store them in the module `source/` folder and do not generate PDFs until explicitly requested.
 

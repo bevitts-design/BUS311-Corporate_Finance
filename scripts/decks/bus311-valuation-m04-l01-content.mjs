@@ -36,9 +36,9 @@ export const npvM08L01Deck = {
     slide('10-26', 'Agenda', 'cream agenda-slide', html([
       header('Three questions organize the decision', 'Today'),
       "<div class='three-path' role='img' aria-label='The lesson moves from cash flows to decision metrics to judgment'>",
-      "<article><b>01</b><strong>What cash flows change?</strong><span>Build the project, not the accounting story.</span></article><i>→</i>",
-      "<article><b>02</b><strong>What does the project earn?</strong><span>Let NPV lead; use IRR, PI, and payback carefully.</span></article><i>→</i>",
-      "<article><b>03</b><strong>What could break the case?</strong><span>Stress-test timing, scale, and fragile assumptions.</span></article>",
+      "<article><strong>What cash flows change?</strong><span>Build the project, not the accounting story.</span></article><i>→</i>",
+      "<article><strong>What does the project earn?</strong><span>Let NPV lead; use IRR, PI, and payback carefully.</span></article><i>→</i>",
+      "<article><strong>What could break the case?</strong><span>Stress-test timing, scale, and fragile assumptions.</span></article>",
       "</div>"
     ]), "Preview the learning arc. We will first define relevant cash flows, then compare metrics, then add managerial judgment. The sequence mirrors how an investment committee should work."),
 
@@ -46,10 +46,10 @@ export const npvM08L01Deck = {
       header('You will leave able to defend a capital decision', 'Learning outcomes'),
       "<div class='objective-orbit' role='img' aria-label='Four skills surround the final capital recommendation'>",
       "<div class='orbit-core'>Defend the recommendation</div>",
-      "<article class='o1'><b>01</b><strong>Build</strong><span>Incremental after-tax cash flows</span></article>",
-      "<article class='o2'><b>02</b><strong>Value</strong><span>NPV and Excel syntax</span></article>",
-      "<article class='o3'><b>03</b><strong>Compare</strong><span>IRR, PI, and payback</span></article>",
-      "<article class='o4'><b>04</b><strong>Stress-test</strong><span>Rate, timing, and assumptions</span></article>",
+      "<article class='o1'><strong>Build</strong><span>Incremental after-tax cash flows</span></article>",
+      "<article class='o2'><strong>Value</strong><span>NPV and Excel syntax</span></article>",
+      "<article class='o3'><strong>Compare</strong><span>IRR, PI, and payback</span></article>",
+      "<article class='o4'><strong>Stress-test</strong><span>Rate, timing, and assumptions</span></article>",
       "</div>"
     ]), "Connect the four skills. The point is not memorizing four metrics; it is producing one recommendation that survives questions."),
 
@@ -63,7 +63,7 @@ export const npvM08L01Deck = {
     ]), "Remind students that bonds and stocks already taught the central logic. Capital budgeting applies it inside the firm, where the difficult part is often defining the cash flows rather than doing the discounting."),
 
     slide('11-15', 'Section one', 'dark section', html([
-      "<div class='gradient-bar'></div><div class='eyebrow'>Part 1 of 3</div>",
+      "<div class='gradient-bar'></div><div class='eyebrow'>Cash-flow design</div>",
       "<h2>Build the cash flows before you calculate the answer.</h2>",
       "<p>Relevant means incremental, after-tax, and caused by the project.</p>"
     ]), "Transition to Part 1. Slow down here: the quality of NPV depends on the quality of the cash-flow forecast."),
@@ -71,9 +71,9 @@ export const npvM08L01Deck = {
     slide('11,13,18,24', 'Corporate contexts', 'cream context-slide', html([
       header('Capital budgeting sits behind the biggest corporate commitments', 'Real-company context'),
       "<div class='context-triptych'>",
-      "<article class='disney'><span>Disney Experiences</span><strong>≈ $60B over 10 years</strong><p>Capacity, attendance, pricing, and timing</p></article>",
-      "<article class='microsoft'><span>Microsoft AI infrastructure</span><strong>≈ $80B in FY2025</strong><p>Utilization, energy, chips, and obsolescence</p></article>",
-      "<article class='walmart'><span>Walmart automation</span><strong>Network-scale investment</strong><p>Throughput, labor, reliability, and rollout pace</p></article>",
+      "<article class='disney'><img class='company-logo disney-logo' src='assets/logos/disney.svg' alt='The Walt Disney Company logo'><span>Disney Experiences</span><strong>≈ $60B over 10 years</strong><p>Capacity, attendance, pricing, and timing</p></article>",
+      "<article class='microsoft'><img class='company-logo microsoft-logo' src='assets/logos/microsoft.svg' alt='Microsoft logo'><span>Microsoft AI infrastructure</span><strong>≈ $80B in FY2025</strong><p>Utilization, energy, chips, and obsolescence</p></article>",
+      "<article class='walmart'><img class='company-logo walmart-logo' src='assets/logos/walmart.svg' alt='Walmart logo'><span>Walmart automation</span><strong>Network-scale investment</strong><p>Throughput, labor, reliability, and rollout pace</p></article>",
       "</div><p class='source-strip'>Company announcements provide the context; classroom cash flows remain illustrative.</p>"
     ]), "These examples make capital budgeting tangible. Disney discussed roughly sixty billion dollars of Experiences investment over about ten years. Microsoft described approximately eighty billion dollars of AI-enabled data-center investment in fiscal 2025. Walmart has documented a multi-year supply-chain automation program. We are not claiming their internal NPV assumptions; we are identifying the drivers an analyst would need."),
 
@@ -126,13 +126,20 @@ export const npvM08L01Deck = {
       "</div>"
     ]), "Walk left to right and explicitly show all six positions. The Year 5 amount includes operating cash flow plus salvage. Keeping each period visible prevents the common mistake of burying terminal value or misplacing the initial outlay."),
 
-    slide('12,14,15', 'Excel and manual math', 'cream calculation-slide', html([
-      header('Excel syntax comes first; manual math explains it', 'Worked example'),
-      "<div class='excel-math'>",
-      "<article class='excel-panel'><span>EXCEL</span><code>=NPV(B3,C6:G6)+B6</code><small>Future cash flows only go inside NPV. Add Year 0 separately.</small></article>",
-      "<article class='manual-panel'><span>MANUAL</span><code>−3.60 + 0.95/1.09 + 1.05/1.09² + 1.15/1.09³ + 1.20/1.09⁴ + 1.60/1.09⁵</code></article>",
-      "</div><div class='syntax-warning'><strong>Common error</strong><span>Putting the initial investment inside Excel's NPV function discounts Year 0 when it should not.</span></div>"
-    ]), "Demonstrate the Excel pattern before the manual equation, then connect them. Excel's NPV function assumes the first value occurs one period from today; Year 0 must be added separately."),
+    slide('12,14,15', 'Excel worksheet', 'cream calculation-slide', html([
+      header('Excel keeps Year 0 outside the NPV function', 'Worked example'),
+      "<div class='excel-sheet' role='img' aria-label='Mock Excel worksheet with a 9 percent required return in B3, Year 0 through Year 5 cash flows in B6 through G6, and an NPV result of positive 0.93 million dollars in B8'>",
+      "<div class='excel-ribbon'><span>Home</span><span>Insert</span><span>Formulas</span><strong>Harborside_NPV.xlsx</strong></div>",
+      "<div class='excel-formula-row'><span class='name-box'>B8</span><b>fx</b><code>=NPV(B3,C6:G6)+B6</code></div>",
+      "<div class='excel-grid'>",
+      "<div class='corner'></div><div class='col-head'>A</div><div class='col-head'>B</div><div class='col-head'>C</div><div class='col-head'>D</div><div class='col-head'>E</div><div class='col-head'>F</div><div class='col-head'>G</div>",
+      "<div class='row-head'>3</div><div class='label-cell'>Required return</div><div class='input-cell rate-cell'>9%</div><div></div><div></div><div></div><div></div><div></div>",
+      "<div class='row-head'>5</div><div class='label-cell'>Year</div><div>0</div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>",
+      "<div class='row-head'>6</div><div class='label-cell'>Cash flow ($M)</div><div class='input-cell today-cell'>−$3.60</div><div class='input-cell'>$0.95</div><div class='input-cell'>$1.05</div><div class='input-cell'>$1.15</div><div class='input-cell'>$1.20</div><div class='input-cell'>$1.60</div>",
+      "<div class='row-head'>8</div><div class='label-cell result-label'>NPV ($M)</div><div class='selected-cell'>+$0.93</div><div class='result-note'>Positive NPV</div><div></div><div></div><div></div>",
+      "</div><div class='excel-logic'><span><b>C6:G6</b> future cash flows</span><i>+</i><span><b>B6</b> Year 0</span><i>=</i><strong>+$0.93M</strong></div></div>",
+      "<div class='syntax-warning'><strong>Common error</strong><span>Putting the initial investment inside Excel's NPV function discounts Year 0 when it should not.</span></div>"
+    ]), "Walk through the worksheet as students would build it. Cell B3 holds the 9 percent required return. B6 is the Year 0 investment, while C6 through G6 are future cash flows. The selected result cell B8 uses NPV on the future range, then adds Year 0 separately to produce positive 0.93 million dollars."),
 
     slide('12,14,15', 'NPV result', 'cream result-slide', html([
       header('At 9%, Harborside creates about $0.93 million today', 'Decision'),
@@ -152,19 +159,24 @@ export const npvM08L01Deck = {
     ]), "Have students move the slider and find the approximate break-even rate. The project crosses zero around 17.7 percent, which previews IRR. Emphasize that the discount rate is not a knob to force approval; it should reflect opportunity cost and project risk."),
 
     slide('16-23', 'Section two', 'dark section', html([
-      "<div class='gradient-bar'></div><div class='eyebrow'>Part 2 of 3</div>",
+      "<div class='gradient-bar'></div><div class='eyebrow'>Decision metrics</div>",
       "<h2>Supporting metrics can clarify the decision—or distort it.</h2>",
       "<p>Understand what each metric measures before trusting its ranking.</p>"
     ]), "Transition to the metrics. NPV remains the value criterion. IRR, payback, and PI answer different questions and can become dangerous when treated as substitutes."),
 
-    slide('16,17,18', 'IRR definition', 'cream irr-slide', html([
-      header("IRR is the project's break-even discount rate", 'Internal rate of return'),
-      "<div class='irr-bridge' role='img' aria-label='IRR is the rate that reduces project net present value to zero'>",
-      "<article><span>PROJECT CASH FLOWS</span><strong>Harborside case</strong><small>−3.60, 0.95, 1.05, 1.15, 1.20, 1.60</small></article><i>→</i>",
-      "<div class='irr-core'><span>SOLVE FOR r</span><strong>NPV = 0</strong></div><i>→</i>",
-      "<article class='result'><span>IRR</span><strong>≈ 17.7%</strong><small>Compare with the required return</small></article>",
-      "</div><div class='dark-panel'><code>=IRR(B6:G6)</code><span>Accept when IRR exceeds the hurdle rate for a conventional, independent project.</span></div>"
-    ]), "IRR is the rate at which the NPV profile crosses zero. Harborside's illustrative IRR is about 17.7 percent. This is useful, but it is not a dollar measure of value created."),
+    slide('16,17,18', 'IRR worksheet', 'cream irr-slide', html([
+      header('Excel solves IRR from the same cash-flow row', 'Internal rate of return'),
+      "<div class='excel-sheet irr-sheet' role='img' aria-label='Mock Excel worksheet reusing the Harborside required return in B3 and Year 0 through Year 5 cash flows in B6 through G6, with an IRR formula in B9 returning approximately 17.7 percent'>",
+      "<div class='excel-ribbon'><span>Home</span><span>Insert</span><span>Formulas</span><strong>Harborside_NPV.xlsx</strong></div>",
+      "<div class='excel-formula-row'><span class='name-box'>B9</span><b>fx</b><code>=IRR(B6:G6)</code></div>",
+      "<div class='excel-grid'>",
+      "<div class='corner'></div><div class='col-head'>A</div><div class='col-head'>B</div><div class='col-head'>C</div><div class='col-head'>D</div><div class='col-head'>E</div><div class='col-head'>F</div><div class='col-head'>G</div>",
+      "<div class='row-head'>3</div><div class='label-cell'>Required return</div><div class='input-cell rate-cell'>9%</div><div></div><div></div><div></div><div></div><div></div>",
+      "<div class='row-head'>5</div><div class='label-cell'>Year</div><div>0</div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>",
+      "<div class='row-head'>6</div><div class='label-cell'>Cash flow ($M)</div><div class='input-cell today-cell'>−$3.60</div><div class='input-cell'>$0.95</div><div class='input-cell'>$1.05</div><div class='input-cell'>$1.15</div><div class='input-cell'>$1.20</div><div class='input-cell'>$1.60</div>",
+      "<div class='row-head'>9</div><div class='label-cell result-label'>IRR</div><div class='selected-cell'>≈17.7%</div><div class='result-note'>Exceeds the 9% required return</div><div></div><div></div>",
+      "</div><div class='excel-logic irr-logic'><span><b>B9</b> IRR 17.7%</span><i>&gt;</i><span><b>B3</b> hurdle 9%</span><i>→</i><strong>Accept</strong></div></div>"
+    ]), "Revisit the exact worksheet structure from the NPV example. Cell B3 still holds the 9 percent required return, and B6 through G6 contain the same Year 0 through Year 5 cash flows. The IRR formula in B9 uses the entire cash-flow row and returns about 17.7 percent. Only after Excel solves IRR do we compare it with B3. The project clears the hurdle, although NPV remains the dollar-value decision criterion."),
 
     slide('23', 'NPV profile', 'cream profile-slide', html([
       header('The NPV profile shows why IRR is a crossover—not a value total', 'NPV vs. required return'),
@@ -172,14 +184,24 @@ export const npvM08L01Deck = {
       "<div class='profile-takeaway'><span>WHAT CHANGES?</span><strong>A higher required return reduces today's value of future cash flows.</strong><small>The cash flows do not change; the valuation hurdle does.</small></div></div>"
     ]), "Trace the curve. At low discount rates, distant cash flows retain more present value. As the rate rises, NPV falls. The zero crossing is the IRR."),
 
+    slide('16,18,23', 'Scale conflict challenge', 'cream scale-challenge-slide', html([
+      header('Which project should Harborside choose?', 'Partner challenge · 3 minutes'),
+      "<div class='scale-challenge' role='img' aria-label='Two mutually exclusive one-year projects. The fast upgrade costs 1 million dollars now and returns 1.5 million dollars in Year 1. The full platform costs 5 million dollars now and returns 7 million dollars in Year 1.'>",
+      "<article class='fast'><span>Fast upgrade</span><div class='mini-cash-row'><b>Year 0</b><strong>−$1.0M</strong><i>→</i><b>Year 1</b><strong>+$1.5M</strong></div><code>Cash-flow range: −1.0, 1.5</code></article>",
+      "<div class='choice-or'>OR</div>",
+      "<article class='full'><span>Full platform</span><div class='mini-cash-row'><b>Year 0</b><strong>−$5.0M</strong><i>→</i><b>Year 1</b><strong>+$7.0M</strong></div><code>Cash-flow range: −5.0, 7.0</code></article>",
+      "</div><div class='challenge-task'><span>Required return <b>10%</b></span><span>Calculate <b>NPV + IRR</b></span><span>Recommend <b>one project</b></span></div>",
+      "<p class='challenge-hint'>Excel hints: <code>=NPV(rate,Year 1)+Year 0</code> · <code>=IRR(Year 0:Year 1)</code></p>"
+    ]), "Do not reveal the answer yet. Give partners three minutes to compute NPV and IRR for both mutually exclusive projects at a 10 percent required return. Ask them to record which project has the higher IRR, which creates more dollar value, and which one they would fund. Then advance to the reveal."),
+
     slide('16,18,23', 'Scale conflict', 'cream scale-conflict-slide', html([
-      header('A higher IRR can create less shareholder value', 'Mutually exclusive projects'),
+      header('Reveal: a higher IRR can create less shareholder value', 'Challenge debrief'),
       "<div class='project-race'>",
       "<article><span>FAST UPGRADE</span><strong>IRR 50%</strong><b>NPV +$0.36M</b><small>Invest $1.0M → receive $1.5M in Year 1</small></article>",
       "<div class='versus'>VS</div>",
       "<article class='winner'><span>FULL PLATFORM</span><strong>IRR 40%</strong><b>NPV +$1.36M</b><small>Invest $5.0M → receive $7.0M in Year 1</small></article>",
       "</div><p class='decision-banner'>At a 10% hurdle rate, choose the lower-IRR project because it creates $1.00M more value.</p>"
-    ]), "This is the scale problem. The smaller project has the more impressive percentage return, but the larger project creates more total value. For mutually exclusive choices, NPV wins."),
+    ]), "Debrief the partner calculation. The fast upgrade has the higher IRR, but the full platform creates 1 million dollars more NPV. This is the scale problem: a stronger percentage return can still create less total shareholder value. For mutually exclusive choices, NPV wins."),
 
     slide('21,22', 'Payback trap', 'cream payback-slide', html([
       header('Payback stops counting when the most important cash flows may begin', 'Liquidity screen'),
@@ -219,7 +241,7 @@ export const npvM08L01Deck = {
     ]), "Do not ask students to memorize a table. Use the stack: NPV is the decision criterion, while IRR, PI, and payback answer narrower supporting questions."),
 
     slide('24-26', 'Section three', 'dark section', html([
-      "<div class='gradient-bar'></div><div class='eyebrow'>Part 3 of 3</div>",
+      "<div class='gradient-bar'></div><div class='eyebrow'>Judgment and risk</div>",
       "<h2>The spreadsheet gives an answer; judgment decides whether to trust it.</h2>",
       "<p>Timing, replacement, uncertainty, and strategic constraints change the recommendation.</p>"
     ]), "Transition from calculation to judgment. A positive base-case NPV is the start of the investment committee conversation, not the end."),
@@ -227,9 +249,9 @@ export const npvM08L01Deck = {
     slide('24', 'Complex decisions', 'cream complex-slide', html([
       header('Some projects require a different comparison frame', 'Advanced applications'),
       "<div class='complex-path'>",
-      "<article><b>01</b><strong>Timing</strong><span>Build now or wait?</span><small>Choose the date with the highest NPV today.</small></article><i>→</i>",
-      "<article><b>02</b><strong>Unequal lives</strong><span>Five-year vs. ten-year asset?</span><small>Convert cost into equivalent annual cost.</small></article><i>→</i>",
-      "<article><b>03</b><strong>Replacement</strong><span>Keep or replace?</span><small>Compare the old asset's avoidable costs with the new asset's EAC.</small></article>",
+      "<article><strong>Timing</strong><span>Build now or wait?</span><small>Choose the date with the highest NPV today.</small></article><i>→</i>",
+      "<article><strong>Unequal lives</strong><span>Five-year vs. ten-year asset?</span><small>Convert cost into equivalent annual cost.</small></article><i>→</i>",
+      "<article><strong>Replacement</strong><span>Keep or replace?</span><small>Compare the old asset's avoidable costs with the new asset's EAC.</small></article>",
       "</div>"
     ]), "Explain the three extensions. Investment timing can have option value. Equivalent annual cost puts unequal-life assets on a common annual basis. Replacement analysis focuses on future avoidable cash flows, not book value."),
 
@@ -243,13 +265,13 @@ export const npvM08L01Deck = {
     slide('26', 'Excel activity', 'dark excel-launch-slide', html([
       "<div class='gradient-bar'></div><div class='eyebrow'>In-class Excel activity · VeridianEnergy</div>",
       "<h2>Allocate $18 million across three renewable-energy projects.</h2>",
-      "<div class='excel-launch'><article><b>01</b><strong>Calculate</strong><span>NPV with final-year salvage</span></article><article><b>02</b><strong>Compare</strong><span>IRR and profitability index</span></article><article><b>03</b><strong>Recommend</strong><span>Fund the best feasible portfolio</span></article></div>",
+      "<div class='excel-launch'><article><strong>Calculate</strong><span>NPV with final-year salvage</span></article><article><strong>Compare</strong><span>IRR and profitability index</span></article><article><strong>Recommend</strong><span>Fund the best feasible portfolio</span></article></div>",
       "<p class='deliverable'>Work in pairs. Your recommendation must name the selected project(s), total NPV, and one risk that could reverse the decision.</p>"
     ]), "Launch the existing VeridianEnergy workbook. Remind students that the Excel NPV function receives Year 1 through Year N cash flows and that Year 0 is added separately. Do not reveal the workbook answers on the slide."),
 
     slide('25', 'Key takeaways', 'cream takeaway-slide', html([
       header('A defensible capital decision has three layers', 'Key takeaways'),
-      "<div class='takeaway-layers'><article><b>01</b><strong>Cash-flow integrity</strong><span>Model incremental after-tax cash flows.</span></article><article><b>02</b><strong>Value discipline</strong><span>Let NPV lead when metrics conflict.</span></article><article><b>03</b><strong>Judgment under uncertainty</strong><span>Stress-test the assumptions that drive the answer.</span></article></div>"
+      "<div class='takeaway-layers'><article><strong>Cash-flow integrity</strong><span>Model incremental after-tax cash flows.</span></article><article><strong>Value discipline</strong><span>Let NPV lead when metrics conflict.</span></article><article><strong>Judgment under uncertainty</strong><span>Stress-test the assumptions that drive the answer.</span></article></div>"
     ]), "Synthesize the lesson into three layers. If students remember only one line, use: build the right cash flows, let NPV lead, and attack the fragile assumptions."),
 
     slide('25,26', 'Exit ticket', 'dark close exit-slide', html([

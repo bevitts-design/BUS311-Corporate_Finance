@@ -13,7 +13,7 @@ const expect = (condition, message) => {
 };
 
 const slideMatches = [...html.matchAll(/<section id="slide-(\d+)" class="slide [^"]+" data-label="([^"]+)" data-source-slides="([^"]+)">/g)];
-expect(slideMatches.length === 29, 'Expected 29 slides; found ' + slideMatches.length + '.');
+expect(slideMatches.length === 30, 'Expected 30 slides; found ' + slideMatches.length + '.');
 expect(npvM08L01Deck.slides.length === slideMatches.length, 'Content module and generated slide counts differ.');
 expect(npvM08L01Deck.slides.every((item) => item.note && item.note.length >= 40), 'Every slide needs a substantive speaker note.');
 
@@ -42,6 +42,28 @@ const fontSizes = [...html.matchAll(/font-size:\s*(\d+)px/g)].map((match) => Num
 expect(fontSizes.every((value) => value >= 24), 'Found font-size below the 24px projector floor.');
 expect(!html.includes('clamp('), 'Clamp-based sizing is prohibited.');
 
+const visibleOrnamentalLabels = [
+  /<(?:b|span|div)[^>]*>\s*0[1-9]\s*<\/(?:b|span|div)>/i,
+  />\s*Part\s+\d+\s+of\s+\d+(?:\s*·[^<]*)?</i
+];
+visibleOrnamentalLabels.forEach((pattern) => {
+  expect(!pattern.test(html), 'Found an ornamental numeric label in projected slide content.');
+});
+
+const provenanceNotePatterns = [
+  /source[- ]slide/i,
+  /source deck/i,
+  /original (?:slide|deck|powerpoint|pptx)/i,
+  /(?:powerpoint|pptx) provenance/i,
+  /carried over|carryover/i,
+  /derived from|rebuilt from|adapted from/i
+];
+npvM08L01Deck.slides.forEach((item, index) => {
+  provenanceNotePatterns.forEach((pattern) => {
+    expect(!pattern.test(item.note), 'Slide ' + (index + 1) + ' speaker note contains original-deck provenance or production commentary.');
+  });
+});
+
 const requiredStrings = [
   '=NPV(B3,C6:G6)+B6',
   '=IRR(B6:G6)',
@@ -56,9 +78,24 @@ const requiredStrings = [
   'VeridianEnergy'
 ];
 requiredStrings.forEach((value) => expect(html.includes(value), 'Missing required deck content: ' + value));
+expect(html.includes("class='excel-sheet'"), 'Missing the editable mock Excel worksheet on slide 13.');
+expect(html.includes('Harborside_NPV.xlsx'), 'Missing the mock Excel workbook title.');
+expect(html.includes("class='selected-cell'>+$0.93"), 'Missing the selected Excel NPV result cell.');
+expect(!html.includes('−3.60 + 0.95/1.09'), 'The removed manual NPV calculation is still present.');
+expect(html.includes("class='excel-sheet irr-sheet'"), 'Missing the editable IRR worksheet on slide 17.');
+expect(html.includes("class='selected-cell'>≈17.7%"), 'Missing the selected Excel IRR result cell.');
+expect(html.includes('Exceeds the 9% required return'), 'Missing the IRR-to-hurdle comparison.');
+expect(!html.includes("class='irr-bridge'"), 'The replaced IRR bridge graphic is still present.');
+expect(html.includes("class='scale-challenge'"), 'Missing the mutually exclusive project setup slide.');
+expect(html.includes('Which project should Harborside choose?'), 'Missing the student decision question before the scale-conflict reveal.');
+expect(html.includes('Partner challenge · 3 minutes'), 'Missing the partner-work instruction on the setup slide.');
+expect(html.includes('Reveal: a higher IRR can create less shareholder value'), 'Missing the scale-conflict answer reveal.');
 
 const imagePaths = [...html.matchAll(/(?:src)=['"]([^'"]+\.(?:png|jpe?g|webp|svg))['"]/gi)].map((match) => match[1]);
-expect(imagePaths.length === 2, 'Expected exactly two presentation image assets; found ' + imagePaths.length + '.');
+expect(imagePaths.length === 5, 'Expected two presentation images and three company logo assets; found ' + imagePaths.length + '.');
+['assets/logos/disney.svg', 'assets/logos/microsoft.svg', 'assets/logos/walmart.svg'].forEach((logoPath) => {
+  expect(imagePaths.includes(logoPath), 'Missing company logo asset reference: ' + logoPath);
+});
 for(const imagePath of imagePaths){
   const absolute = path.join(path.dirname(deckPath), imagePath);
   try{
@@ -90,4 +127,4 @@ if(errors.length){
   process.exit(1);
 }
 
-console.log('BUS311 NPV deck validation: PASS (29 slides, 29 speaker notes, source slides 9-26 represented, 2 local images, interactive controls present).');
+console.log('BUS311 NPV deck validation: PASS (30 slides, 30 teaching notes, setup-before-reveal scale challenge, no ornamental numeric labels or original-deck note provenance, source slides 9-26 represented, 2 local images, 3 local company logos, interactive controls present).');

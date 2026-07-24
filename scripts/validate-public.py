@@ -142,7 +142,8 @@ def deck_checks(path, errors):
             or (
                 is_approved_npv
                 and "=NPV(B3,C6:G6)+B6" in text
-                and "Excel syntax comes first" in text
+                and "class='excel-sheet'" in text
+                and "Excel keeps Year 0 outside the NPV function" in text
             )
         ),
         "sensitivity slide": (
