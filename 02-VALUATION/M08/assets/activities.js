@@ -5,7 +5,9 @@
   cashflowButtons.forEach((button) => {
     button.addEventListener('click', () => {
       button.classList.toggle('selected');
+      button.setAttribute('aria-pressed', button.classList.contains('selected') ? 'true' : 'false');
       button.classList.remove('correct', 'incorrect');
+      delete button.dataset.answer;
     });
   });
   document.querySelector('[data-action="check-cashflows"]')?.addEventListener('click', () => {
@@ -16,6 +18,7 @@
       const matches = selected === shouldSelect;
       button.classList.toggle('correct', matches);
       button.classList.toggle('incorrect', !matches);
+      button.dataset.answer = shouldSelect ? 'INCLUDE' : 'EXCLUDE';
       if(matches) correct += 1;
     });
     const feedback = document.getElementById('cashflow-feedback');

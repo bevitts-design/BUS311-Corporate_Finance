@@ -50,8 +50,10 @@ Every deck must use the maintained inlined no-Shadow-DOM `<deck-stage>` runtime 
 The approved deck is image-supported, graphic-led, and speaker-driven.
 
 - Give each slide one primary teaching message.
+- Make that message explicit in the headline and visual. A student should not need production context or a long verbal rescue to understand what the slide is trying to teach.
 - Prefer one or two strong visual chunks; use three only when the relationship requires it.
 - Replace long card rows and bullet collections with a meaningful visual system.
+- Vary slide silhouettes across the deck. Repeated three-card grids read as dull even when the content is correct; alternate among image-led scenes, worksheets, diagrams, timelines, decision comparisons, scaled values, and sparse statement slides.
 - Use editable orbits for connected concepts.
 - Use ordered paths, timelines, or distinct shapes for sequences.
 - Use arrows when direction, dependency, movement, or cash flow matters.
@@ -61,6 +63,15 @@ The approved deck is image-supported, graphic-led, and speaker-driven.
 - Avoid decorative question marks, unexplained production labels, or shapes that do not carry meaning.
 - Enlarge pills, circles, hubs, and panels when the wording needs more room.
 - Ensure every graphical element has sufficient contrast and an accessible text alternative or ARIA label.
+
+### Preferred classroom experience
+
+- Build toward insight rather than displaying conclusions in isolation. Use a setup, prediction, calculation, or sorting prompt before a reveal when the answer is meant to surprise students.
+- Give students enough information to reason independently. A reveal slide should feel earned and should explicitly debrief the preceding task.
+- Treat source material as content evidence, not a layout mandate. When a source slide is unclear, determine the correct teaching message from the surrounding chapter content and rebuild the slide around that message.
+- Use real companies, recognizable situations, and purposeful visuals. Add rights-safe local company logos when they improve recognition and visual appeal; do not use logos as filler.
+- Prefer visual explanation over ornamental decoration. Arrows, axes, scale, position, cell highlighting, and sequencing should carry meaning.
+- Keep the tone professional and energetic: bold hierarchy, strong contrast, generous scale, and useful color. Avoid both corporate-template blandness and excessive decorative effects.
 
 ### Numeric-label discipline
 
@@ -104,13 +115,21 @@ Do not copy into the public repository:
 - Show the formula and the actual calculated outcomes.
 - Explain the behavioral or managerial meaning of the numbers, not only the arithmetic.
 - Where useful, end with a decision question or trade-off rather than a single isolated result.
+- Introduce the relevant Excel function early so a complex equation feels manageable rather than intimidating.
+- Prefer an editable Excel-style worksheet with the formula bar, visible row and column headings, real cell references, highlighted input and result cells, and the correct answer.
+- Reuse the same worksheet inputs and cell locations across related NPV, IRR, sensitivity, or comparison slides so students see one model evolving.
+- Keep Year 0, timing, signs, and range selection visually explicit. Show the exact formula students should enter.
+- Do not require a manual calculation beside every Excel example. Include manual arithmetic only when it clarifies the finance concept, exposes a common error, or helps students interpret the function.
 
 ### Classroom participation
 
 - Place explicit partner or group instructions on the exercise slide.
 - Tell students exactly what they are deciding, sorting, calculating, or defending.
+- State how to interact with the slide, how long students have, and what evidence they must produce before checking or revealing the answer.
 - Give the activity before the answer slide.
-- Keep answer reveals student-facing but do not embed private teaching keys.
+- Use setup → attempt → reveal as the default arc for counterintuitive comparisons, metric conflicts, and worked decisions.
+- For formative in-deck activities, put the correct classification, calculation, or decision and its teaching rationale in speaker notes. This is facilitator guidance, not permission to expose private assessment, workbook-solution, or grading keys.
+- When the activity checks answers interactively, make selection state and the correct answer visually unmistakable after checking.
 - When an outcome belongs to more than one category, show a distinct `Both` category after the primary categories.
 
 ### Instructor and orientation content
@@ -125,6 +144,7 @@ Do not copy into the public repository:
 
 - Projected slides should not show internal production notes, licensing explanations, or comments such as `editable SVG`.
 - Speaker notes are the instructor's teaching script. Do not use them to document source-slide mapping, original-deck or PPTX provenance, carryover decisions, rebuild choices, rights decisions, or production commentary.
+- Speaker notes for activities should include the exact answer, why it is correct, likely misconceptions, timing, and the question used to debrief. Useful teaching keys belong here; production history does not.
 - Keep source caveats, rights decisions, source mapping, original-deck provenance, and undated-claim warnings in the source inventory, audit, or review log.
 - Keep concise student-useful citations on the slide when the source itself supports learning, such as an official SEC or PCAOB link.
 - Verify time-sensitive statistics, laws, schedules, product instructions, and external links before reusing them.
@@ -175,6 +195,10 @@ Before approval:
 10. Confirm no private, instructor-only, proprietary, or licensed source material entered the public deck.
 11. Confirm projected slide content contains no ornamental numeric labels.
 12. Confirm speaker notes contain teaching guidance only and no original-deck sourcing, carryover, or rebuild documentation.
+13. Confirm every activity states the action, timing, and expected deliverable, with its formative answer and rationale in speaker notes.
+14. Confirm every surprising reveal has a preceding setup or student task and explicitly debriefs it.
+15. Confirm financial calculation sequences use consistent inputs and show the actual Excel function and cell references before relying on manual arithmetic.
+16. Inspect the deck as a sequence for visual variety; repeated card grids must be replaced where a worksheet, diagram, image, timeline, or scaled comparison teaches better.
 
 After instructor approval:
 

@@ -79,6 +79,13 @@ const requiredStrings = [
 ];
 requiredStrings.forEach((value) => expect(html.includes(value), 'Missing required deck content: ' + value));
 expect(html.includes("class='excel-sheet'"), 'Missing the editable mock Excel worksheet on slide 13.');
+expect(html.includes('Click to INCLUDE'), 'Missing clear cash-flow activity selection instructions.');
+expect(html.includes('Leave sunk and financing items unselected'), 'Missing cash-flow activity exclusion instructions.');
+expect(npvM08L01Deck.slides.some((item) => item.note.includes('Answer key — INCLUDE:') && item.note.includes('EXCLUDE:')), 'Missing explicit cash-flow activity answer key in speaker notes.');
+expect(html.includes('Model only the cash flows the project changes'), 'Missing the source-aligned incremental cash-flow teaching message.');
+expect(html.includes('Will accepting the project change this future after-tax company cash flow?'), 'Missing the practical cash-flow inclusion test.');
+expect(html.includes('Excel has an NPV function'), 'Missing the Excel NPV reassurance message.');
+expect(html.includes('=NPV(rate, Year 1:Year n) + Year 0'), 'Missing the conceptual Excel NPV syntax bridge.');
 expect(html.includes('Harborside_NPV.xlsx'), 'Missing the mock Excel workbook title.');
 expect(html.includes("class='selected-cell'>+$0.93"), 'Missing the selected Excel NPV result cell.');
 expect(!html.includes('−3.60 + 0.95/1.09'), 'The removed manual NPV calculation is still present.');

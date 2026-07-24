@@ -87,31 +87,31 @@ export const npvM08L01Deck = {
 
     slide('15', 'Cash flow detective', 'cream activity-slide cashflow-activity', html([
       header('Which cash flows belong in the model?', 'Interactive · 4 minutes'),
+      "<div class='activity-prompt'><strong>Click to INCLUDE</strong><span>Select every future company cash flow caused by accepting the imaging suite. Leave sunk and financing items unselected; then check your choices.</span></div>",
       "<div class='cashflow-grid' data-interactive='cashflow'>",
-      "<button type='button' data-correct='false'>Feasibility study paid last year</button>",
-      "<button type='button' data-correct='true'>Equipment + installation today</button>",
-      "<button type='button' data-correct='true'>Incremental imaging contribution</button>",
-      "<button type='button' data-correct='false'>Interest on the project loan</button>",
-      "<button type='button' data-correct='true'>Lost contribution from displaced space</button>",
-      "<button type='button' data-correct='true'>Year 5 resale value</button>",
-      "</div><div class='activity-actions'><button class='check-button' type='button' data-action='check-cashflows'>Check choices</button><output id='cashflow-feedback'>Select every incremental cash flow.</output></div>"
-    ]), "Students work with a partner and select the relevant cash flows. The feasibility study is sunk. Financing costs are captured in the discount rate, so do not subtract interest again. Include the investment, operating contribution, opportunity cost, and resale value."),
+      "<button type='button' aria-pressed='false' data-correct='false'>Feasibility study paid last year</button>",
+      "<button type='button' aria-pressed='false' data-correct='true'>Equipment + installation today</button>",
+      "<button type='button' aria-pressed='false' data-correct='true'>Incremental imaging contribution</button>",
+      "<button type='button' aria-pressed='false' data-correct='false'>Interest on the project loan</button>",
+      "<button type='button' aria-pressed='false' data-correct='true'>Lost contribution from displaced space</button>",
+      "<button type='button' aria-pressed='false' data-correct='true'>Year 5 resale value</button>",
+      "</div><div class='activity-actions'><button class='check-button' type='button' data-action='check-cashflows'>Check choices</button><output id='cashflow-feedback'>Before checking, agree on why each selected item changes with the project.</output></div>"
+    ]), "Give partners four minutes. Ask them to click every item they would INCLUDE in Harborside's project cash flows and leave excluded items unselected. Answer key — INCLUDE: equipment and installation today; incremental imaging contribution; lost contribution from displaced space; Year 5 resale value. EXCLUDE: the feasibility study, because it is a sunk cost already paid; interest on the project loan, because financing costs are reflected in the required return and subtracting interest would count financing twice. Ask one pair to defend an include choice and another to defend an exclusion before checking the cards."),
 
     slide('11-15', 'Incremental cash flows', 'cream cashflow-map-slide', html([
-      header('Relevant cash flow asks one counterfactual question', 'With project vs. without project'),
-      "<div class='counterfactual' role='img' aria-label='Incremental cash flow is the difference between the firm with the project and without the project'>",
-      "<article><span>WITH PROJECT</span><strong>Imaging revenue</strong><strong>Operating costs</strong><strong>Working capital</strong><strong>Salvage value</strong></article>",
-      "<div class='minus'>−</div>",
-      "<article><span>WITHOUT PROJECT</span><strong>Current capacity</strong><strong>Displaced services</strong><strong>Avoided capital</strong><strong>Existing cash flows</strong></article>",
-      "<div class='equals'>=</div><div class='incremental'><span>MODEL</span><strong>Incremental after-tax cash flow</strong></div>",
-      "</div><p class='instruction'>Exclude sunk costs. Include opportunity costs and side effects.</p>"
-    ]), "Use the counterfactual language: with the project minus without the project. This prevents students from treating every accounting line as a project cash flow."),
+      header('Model only the cash flows the project changes', 'Incremental cash-flow rule'),
+      "<div class='relevance-test' role='img' aria-label='Decision test for whether a cash flow belongs in a capital-budgeting model'>",
+      "<div class='test-question'><span>ASK ABOUT EACH ITEM</span><strong>Will accepting the project change this future after-tax company cash flow?</strong></div>",
+      "<div class='test-outcomes'><article class='include'><span>YES · INCLUDE</span><strong>It occurs, disappears, or changes because of the project.</strong><small>Investment · operating contribution · opportunity cost · working capital · resale value</small></article><article class='exclude'><span>NO · EXCLUDE</span><strong>It happened already or reflects how the project is financed.</strong><small>Sunk study cost · loan interest already captured by the required return</small></article></div>",
+      "</div><p class='instruction'>NPV uses all project-caused cash flows across the project's life—not every accounting line.</p>"
+    ]), "Teach one practical test: include a cash flow only when accepting the project changes the firm's future after-tax cash. This keeps all project-caused cash flows across the project's life, consistent with the chapter's NPV rule. Equipment, operating contribution, working capital, opportunity costs, side effects, and resale value belong when the project changes them. Costs already paid are sunk and cannot be changed by today's decision. Loan interest is excluded from project cash flow because the required return already captures financing and risk."),
 
     slide('12', 'NPV equation', 'dark formula-slide', html([
-      "<div class='eyebrow'>Net present value</div><h2>NPV converts every project cash flow into value today.</h2>",
-      "<div class='formula-display'><code>NPV = −C₀ + C₁/(1+r)¹ + C₂/(1+r)² + … + Cₙ/(1+r)ⁿ</code></div>",
-      "<div class='formula-keys'><span><b>C₀</b> investment now</span><span><b>Cₜ</b> incremental cash flow</span><span><b>r</b> opportunity cost of capital</span><span><b>n</b> project horizon</span></div>"
-    ]), "Read the equation as a story: pay the investment now, bring each future incremental cash flow back at a risk-appropriate required return, then add everything."),
+      "<div class='eyebrow'>Net present value</div><h2>The NPV formula looks complex. Excel makes it manageable.</h2>",
+      "<div class='npv-translation'><div class='manual-formula'><span>FINANCE EQUATION</span><code>NPV = −C₀ + C₁/(1+r)¹ + … + Cₙ/(1+r)ⁿ</code><small>C₀ = investment now · Cₜ = cash flow in Year t · r = opportunity cost of capital</small></div>",
+      "<div class='excel-good-news'><span>GOOD NEWS</span><strong>Excel has an NPV function</strong><code>=NPV(rate, Year 1:Year n) + Year 0</code><small>Next: use Harborside's exact worksheet cells.</small></div></div>",
+      "<div class='formula-keys'><span><b>ALL</b> project-caused cash flows</span><span><b>TIME</b> value of money</span><span><b>VALUE</b> positive NPV creates shareholder value</span></div>"
+    ]), "Reassure students that they do not need to calculate every discount factor by hand. The finance equation explains the logic: bring every future project-caused cash flow back to today and combine it with the investment today. Excel performs that work with the NPV function. Preview the essential syntax rule: Excel's NPV function receives Year 1 through Year n; add the undiscounted Year 0 cash flow separately. The next slide demonstrates the exact Harborside cell references."),
 
     slide('14,15', 'Cash flow timeline', 'cream timeline-slide', html([
       header('Every material cash flow gets its own place in time', 'Harborside · $ millions'),

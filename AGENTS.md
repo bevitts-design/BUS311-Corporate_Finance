@@ -12,6 +12,11 @@
 - Treat `course-map.json` as the source of truth for tracks, lessons, outcome coverage, and public material links.
 - Treat `terms/*.json` as the source of truth for term-specific ordering, release state, Canvas URL, and current lesson.
 - Treat `docs/bus311-html-deck-standard.md` as the approved design, teaching-pattern, and verification standard for BUS311 Canva/PPTX-to-HTML deck rebuilds.
+- Build HTML decks as visually varied, graphic-led classroom experiences rather than repeated text-card layouts. Each slide needs one explicit teaching message that is understandable from its title and visual.
+- Structure discoveries as setup or prediction → student work → answer reveal. Do not present a surprising conclusion without first giving students enough context to reason toward it.
+- Give interactive slides precise on-slide directions, timing, and a visible deliverable. Put the formative answer and teaching rationale in speaker notes; keep private assessment and workbook solutions out of the public repository.
+- For financial calculations, introduce the relevant Excel function early and prefer an editable worksheet-style visual with a formula bar, real cell references, and consistent inputs across related slides. Show manual arithmetic only when it materially improves conceptual understanding.
+- Use real corporate examples with purposeful, rights-safe local images or public company logos when they improve recognition and visual appeal. Do not use generic company placeholders or decorative logo collages.
 - BUS311 projected slide content must not use ornamental numeric labels such as `01`, `02`, or `03`. Keep numbers only when they carry instructional or financial meaning, identify dates/years, appear in formulas, support slide navigation, or identify the course/module.
 - BUS311 speaker notes are teaching guidance only. Keep source-slide mapping, original-deck provenance, carryover/rebuild decisions, rights notes, and production commentary in source inventories, audits, review logs, or `data-source-slides` metadata.
 - Regenerate `index.html` with `scripts/build-index.mjs`; do not hand-edit the generated page.
