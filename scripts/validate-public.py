@@ -63,6 +63,7 @@ def deck_checks(path, errors):
     is_approved_intro = path.name == "bus311-intro-m01-l01-slides.html"
     is_approved_financial_institutions = path.name == "bus311-intro-m02-l01-slides.html"
     is_approved_npv = path.name == "bus311-valuation-m04-l01-slides.html"
+    is_approved_risk_return = path.name == "bus311-decisions-m01-l01-slides.html"
     slide_count = len(re.findall(r'<section\b[^>]*class=["\'][^"\']*\bslide\b', text))
     local_visual_media = len(re.findall(r'<img\b[^>]+src=["\']assets/', text))
     notes_match = re.search(r'<script type="application/json" id="speaker-notes">(.*?)</script>', text, re.S)
@@ -112,6 +113,16 @@ def deck_checks(path, errors):
                     "class='objective-orbit'",
                 ))
             )
+            or (
+                is_approved_risk_return
+                and text.count("<svg") >= 5
+                and all(marker in text for marker in (
+                    "class='risk-river'",
+                    "class='scatterplot'",
+                    "class='sml-chart'",
+                    "class='beta-workflow'",
+                ))
+            )
         ),
         "FactSet public mockup": (
             "FACTSET WORKFLOW MOCKUP" in text
@@ -126,6 +137,9 @@ def deck_checks(path, errors):
                 and "Corporate red team · Walmart context" in text
                 and "Company announcements provide the context" in text
             )
+            # M12 teaches beta estimation and CAPM from an instructor-authored
+            # workbook; no FactSet capture or mockup belongs in this lesson.
+            or is_approved_risk_return
         ) and "PRIVATE CAPTURE" not in text,
         "Excel model slide": (
             "BUS311 LECTURE MODEL" in text
@@ -145,6 +159,12 @@ def deck_checks(path, errors):
                 and "class='excel-sheet'" in text
                 and "Excel keeps Year 0 outside the NPV function" in text
             )
+            or (
+                is_approved_risk_return
+                and "=SLOPE(B3:B8,C3:C8)" in text
+                and "=B4+B6*(B5-B4)" in text
+                and "class='excel-window'" in text
+            )
         ),
         "sensitivity slide": (
             "Sensitivity" in text
@@ -158,6 +178,11 @@ def deck_checks(path, errors):
                 is_approved_npv
                 and "id='rate-slider'" in text
                 and "data-risk='utilization'" in text
+            )
+            or (
+                is_approved_risk_return
+                and "id='beta-slider'" in text
+                and "id='required-return'" in text
             )
         ),
         "decision slide": (
@@ -176,6 +201,11 @@ def deck_checks(path, errors):
                 is_approved_npv
                 and "data-interactive='exit'" in text
                 and "Would you fund Harborside now?" in text
+            )
+            or (
+                is_approved_risk_return
+                and "class='decision-comparison'" in text
+                and "Which beta belongs in the project model?" in text
             )
         ),
         "practical file size": path.stat().st_size < 5_000_000,

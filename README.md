@@ -37,3 +37,17 @@ The Fall 2026 Financial Institutions chapter is maintained as a source-audited, 
 - Source inventory: `audits/bus311-intro-m02-l01-source-inventory.md`
 - Review log: `audits/bus311-intro-m02-l01-review-log.md`
 - Validation: `scripts/validate-bus311-intro-m02-l01.mjs`
+
+## Risk, Return, and CAPM chapter rebuild
+
+The M12 Firm Decisions lesson is maintained as a source-audited, 32-slide presenter deck. It represents all 22 source PowerPoint slides through a 75-minute sequence from diversification and beta to CAPM, the Security Market Line, and project-specific hurdle rates. The public starter workbook remains unchanged and is used for the final formula activity.
+
+- Rebuild brief: `audits/bus311-decisions-m01-l01-rebuild-brief.md`
+- Maintained content: `scripts/decks/bus311-decisions-m01-l01-content.mjs`
+- Lesson CSS: `03-FIRM-DECISIONS/M12/assets/deck.css`
+- Activity script: `03-FIRM-DECISIONS/M12/assets/activities.js`
+- Builder: `scripts/build-bus311-decisions-m01-l01.mjs`
+- Output: `03-FIRM-DECISIONS/M12/bus311-decisions-m01-l01-slides.html`
+- Source inventory: `audits/bus311-decisions-m01-l01-source-inventory.md`
+- Review log: `audits/bus311-decisions-m01-l01-review-log.md`
+- Validation: `scripts/validate-bus311-decisions-m01-l01.mjs`
