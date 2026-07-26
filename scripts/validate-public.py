@@ -64,6 +64,8 @@ def deck_checks(path, errors):
     is_approved_financial_institutions = path.name == "bus311-intro-m02-l01-slides.html"
     is_approved_npv = path.name == "bus311-valuation-m04-l01-slides.html"
     is_approved_risk_return = path.name == "bus311-decisions-m01-l01-slides.html"
+    is_approved_wacc = path.name == "bus311-decisions-m02-l01-slides.html"
+    is_approved_corporate_financing = path.name == "bus311-decisions-m03-l01-slides.html"
     slide_count = len(re.findall(r'<section\b[^>]*class=["\'][^"\']*\bslide\b', text))
     local_visual_media = len(re.findall(r'<img\b[^>]+src=["\']assets/', text))
     notes_match = re.search(r'<script type="application/json" id="speaker-notes">(.*?)</script>', text, re.S)
@@ -123,6 +125,24 @@ def deck_checks(path, errors):
                     "class='beta-workflow'",
                 ))
             )
+            or (
+                is_approved_wacc
+                and text.count('role="img"') >= 16
+                and all(marker in text for marker in (
+                    'class="capital-stack"',
+                    'class="wacc-flow"',
+                    'class="value-composition"',
+                ))
+            )
+            or (
+                is_approved_corporate_financing
+                and text.count('role="img"') >= 16
+                and all(marker in text for marker in (
+                    'class="claim-stack',
+                    'class="class-architecture"',
+                    'class="risk-transfer-map"',
+                ))
+            )
         ),
         "FactSet public mockup": (
             "FACTSET WORKFLOW MOCKUP" in text
@@ -140,6 +160,12 @@ def deck_checks(path, errors):
             # M12 teaches beta estimation and CAPM from an instructor-authored
             # workbook; no FactSet capture or mockup belongs in this lesson.
             or is_approved_risk_return
+            # M13 uses stable classroom assumptions and an instructor-authored
+            # workbook; no proprietary platform capture belongs in the deck.
+            or is_approved_wacc
+            # M14 uses licensed FactSet for a live student investigation while
+            # keeping proprietary captures and exports out of the public deck.
+            or is_approved_corporate_financing
         ) and "PRIVATE CAPTURE" not in text,
         "Excel model slide": (
             "BUS311 LECTURE MODEL" in text
@@ -165,6 +191,18 @@ def deck_checks(path, errors):
                 and "=B4+B6*(B5-B4)" in text
                 and "class='excel-window'" in text
             )
+            or (
+                is_approved_wacc
+                and "=SUMPRODUCT(C5:C6,D5:D6,E5:E6)" in text
+                and "=NPV($B$3,C8:F8)+F10/(1+$B$3)^4" in text
+                and 'class="excel-window' in text
+            )
+            or (
+                is_approved_corporate_financing
+                and "=SUM(B5:B7)" in text
+                and "=INT(B4/(B5+1))+1" in text
+                and 'class="excel-window' in text
+            )
         ),
         "sensitivity slide": (
             "Sensitivity" in text
@@ -183,6 +221,19 @@ def deck_checks(path, errors):
                 is_approved_risk_return
                 and "id='beta-slider'" in text
                 and "id='required-return'" in text
+            )
+            or (
+                is_approved_wacc
+                and 'id="wacc-slider"' in text
+                and 'id="growth-slider"' in text
+                and 'id="enterprise-value"' in text
+            )
+            or (
+                is_approved_corporate_financing
+                and 'data-interactive="factset-prediction"' in text
+                and 'class="factset-table"' in text
+                and 'class="causality-classes"' in text
+                and "% change = (After − Before) / Before" in text
             )
         ),
         "decision slide": (
@@ -206,6 +257,17 @@ def deck_checks(path, errors):
                 is_approved_risk_return
                 and "class='decision-comparison'" in text
                 and "Which beta belongs in the project model?" in text
+            )
+            or (
+                is_approved_wacc
+                and 'class="decision-comparison"' in text
+                and "Two projects earn 9.1%—should Target accept both?" in text
+            )
+            or (
+                is_approved_corporate_financing
+                and 'class="memo-prompts"' in text
+                and "Separate issuance mechanics from changes that merely happened at the same time" in text
+                and "Favorable, unfavorable, or mixed" in text
             )
         ),
         "practical file size": path.stat().st_size < 5_000_000,
