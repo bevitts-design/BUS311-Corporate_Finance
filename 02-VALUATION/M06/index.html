@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Price bond cash flows, interpret yield and credit spread, and connect a debt issue to corporate capacity."><title>BUS311 · M06 · Bond Valuation, Interest Rates, and YTM</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../../assets/index.css?v=20260726"></head>
+<body class="lesson-page"><a class="skip-link" href="#lesson-content">Skip to lesson content</a><header class="lesson-header"><nav aria-label="Breadcrumb"><a href="../../">BUS311 course home</a><span aria-hidden="true">/</span><a href="../../#track-valuation">Valuation</a><span aria-hidden="true">/</span><span>M06</span></nav><div class="lesson-hero"><div><p class="eyebrow">Week 7 · October 14–19 · Value the Cash Flows</p><h1>Bond Valuation, Interest Rates, and YTM</h1><p>Price bond cash flows, interpret yield and credit spread, and connect a debt issue to corporate capacity.</p><div class="lesson-hero-meta"><span>Case: Meridian Industrial Corp.</span><span>75 minutes</span><span>Available</span></div></div><aside><span>Required output</span><strong>A priced bond, ratio-impact analysis, and CFO recommendation.</strong></aside></div></header>
+<main id="lesson-content" class="lesson-shell"><section class="learning-plan" aria-labelledby="learning-plan-title"><div class="section-heading compact"><div><p class="section-kicker">Learning plan</p><h2 id="learning-plan-title">What to do</h2></div><p>Complete the stages in order unless your instructor gives different directions in Canvas.</p></div><div class="learning-plan-grid"><article><span>Prepare</span><p>Review coupon cash flows, principal repayment, and the inverse price-yield relationship.</p></article><article><span>Practice</span><p>Use PRICE, YIELD, and RATE conventions to audit a bond valuation.</p></article><article><span>Apply</span><p>Recommend whether Meridian’s proposed debt issue supports the company’s financing objective.</p></article></div></section>
+<section class="lesson-resources" aria-labelledby="lesson-resources-title"><div class="section-heading compact"><div><p class="section-kicker">Lesson files</p><h2 id="lesson-resources-title">Resources</h2></div><p>Download workbook files before class so you are ready to model, interpret, and decide.</p></div><div class="material-grid"><a class="material-link material-learn" href="../../02-VALUATION/M06/bus311-valuation-m02-l01-slides.html" aria-label="View lesson slides for Bond Valuation, Interest Rates, and YTM">
+    <span>Learn</span>
+    <strong>View lesson slides</strong>
+    <small>Bond cash flows, yield, interest-rate risk, and debt capacity.</small>
+  </a><a class="material-link material-practice" href="../../02-VALUATION/M06/bus311-valuation-m02-l01-starter.xlsx" download aria-label="Download bond starter workbook for Bond Valuation, Interest Rates, and YTM">
+    <span>Practice</span>
+    <strong>Download bond starter workbook</strong>
+    <small>Starter model for bond pricing and yield analysis.</small>
+  </a><a class="material-link material-practice" href="../../02-VALUATION/M06/bus311-valuation-m02-l01-bond-practice.xlsx" download aria-label="Download bond-pricing practice for Bond Valuation, Interest Rates, and YTM">
+    <span>Practice</span>
+    <strong>Download bond-pricing practice</strong>
+    <small>Classroom exercises covering yield, coupon, maturity, and downgrade scenarios.</small>
+  </a><a class="material-link material-apply" href="../../02-VALUATION/M06/bus311-valuation-m02-l01-meridian-bond-case.xlsx" download aria-label="Download Meridian bond case for Bond Valuation, Interest Rates, and YTM">
+    <span>Apply</span>
+    <strong>Download Meridian bond case</strong>
+    <small>Student case for pricing a debt offering and analyzing the financial impact.</small>
+  </a></div></section>
+<div class="lesson-content-grid"><article class="reading-content"><p class="section-kicker">Pre-class briefing</p><h2>Why this matters</h2>
+<p>A bond is a dated package of cash flows valued with TVM. This lesson uses <strong>Meridian Industrial Corp.</strong> as a decision context. The goal is not merely to reproduce a formula; it is to explain what the result means for a financial decision and what evidence could change the conclusion.</p>
+<h2>Learning objectives</h2>
+<ul><li>Price coupon bonds</li><li>Interpret yield to maturity</li><li>Explain interest-rate and credit risk</li></ul>
+<h2>Bond cash flows</h2>
+<h3>Coupon stream</h3>
+<p>The coupon rate determines contractual payments from par value. It does not change merely because market yields move.</p>
+<h3>Principal repayment</h3>
+<p>The final cash flow includes both the last coupon and principal. Credit risk affects whether investors expect the promised amount to arrive.</p>
+<h3>Price is present value</h3>
+<p>A bond price equals the PV of coupons plus the PV of principal. The required yield reflects current base rates, maturity, liquidity, taxes, and credit risk.</p>
+<h2>Price and yield move oppositely</h2>
+<h3>Premium bond</h3>
+<p>Investors pay more because the contract offers coupons richer than newly issued comparable debt. The premium amortizes as maturity approaches.</p>
+<h3>Discount bond</h3>
+<p>A lower price raises the return earned from coupons plus the pull toward par. Price must adjust because the contractual coupon cannot.</p>
+<h2>Risk and corporate impact</h2>
+<h3>Duration intuition</h3>
+<p>More value arriving far in the future increases sensitivity to discount-rate changes. Duration provides a compact measure of that exposure.</p>
+<h3>Credit spread</h3>
+<p>Spreads compensate for expected loss, uncertainty, liquidity, and risk aversion. Widening spreads reduce existing bond prices even if Treasury yields do not move.</p>
+<h3>Debt changes ratios</h3>
+<p>The use of proceeds matters. Refinancing short-term debt differs from funding uncertain expansion, even when the bond terms are identical.</p>
+<h2>Worked example</h2>
+<p><strong>Excel:</strong> <code>=-PV(6%/2,10*2,1000*5%/2,1000)</code></p>
+<p><strong>Manual logic:</strong> PV of 20 coupons + PV of $1,000 principal</p>
+<p><strong>Expected conclusion:</strong> $925.61 when YTM exceeds the coupon rate.</p>
+<p>Use the MRID workbook to connect pricing mechanics to the issuer’s post-offering ratios and CFO recommendation.</p>
+<h2>FactSet application</h2>
+<p>Before using a FactSet value, record the field name, company, fiscal period, units, currency, and retrieval date. Reconcile material inputs to the company filing or FactSet definition. A correct-looking formula built from mismatched periods or units is not a valid analysis.</p>
+<h2>Decision questions</h2>
+<ol><li>Why do bond prices fall when required yields rise?</li><li>How should MRID’s use of proceeds affect your financing recommendation?</li></ol>
+<h2>Key takeaways</h2>
+<ul><li>Price equals discounted coupons plus principal.</li><li>Yield and price move inversely.</li><li>Debt terms and use of proceeds shape risk.</li></ul>
+<h2>Before class</h2>
+<ul><li>Review the learning objectives and define every bold term in your own words.</li><li>Open the linked lesson workbook when one is provided.</li><li>Confirm that you can access FactSet before class.</li><li>Bring one question about an assumption, data definition, or decision trade-off.</li></ul></article><aside class="outcome-panel"><h2>Learning outcomes</h2><ul><li><strong>LO4</strong><span>Apply time value of money principles to present value, future value, and yield-to-maturity calculations.</span></li><li><strong>LO5</strong><span>Explain factors affecting the cost of money, interest rates, bond markets, and stock markets.</span></li></ul><p><strong>Case:</strong> Meridian Industrial Corp.</p><p><strong>Skills:</strong> bond pricing · yield to maturity · interest-rate risk · debt capacity</p></aside></div>
+<nav class="lesson-pagination" aria-label="Lesson sequence"><a href="../../02-VALUATION/M05/"><span>Previous lesson</span><strong>M05 · Time Value of Money</strong></a><a class="next" href="../../02-VALUATION/M07/"><span>Next lesson</span><strong>M07 · Equity Valuation and IPO Analysis</strong></a></nav></main>
+<footer><strong>BUS311 · M06</strong><a href="../../">Course home</a><span>Canvas is the authority for submission instructions and due dates</span></footer></body></html>

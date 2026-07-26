@@ -1,0 +1,28 @@
+{
+  "id": "fall-2026",
+  "label": "Fall 2026",
+  "meetingPattern": "Mondays and Wednesdays · 12:30–1:45 PM",
+  "location": "Gerrish School of Business · Room 349",
+  "canvasUrl": "",
+  "syllabusPath": "BUS311Syllabus_FA2026.docx",
+  "currentLessonId": "intro-m01-l01",
+  "schedule": [
+    {"lessonId": "intro-m01-l01", "week": 1, "dateLabel": "September 2", "releaseState": "Available"},
+    {"lessonId": "intro-m02-l01", "week": 2, "dateLabel": "September 9", "releaseState": "Available"},
+    {"lessonId": "intro-m03-l01", "week": 3, "dateLabel": "September 14–16", "releaseState": "Available"},
+    {"lessonId": "intro-m04-l01", "week": 4, "dateLabel": "September 21–23", "releaseState": "Available"},
+    {"lessonId": "valuation-m01-l01", "week": 6, "dateLabel": "October 7", "releaseState": "Available"},
+    {"lessonId": "valuation-m02-l01", "week": 7, "dateLabel": "October 14–19", "releaseState": "Available"},
+    {"lessonId": "valuation-m03-l01", "week": 9, "dateLabel": "October 26–28", "releaseState": "Available"},
+    {"lessonId": "valuation-m04-l01", "week": 10, "dateLabel": "November 2", "releaseState": "Available"},
+    {"lessonId": "decisions-m01-l01", "week": 11, "dateLabel": "November 11", "releaseState": "Available"},
+    {"lessonId": "decisions-m02-l01", "week": 12, "dateLabel": "November 16", "releaseState": "Available"},
+    {"lessonId": "decisions-m03-l01", "week": 12, "dateLabel": "November 18", "releaseState": "Available"}
+  ],
+  "assessmentWeeks": [
+    {"week": 6, "label": "Exam 1 · October 5"},
+    {"week": 11, "label": "Exam 2 · November 9"},
+    {"week": 14, "label": "Exam 3 · November 30"},
+    {"week": 15, "label": "Company analysis presentations · December 2–9"}
+  ]
+}

@@ -1,14 +1,33 @@
 # BUS311 Corporate Finance
 
-This repository is the public, student-facing source for BUS311 course materials.
+This repository is the public, student-facing source for BUS311 course materials and the Fall 2026 course hub.
 
 - `course-map.json` defines the reusable curriculum and public artifacts.
 - `terms/*.json` supplies term-specific release and Canvas information.
-- `scripts/build-index.mjs` regenerates the student course hub.
+- `scripts/build-index.mjs` regenerates the homepage and each module landing page.
 - Lesson pre-readings are Markdown-only during the current conversion phase.
 - Instructor teaching keys, activity keys, exams, and grading materials belong in the separate private `BUS311-instructor` repository.
 
-The legacy OneDrive course folder remains the source archive until each item is reviewed and accepted into this repository.
+The legacy OneDrive course folder remains the source archive until each item is reviewed and accepted into this repository. Live student trackers and gradebooks never belong in Git; reviewed student materials are linked from `course-map.json`, while instructor keys and grading artifacts stay private.
+
+## Student course hub
+
+The generated site is organized around the student learning sequence rather than the repository folder names:
+
+1. **Start here** highlights the current Fall 2026 lesson.
+2. **Prepare, practice, apply** gives every lesson a predictable workflow.
+3. **Course pathway** groups M01–M04 as Understand the Business, M05–M08 as Value the Cash Flows, and M12–M14 as Recommend the Decision.
+4. Each module folder contains a generated `index.html` with its briefing, expected output, public downloads, learning outcomes, and previous/next navigation.
+5. Search and section filters help students find lessons by topic, company, skill, module, or learning outcome.
+
+Rebuild and validate the site with:
+
+```bash
+node scripts/build-index.mjs --term fall-2026
+python3 scripts/validate-public.py --site-only
+```
+
+The site-only validator checks term coverage, generated pages, public links, workbook safety, filename privacy rules, and whether every lesson-level artifact is represented in `course-map.json`. Run the full validator when a deck is rebuilt; it also enforces the current HTML-deck standard.
 
 ## Approved Canva/PPTX-to-HTML deck standard
 

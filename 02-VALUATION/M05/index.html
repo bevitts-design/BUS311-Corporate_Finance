@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Draw the cash-flow timeline first, then match the Excel function, rate, and period convention to the decision."><title>BUS311 · M05 · Time Value of Money</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../../assets/index.css?v=20260726"></head>
+<body class="lesson-page"><a class="skip-link" href="#lesson-content">Skip to lesson content</a><header class="lesson-header"><nav aria-label="Breadcrumb"><a href="../../">BUS311 course home</a><span aria-hidden="true">/</span><a href="../../#track-valuation">Valuation</a><span aria-hidden="true">/</span><span>M05</span></nav><div class="lesson-hero"><div><p class="eyebrow">Week 6 · October 7 · Value the Cash Flows</p><h1>Time Value of Money</h1><p>Draw the cash-flow timeline first, then match the Excel function, rate, and period convention to the decision.</p><div class="lesson-hero-meta"><span>Case: Berkshire Hathaway</span><span>75 minutes</span><span>Available</span></div></div><aside><span>Required output</span><strong>A formula-audited workbook and a value comparison stated in today’s dollars.</strong></aside></div></header>
+<main id="lesson-content" class="lesson-shell"><section class="learning-plan" aria-labelledby="learning-plan-title"><div class="section-heading compact"><div><p class="section-kicker">Learning plan</p><h2 id="learning-plan-title">What to do</h2></div><p>Complete the stages in order unless your instructor gives different directions in Canvas.</p></div><div class="learning-plan-grid"><article><span>Prepare</span><p>Review compounding, discounting, sign conventions, and rate-period matching.</p></article><article><span>Practice</span><p>Use PV, FV, and annuity functions with an auditable cash-flow timeline.</p></article><article><span>Apply</span><p>Compare two financing or investment alternatives on the same valuation date.</p></article></div></section>
+<section class="lesson-resources" aria-labelledby="lesson-resources-title"><div class="section-heading compact"><div><p class="section-kicker">Lesson files</p><h2 id="lesson-resources-title">Resources</h2></div><p>Download workbook files before class so you are ready to model, interpret, and decide.</p></div><div class="material-grid"><a class="material-link material-learn" href="../../02-VALUATION/M05/bus311-valuation-m01-l01-slides.html" aria-label="View lesson slides for Time Value of Money">
+    <span>Learn</span>
+    <strong>View lesson slides</strong>
+    <small>Cash-flow timelines, Excel valuation functions, and rate conventions.</small>
+  </a><a class="material-link material-practice" href="../../02-VALUATION/M05/bus311-valuation-m01-l01-starter.xlsx" download aria-label="Download TVM starter workbook for Time Value of Money">
+    <span>Practice</span>
+    <strong>Download TVM starter workbook</strong>
+    <small>Starter model for present value, future value, and annuity calculations.</small>
+  </a><a class="material-link material-practice" href="../../assets/lesson-media/excel/bus311-lecture-models.xlsx" download aria-label="Download worked valuation models for Time Value of Money">
+    <span>Practice</span>
+    <strong>Download worked valuation models</strong>
+    <small>Clean classroom models for reviewing Excel functions and formula structure across the course.</small>
+  </a></div></section>
+<div class="lesson-content-grid"><article class="reading-content"><p class="section-kicker">Pre-class briefing</p><h2>Why this matters</h2>
+<p>Performance measures describe the past; valuation converts future cash into today’s terms. This lesson uses <strong>Berkshire Hathaway</strong> as a decision context. The goal is not merely to reproduce a formula; it is to explain what the result means for a financial decision and what evidence could change the conclusion.</p>
+<h2>Learning objectives</h2>
+<ul><li>Draw cash-flow timelines</li><li>Solve present and future value</li><li>Match rate and period conventions</li></ul>
+<h2>The valuation grammar</h2>
+<h3>Timeline first</h3>
+<p>A timeline exposes whether a payment occurs today, at period-end, or at period-beginning. Most TVM errors start before the formula because timing was never made explicit.</p>
+<h3>Compounding</h3>
+<p>Each period earns a return on the original principal and prior accumulated returns. Longer time and higher rates amplify the compounding effect.</p>
+<h3>Discounting</h3>
+<p>The discount rate compensates for time and risk. A higher required return lowers what a future cash flow is worth today.</p>
+<h2>Rates and periods must agree</h2>
+<h3>Periodic rate</h3>
+<p>For monthly cash flows, use a monthly rate and monthly count unless an effective rate is supplied. Never divide an effective annual rate by twelve without checking its definition.</p>
+<h3>Sign convention</h3>
+<p>Financial functions use directional cash flows. If PV is entered as a cash outflow, FV usually appears as a positive inflow; inconsistent signs create confusing results.</p>
+<h2>Cash-flow patterns</h2>
+<h3>Lump sum</h3>
+<p>Lump-sum PV and FV are the foundation. Multi-period securities and projects then add together the values of multiple dated cash flows.</p>
+<h3>Annuity</h3>
+<p>Ordinary annuities pay at period-end; annuities due pay at period-beginning. That one-period timing difference changes value.</p>
+<h3>Perpetuity</h3>
+<p>A level perpetuity is cash flow divided by required return, provided the first payment arrives one period from now. Growth requires a separate growing-perpetuity condition.</p>
+<h2>Worked example</h2>
+<p><strong>Excel:</strong> <code>=FV(8%,5,0,-10000)</code></p>
+<p><strong>Manual logic:</strong> $10,000 × (1.08)^5</p>
+<p><strong>Expected conclusion:</strong> $14,693.28 future value.</p>
+<p>Have students solve manually and in Excel, then change only the timing or rate to observe sensitivity.</p>
+<h2>FactSet application</h2>
+<p>Before using a FactSet value, record the field name, company, fiscal period, units, currency, and retrieval date. Reconcile material inputs to the company filing or FactSet definition. A correct-looking formula built from mismatched periods or units is not a valid analysis.</p>
+<h2>Decision questions</h2>
+<ol><li>Why does a higher discount rate reduce present value?</li><li>What mistake occurs when monthly payments use an annual period count?</li></ol>
+<h2>Key takeaways</h2>
+<ul><li>Draw the timeline before choosing a formula.</li><li>Match rates to periods.</li><li>Treat signs as cash-flow direction.</li></ul>
+<h2>Before class</h2>
+<ul><li>Review the learning objectives and define every bold term in your own words.</li><li>Open the linked lesson workbook when one is provided.</li><li>Confirm that you can access FactSet before class.</li><li>Bring one question about an assumption, data definition, or decision trade-off.</li></ul></article><aside class="outcome-panel"><h2>Learning outcomes</h2><ul><li><strong>LO4</strong><span>Apply time value of money principles to present value, future value, and yield-to-maturity calculations.</span></li></ul><p><strong>Case:</strong> Berkshire Hathaway</p><p><strong>Skills:</strong> cash-flow timelines · present value · future value · annuities</p></aside></div>
+<nav class="lesson-pagination" aria-label="Lesson sequence"><a href="../../01-INTRO/M04/"><span>Previous lesson</span><strong>M04 · Ratio Analysis and Corporate Performance</strong></a><a class="next" href="../../02-VALUATION/M06/"><span>Next lesson</span><strong>M06 · Bond Valuation, Interest Rates, and YTM</strong></a></nav></main>
+<footer><strong>BUS311 · M05</strong><a href="../../">Course home</a><span>Canvas is the authority for submission instructions and due dates</span></footer></body></html>

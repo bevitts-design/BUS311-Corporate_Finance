@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import argparse
 import json
 import re
 from html import unescape
@@ -7,7 +8,10 @@ from zipfile import ZipFile
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-FORBIDDEN = re.compile(r"solution|answer|key|completed|instructor|exam|grading|student[-_ ]?data", re.I)
+FORBIDDEN = re.compile(
+    r"solution|answer|key|completed|instructor|exam|grading|student[-_ ]?data|gradebook|progress[-_ ]?plan|student[-_ ]?tracker",
+    re.I,
+)
 
 
 def workbook_sheets(path):
@@ -277,8 +281,71 @@ def deck_checks(path, errors):
             errors.append(f"Deck check failed ({label}): {path.relative_to(ROOT)}")
 
 
+def site_hub_checks(course_map, term, errors):
+    lesson_ids = {lesson["id"] for lesson in course_map["lessons"]}
+    scheduled_ids = [item.get("lessonId") for item in term.get("schedule", [])]
+    if set(scheduled_ids) != lesson_ids or len(scheduled_ids) != len(lesson_ids):
+        errors.append("Term schedule must include every lesson exactly once.")
+    if term.get("currentLessonId") not in lesson_ids:
+        errors.append("Term currentLessonId does not match a course-map lesson.")
+    if not term.get("meetingPattern") or not term.get("location"):
+        errors.append("Term meeting pattern and location are required.")
+    syllabus = ROOT / term.get("syllabusPath", "")
+    if not syllabus.is_file():
+        errors.append(f"Missing term syllabus: {term.get('syllabusPath', '')}")
+    for item in term.get("schedule", []):
+        if item.get("releaseState") not in {"Available", "Coming soon"}:
+            errors.append(f"Invalid releaseState for {item.get('lessonId')}: {item.get('releaseState')}")
+        if not item.get("week") or not item.get("dateLabel"):
+            errors.append(f"Incomplete term schedule row: {item.get('lessonId')}")
+
+    index_path = ROOT / "index.html"
+    index_text = index_path.read_text(encoding="utf-8") if index_path.exists() else ""
+    required_home_markers = (
+        "Start here",
+        "Prepare, practice, then apply",
+        "Course pathway",
+        "Find a lesson",
+        "Course learning outcomes",
+        "Resources and key dates",
+        'aria-live="polite"',
+        'class="skip-link"',
+    )
+    for marker in required_home_markers:
+        if marker not in index_text:
+            errors.append(f"Generated index missing student-hub marker: {marker}")
+
+    for lesson in course_map["lessons"]:
+        required_fields = ("summary", "caseStudy", "prepare", "practice", "apply", "deliverable", "readingPath")
+        for field in required_fields:
+            if not lesson.get(field):
+                errors.append(f"Lesson missing {field}: {lesson['id']}")
+        reading = ROOT / lesson.get("readingPath", "")
+        if not reading.is_file():
+            errors.append(f"Missing lesson reading: {lesson.get('readingPath', '')}")
+        else:
+            markdown_checks(reading, lesson["id"], errors)
+
+        slide = next((material for material in lesson["materials"] if material.get("type") == "Slides"), None)
+        if not slide or not slide.get("path"):
+            errors.append(f"Lesson missing slide path: {lesson['id']}")
+            continue
+        lesson_page = ROOT / Path(slide["path"]).parent / "index.html"
+        lesson_text = lesson_page.read_text(encoding="utf-8") if lesson_page.exists() else ""
+        if not lesson_page.exists():
+            errors.append(f"Missing generated lesson page: {lesson_page.relative_to(ROOT)}")
+            continue
+        for marker in (lesson["title"], lesson["deliverable"], "Prepare", "Practice", "Apply", "Pre-class briefing"):
+            if marker not in lesson_text:
+                errors.append(f"Lesson page missing '{marker}': {lesson_page.relative_to(ROOT)}")
+
+
 def main():
+    parser = argparse.ArgumentParser(description="Validate the BUS311 public repository.")
+    parser.add_argument("--site-only", action="store_true", help="Validate the course hub and public files without legacy deck-standard checks.")
+    args = parser.parse_args()
     course_map = json.loads((ROOT / "course-map.json").read_text())
+    term = json.loads((ROOT / "terms" / "fall-2026.json").read_text())
     errors = []
     outcome_ids = {item["id"] for item in course_map["learningOutcomes"]}
     track_ids = {item["id"] for item in course_map["tracks"]}
@@ -287,6 +354,7 @@ def main():
         errors.append("Capstone must not appear in course-map.json during planning.")
 
     used_outcomes = set()
+    modeled_paths = {term.get("syllabusPath", "")}
     for lesson in course_map["lessons"]:
         lesson_id = lesson["id"]
         if lesson["track"] not in track_ids:
@@ -303,10 +371,11 @@ def main():
                 errors.append(f"Material must define exactly one path or url: {lesson_id} / {material.get('type')}")
                 continue
             if has_path:
+                modeled_paths.add(material["path"])
                 target = ROOT / material["path"]
                 if not target.exists():
                     errors.append(f"Missing public material: {material['path']}")
-                elif target.suffix.lower() == ".html" and material.get("type") == "Slides":
+                elif target.suffix.lower() == ".html" and material.get("type") == "Slides" and not args.site_only:
                     deck_checks(target, errors)
                 elif target.suffix.lower() == ".xlsx":
                     workbook_checks(target, errors, material.get("type") == "Starter Workbook")
@@ -321,6 +390,14 @@ def main():
                     else:
                         markdown_checks(local, lesson_id, errors)
 
+        stages = {material.get("stage") for material in lesson["materials"]}
+        if "Learn" not in stages:
+            errors.append(f"Lesson lacks a Learn resource: {lesson_id}")
+        if any(stage not in {"Prepare", "Learn", "Practice", "Apply"} for stage in stages):
+            errors.append(f"Lesson has an invalid resource stage: {lesson_id}")
+
+    site_hub_checks(course_map, term, errors)
+
     if used_outcomes != outcome_ids:
         errors.append(f"Outcome coverage mismatch: expected {sorted(outcome_ids)}, found {sorted(used_outcomes)}")
     for outcome in outcome_ids:
@@ -333,6 +410,15 @@ def main():
             continue
         if FORBIDDEN.search(path.name) and path.name not in {"validate-public.py"}:
             errors.append(f"Forbidden public filename: {path.relative_to(ROOT)}")
+
+    for track_root in (ROOT / "01-INTRO", ROOT / "02-VALUATION", ROOT / "03-FIRM-DECISIONS"):
+        for module_dir in track_root.glob("M??"):
+            for path in module_dir.iterdir():
+                if not path.is_file() or path.name == "index.html" or path.suffix.lower() not in {".html", ".xlsx", ".docx", ".pdf"}:
+                    continue
+                relative = path.relative_to(ROOT).as_posix()
+                if relative not in modeled_paths:
+                    errors.append(f"Unmodeled lesson artifact: {relative}")
 
     index_text = (ROOT / "index.html").read_text(encoding="utf-8") if (ROOT / "index.html").exists() else ""
     for lesson in course_map["lessons"]:

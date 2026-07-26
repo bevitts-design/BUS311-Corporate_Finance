@@ -11,6 +11,7 @@
 
 - Treat `course-map.json` as the source of truth for tracks, lessons, outcome coverage, and public material links.
 - Treat `terms/*.json` as the source of truth for term-specific ordering, release state, Canvas URL, and current lesson.
+- The generated homepage and module landing pages are derived artifacts. Update `course-map.json`, the active term file, or maintained pre-reading Markdown, then run `scripts/build-index.mjs`.
 - Treat `docs/bus311-html-deck-standard.md` as the approved design, teaching-pattern, and verification standard for BUS311 Canva/PPTX-to-HTML deck rebuilds.
 - Build HTML decks as visually varied, graphic-led classroom experiences rather than repeated text-card layouts. Each slide needs one explicit teaching message that is understandable from its title and visual.
 - Structure discoveries as setup or prediction → student work → answer reveal. Do not present a surprising conclusion without first giving students enough context to reason toward it.
@@ -33,8 +34,11 @@ Use `bus311-[track]-m##-l##-[artifact].ext`, such as:
 ## Required verification
 
 - Run `python3 scripts/validate-public.py` after public-material changes.
+- Run `python3 scripts/validate-public.py --site-only` for course-hub and public-inventory changes; use the full validator after deck changes.
 - Run the private repository coverage validator after teaching-key or workbook-key changes.
 - Public workbooks must not contain hidden solution, answer, key, completed, instructor, exam, or grading sheets.
+- Every lesson-level HTML, workbook, document, or PDF must be linked from `course-map.json`; do not leave unmodeled downloads in a public module folder.
+- Live gradebooks, progress plans, student trackers, student names, and advising records stay in approved local or institutional systems, never in either Git repository.
 - Preserve unrelated work and do not commit, push, or publish unless explicitly requested.
 
 ## GitHub publishing
