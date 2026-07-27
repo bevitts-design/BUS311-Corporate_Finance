@@ -97,7 +97,7 @@
       "materials": [
         {"type": "Slides", "label": "View lesson slides", "path": "01-INTRO/M03/bus311-intro-m03-l01-slides.html", "stage": "Learn", "description": "Financial-statement connections, cash flow, and decision checks."},
         {"type": "Starter Workbook", "label": "Download statement model", "path": "01-INTRO/M03/bus311-intro-m03-l01-starter.xlsx", "stage": "Practice", "description": "Formula-ready model for linking the three statements."},
-        {"type": "Excel Activity", "label": "Download Caterpillar FactSet activity", "path": "01-INTRO/M03/bus311-intro-m03-l01-factset-cat-activity.xlsx", "stage": "Apply", "description": "Student worksheet for gathering and interpreting Caterpillar financial evidence."}
+        {"type": "Excel Activity", "label": "Download Caterpillar FactSet activity", "cardLabel": "CAT Financial Data Activity", "path": "01-INTRO/M03/bus311-intro-m03-l01-factset-cat-activity.xlsx", "stage": "Apply", "description": "Student worksheet for gathering and interpreting Caterpillar financial evidence."}
       ]
     },
     {

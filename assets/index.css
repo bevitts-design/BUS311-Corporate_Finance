@@ -106,6 +106,8 @@ main > section { padding: 72px 0; }
 .lesson-summary { margin: 0 0 18px; color: var(--soft); }
 .lesson-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 20px; }
 .lesson-actions > span { color: var(--soft); font-size: .82rem; }
+.card-resource-action { width: 100%; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; margin-top: 12px; border: 1px solid var(--terra); border-radius: 9px; padding: 10px 14px; color: var(--terra); text-align: center; text-decoration: none; font-weight: 850; }
+.card-resource-action:hover, .card-resource-action:focus-visible { background: var(--terra); color: var(--white); }
 .no-results { margin: 40px 0 70px; border: 1px dashed var(--border); border-radius: var(--radius-lg); padding: 52px; text-align: center; background: var(--white); }
 .no-results h3 { margin: 0 0 8px; font: 400 2rem/1 Georgia, serif; }
 .no-results button { margin-top: 14px; }

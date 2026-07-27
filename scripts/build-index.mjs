@@ -118,6 +118,10 @@ function lessonCard(lesson) {
   const termInfo = schedule.get(lesson.id) || { week: '—', dateLabel: 'Schedule in Canvas', releaseState: 'Available' };
   const track = tracks.find((item) => item.id === lesson.track);
   const isCurrent = lesson.id === current.id;
+  const cardMaterial = lesson.materials.find((material) => material.cardLabel);
+  const cardMaterialButton = cardMaterial
+    ? `<a class="card-resource-action" href="${esc(materialHref(cardMaterial))}" download aria-label="${esc(`${cardMaterial.cardLabel} for ${lesson.title}`)}">${esc(cardMaterial.cardLabel)}</a>`
+    : '';
   const searchText = [
     lesson.title,
     lesson.summary,
@@ -138,7 +142,7 @@ function lessonCard(lesson) {
     <div class="lesson-actions">
       <a class="primary-action" href="${esc(lessonHref(lesson))}">Open lesson</a>
       <span>${lesson.materials.length} resource${lesson.materials.length === 1 ? '' : 's'}</span>
-    </div>
+    </div>${cardMaterialButton ? `\n    ${cardMaterialButton}` : ''}
   </article>`;
 }
 
