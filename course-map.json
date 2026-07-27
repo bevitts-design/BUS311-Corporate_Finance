@@ -113,7 +113,10 @@
       "deliverable": "A completed ratio model and a driver-based performance recommendation.",
       "materials": [
         {"type": "Slides", "label": "View lesson slides", "path": "01-INTRO/M04/bus311-intro-m04-l01-slides.html", "stage": "Learn", "description": "Ratio families, DuPont logic, peer context, and analytical safeguards."},
-        {"type": "Starter Workbook", "label": "Download ratio starter workbook", "path": "01-INTRO/M04/bus311-intro-m04-l01-starter.xlsx", "stage": "Practice", "description": "Starter model for consistent ratio construction and interpretation."}
+        {"type": "Starter Workbook", "label": "Download ratio starter workbook", "path": "01-INTRO/M04/bus311-intro-m04-l01-starter.xlsx", "stage": "Practice", "description": "Starter model for consistent ratio construction and interpretation."},
+        {"type": "Excel Activity", "label": "Download Lemonade Stand finance activity", "cardLabel": "Lemonade Stand Finance Model", "path": "01-INTRO/M04/bus311-intro-m04-l01-lemonade-activity.xlsx", "stage": "Apply", "description": "Student workbook for connecting financing, operations, cash flow, performance, valuation, and dilution."},
+        {"type": "Activity Guide", "label": "View accessible Lemonade Stand guide", "path": "01-INTRO/M04/source/bus311-intro-m04-l01-lemonade-guide.md", "stage": "Apply", "description": "Editable, accessible guide to the activity sequence, accounting judgments, and submission checks."},
+        {"type": "Printable Guide", "label": "Download printable Lemonade Stand guide", "path": "01-INTRO/M04/bus311-intro-m04-l01-lemonade-guide.pdf", "stage": "Apply", "description": "Print-ready companion for the Lemonade Stand modeling activity."}
       ]
     },
     {

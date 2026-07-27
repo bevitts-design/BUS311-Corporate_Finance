@@ -10,6 +10,8 @@ This repository is the public, student-facing source for BUS311 course materials
 
 The legacy OneDrive course folder remains the source archive until each item is reviewed and accepted into this repository. Live student trackers and gradebooks never belong in Git; reviewed student materials are linked from `course-map.json`, while instructor keys and grading artifacts stay private.
 
+The original M04 student workbook, cheatsheet, and PDF in `Lemonade Stand- Class Assignment` remain unchanged as historical references; the legacy answer key remains private. Current students should use only the canonically named Lemonade Stand activity and guide linked from `course-map.json`.
+
 ## Student course hub
 
 The generated site is organized around the student learning sequence rather than the repository folder names:
