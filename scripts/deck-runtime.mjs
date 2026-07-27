@@ -56,6 +56,9 @@ export function deckRuntime() {
         this._notesEl=notes;
 
         document.addEventListener('keydown',event=>{
+          const interactiveTarget=event.target instanceof HTMLElement
+            && event.target.closest('input,textarea,select,button,[contenteditable="true"]');
+          if(interactiveTarget&&['ArrowRight','ArrowDown',' ','PageDown','ArrowLeft','ArrowUp','PageUp','Home','End'].includes(event.key))return;
           if(['ArrowRight','ArrowDown',' ','PageDown'].includes(event.key)){event.preventDefault();this._go(this._idx+1)}
           if(['ArrowLeft','ArrowUp','PageUp'].includes(event.key)){event.preventDefault();this._go(this._idx-1)}
           if(event.key==='Home'){event.preventDefault();this._go(0)}

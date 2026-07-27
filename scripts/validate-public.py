@@ -66,6 +66,7 @@ def deck_checks(path, errors):
     text = path.read_text(encoding="utf-8")
     is_approved_intro = path.name == "bus311-intro-m01-l01-slides.html"
     is_approved_financial_institutions = path.name == "bus311-intro-m02-l01-slides.html"
+    is_approved_tvm = path.name == "bus311-valuation-m05-l01-slides.html"
     is_approved_npv = path.name == "bus311-valuation-m08-l01-slides.html"
     is_approved_risk_return = path.name == "bus311-decisions-m12-l01-slides.html"
     is_approved_wacc = path.name == "bus311-decisions-m13-l01-slides.html"
@@ -108,6 +109,16 @@ def deck_checks(path, errors):
                     'class="function-wheel"',
                     'class="bear-bars"',
                     'class="financing-matrix"',
+                ))
+            )
+            or (
+                is_approved_tvm
+                and text.count('role="img"') >= 18
+                and all(marker in text for marker in (
+                    'class="clock-orbit"',
+                    'class="excel-sheet',
+                    'class="sensitivity-chart"',
+                    'class="pattern-tree"',
                 ))
             )
             or (
@@ -157,6 +168,11 @@ def deck_checks(path, errors):
                 and "units, and retrieval date" in text
             )
             or (
+                is_approved_tvm
+                and 'class="evidence-pipeline"' in text
+                and "Record the field, definition, period, units, currency, supplier, and retrieval date." in text
+            )
+            or (
                 is_approved_npv
                 and "Corporate red team · Walmart context" in text
                 and "Company announcements provide the context" in text
@@ -182,6 +198,12 @@ def deck_checks(path, errors):
                 is_approved_financial_institutions
                 and "=225 * 15.2" in text
                 and "Build and audit a market-cap comparison" in text
+            )
+            or (
+                is_approved_tvm
+                and "=FV(B5,B6,B7,B4,B8)" in text
+                and 'class="excel-sheet"' in text
+                and "$14,693.28" in text
             )
             or (
                 is_approved_npv
@@ -215,6 +237,12 @@ def deck_checks(path, errors):
                 is_approved_financial_institutions
                 and "what the result excludes" in text
                 and "What does the evidence not prove?" in text
+            )
+            or (
+                is_approved_tvm
+                and 'data-interactive="sensitivity"' in text
+                and 'id="fv-rate"' in text
+                and 'id="fv-output"' in text
             )
             or (
                 is_approved_npv
@@ -251,6 +279,12 @@ def deck_checks(path, errors):
                 is_approved_financial_institutions
                 and "Where does the cash go?" in text
                 and "Deliverable: one ranked table" in text
+            )
+            or (
+                is_approved_tvm
+                and 'data-interactive="exit"' in text
+                and "Finish one sentence that a CFO could use" in text
+                and "Apply TVM to coupon bonds and yield to maturity." in text
             )
             or (
                 is_approved_npv
