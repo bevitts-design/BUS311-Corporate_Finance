@@ -25,7 +25,7 @@
 - **Lesson CSS:** `03-FIRM-DECISIONS/M13/assets/deck.css`
 - **Activity script:** `03-FIRM-DECISIONS/M13/assets/activities.js`
 - **Builder:** `scripts/build-bus311-decisions-m02-l01.mjs`
-- **Output:** `03-FIRM-DECISIONS/M13/bus311-decisions-m02-l01-slides.html`
+- **Output:** `03-FIRM-DECISIONS/M13/bus311-decisions-m13-l01-slides.html`
 - **Source inventory:** `audits/bus311-decisions-m02-l01-source-inventory.md`
 - **Review log:** `audits/bus311-decisions-m02-l01-review-log.md`
 - **Validator:** `scripts/validate-bus311-decisions-m02-l01.mjs`
@@ -64,7 +64,7 @@
 
 - **Short checks:** missing-hurdle prediction, tax-shield calculation, same-risk project choice, horizon-value prediction, and model-audit selection
 - **Interactive lab:** vary WACC and growth, then record the valuation range and assumption drivers
-- **Workbook task:** use the existing public `bus311-decisions-m02-l01-starter.xlsx`; do not alter or expose a solution workbook
+- **Workbook task:** use the existing public `bus311-decisions-m13-l01-starter.xlsx`; do not alter or expose a solution workbook
 - **Required deliverables:** explicit calculations or selections, one formula/evidence audit, and a decision statement with risk or limitation
 - **Private-only content:** no roster, private assessment, grading key, publisher solution workbook, or instructor-only answer file is added to the public repository
 

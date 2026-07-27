@@ -25,7 +25,7 @@
 - **Lesson CSS:** `03-FIRM-DECISIONS/M14/assets/deck.css`
 - **Activity script:** `03-FIRM-DECISIONS/M14/assets/activities.js`
 - **Builder:** `scripts/build-bus311-decisions-m03-l01.mjs`
-- **Output:** `03-FIRM-DECISIONS/M14/bus311-decisions-m03-l01-slides.html`
+- **Output:** `03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-slides.html`
 - **Source inventory:** `audits/bus311-decisions-m03-l01-source-inventory.md`
 - **Review log:** `audits/bus311-decisions-m03-l01-review-log.md`
 - **Validator:** `scripts/validate-bus311-decisions-m03-l01.mjs`

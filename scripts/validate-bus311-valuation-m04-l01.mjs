@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { npvM08L01Deck } from './decks/bus311-valuation-m04-l01-content.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const deckPath = path.join(root, '02-VALUATION', 'M08', 'bus311-valuation-m04-l01-slides.html');
+const deckPath = path.join(root, '02-VALUATION', 'M08', 'bus311-valuation-m08-l01-slides.html');
 const html = await fs.readFile(deckPath, 'utf8');
 const errors = [];
 

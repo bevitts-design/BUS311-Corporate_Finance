@@ -27,9 +27,9 @@
 
 Use `bus311-[track]-m##-l##-[artifact].ext`, such as:
 
-- `bus311-valuation-m02-l01-slides.html`
-- `bus311-valuation-m02-l01-starter.xlsx`
-- `source/bus311-valuation-m02-l01-prereading.md`
+- `bus311-valuation-m06-l01-slides.html`
+- `bus311-valuation-m06-l01-starter.xlsx`
+- `source/bus311-valuation-m06-l01-prereading.md`
 
 ## Required verification
 

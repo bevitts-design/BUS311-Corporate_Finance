@@ -8,7 +8,7 @@
 - **Source slides inspected:** 26 of 26
 - **Target:** Public 75-minute presenter deck
 - **Maintained content:** `scripts/decks/bus311-decisions-m02-l01-content.mjs`
-- **Output:** `03-FIRM-DECISIONS/M13/bus311-decisions-m02-l01-slides.html`
+- **Output:** `03-FIRM-DECISIONS/M13/bus311-decisions-m13-l01-slides.html`
 - **Source media policy:** Extracted PowerPoint media and rendered slide references remained in a temporary audit area and were not copied into the public repository
 
 ## Compact source audit
@@ -58,4 +58,3 @@
 - The Apple market-rate claims dated “early 2025” were not carried forward because they were time-sensitive and unnecessary to the teaching objective.
 - The free-cash-flow bridge adds change in net working capital so the unlevered FCF definition is complete.
 - The DCF arithmetic was independently recomputed: forecast-period PV is $230.87M, horizon-value PV is $1,011.82M, enterprise value is $1,242.69M, and implied equity value is $20.85 per share under the stated classroom assumptions.
-

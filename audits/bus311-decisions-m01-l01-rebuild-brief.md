@@ -25,7 +25,7 @@
 - **Lesson CSS:** `03-FIRM-DECISIONS/M12/assets/deck.css`
 - **Activity script:** `03-FIRM-DECISIONS/M12/assets/activities.js`
 - **Builder:** `scripts/build-bus311-decisions-m01-l01.mjs`
-- **Output:** `03-FIRM-DECISIONS/M12/bus311-decisions-m01-l01-slides.html`
+- **Output:** `03-FIRM-DECISIONS/M12/bus311-decisions-m12-l01-slides.html`
 - **Source inventory:** `audits/bus311-decisions-m01-l01-source-inventory.md`
 - **Review log:** `audits/bus311-decisions-m01-l01-review-log.md`
 - **Validator:** `scripts/validate-bus311-decisions-m01-l01.mjs`
@@ -82,4 +82,3 @@
 - [x] Public validator passes
 - [x] Browser navigation, notes, interaction, overflow, and console QA passes
 - [ ] Instructor approval recorded
-

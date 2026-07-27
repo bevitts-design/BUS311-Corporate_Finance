@@ -6,7 +6,7 @@ import { deckRuntime } from './deck-runtime.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const lessonDir = path.join(root, '02-VALUATION', 'M08');
-const output = path.join(lessonDir, 'bus311-valuation-m04-l01-slides.html');
+const output = path.join(lessonDir, 'bus311-valuation-m08-l01-slides.html');
 const css = await fs.readFile(path.join(lessonDir, 'assets', 'deck.css'), 'utf8');
 const activities = await fs.readFile(path.join(lessonDir, 'assets', 'activities.js'), 'utf8');
 

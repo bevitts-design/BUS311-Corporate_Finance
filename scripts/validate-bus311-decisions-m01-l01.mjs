@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { riskReturnM12Deck } from './decks/bus311-decisions-m01-l01-content.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const deckPath = path.join(root, '03-FIRM-DECISIONS', 'M12', 'bus311-decisions-m01-l01-slides.html');
+const deckPath = path.join(root, '03-FIRM-DECISIONS', 'M12', 'bus311-decisions-m12-l01-slides.html');
 const html = await fs.readFile(deckPath, 'utf8');
 const errors = [];
 const expect = (condition, message) => { if(!condition) errors.push(message); };

@@ -66,10 +66,10 @@ def deck_checks(path, errors):
     text = path.read_text(encoding="utf-8")
     is_approved_intro = path.name == "bus311-intro-m01-l01-slides.html"
     is_approved_financial_institutions = path.name == "bus311-intro-m02-l01-slides.html"
-    is_approved_npv = path.name == "bus311-valuation-m04-l01-slides.html"
-    is_approved_risk_return = path.name == "bus311-decisions-m01-l01-slides.html"
-    is_approved_wacc = path.name == "bus311-decisions-m02-l01-slides.html"
-    is_approved_corporate_financing = path.name == "bus311-decisions-m03-l01-slides.html"
+    is_approved_npv = path.name == "bus311-valuation-m08-l01-slides.html"
+    is_approved_risk_return = path.name == "bus311-decisions-m12-l01-slides.html"
+    is_approved_wacc = path.name == "bus311-decisions-m13-l01-slides.html"
+    is_approved_corporate_financing = path.name == "bus311-decisions-m14-l01-slides.html"
     slide_count = len(re.findall(r'<section\b[^>]*class=["\'][^"\']*\bslide\b', text))
     local_visual_media = len(re.findall(r'<img\b[^>]+src=["\']assets/', text))
     notes_match = re.search(r'<script type="application/json" id="speaker-notes">(.*?)</script>', text, re.S)

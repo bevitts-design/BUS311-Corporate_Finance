@@ -2,7 +2,7 @@
 
 **Deck:** Cost of Capital, WACC, and Company Valuation  
 **Source:** `BUS311 Chapter 13.pptx`, 26 source slides  
-**Output:** `03-FIRM-DECISIONS/M13/bus311-decisions-m02-l01-slides.html`  
+**Output:** `03-FIRM-DECISIONS/M13/bus311-decisions-m13-l01-slides.html`
 **Review status:** Implementation and QA complete; instructor approval pending
 
 | Topic | Decision | Classification | Disposition |

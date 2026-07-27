@@ -58,7 +58,8 @@ async function exportPair(definition) {
   for (const keyed of [false, true]) {
     const workbook = definition.build(keyed);
     const outDir = keyed ? path.join(privateRoot, definition.track, definition.module) : path.join(root, definition.track, definition.module);
-    const filename = `bus311-${definition.id}-${keyed ? 'activity-key' : 'starter'}.xlsx`;
+    const artifactId = definition.artifactId || definition.id;
+    const filename = `bus311-${artifactId}-${keyed ? 'activity-key' : 'starter'}.xlsx`;
     await fs.mkdir(outDir, { recursive: true });
     const blob = await SpreadsheetFile.exportXlsx(workbook);
     await blob.save(path.join(outDir, filename));
@@ -105,7 +106,7 @@ const definitions = [
     }
   },
   {
-    id: 'valuation-m01-l01', track: '02-VALUATION', module: 'M05',
+    id: 'valuation-m01-l01', artifactId: 'valuation-m05-l01', track: '02-VALUATION', module: 'M05',
     build(keyed) {
       const wb = baseWorkbook('Time Value of Money', 'valuation-m01-l01');
       const s = wb.worksheets.add('TVM Lab'); styleTitle(s, 'Berkshire Capital Allocation — TVM Lab', 'F');
@@ -139,7 +140,7 @@ const definitions = [
     }
   },
   {
-    id: 'decisions-m01-l01', track: '03-FIRM-DECISIONS', module: 'M12',
+    id: 'decisions-m01-l01', artifactId: 'decisions-m12-l01', track: '03-FIRM-DECISIONS', module: 'M12',
     build(keyed) {
       const wb = baseWorkbook('Risk, Return, and CAPM', 'decisions-m01-l01');
       const s = wb.worksheets.add('CAPM Lab'); styleTitle(s, 'Boeing Risk and Required Return', 'G');

@@ -7,13 +7,13 @@ const privateRoot = process.env.BUS311_PRIVATE_ROOT || '/private/tmp/BUS311-inst
 const qaRoot = '/private/tmp/bus311-workbook-qa';
 
 const lessons = [
-  ['01-INTRO', 'M02', 'intro-m02-l01', 'Financial Institutions, Markets, and Ethics'],
-  ['01-INTRO', 'M04', 'intro-m04-l01', 'Ratio Analysis and Corporate Performance'],
-  ['02-VALUATION', 'M06', 'valuation-m02-l01', 'Bond Valuation, Interest Rates, and YTM'],
-  ['02-VALUATION', 'M07', 'valuation-m03-l01', 'Equity Valuation and IPO Analysis'],
-  ['02-VALUATION', 'M08', 'valuation-m04-l01', 'Capital Budgeting and Project Selection'],
-  ['03-FIRM-DECISIONS', 'M13', 'decisions-m02-l01', 'Cost of Capital and WACC'],
-  ['03-FIRM-DECISIONS', 'M14', 'decisions-m03-l01', 'Capital Structure and Financing Decisions']
+  ['01-INTRO', 'M02', 'intro-m02-l01', 'intro-m02-l01', 'Financial Institutions, Markets, and Ethics'],
+  ['01-INTRO', 'M04', 'intro-m04-l01', 'intro-m04-l01', 'Ratio Analysis and Corporate Performance'],
+  ['02-VALUATION', 'M06', 'valuation-m02-l01', 'valuation-m06-l01', 'Bond Valuation, Interest Rates, and YTM'],
+  ['02-VALUATION', 'M07', 'valuation-m03-l01', 'valuation-m07-l01', 'Equity Valuation and IPO Analysis'],
+  ['02-VALUATION', 'M08', 'valuation-m04-l01', 'valuation-m08-l01', 'Capital Budgeting and Project Selection'],
+  ['03-FIRM-DECISIONS', 'M13', 'decisions-m02-l01', 'decisions-m13-l01', 'Cost of Capital and WACC'],
+  ['03-FIRM-DECISIONS', 'M14', 'decisions-m03-l01', 'decisions-m14-l01', 'Capital Structure and Financing Decisions']
 ];
 
 const colors = {
@@ -89,9 +89,9 @@ async function normalize(filePath, title, lessonId, keyed) {
   );
 }
 
-for (const [track, module, lessonId, title] of lessons) {
-  await normalize(path.join(root, track, module, `bus311-${lessonId}-starter.xlsx`), title, lessonId, false);
-  await normalize(path.join(privateRoot, track, module, `bus311-${lessonId}-activity-key.xlsx`), title, lessonId, true);
+for (const [track, module, lessonId, artifactId, title] of lessons) {
+  await normalize(path.join(root, track, module, `bus311-${artifactId}-starter.xlsx`), title, lessonId, false);
+  await normalize(path.join(privateRoot, track, module, `bus311-${artifactId}-activity-key.xlsx`), title, lessonId, true);
 }
 
 console.log(`Normalized ${lessons.length} reused BUS311 starter/key workbook pairs.`);

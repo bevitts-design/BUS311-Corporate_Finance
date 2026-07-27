@@ -7,7 +7,7 @@
 - **Source slides inspected:** 22 of 22
 - **Target:** Public 75-minute presenter deck
 - **Maintained content:** `scripts/decks/bus311-decisions-m01-l01-content.mjs`
-- **Output:** `03-FIRM-DECISIONS/M12/bus311-decisions-m01-l01-slides.html`
+- **Output:** `03-FIRM-DECISIONS/M12/bus311-decisions-m12-l01-slides.html`
 - **Source media policy:** Extracted PPTX media remained in a temporary audit area; no source media was copied into the public repository
 
 ## Compact source audit
@@ -52,4 +52,3 @@
 - All displayed beta values, returns, and project assumptions are labeled or framed as illustrative classroom inputs; the deck does not claim they are current market estimates.
 - The source's Spring 2026 term label and undated market-data claims were removed.
 - Numerical formulas and outputs were independently recomputed in the lesson validator.
-

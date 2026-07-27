@@ -2,7 +2,7 @@
 
 **Deck:** Risk, Return, and Capital Budgeting  
 **Source:** `BUS311_Ch12_RiskReturn Capital Budgeting.pptx`, 22 source slides  
-**Output:** `03-FIRM-DECISIONS/M12/bus311-decisions-m01-l01-slides.html`  
+**Output:** `03-FIRM-DECISIONS/M12/bus311-decisions-m12-l01-slides.html`
 **Review status:** Implementation and QA complete; instructor approval pending
 
 | Topic | Decision | Classification | Disposition |

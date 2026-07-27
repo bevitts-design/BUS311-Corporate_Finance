@@ -2,7 +2,7 @@
 
 **Deck:** Corporate Financing, Equity Accounts, and Control  
 **Source:** `BUS311 -Chp14 Corp Finance All Together.pptx`, 20 source slides  
-**Output:** `03-FIRM-DECISIONS/M14/bus311-decisions-m03-l01-slides.html`  
+**Output:** `03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-slides.html`
 **Review status:** Implementation and automated QA complete; instructor approval pending
 
 | Topic | Decision | Classification | Disposition |

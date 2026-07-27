@@ -8,7 +8,7 @@
 - **Source slides inspected:** 20 of 20
 - **Target:** Public 75-minute presenter deck
 - **Maintained content:** `scripts/decks/bus311-decisions-m03-l01-content.mjs`
-- **Output:** `03-FIRM-DECISIONS/M14/bus311-decisions-m03-l01-slides.html`
+- **Output:** `03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-slides.html`
 - **Source media policy:** Extracted PowerPoint media and rendered references remained in a temporary audit area and were not copied into the public repository
 
 ## Compact source audit
