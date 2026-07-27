@@ -67,6 +67,7 @@ def deck_checks(path, errors):
     is_approved_intro = path.name == "bus311-intro-m01-l01-slides.html"
     is_approved_financial_institutions = path.name == "bus311-intro-m02-l01-slides.html"
     is_approved_tvm = path.name == "bus311-valuation-m05-l01-slides.html"
+    is_approved_bonds = path.name == "bus311-valuation-m06-l01-slides.html"
     is_approved_npv = path.name == "bus311-valuation-m08-l01-slides.html"
     is_approved_risk_return = path.name == "bus311-decisions-m12-l01-slides.html"
     is_approved_wacc = path.name == "bus311-decisions-m13-l01-slides.html"
@@ -122,6 +123,16 @@ def deck_checks(path, errors):
                 ))
             )
             or (
+                is_approved_bonds
+                and text.count("role='img'") >= 18
+                and all(marker in text for marker in (
+                    "class='twenty-periods'",
+                    "class='price-curve'",
+                    "class='duration-scale'",
+                    "class='ratio-table'",
+                ))
+            )
+            or (
                 is_approved_npv
                 and local_visual_media >= 2
                 and all(marker in text for marker in (
@@ -173,6 +184,11 @@ def deck_checks(path, errors):
                 and "Record the field, definition, period, units, currency, supplier, and retrieval date." in text
             )
             or (
+                is_approved_bonds
+                and "class='evidence-pipeline'" in text
+                and "Record the field, definition, period, units, currency, supplier, and retrieval date." in text
+            )
+            or (
                 is_approved_npv
                 and "Corporate red team · Walmart context" in text
                 and "Company announcements provide the context" in text
@@ -204,6 +220,13 @@ def deck_checks(path, errors):
                 and "=FV(B5,B6,B7,B4,B8)" in text
                 and 'class="excel-sheet"' in text
                 and "$14,693.28" in text
+            )
+            or (
+                is_approved_bonds
+                and "=-PV(B10,B9,B8,B3)" in text
+                and "=RATE(B9,B8,-B12,B3)*B5" in text
+                and "class='excel-window" in text
+                and "$925.61" in text
             )
             or (
                 is_approved_npv
@@ -243,6 +266,12 @@ def deck_checks(path, errors):
                 and 'data-interactive="sensitivity"' in text
                 and 'id="fv-rate"' in text
                 and 'id="fv-output"' in text
+            )
+            or (
+                is_approved_bonds
+                and "id='yield-slider'" in text
+                and "class='price-curve'" in text
+                and "$796.15" in text
             )
             or (
                 is_approved_npv
@@ -285,6 +314,12 @@ def deck_checks(path, errors):
                 and 'data-interactive="exit"' in text
                 and "Finish one sentence that a CFO could use" in text
                 and "Apply TVM to coupon bonds and yield to maturity." in text
+            )
+            or (
+                is_approved_bonds
+                and "data-choice-group='cfo-choice'" in text
+                and "Resize first. Then stage a mixed-use plan." in text
+                and "data-exit='resize'" in text
             )
             or (
                 is_approved_npv
