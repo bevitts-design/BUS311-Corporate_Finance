@@ -104,8 +104,6 @@ main > section { padding: 72px 0; }
 .lesson-card h3 a:hover { text-decoration-color: currentColor; }
 .case-study { margin: 0 0 16px; color: var(--terra); font-size: .85rem; font-weight: 800; }
 .lesson-summary { margin: 0 0 18px; color: var(--soft); }
-.outcome-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; }
-.outcome-chip { border: 1px solid var(--border); border-radius: 999px; padding: 5px 9px; color: var(--soft); font-size: .76rem; font-weight: 850; }
 .lesson-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 20px; }
 .lesson-actions > span { color: var(--soft); font-size: .82rem; }
 .no-results { margin: 40px 0 70px; border: 1px dashed var(--border); border-radius: var(--radius-lg); padding: 52px; text-align: center; background: var(--white); }

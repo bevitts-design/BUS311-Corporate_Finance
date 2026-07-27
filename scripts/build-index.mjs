@@ -114,10 +114,6 @@ function materialLink(material, lesson, fromLessonPage = false) {
   </a>`;
 }
 
-function outcomeChips(lesson) {
-  return lesson.outcomes.map((id) => `<span class="outcome-chip" title="${esc(outcomes.get(id))}">${esc(id)}</span>`).join('');
-}
-
 function lessonCard(lesson) {
   const termInfo = schedule.get(lesson.id) || { week: '—', dateLabel: 'Schedule in Canvas', releaseState: 'Available' };
   const track = tracks.find((item) => item.id === lesson.track);
@@ -139,7 +135,6 @@ function lessonCard(lesson) {
     <h3><a href="${esc(lessonHref(lesson))}">${esc(lesson.title)}</a></h3>
     <p class="case-study">Case: ${esc(lesson.caseStudy)}</p>
     <p class="lesson-summary">${esc(lesson.summary)}</p>
-    <div class="outcome-row" aria-label="Learning outcomes">${outcomeChips(lesson)}</div>
     <div class="lesson-actions">
       <a class="primary-action" href="${esc(lessonHref(lesson))}">Open lesson</a>
       <span>${lesson.materials.length} resource${lesson.materials.length === 1 ? '' : 's'}</span>
