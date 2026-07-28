@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { SpreadsheetFile, Workbook } from '@oai/artifact-tool';
+import { buildM05StarterWorkbook } from './build-bus311-valuation-m05-workbooks.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const privateRoot = process.env.BUS311_PRIVATE_ROOT || '/private/tmp/BUS311-instructor-stage';
@@ -55,7 +56,7 @@ function answerStyle(range, keyed) {
 }
 
 async function exportPair(definition) {
-  for (const keyed of [false, true]) {
+  for (const keyed of definition.publicOnly ? [false] : [false, true]) {
     const workbook = definition.build(keyed);
     const outDir = keyed ? path.join(privateRoot, definition.track, definition.module) : path.join(root, definition.track, definition.module);
     const artifactId = definition.artifactId || definition.id;
@@ -106,37 +107,9 @@ const definitions = [
     }
   },
   {
-    id: 'valuation-m01-l01', artifactId: 'valuation-m05-l01', track: '02-VALUATION', module: 'M05',
-    build(keyed) {
-      const wb = baseWorkbook('Time Value of Money', 'valuation-m01-l01');
-      const s = wb.worksheets.add('TVM Lab'); styleTitle(s, 'Berkshire Capital Allocation — TVM Lab', 'F');
-      s.getRange('A3:C3').values = [['Scenario', 'Input', 'Value']];
-      s.getRange('A3:C3').format = { fill: colors.terra, font: { bold: true, color: colors.white } };
-      s.getRange('A4:C18').values = [
-        ['Future value', 'Present amount', 10000], ['', 'Annual rate', 0.08], ['', 'Years', 5], ['', 'Future value', null],
-        ['Present value', 'Future amount', 20000], ['', 'Annual rate', 0.07], ['', 'Years', 4], ['', 'Present value', null],
-        ['Annuity', 'Annual cash flow', 5000], ['', 'Annual rate', 0.06], ['', 'Periods', 6], ['', 'Present value', null],
-        ['Perpetuity', 'Annual cash flow', 2400], ['', 'Required return', 0.10], ['', 'Present value', null]
-      ];
-      inputStyle(s.getRange('C4:C6')); inputStyle(s.getRange('C8:C10')); inputStyle(s.getRange('C12:C14')); inputStyle(s.getRange('C16:C17'));
-      if (keyed) {
-        s.getRange('C7').formulas = [['=C4*(1+C5)^C6']];
-        s.getRange('C11').formulas = [['=C8/(1+C9)^C10']];
-        s.getRange('C15').formulas = [['=C12*(1-(1+C13)^-C14)/C13']];
-        s.getRange('C18').formulas = [['=C16/C17']];
-      }
-      answerStyle(s.getRange('C7'), keyed); answerStyle(s.getRange('C11'), keyed); answerStyle(s.getRange('C15'), keyed); answerStyle(s.getRange('C18'), keyed);
-      s.getRange('C5').format.numberFormat = '0.0%'; s.getRange('C9').format.numberFormat = '0.0%'; s.getRange('C13').format.numberFormat = '0.0%'; s.getRange('C17').format.numberFormat = '0.0%';
-      s.getRange('A:A').format.columnWidth = 22; s.getRange('B:B').format.columnWidth = 28; s.getRange('C:C').format.columnWidth = 18;
-      const c = wb.worksheets.add('Checks'); styleTitle(c, 'TVM Checks', 'E');
-      c.getRange('A3:E3').values = [['Check', 'Actual', 'Expected', 'Difference', 'Status']]; c.getRange('A3:E3').format = { fill: colors.terra, font: { bold: true, color: colors.white } };
-      c.getRange('A4:A7').values = [['Future value'], ['Present value'], ['Annuity PV'], ['Perpetuity PV']];
-      c.getRange('B4:B7').formulas = [["='TVM Lab'!C7"], ["='TVM Lab'!C11"], ["='TVM Lab'!C15"], ["='TVM Lab'!C18"]];
-      c.getRange('C4:C7').values = [[14693.280768], [15257.9041], [24586.62], [24000]];
-      c.getRange('D4:D7').formulas = [['=B4-C4'], ['=B5-C5'], ['=B6-C6'], ['=B7-C7']];
-      c.getRange('E4:E7').formulas = [['=IF(ABS(D4)<1,"OK","CHECK")'], ['=IF(ABS(D5)<1,"OK","CHECK")'], ['=IF(ABS(D6)<1,"OK","CHECK")'], ['=IF(ABS(D7)<1,"OK","CHECK")']];
-      c.getRange('A:A').format.columnWidth = 24; c.getRange('B:D').format.columnWidth = 17; c.getRange('E:E').format.columnWidth = 14;
-      return wb;
+    id: 'valuation-m01-l01', artifactId: 'valuation-m05-l01', track: '02-VALUATION', module: 'M05', publicOnly: true,
+    build() {
+      return buildM05StarterWorkbook();
     }
   },
   {
