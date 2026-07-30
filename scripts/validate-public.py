@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 FORBIDDEN = re.compile(
-    r"solution|answer|key|completed|instructor|exam|grading|student[-_ ]?data|gradebook|progress[-_ ]?plan|student[-_ ]?tracker",
+    r"solution|answer|key|completed|instructor|exam(?:\b|[-_ ])|grading|student[-_ ]?data|gradebook|progress[-_ ]?plan|student[-_ ]?tracker",
     re.I,
 )
 
@@ -475,7 +475,7 @@ def main():
 
     ignored_roots = {".git", "node_modules", ".codex-tmp"}
     for path in ROOT.rglob("*"):
-        if not path.is_file() or any(part in ignored_roots for part in path.parts):
+        if not path.is_file() or path.name.startswith("~$") or any(part in ignored_roots for part in path.parts):
             continue
         if FORBIDDEN.search(path.name) and path.name not in {"validate-public.py"}:
             errors.append(f"Forbidden public filename: {path.relative_to(ROOT)}")

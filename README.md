@@ -7,6 +7,7 @@ This repository is the public, student-facing source for BUS311 course materials
 - `scripts/build-index.mjs` regenerates the homepage and each module landing page.
 - Lesson pre-readings are Markdown-only during the current conversion phase.
 - Instructor teaching keys, activity keys, exams, and grading materials belong in the separate private `BUS311-instructor` repository.
+- `CAPSTONE/source/bus311-capstone.json` is the maintained source for the approved Fall 2026 individual-company CFO/Board capstone; `node scripts/build-capstone.mjs` regenerates its student landing page and provenance record.
 
 The legacy OneDrive course folder remains the source archive until each item is reviewed and accepted into this repository. Live student trackers and gradebooks never belong in Git; reviewed student materials are linked from `course-map.json`, while instructor keys and grading artifacts stay private.
 
@@ -28,6 +29,8 @@ Rebuild and validate the site with:
 node scripts/build-index.mjs --term fall-2026
 python3 scripts/validate-public.py --site-only
 ```
+
+For the capstone release gate, run `node scripts/build-capstone.mjs` followed by `node scripts/validate-capstone.mjs`. The capstone validator enforces the 100-point/25-percent contract, mandatory revenue analysis, four bounded AI checkpoints, Nov. 30 final-file deadline, presentation distribution, public/private filename boundary, and source provenance.
 
 The site-only validator checks term coverage, generated pages, public links, workbook safety, filename privacy rules, and whether every lesson-level artifact is represented in `course-map.json`. Run the full validator when a deck is rebuilt; it also enforces the current HTML-deck standard.
 

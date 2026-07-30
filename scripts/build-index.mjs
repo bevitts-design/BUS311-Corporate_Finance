@@ -6,6 +6,7 @@ const requestedTerm = process.argv.includes('--term')
   ? process.argv[process.argv.indexOf('--term') + 1]
   : process.env.BUS311_TERM || 'fall-2026';
 const courseMap = JSON.parse(await fs.readFile(path.join(root, 'course-map.json'), 'utf8'));
+const capstone = JSON.parse(await fs.readFile(path.join(root, courseMap.capstoneSource), 'utf8'));
 const term = JSON.parse(await fs.readFile(path.join(root, 'terms', `${requestedTerm}.json`), 'utf8'));
 const schedule = new Map(term.schedule.map((item) => [item.lessonId, item]));
 const outcomes = new Map(courseMap.learningOutcomes.map((item) => [item.id, item.text]));
@@ -168,6 +169,8 @@ const filterOptions = tracks.map((track) => `<option value="${esc(track.id)}">${
 const outcomeCards = courseMap.learningOutcomes.map((outcome) => `<article><span>${esc(outcome.id)}</span><p>${esc(outcome.text)}</p></article>`).join('');
 const assessmentItems = term.assessmentWeeks.map((item) => `<li><strong>Week ${esc(item.week)}</strong><span>${esc(item.label)}</span></li>`).join('');
 
+const capstoneHome = `<section class="resources-section" id="company-capstone" aria-labelledby="capstone-title"><div class="section-heading compact"><div><p class="section-kicker">Semester-long individual project</p><h2 id="capstone-title">${esc(capstone.project.title)}</h2></div><p>${esc(capstone.project.decision)}</p></div><div class="resource-layout"><div class="resource-cards"><a href="CAPSTONE/"><span>CFO and Board decision brief</span><strong>Open the Company Capstone</strong><small>Revenue engine, testable hypothesis, valuation model, recommendation, and presentation requirements.</small></a><a href="${esc(capstone.materials.find((item) => item.materialId === 'ASSIGNMENT').path)}" download><span>Assignment</span><strong>Download the complete capstone brief</strong><small>${esc(capstone.finalSubmission.deadlineLabel)}</small></a></div><div class="assessment-panel"><h3>${esc(capstone.project.projectPoints)} project points · ${esc(capstone.project.courseWeightPercent)}% of the course</h3><ul>${capstone.rubric.components.map((component) => `<li><strong>${esc(component.points)} points</strong><span>${esc(component.title)}</span></li>`).join('')}</ul></div></div></section>`;
+
 const homeHtml = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="${esc(courseMap.course.tagline)}"><title>${esc(courseMap.course.code)} · ${esc(courseMap.course.title)} · ${esc(term.label)}</title>
@@ -184,6 +187,7 @@ const homeHtml = `<!doctype html>
   <section class="start-section" aria-labelledby="start-title"><div class="section-heading compact"><div><p class="section-kicker">How to use this hub</p><h2 id="start-title">Prepare, practice, then apply</h2></div><p>Each module follows the same learning rhythm so you always know what to do next.</p></div>
     <div class="start-grid"><article><span>Prepare</span><h3>Read the lesson briefing</h3><p>Preview the decision, vocabulary, and evidence you will need before class.</p></article><article><span>Practice</span><h3>Build the model</h3><p>Use the slides and starter workbook to make the financial logic auditable.</p></article><article><span>Apply</span><h3>Defend a recommendation</h3><p>Use the case activity to connect the calculation to a management decision.</p></article></div>
   </section>
+  ${capstoneHome}
   <section class="pathway-section" id="course-pathway" aria-labelledby="pathway-title">
     <div class="section-heading"><div><p class="section-kicker">Eleven lessons · three decisions</p><h2 id="pathway-title">Course pathway</h2></div><p>M01–M04 build the evidence base, M05–M08 develop valuation, and M12–M14 turn analysis into firm decisions. M09–M11 are intentionally reserved for review and assessment.</p></div>
     <div class="pathway-strip" aria-label="Course learning arc">${tracks.map((track) => `<a href="#track-${esc(track.id)}"><span>${esc(track.shortLabel)}</span><strong>${esc(track.label)}</strong></a>`).join('')}</div>

@@ -1,0 +1,693 @@
+{
+  "meta": {
+    "schemaId": "bus311-individual-company-capstone",
+    "sourceVersion": "1.0.0",
+    "status": "approved",
+    "effectiveTerm": "Fall 2026",
+    "updated": "2026-07-30",
+    "maintainedSource": "CAPSTONE/source/bus311-capstone.json",
+    "canvasAuthority": "Canvas remains the authority for live submission links and any later instructor-announced change."
+  },
+  "project": {
+    "title": "BUS311 Individual Company Capstone",
+    "subtitle": "CFO and Board Decision Brief",
+    "ownership": "Individual",
+    "companyEligibility": "One instructor-approved, publicly traded U.S. company",
+    "audience": "The selected company's CFO and Board",
+    "decision": "One material, company-specific CFO decision, with two or three supporting actions",
+    "projectPoints": 100,
+    "courseWeightPercent": 25,
+    "courseGradePoints": 25,
+    "learningOutcomeRefs": [
+      "LO2",
+      "LO3",
+      "LO4",
+      "LO5",
+      "LO6"
+    ]
+  },
+  "requirements": [
+    {
+      "requirementId": "R01_INDIVIDUAL",
+      "text": "All company-specific research, evidence selection, analysis, modeling, writing, slides, presentation, and Q&A responses are individual work."
+    },
+    {
+      "requirementId": "R02_CFO_BOARD",
+      "text": "The analysis advises the selected company's CFO and Board on one actionable company decision."
+    },
+    {
+      "requirementId": "R03_REVENUE_ENGINE",
+      "text": "Explain how the company generates sales, using three to five years of consistent revenue evidence and company-specific drivers."
+    },
+    {
+      "requirementId": "R04_HYPOTHESIS",
+      "text": "State one testable revenue hypothesis naming the driver, expected effect, period, and evidence that would support or falsify it."
+    },
+    {
+      "requirementId": "R05_REVENUE_FIRST",
+      "text": "Revenue evidence must flow into forecasts, scenarios, valuation, and the CFO decision; market valuation cannot replace the revenue analysis."
+    },
+    {
+      "requirementId": "R06_EVIDENCE",
+      "text": "Every material figure, assumption, and claim is traceable to SEC filings, permitted FactSet evidence, Excel analysis, or another credible named source."
+    },
+    {
+      "requirementId": "R07_AI",
+      "text": "Complete exactly four bounded free-tier AI checkpoints using C-A-P-A-J; independently verify retained output and record an accept, modify, or reject judgment."
+    },
+    {
+      "requirementId": "R08_EXCEL",
+      "text": "Submit the working Excel model at Milestone 3 for valuation, scenarios, sensitivities, and finance-logic assessment."
+    },
+    {
+      "requirementId": "R09_SUMMARY",
+      "text": "Submit one accessible one-page executive summary PDF addressed to the CFO and Board."
+    },
+    {
+      "requirementId": "R10_PPTX",
+      "text": "Submit one editable 8-10-slide core PPTX Board presentation; analytical appendix slides are optional."
+    },
+    {
+      "requirementId": "R11_PRESENTATION",
+      "text": "Deliver a seven-minute Board briefing followed by three minutes of individual Q&A."
+    },
+    {
+      "requirementId": "R12_NO_INVESTOR_RATING",
+      "text": "A Buy/Hold/Sell rating is not required and cannot substitute for the approved CFO decision."
+    }
+  ],
+  "policies": {
+    "individualWork": "Each student owns the research, evidence selection, model, writing, slides, presentation, and Q&A. Every submitted figure, formula, source choice, and recommendation must be explainable by that student.",
+    "factSetAndSources": "Material claims and model inputs must be traceable to SEC filings, permitted FactSet evidence, Excel calculations, or another credible named source. FactSet labels include item or report name, period or as-of date, units, and access date. Conflicting definitions are reconciled or disclosed.",
+    "factSetPermission": "Students and the instructor may use FactSet evidence in BUS311 course deliverables. Raw exports and screenshots remain in approved course-restricted systems and are not committed publicly or uploaded to public AI tools.",
+    "sourceLabels": "For each FactSet item, name FactSet, the report/screen/chart/metric, data-through or retrieval date, units/currency/period, definition or adjustment, peer group and rationale when applicable, exact use, and limitations.",
+    "verifiedAIJudgment": "AI may challenge student work but is never financial evidence. Retained output must be independently checked with SEC, FactSet, Excel, or course concepts and classified as accepted, modified, or rejected with a human rationale. Raw licensed data and screenshots are not uploaded to public AI tools.",
+    "revenueSpine": "Revenue generation, three to five years of sales evidence, company-specific drivers, a testable revenue hypothesis, and explicit forecast and decision linkage are required.",
+    "lateWork": "Milestones remain eligible under the BUS311 syllabus late-work policy. A late milestone delays feedback and approval, and a student may not advance to a dependent project stage until the required work is complete. Documented exceptions follow the applicable college and course process.",
+    "revision": "Milestones 1-3 may each be revised once within seven calendar days of written instructor feedback with a concise change log. The revised score replaces the original when higher.",
+    "finalFileLock": "The final PPTX and one-page executive summary are due Monday, Nov. 30, 2026 at 12:30 p.m. ET, when class begins. Files lock at that time for every student regardless of presentation date. Only instructor-authorized accessibility or file-repair corrections that do not alter the analysis or recommendation are permitted afterward.",
+    "submissionLocation": "Submit exactly two final communication files in the designated Canvas assignment: the final PPTX and one-page executive summary PDF. The Excel model is collected earlier at Milestone 3.",
+    "absence": "Approved documented absences use the next protected slot or instructor-scheduled make-up. Live individual Q&A remains required. Unexcused absences follow the BUS311 late-work policy and still require a make-up briefing and live Q&A."
+  },
+  "aiCheckpoints": [
+    {
+      "checkpointId": "AI01_QUESTION",
+      "title": "Question generation",
+      "purpose": "Generate possible CFO decisions and research directions after company selection."
+    },
+    {
+      "checkpointId": "AI02_REVENUE",
+      "title": "Revenue-hypothesis challenge",
+      "purpose": "Ask a skeptical CFO to identify weak assumptions, alternatives, missing variables, and falsification evidence."
+    },
+    {
+      "checkpointId": "AI03_ASSUMPTIONS",
+      "title": "Assumption audit",
+      "purpose": "Inspect a student-written sanitized assumption list for omissions, inconsistency, and scenario risk."
+    },
+    {
+      "checkpointId": "AI04_QA",
+      "title": "Board Q&A rehearsal",
+      "purpose": "Rehearse questions on revenue, valuation, implementation, and risk using a student-written summary."
+    }
+  ],
+  "milestones": [
+    {
+      "milestoneId": "M01",
+      "title": "Company and approved CFO decision",
+      "points": 5,
+      "due": "2026-09-09T23:59:00-04:00",
+      "requirementIds": [
+        "R01_INDIVIDUAL",
+        "R02_CFO_BOARD",
+        "R06_EVIDENCE",
+        "R07_AI"
+      ]
+    },
+    {
+      "milestoneId": "M02",
+      "title": "Revenue engine and initial hypothesis",
+      "points": 8,
+      "due": "2026-09-30T23:59:00-04:00",
+      "requirementIds": [
+        "R03_REVENUE_ENGINE",
+        "R04_HYPOTHESIS",
+        "R05_REVENUE_FIRST",
+        "R06_EVIDENCE",
+        "R07_AI"
+      ]
+    },
+    {
+      "milestoneId": "M03",
+      "title": "Excel valuation model and scenarios",
+      "points": 8,
+      "due": "2026-11-18T23:59:00-05:00",
+      "requirementIds": [
+        "R05_REVENUE_FIRST",
+        "R06_EVIDENCE",
+        "R08_EXCEL"
+      ]
+    },
+    {
+      "milestoneId": "M04",
+      "title": "CFO red team and revision",
+      "points": 4,
+      "due": "2026-11-22T23:59:00-05:00",
+      "requirementIds": [
+        "R04_HYPOTHESIS",
+        "R06_EVIDENCE",
+        "R07_AI"
+      ]
+    }
+  ],
+  "deliverables": [
+    {
+      "deliverableId": "D01_EXEC_SUMMARY",
+      "title": "One-page executive summary",
+      "format": "PDF",
+      "points": 15,
+      "limit": "One accessible U.S.-Letter page",
+      "requirementIds": [
+        "R02_CFO_BOARD",
+        "R03_REVENUE_ENGINE",
+        "R04_HYPOTHESIS",
+        "R06_EVIDENCE",
+        "R09_SUMMARY"
+      ]
+    },
+    {
+      "deliverableId": "D02_BOARD_DECK",
+      "title": "PPTX Board presentation",
+      "format": "PPTX",
+      "points": 40,
+      "limit": "8-10 core slides plus optional analytical appendix",
+      "requirementIds": [
+        "R02_CFO_BOARD",
+        "R03_REVENUE_ENGINE",
+        "R04_HYPOTHESIS",
+        "R05_REVENUE_FIRST",
+        "R06_EVIDENCE",
+        "R10_PPTX"
+      ]
+    },
+    {
+      "deliverableId": "D03_DELIVERY_QA",
+      "title": "Individual delivery and Q&A",
+      "format": "Live",
+      "points": 20,
+      "limit": "7-minute briefing plus 3-minute Q&A",
+      "requirementIds": [
+        "R01_INDIVIDUAL",
+        "R11_PRESENTATION"
+      ]
+    }
+  ],
+  "finalSubmission": {
+    "deadline": "2026-11-30T12:30:00-05:00",
+    "deadlineLabel": "Monday, Nov. 30, 2026 at 12:30 p.m. ET, when class begins",
+    "files": [
+      "BUS311_[LastName]_[Ticker]_BoardBrief.pptx",
+      "BUS311_[LastName]_[Ticker]_ExecutiveSummary.pdf"
+    ],
+    "communicationFileCount": 2
+  },
+  "presentationSchedule": {
+    "classStart": "12:30 p.m. ET",
+    "briefingMinutes": 7,
+    "qaMinutes": 3,
+    "transitionMinutes": 1,
+    "targetPerClass": 5,
+    "enrollment": 19,
+    "dates": [
+      "2026-11-30",
+      "2026-12-02",
+      "2026-12-07",
+      "2026-12-09"
+    ],
+    "plannedDistribution": [
+      5,
+      5,
+      5,
+      4
+    ],
+    "reserveSlots": 1
+  },
+  "materials": [
+    {
+      "materialId": "ASSIGNMENT",
+      "label": "Capstone assignment",
+      "path": "CAPSTONE/bus311-capstone-assignment.pdf",
+      "public": true
+    },
+    {
+      "materialId": "ASSIGNMENT_DOCX",
+      "label": "Editable capstone assignment",
+      "path": "CAPSTONE/bus311-capstone-assignment.docx",
+      "public": true
+    },
+    {
+      "materialId": "STUDENT_RUBRIC",
+      "label": "Student rubric",
+      "path": "CAPSTONE/bus311-capstone-student-rubric.docx",
+      "public": true
+    },
+    {
+      "materialId": "M01_MENU",
+      "label": "CFO decision menu",
+      "path": "CAPSTONE/bus311-capstone-cfo-decision-menu.docx",
+      "public": true
+    },
+    {
+      "materialId": "M01_APPROVAL",
+      "label": "Company and decision approval form",
+      "path": "CAPSTONE/bus311-capstone-company-decision-approval-form.docx",
+      "public": true
+    },
+    {
+      "materialId": "REVENUE_WORKBOOK",
+      "label": "Revenue analysis workbook",
+      "path": "CAPSTONE/bus311-capstone-revenue-analysis.xlsx",
+      "public": true
+    },
+    {
+      "materialId": "REVENUE_GUIDE",
+      "label": "Revenue-engine student guide",
+      "path": "CAPSTONE/bus311-capstone-revenue-engine-guide.docx",
+      "public": true
+    },
+    {
+      "materialId": "HYPOTHESIS_CHECKLIST",
+      "label": "Revenue-hypothesis quality checklist",
+      "path": "CAPSTONE/bus311-capstone-hypothesis-checklist.docx",
+      "public": true
+    },
+    {
+      "materialId": "M02_RUBRIC",
+      "label": "Revenue milestone rubric",
+      "path": "CAPSTONE/bus311-capstone-revenue-milestone-rubric.docx",
+      "public": true
+    },
+    {
+      "materialId": "VALUATION_MODEL",
+      "label": "Valuation working model",
+      "path": "CAPSTONE/bus311-capstone-valuation-model.xlsx",
+      "public": true
+    },
+    {
+      "materialId": "BOARD_TEMPLATE",
+      "label": "Board deck template",
+      "path": "CAPSTONE/bus311-capstone-board-deck-template.pptx",
+      "public": true
+    },
+    {
+      "materialId": "SUMMARY_TEMPLATE",
+      "label": "Executive summary template",
+      "path": "CAPSTONE/bus311-capstone-executive-summary-template.docx",
+      "public": true
+    },
+    {
+      "materialId": "SUMMARY_GUIDE",
+      "label": "Executive summary student guide",
+      "path": "CAPSTONE/bus311-capstone-executive-summary-guide.docx",
+      "public": true
+    },
+    {
+      "materialId": "SUMMARY_EXAMPLE",
+      "label": "Sanitized executive summary example",
+      "path": "CAPSTONE/bus311-capstone-executive-summary-sanitized-example.docx",
+      "public": true
+    },
+    {
+      "materialId": "AI_GUIDE",
+      "label": "Bounded AI student guide",
+      "path": "CAPSTONE/bus311-capstone-ai-student-guide.docx",
+      "public": true
+    },
+    {
+      "materialId": "CAPAJ",
+      "label": "C-A-P-A-J prompt templates",
+      "path": "CAPSTONE/bus311-capstone-capaj-prompts.docx",
+      "public": true
+    },
+    {
+      "materialId": "RED_TEAM",
+      "label": "Red-team record",
+      "path": "CAPSTONE/bus311-capstone-red-team-record.xlsx",
+      "public": true
+    }
+  ],
+  "rubric": {
+    "schemaVersion": "1.0.0",
+    "performanceScale": [
+      {
+        "levelId": "EXEMPLARY",
+        "label": "Exemplary",
+        "minimumFraction": 0.9,
+        "maximumFraction": 1,
+        "maximumInclusive": true,
+        "summary": "Decision-ready work that is accurate, traceable, company-specific, and independently defensible."
+      },
+      {
+        "levelId": "PROFICIENT",
+        "label": "Proficient",
+        "minimumFraction": 0.8,
+        "maximumFraction": 0.9,
+        "maximumInclusive": false,
+        "summary": "Credible work that meets the requirement with minor gaps that do not change the decision."
+      },
+      {
+        "levelId": "DEVELOPING",
+        "label": "Developing",
+        "minimumFraction": 0.7,
+        "maximumFraction": 0.8,
+        "maximumInclusive": false,
+        "summary": "Partially complete work with material gaps in evidence, logic, verification, or decision linkage."
+      },
+      {
+        "levelId": "INSUFFICIENT",
+        "label": "Insufficient",
+        "minimumFraction": 0,
+        "maximumFraction": 0.7,
+        "maximumInclusive": false,
+        "summary": "Missing, inaccurate, unsupported, unverified, or not individually defensible work."
+      }
+    ],
+    "components": [
+      {
+        "componentId": "MILESTONES_MODEL_REVISION",
+        "sequence": 1,
+        "title": "Milestones, Excel model, and revision",
+        "points": 25,
+        "courseGradePoints": 6.25
+      },
+      {
+        "componentId": "EXECUTIVE_SUMMARY",
+        "sequence": 2,
+        "title": "One-page executive summary",
+        "points": 15,
+        "courseGradePoints": 3.75
+      },
+      {
+        "componentId": "BOARD_PRESENTATION",
+        "sequence": 3,
+        "title": "PPTX Board presentation",
+        "points": 40,
+        "courseGradePoints": 10
+      },
+      {
+        "componentId": "DELIVERY_QA",
+        "sequence": 4,
+        "title": "Individual delivery and Q&A",
+        "points": 20,
+        "courseGradePoints": 5
+      }
+    ],
+    "criteria": [
+      {
+        "criterionId": "M01_CFO_DECISION",
+        "sequence": 1,
+        "componentId": "MILESTONES_MODEL_REVISION",
+        "title": "Company and approved CFO decision",
+        "points": 5,
+        "description": "Establishes a suitable U.S. public company, one material company-specific CFO decision, genuine alternatives, and an evidence plan that can support an individual semester-long analysis.",
+        "evidenceRules": [
+          "Approved company, ticker, exchange, and individual owner are identified.",
+          "The decision is written as a CFO-and-Board action question with two or more genuine alternatives and a material finance consequence.",
+          "The initial evidence register includes at least one SEC filing, one permitted FactSet item, and two additional credible research leads, each with period, units, and location details.",
+          "Any AI-generated research lead is independently verified before it is retained; the student's final scope judgment is recorded."
+        ],
+        "performanceLevels": {
+          "EXEMPLARY": "Scope is material, company-specific, feasible, and decision-ready; alternatives and finance consequences are explicit; the SEC/FactSet evidence register is complete and all retained research leads are verified.",
+          "PROFICIENT": "Company and decision are suitable and approved; alternatives and evidence are credible, with only minor gaps in specificity, traceability, or scope rationale.",
+          "DEVELOPING": "The decision is broad, descriptive, or weakly linked to a finance consequence; alternatives are thin or the evidence register has material sourcing and verification gaps.",
+          "INSUFFICIENT": "Company or decision is unapproved, unsuitable, unsupported, or not framed for the CFO and Board; evidence is missing, fabricated, or not individually attributable."
+        }
+      },
+      {
+        "criterionId": "M02_REVENUE_HYPOTHESIS",
+        "sequence": 2,
+        "componentId": "MILESTONES_MODEL_REVISION",
+        "title": "Revenue engine and initial hypothesis",
+        "points": 8,
+        "description": "Explains how the company generates sales, diagnoses three to five years of performance, and states a testable revenue hypothesis that will drive scenarios and the CFO decision.",
+        "evidenceRules": [
+          "Revenue is mapped by relevant products or services, segments, geographies, customers, channels, pricing, and recurring or transactional characteristics.",
+          "Three to five years of total and material segment revenue use consistent periods, units, definitions, and traceable SEC or FactSet sources.",
+          "Price, volume, mix, currency, acquisitions, capacity, retention, backlog, or other company-relevant drivers are separated from temporary effects.",
+          "Peer and industry evidence, leading indicators, risks, and limitations are connected to a specific, falsifiable revenue hypothesis.",
+          "The strongest AI challenge is verified independently and the initial hypothesis is retained, modified, or rejected by the student with rationale."
+        ],
+        "performanceLevels": {
+          "EXEMPLARY": "Provides a complete company-specific revenue map, reconciled multi-year evidence, driver decomposition, peer and indicator context, and a falsifiable hypothesis strengthened by verified challenge evidence.",
+          "PROFICIENT": "Explains the revenue engine and key drivers with credible multi-year evidence and a testable hypothesis; minor gaps do not break the later forecast linkage.",
+          "DEVELOPING": "Revenue history is mostly descriptive, incompletely sourced, or weakly decomposed; the hypothesis is vague, only partly testable, or weakly challenged and verified.",
+          "INSUFFICIENT": "Revenue generation, multi-year evidence, or the hypothesis is missing or materially inaccurate; sources or AI claims are unverified and the student cannot defend the analysis."
+        }
+      },
+      {
+        "criterionId": "M03_VALUATION_SCENARIOS",
+        "sequence": 3,
+        "componentId": "MILESTONES_MODEL_REVISION",
+        "title": "Valuation model and scenarios",
+        "points": 8,
+        "description": "Builds an auditable Excel valuation or capital-budgeting model whose assumptions, scenarios, sensitivities, and decision outputs follow from the revenue diagnosis.",
+        "evidenceRules": [
+          "Base, upside, and downside revenue assumptions link explicitly to identified operating drivers and the approved decision.",
+          "Inputs, sources, calculations, outputs, checks, scenarios, and sensitivities are separated and labeled with units and periods.",
+          "Applicable tax, NOPAT, depreciation, capital expenditure, net working capital, discount-rate, terminal-value, and enterprise-to-equity logic is correct and traceable.",
+          "Visible checks cover formula errors, signs, scenario consistency, valuation bridges, terminal-value reasonableness, and sensitivity links.",
+          "FactSet and SEC assumptions are labeled with item or report name and as-of date; limitations and conflicting definitions are disclosed.",
+          "AI assumption-audit suggestions are verified with source evidence or independent Excel calculations before revision."
+        ],
+        "performanceLevels": {
+          "EXEMPLARY": "Model is revenue-linked, auditable, correctly structured, source-traceable, scenario-responsive, and free of unresolved errors; checks and sensitivities support a defensible decision under uncertainty.",
+          "PROFICIENT": "Core model and scenario logic are correct and traceable with minor documentation or sensitivity gaps that do not change the decision conclusion.",
+          "DEVELOPING": "Model runs but contains material gaps in driver linkage, sourcing, checks, scenario logic, or applicable finance mechanics; outputs require cautious interpretation.",
+          "INSUFFICIENT": "Model is missing, materially incorrect, hardcoded at key outputs, disconnected from revenue evidence, or contains unresolved errors that make the valuation or decision unreliable."
+        }
+      },
+      {
+        "criterionId": "M04_AI_REVISION",
+        "sequence": 4,
+        "componentId": "MILESTONES_MODEL_REVISION",
+        "title": "AI red team and revision",
+        "points": 4,
+        "description": "Documents bounded C-A-P-A-J challenge, independent verification, human judgment, and revision of the revenue hypothesis, model assumptions, recommendation, and Q&A preparation.",
+        "evidenceRules": [
+          "The record identifies context, student-written assumptions, prompt purpose, strongest challenge, and the specific output retained.",
+          "Evidence checked names the exact SEC filing, FactSet item, Excel calculation, or course concept used to test the challenge.",
+          "The student records a finding, uncertainty, accept/modify/reject judgment, and revised hypothesis or decision logic.",
+          "The final disclosure identifies tool, purpose, output retained, verification performed, and where human judgment overruled AI.",
+          "No raw licensed FactSet export, screenshot, personal information, instructor-only material, or nonpublic information is supplied to a public AI tool."
+        ],
+        "performanceLevels": {
+          "EXEMPLARY": "Creates a concise, complete verification trail showing skeptical challenge, authoritative evidence, transparent uncertainty, independent judgment, and a material revision or well-defended decision not to revise.",
+          "PROFICIENT": "Challenge, verification, judgment, revision, and disclosure are complete; rationale is credible with only minor specificity or documentation gaps.",
+          "DEVELOPING": "Records an AI interaction but verification is shallow, the accept/modify/reject judgment is weak, or the revision and disclosure trail is incomplete.",
+          "INSUFFICIENT": "AI output is treated as evidence or substituted for student analysis; verification, judgment, disclosure, or privacy safeguards are missing."
+        }
+      },
+      {
+        "criterionId": "S01_CFO_SYNTHESIS",
+        "sequence": 5,
+        "componentId": "EXECUTIVE_SUMMARY",
+        "title": "CFO-ready synthesis",
+        "points": 15,
+        "description": "Uses one readable page to state the decision, revenue and valuation thesis, recommended action, implementation priorities, principal risks, sources, and verified AI disclosure.",
+        "evidenceRules": [
+          "The page states the decision requested and the recommended action without requiring the reader to infer the conclusion.",
+          "The revenue-engine finding, testable hypothesis and revision, valuation or scenario conclusion, and principal limitation are integrated into one decision logic.",
+          "Two or three supporting actions identify timing, responsible functions, performance indicators, triggers, tradeoffs, and mitigations.",
+          "Material figures and claims have compact SEC, FactSet, model, or other named source notes with dates and definitions.",
+          "The file is individually authored, readable at normal print size, accessible, and includes the final verified AI-use disclosure."
+        ],
+        "performanceLevels": {
+          "EXEMPLARY": "One page delivers a precise, persuasive, evidence-traceable CFO decision with integrated revenue and valuation logic, prioritized implementation, monitoring triggers, risks, limitations, and disclosure.",
+          "PROFICIENT": "Summary is decision-ready and covers the required evidence and implementation elements; minor density, prioritization, or source-note gaps remain.",
+          "DEVELOPING": "The page is understandable but omits or weakly connects a material element such as revenue, scenarios, implementation, risks, sources, or disclosure.",
+          "INSUFFICIENT": "The page is missing, over length, unreadable, generic, unsupported, or does not present an individually defensible CFO recommendation."
+        }
+      },
+      {
+        "criterionId": "P01_REVENUE_DIAGNOSIS",
+        "sequence": 6,
+        "componentId": "BOARD_PRESENTATION",
+        "title": "Revenue engine and operating diagnosis",
+        "points": 15,
+        "description": "Shows the Board how the company generates sales, what drove three to five years of performance, what could change next, and why the revenue hypothesis matters to the decision.",
+        "evidenceRules": [
+          "Slides show a company-specific revenue map and three to five years of total and material segment evidence.",
+          "Editable or traceable visuals separate relevant price, volume, mix, currency, acquisition, capacity, customer, utilization, retention, backlog, or other drivers.",
+          "Peer or industry context, leading indicators, concentrations, seasonality, constraints, and principal revenue risks are prioritized rather than listed generically.",
+          "The testable hypothesis and verified red-team result are stated and linked to forecast assumptions and the CFO decision.",
+          "All material revenue figures identify source, fiscal period, units, and definition."
+        ],
+        "performanceLevels": {
+          "EXEMPLARY": "Board can see exactly how sales are generated, why performance changed, which indicators matter, how the hypothesis was tested, and how the diagnosis changes the decision.",
+          "PROFICIENT": "Revenue model, history, drivers, indicators, and hypothesis are credible and decision-linked; only minor analytical or visual gaps remain.",
+          "DEVELOPING": "Revenue evidence is present but descriptive, crowded, weakly sourced, or only partly connected to drivers, hypothesis, forecast, and decision.",
+          "INSUFFICIENT": "Revenue diagnosis is missing, materially inaccurate, unsupported, generic, or disconnected from the recommendation."
+        }
+      },
+      {
+        "criterionId": "P02_VALUATION_SCENARIOS",
+        "sequence": 7,
+        "componentId": "BOARD_PRESENTATION",
+        "title": "Valuation and scenarios",
+        "points": 10,
+        "description": "Communicates the revenue-linked assumptions, valuation or capital-budgeting outputs, scenario differences, sensitivities, market expectations, and limitations needed for the Board decision.",
+        "evidenceRules": [
+          "Base, upside, and downside cases identify the operating drivers that change and the decision consequence of each case.",
+          "Key valuation or capital-budgeting outputs reconcile to the assessed Excel model and are not re-created as unsupported slide figures.",
+          "The discount rate, terminal or exit logic, investment cash flows, sensitivities, and market expectations are explained to the extent relevant to the approved decision.",
+          "Charts and tables show units, periods, definitions, source labels, and material limitations.",
+          "The student can identify the assumptions most capable of changing the recommendation."
+        ],
+        "performanceLevels": {
+          "EXEMPLARY": "Scenarios and sensitivities expose the true decision drivers, reconcile to the model, explain market expectations, and communicate valuation range and limitations without false precision.",
+          "PROFICIENT": "Valuation evidence and scenarios are correct, reconciled, and useful for the decision; minor explanation or sensitivity gaps remain.",
+          "DEVELOPING": "Outputs are shown but scenario drivers, reconciliation, sensitivity, market context, or limitations are incomplete or difficult to follow.",
+          "INSUFFICIENT": "Valuation or scenario evidence is missing, incorrect, unsupported, disconnected from the model, or unable to support the decision."
+        }
+      },
+      {
+        "criterionId": "P03_CFO_IMPLEMENTATION",
+        "sequence": 8,
+        "componentId": "BOARD_PRESENTATION",
+        "title": "CFO recommendation and implementation",
+        "points": 10,
+        "description": "Recommends one prioritized CFO action, explains why it dominates credible alternatives, and specifies how the company should implement, monitor, and adapt the decision.",
+        "evidenceRules": [
+          "The requested Board decision and recommended action are explicit and flow from the revenue, finance, and valuation evidence.",
+          "At least two credible alternatives or counterfactuals are compared using decision-relevant tradeoffs.",
+          "Two or three supporting actions identify timing, responsible functions, resources, dependencies, and principal execution risks.",
+          "Performance indicators, decision triggers, mitigations, and conditions that would cause the CFO to revise course are specified.",
+          "The recommendation is company-specific and individually authored."
+        ],
+        "performanceLevels": {
+          "EXEMPLARY": "Recommendation is prioritized, analytically compelled, explicit about tradeoffs, and operationally credible with owners, timing, resources, indicators, triggers, risks, and adaptation logic.",
+          "PROFICIENT": "Recommendation is well supported and implementable with credible alternatives, actions, monitoring, and risk mitigation; minor execution detail is missing.",
+          "DEVELOPING": "Recommendation is plausible but alternatives, tradeoffs, implementation ownership, timing, metrics, or triggers are materially underdeveloped.",
+          "INSUFFICIENT": "Recommendation is missing, generic, unsupported by the analysis, unrealistic, or lacks a usable implementation path."
+        }
+      },
+      {
+        "criterionId": "P04_VISUAL_SOURCE_INTEGRITY",
+        "sequence": 9,
+        "componentId": "BOARD_PRESENTATION",
+        "title": "Visual evidence and source integrity",
+        "points": 5,
+        "description": "Presents readable, accessible, editable or traceable evidence with complete SEC, FactSet, model, and AI provenance.",
+        "evidenceRules": [
+          "Quantitative visuals are editable or traceable to Excel, SEC filings, permitted FactSet evidence, or another named source.",
+          "Every material visual shows title, axes or labels, units, periods, definitions, and a legible source note.",
+          "FactSet evidence identifies FactSet, item or report name, as-of date, units, and access date while respecting licensed-use limits.",
+          "Slides use readable type, sufficient contrast, non-color cues, and meaningful alt text or an accessible equivalent for non-text visuals.",
+          "No fabricated, unsupported, or unverified AI-generated figure or financial visual is used as evidence."
+        ],
+        "performanceLevels": {
+          "EXEMPLARY": "Every material visual is clear, accurate, accessible, traceable, consistently labeled, and decision-useful; FactSet and AI provenance are handled correctly.",
+          "PROFICIENT": "Visuals and sources are accurate and readable with only minor labeling, accessibility, or traceability gaps.",
+          "DEVELOPING": "Several visuals are dense, weakly labeled, inconsistently sourced, difficult to trace, or missing accessibility support, though the evidence remains partly usable.",
+          "INSUFFICIENT": "Visuals are misleading, unreadable, materially unsourced, inaccessible, fabricated, or reliant on unverified AI output."
+        }
+      },
+      {
+        "criterionId": "D01_EXECUTIVE_DELIVERY",
+        "sequence": 10,
+        "componentId": "DELIVERY_QA",
+        "title": "Executive delivery",
+        "points": 5,
+        "description": "Delivers a clear, concise seven-minute Board briefing with professional presence, audience fit, accessible explanation, and visible individual ownership.",
+        "evidenceRules": [
+          "The briefing finishes within seven minutes and uses the core slides as evidence rather than a script.",
+          "The student leads with the decision, explains revenue before valuation, and distinguishes recommendation, evidence, assumptions, and limitations.",
+          "Pacing, voice, transitions, and terminology support a CFO-and-Board audience.",
+          "Delivery and responses demonstrate individual ownership of the work."
+        ],
+        "performanceLevels": {
+          "EXEMPLARY": "Briefing is concise, confident, well paced, accessible, decision-led, and credible for an executive audience; individual ownership is unmistakable.",
+          "PROFICIENT": "Delivery is clear, professional, within time, and appropriate to the audience with minor pacing, emphasis, or presence issues.",
+          "DEVELOPING": "Message is understandable but timing, organization, reading, jargon, pacing, or audience fit weakens the executive decision narrative.",
+          "INSUFFICIENT": "Delivery is substantially underprepared, over time, difficult to follow, or does not demonstrate individual ownership."
+        }
+      },
+      {
+        "criterionId": "D02_MODEL_MASTERY",
+        "sequence": 11,
+        "componentId": "DELIVERY_QA",
+        "title": "Revenue, valuation, and model mastery",
+        "points": 15,
+        "description": "Defends the revenue diagnosis, source choices, model mechanics, scenario logic, recommendation, alternatives, risks, and uncertainty during individual Q&A.",
+        "evidenceRules": [
+          "The student accurately explains revenue drivers, the hypothesis, forecast assumptions, calculations, valuation bridge, sensitivities, and checks.",
+          "Responses cite or locate specific SEC, FactSet, Excel, or course evidence and reconcile differing definitions when challenged.",
+          "The student can explain what would change the conclusion, compare alternatives, and address implementation and risk tradeoffs.",
+          "When uncertain, the student states the limitation and identifies the next evidence or calculation needed rather than inventing an answer.",
+          "Responses verify that the submitted model and recommendation are the student's own work."
+        ],
+        "performanceLevels": {
+          "EXEMPLARY": "Answers are accurate, specific, source-aware, and adaptive; the student can trace model logic, stress assumptions, compare alternatives, and state uncertainty with executive judgment.",
+          "PROFICIENT": "Student accurately defends the core revenue, model, scenario, and recommendation logic with minor gaps on secondary details.",
+          "DEVELOPING": "Student understands the broad conclusion but struggles to trace sources, calculations, assumptions, sensitivities, alternatives, or uncertainty without relying on slides.",
+          "INSUFFICIENT": "Student cannot explain essential evidence or model mechanics, gives materially inaccurate or invented answers, or does not demonstrate individual ownership."
+        }
+      }
+    ],
+    "validationContract": {
+      "criterionCount": 11,
+      "requiredComponentPoints": {
+        "MILESTONES_MODEL_REVISION": 25,
+        "EXECUTIVE_SUMMARY": 15,
+        "BOARD_PRESENTATION": 40,
+        "DELIVERY_QA": 20
+      },
+      "requiredProjectPoints": 100,
+      "requiredCourseGradePoints": 25,
+      "requiredTrackerCases": {
+        "perfect": {
+          "projectPoints": 100,
+          "courseGradePoints": 25
+        },
+        "partial": {
+          "projectPoints": 50,
+          "courseGradePoints": 12.5
+        },
+        "blank": {
+          "projectPoints": null,
+          "courseGradePoints": null
+        },
+        "zero": {
+          "projectPoints": 0,
+          "courseGradePoints": 0
+        }
+      }
+    }
+  },
+  "validation": {
+    "projectPoints": 100,
+    "componentPoints": [
+      25,
+      15,
+      40,
+      20
+    ],
+    "milestonePoints": [
+      5,
+      8,
+      8,
+      4
+    ],
+    "communicationFiles": 2,
+    "aiCheckpointCount": 4,
+    "forbiddenPublicPatterns": [
+      "student data",
+      "private key",
+      "instructor solution",
+      "raw FactSet export",
+      "licensed capture",
+      "Buy/Hold/Sell requirement",
+      "team contribution"
+    ]
+  }
+}

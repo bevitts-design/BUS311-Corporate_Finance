@@ -7,23 +7,69 @@
     "textbookAlignment": "Brealey, Myers & Marcus — Fundamentals of Corporate Finance, 11e",
     "classMinutes": 75,
     "dataPlatform": "FactSet required",
-    "requiredTools": ["Excel", "FactSet", "Canvas"]
+    "requiredTools": [
+      "Excel",
+      "FactSet",
+      "Canvas"
+    ]
   },
   "learningOutcomes": [
-    {"id": "LO1", "text": "Identify the different types of financial institutions and explain how they enhance capital allocation."},
-    {"id": "LO2", "text": "Explain the key financial statements and the information each provides."},
-    {"id": "LO3", "text": "Conduct ratio analysis using balance sheets and income statements."},
-    {"id": "LO4", "text": "Apply time value of money principles to present value, future value, and yield-to-maturity calculations."},
-    {"id": "LO5", "text": "Explain factors affecting the cost of money, interest rates, bond markets, and stock markets."},
-    {"id": "LO6", "text": "Evaluate long-term capital-budgeting decisions."}
+    {
+      "id": "LO1",
+      "text": "Identify the different types of financial institutions and explain how they enhance capital allocation."
+    },
+    {
+      "id": "LO2",
+      "text": "Explain the key financial statements and the information each provides."
+    },
+    {
+      "id": "LO3",
+      "text": "Conduct ratio analysis using balance sheets and income statements."
+    },
+    {
+      "id": "LO4",
+      "text": "Apply time value of money principles to present value, future value, and yield-to-maturity calculations."
+    },
+    {
+      "id": "LO5",
+      "text": "Explain factors affecting the cost of money, interest rates, bond markets, and stock markets."
+    },
+    {
+      "id": "LO6",
+      "text": "Evaluate long-term capital-budgeting decisions."
+    }
   ],
   "assessmentAlignment": {
-    "LO1": ["Foundations practice", "Exam 1", "Participation discussion"],
-    "LO2": ["Financial-statement workbook", "Exam 1", "FactSet activity"],
-    "LO3": ["Ratio-analysis workbook", "Exam 1", "FactSet activity"],
-    "LO4": ["TVM and valuation workbooks", "Exam 2", "Cumulative final"],
-    "LO5": ["Market, bond, risk, and WACC workbooks", "Exams 2 and 3", "Cumulative final"],
-    "LO6": ["Capital-budgeting and financing workbooks", "Exam 3", "Cumulative final"]
+    "LO1": [
+      "Foundations practice",
+      "Exam 1",
+      "Participation discussion"
+    ],
+    "LO2": [
+      "Financial-statement workbook",
+      "Exam 1",
+      "FactSet activity"
+    ],
+    "LO3": [
+      "Ratio-analysis workbook",
+      "Exam 1",
+      "FactSet activity"
+    ],
+    "LO4": [
+      "TVM and valuation workbooks",
+      "Exam 2",
+      "Cumulative final"
+    ],
+    "LO5": [
+      "Market, bond, risk, and WACC workbooks",
+      "Exams 2 and 3",
+      "Cumulative final"
+    ],
+    "LO6": [
+      "Capital-budgeting and financing workbooks",
+      "Exam 3",
+      "Cumulative final"
+    ]
   },
   "tracks": [
     {
@@ -53,195 +99,580 @@
   ],
   "lessons": [
     {
-      "id": "intro-m01-l01", "track": "intro", "module": "M01", "lesson": "L01", "displayOrder": 1, "displayModule": "M01",
-      "title": "Course Introduction and Corporate Finance Overview", "outcomes": ["LO1"],
+      "id": "intro-m01-l01",
+      "track": "intro",
+      "module": "M01",
+      "lesson": "L01",
+      "displayOrder": 1,
+      "displayModule": "M01",
+      "title": "Course Introduction and Corporate Finance Overview",
+      "outcomes": [
+        "LO1"
+      ],
       "summary": "Learn how investment, financing, and payout decisions connect to value creation and stakeholder trade-offs.",
-      "skillFocus": ["financial decision framework", "value creation", "stakeholder trade-offs"],
-      "caseStudy": "Costco", "estimatedMinutes": 75,
+      "skillFocus": [
+        "financial decision framework",
+        "value creation",
+        "stakeholder trade-offs"
+      ],
+      "caseStudy": "Costco",
+      "estimatedMinutes": 75,
       "readingPath": "01-INTRO/M01/source/bus311-intro-m01-l01-prereading.md",
       "prepare": "Read the lesson briefing and identify the three decisions made by a financial manager.",
       "practice": "Use the decision framework to separate cash-flow evidence from accounting labels.",
       "apply": "Defend a value-creation recommendation while naming the stakeholder trade-off.",
       "deliverable": "A one-sentence recommendation supported by one cash-flow or risk consideration.",
       "materials": [
-        {"type": "Slides", "label": "View lesson slides", "path": "01-INTRO/M01/bus311-intro-m01-l01-slides.html", "stage": "Learn", "description": "Interactive classroom deck for the corporate-finance decision framework."}
+        {
+          "type": "Slides",
+          "label": "View lesson slides",
+          "path": "01-INTRO/M01/bus311-intro-m01-l01-slides.html",
+          "stage": "Learn",
+          "description": "Interactive classroom deck for the corporate-finance decision framework."
+        }
       ]
     },
     {
-      "id": "intro-m02-l01", "track": "intro", "module": "M02", "lesson": "L01", "displayOrder": 2, "displayModule": "M02",
-      "title": "Financial Institutions, Markets, and Ethics", "outcomes": ["LO1", "LO5"],
+      "id": "intro-m02-l01",
+      "track": "intro",
+      "module": "M02",
+      "lesson": "L01",
+      "displayOrder": 2,
+      "displayModule": "M02",
+      "title": "Financial Institutions, Markets, and Ethics",
+      "outcomes": [
+        "LO1",
+        "LO5"
+      ],
       "summary": "Trace how capital moves through institutions and markets, then use market data with an ethical audit trail.",
-      "skillFocus": ["capital allocation", "market capitalization", "CFA ethical reasoning", "FactSet navigation"],
-      "caseStudy": "Apple", "estimatedMinutes": 75,
+      "skillFocus": [
+        "capital allocation",
+        "market capitalization",
+        "CFA ethical reasoning",
+        "FactSet navigation"
+      ],
+      "caseStudy": "Apple",
+      "estimatedMinutes": 75,
       "readingPath": "01-INTRO/M02/source/bus311-intro-m02-l01-prereading.md",
       "prepare": "Review the difference between primary and secondary markets and confirm FactSet access.",
       "practice": "Calculate and interpret market capitalization using consistent data definitions.",
       "apply": "Explain how one institution reduces a financing friction without overstating the evidence.",
       "deliverable": "A completed market-cap workbook and a two-sentence interpretation.",
       "materials": [
-        {"type": "Slides", "label": "View lesson slides", "path": "01-INTRO/M02/bus311-intro-m02-l01-slides.html", "stage": "Learn", "description": "Institutions, market structure, ethics, and current decision examples."},
-        {"type": "Excel Activity", "label": "Download market capitalization activity", "path": "01-INTRO/M02/bus311-intro-m02-l01-market-cap-activity.xlsx", "stage": "Apply", "description": "Student workbook for the Apple market-cap analysis."}
+        {
+          "type": "Slides",
+          "label": "View lesson slides",
+          "path": "01-INTRO/M02/bus311-intro-m02-l01-slides.html",
+          "stage": "Learn",
+          "description": "Institutions, market structure, ethics, and current decision examples."
+        },
+        {
+          "type": "Excel Activity",
+          "label": "Download market capitalization activity",
+          "path": "01-INTRO/M02/bus311-intro-m02-l01-market-cap-activity.xlsx",
+          "stage": "Apply",
+          "description": "Student workbook for the Apple market-cap analysis."
+        }
       ]
     },
     {
-      "id": "intro-m03-l01", "track": "intro", "module": "M03", "lesson": "L01", "displayOrder": 3, "displayModule": "M03",
-      "title": "Financial Statements and Cash Flow", "outcomes": ["LO2"],
+      "id": "intro-m03-l01",
+      "track": "intro",
+      "module": "M03",
+      "lesson": "L01",
+      "displayOrder": 3,
+      "displayModule": "M03",
+      "title": "Financial Statements and Cash Flow",
+      "outcomes": [
+        "LO2"
+      ],
       "summary": "Connect the income statement, balance sheet, and cash-flow statement to decision-useful 10-K evidence.",
-      "skillFocus": ["income statement", "balance sheet", "cash-flow statement", "10-K navigation"],
-      "caseStudy": "Microsoft and Caterpillar", "estimatedMinutes": 75,
+      "skillFocus": [
+        "income statement",
+        "balance sheet",
+        "cash-flow statement",
+        "10-K navigation"
+      ],
+      "caseStudy": "Microsoft and Caterpillar",
+      "estimatedMinutes": 75,
       "readingPath": "01-INTRO/M03/source/bus311-intro-m03-l01-prereading.md",
       "prepare": "Review what each financial statement measures and where the statements connect.",
       "practice": "Trace profit, working capital, and cash through an integrated statement model.",
       "apply": "Use FactSet evidence to explain one operating or financing change at Caterpillar.",
       "deliverable": "A completed CAT worksheet with one evidence-based interpretation.",
       "materials": [
-        {"type": "Slides", "label": "View lesson slides", "path": "01-INTRO/M03/bus311-intro-m03-l01-slides.html", "stage": "Learn", "description": "Financial-statement connections, cash flow, and decision checks."},
-        {"type": "Starter Workbook", "label": "Download statement model", "path": "01-INTRO/M03/bus311-intro-m03-l01-starter.xlsx", "stage": "Practice", "description": "Formula-ready model for linking the three statements."},
-        {"type": "Excel Activity", "label": "Download Caterpillar FactSet activity", "cardLabel": "CAT Financial Data Activity", "path": "01-INTRO/M03/bus311-intro-m03-l01-factset-cat-activity.xlsx", "stage": "Apply", "description": "Student worksheet for gathering and interpreting Caterpillar financial evidence."}
+        {
+          "type": "Slides",
+          "label": "View lesson slides",
+          "path": "01-INTRO/M03/bus311-intro-m03-l01-slides.html",
+          "stage": "Learn",
+          "description": "Financial-statement connections, cash flow, and decision checks."
+        },
+        {
+          "type": "Starter Workbook",
+          "label": "Download statement model",
+          "path": "01-INTRO/M03/bus311-intro-m03-l01-starter.xlsx",
+          "stage": "Practice",
+          "description": "Formula-ready model for linking the three statements."
+        },
+        {
+          "type": "Excel Activity",
+          "label": "Download Caterpillar FactSet activity",
+          "cardLabel": "CAT Financial Data Activity",
+          "path": "01-INTRO/M03/bus311-intro-m03-l01-factset-cat-activity.xlsx",
+          "stage": "Apply",
+          "description": "Student worksheet for gathering and interpreting Caterpillar financial evidence."
+        }
       ]
     },
     {
-      "id": "intro-m04-l01", "track": "intro", "module": "M04", "lesson": "L01", "displayOrder": 4, "displayModule": "M04",
-      "title": "Ratio Analysis and Corporate Performance", "outcomes": ["LO2", "LO3"],
+      "id": "intro-m04-l01",
+      "track": "intro",
+      "module": "M04",
+      "lesson": "L01",
+      "displayOrder": 4,
+      "displayModule": "M04",
+      "title": "Ratio Analysis and Corporate Performance",
+      "outcomes": [
+        "LO2",
+        "LO3"
+      ],
       "summary": "Calculate ratios from consistent inputs, decompose the drivers, and interpret performance against a useful benchmark.",
-      "skillFocus": ["liquidity", "profitability", "leverage", "peer benchmarking"],
-      "caseStudy": "Nike and the Lemonade Stand", "estimatedMinutes": 75,
+      "skillFocus": [
+        "liquidity",
+        "profitability",
+        "leverage",
+        "peer benchmarking"
+      ],
+      "caseStudy": "Nike and the Lemonade Stand",
+      "estimatedMinutes": 75,
       "readingPath": "01-INTRO/M04/source/bus311-intro-m04-l01-prereading.md",
       "prepare": "Review the purpose and denominator of each ratio family.",
       "practice": "Build liquidity, profitability, and leverage ratios from linked statements.",
       "apply": "Explain how operating and financing decisions change performance over time.",
       "deliverable": "A completed ratio model and a driver-based performance recommendation.",
       "materials": [
-        {"type": "Slides", "label": "View lesson slides", "path": "01-INTRO/M04/bus311-intro-m04-l01-slides.html", "stage": "Learn", "description": "Ratio families, DuPont logic, peer context, and analytical safeguards."},
-        {"type": "Starter Workbook", "label": "Download ratio starter workbook", "path": "01-INTRO/M04/bus311-intro-m04-l01-starter.xlsx", "stage": "Practice", "description": "Starter model for consistent ratio construction and interpretation."},
-        {"type": "Excel Activity", "label": "Download Lemonade Stand finance activity", "cardLabel": "Lemonade Stand Finance Model", "path": "01-INTRO/M04/bus311-intro-m04-l01-lemonade-activity.xlsx", "stage": "Apply", "description": "Student workbook for connecting financing, operations, cash flow, performance, valuation, and dilution."},
-        {"type": "Activity Guide", "label": "View accessible Lemonade Stand guide", "path": "01-INTRO/M04/source/bus311-intro-m04-l01-lemonade-guide.md", "stage": "Apply", "description": "Editable, accessible guide to the activity sequence, accounting judgments, and submission checks."},
-        {"type": "Printable Guide", "label": "Download printable Lemonade Stand guide", "path": "01-INTRO/M04/bus311-intro-m04-l01-lemonade-guide.pdf", "stage": "Apply", "description": "Print-ready companion for the Lemonade Stand modeling activity."}
+        {
+          "type": "Slides",
+          "label": "View lesson slides",
+          "path": "01-INTRO/M04/bus311-intro-m04-l01-slides.html",
+          "stage": "Learn",
+          "description": "Ratio families, DuPont logic, peer context, and analytical safeguards."
+        },
+        {
+          "type": "Starter Workbook",
+          "label": "Download ratio starter workbook",
+          "path": "01-INTRO/M04/bus311-intro-m04-l01-starter.xlsx",
+          "stage": "Practice",
+          "description": "Starter model for consistent ratio construction and interpretation."
+        },
+        {
+          "type": "Excel Activity",
+          "label": "Download Lemonade Stand finance activity",
+          "cardLabel": "Lemonade Stand Finance Model",
+          "path": "01-INTRO/M04/bus311-intro-m04-l01-lemonade-activity.xlsx",
+          "stage": "Apply",
+          "description": "Student workbook for connecting financing, operations, cash flow, performance, valuation, and dilution."
+        },
+        {
+          "type": "Activity Guide",
+          "label": "View accessible Lemonade Stand guide",
+          "path": "01-INTRO/M04/source/bus311-intro-m04-l01-lemonade-guide.md",
+          "stage": "Apply",
+          "description": "Editable, accessible guide to the activity sequence, accounting judgments, and submission checks."
+        },
+        {
+          "type": "Printable Guide",
+          "label": "Download printable Lemonade Stand guide",
+          "path": "01-INTRO/M04/bus311-intro-m04-l01-lemonade-guide.pdf",
+          "stage": "Apply",
+          "description": "Print-ready companion for the Lemonade Stand modeling activity."
+        }
       ]
     },
     {
-      "id": "valuation-m01-l01", "track": "valuation", "module": "M01", "lesson": "L01", "displayOrder": 5, "displayModule": "M05",
-      "title": "Time Value of Money", "outcomes": ["LO4"],
+      "id": "valuation-m01-l01",
+      "track": "valuation",
+      "module": "M01",
+      "lesson": "L01",
+      "displayOrder": 5,
+      "displayModule": "M05",
+      "title": "Time Value of Money",
+      "outcomes": [
+        "LO4"
+      ],
       "summary": "Draw the cash-flow timeline first, then match the Excel function, rate, and period convention to the decision.",
-      "skillFocus": ["cash-flow timelines", "present value", "future value", "annuities"],
-      "caseStudy": "Berkshire Hathaway", "estimatedMinutes": 75,
+      "skillFocus": [
+        "cash-flow timelines",
+        "present value",
+        "future value",
+        "annuities"
+      ],
+      "caseStudy": "Berkshire Hathaway",
+      "estimatedMinutes": 75,
       "readingPath": "02-VALUATION/M05/source/bus311-valuation-m05-l01-prereading.md",
       "prepare": "Review compounding, discounting, sign conventions, and rate-period matching.",
       "practice": "Use PV, FV, and annuity functions with an auditable cash-flow timeline.",
       "apply": "Compare two financing or investment alternatives on the same valuation date.",
       "deliverable": "A formula-audited workbook and a value comparison stated in today’s dollars.",
       "materials": [
-        {"type": "Slides", "label": "View lesson slides", "path": "02-VALUATION/M05/bus311-valuation-m05-l01-slides.html", "stage": "Learn", "description": "Cash-flow timelines, Excel valuation functions, and rate conventions."},
-        {"type": "Starter Workbook", "label": "Download TVM starter workbook", "path": "02-VALUATION/M05/bus311-valuation-m05-l01-starter.xlsx", "stage": "Practice", "description": "Starter model for present value, future value, and annuity calculations."},
-        {"type": "Excel Models", "label": "Download worked valuation models", "path": "assets/lesson-media/excel/bus311-lecture-models.xlsx", "stage": "Practice", "description": "Clean classroom models for reviewing Excel functions and formula structure across the course."}
+        {
+          "type": "Slides",
+          "label": "View lesson slides",
+          "path": "02-VALUATION/M05/bus311-valuation-m05-l01-slides.html",
+          "stage": "Learn",
+          "description": "Cash-flow timelines, Excel valuation functions, and rate conventions."
+        },
+        {
+          "type": "Starter Workbook",
+          "label": "Download TVM starter workbook",
+          "path": "02-VALUATION/M05/bus311-valuation-m05-l01-starter.xlsx",
+          "stage": "Practice",
+          "description": "Starter model for present value, future value, and annuity calculations."
+        },
+        {
+          "type": "Excel Models",
+          "label": "Download worked valuation models",
+          "path": "assets/lesson-media/excel/bus311-lecture-models.xlsx",
+          "stage": "Practice",
+          "description": "Clean classroom models for reviewing Excel functions and formula structure across the course."
+        }
       ]
     },
     {
-      "id": "valuation-m02-l01", "track": "valuation", "module": "M02", "lesson": "L01", "displayOrder": 6, "displayModule": "M06",
-      "title": "Bond Valuation, Interest Rates, and YTM", "outcomes": ["LO4", "LO5"],
+      "id": "valuation-m02-l01",
+      "track": "valuation",
+      "module": "M02",
+      "lesson": "L01",
+      "displayOrder": 6,
+      "displayModule": "M06",
+      "title": "Bond Valuation, Interest Rates, and YTM",
+      "outcomes": [
+        "LO4",
+        "LO5"
+      ],
       "summary": "Price bond cash flows, interpret yield and credit spread, and connect a debt issue to corporate capacity.",
-      "skillFocus": ["bond pricing", "yield to maturity", "interest-rate risk", "debt capacity"],
-      "caseStudy": "Meridian Industrial Corp.", "estimatedMinutes": 75,
+      "skillFocus": [
+        "bond pricing",
+        "yield to maturity",
+        "interest-rate risk",
+        "debt capacity"
+      ],
+      "caseStudy": "Meridian Industrial Corp.",
+      "estimatedMinutes": 75,
       "readingPath": "02-VALUATION/M06/source/bus311-valuation-m06-l01-prereading.md",
       "prepare": "Review coupon cash flows, principal repayment, and the inverse price-yield relationship.",
       "practice": "Use PRICE, YIELD, and RATE conventions to audit a bond valuation.",
       "apply": "Recommend whether Meridian’s proposed debt issue supports the company’s financing objective.",
       "deliverable": "A priced bond, ratio-impact analysis, and CFO recommendation.",
       "materials": [
-        {"type": "Slides", "label": "View lesson slides", "path": "02-VALUATION/M06/bus311-valuation-m06-l01-slides.html", "stage": "Learn", "description": "Bond cash flows, yield, interest-rate risk, and debt capacity."},
-        {"type": "Starter Workbook", "label": "Download bond starter workbook", "path": "02-VALUATION/M06/bus311-valuation-m06-l01-starter.xlsx", "stage": "Practice", "description": "Starter model for bond pricing and yield analysis."},
-        {"type": "Excel Activity", "label": "Download bond-pricing practice", "path": "02-VALUATION/M06/bus311-valuation-m06-l01-bond-practice.xlsx", "stage": "Practice", "description": "Classroom exercises covering yield, coupon, maturity, and downgrade scenarios."},
-        {"type": "Excel Case", "label": "Download Meridian bond case", "path": "02-VALUATION/M06/bus311-valuation-m06-l01-meridian-bond-case.xlsx", "stage": "Apply", "description": "Student case for pricing a debt offering and analyzing the financial impact."}
+        {
+          "type": "Slides",
+          "label": "View lesson slides",
+          "path": "02-VALUATION/M06/bus311-valuation-m06-l01-slides.html",
+          "stage": "Learn",
+          "description": "Bond cash flows, yield, interest-rate risk, and debt capacity."
+        },
+        {
+          "type": "Starter Workbook",
+          "label": "Download bond starter workbook",
+          "path": "02-VALUATION/M06/bus311-valuation-m06-l01-starter.xlsx",
+          "stage": "Practice",
+          "description": "Starter model for bond pricing and yield analysis."
+        },
+        {
+          "type": "Excel Activity",
+          "label": "Download bond-pricing practice",
+          "path": "02-VALUATION/M06/bus311-valuation-m06-l01-bond-practice.xlsx",
+          "stage": "Practice",
+          "description": "Classroom exercises covering yield, coupon, maturity, and downgrade scenarios."
+        },
+        {
+          "type": "Excel Case",
+          "label": "Download Meridian bond case",
+          "path": "02-VALUATION/M06/bus311-valuation-m06-l01-meridian-bond-case.xlsx",
+          "stage": "Apply",
+          "description": "Student case for pricing a debt offering and analyzing the financial impact."
+        }
       ]
     },
     {
-      "id": "valuation-m03-l01", "track": "valuation", "module": "M03", "lesson": "L01", "displayOrder": 7, "displayModule": "M07",
-      "title": "Equity Valuation and IPO Analysis", "outcomes": ["LO4", "LO5"],
+      "id": "valuation-m03-l01",
+      "track": "valuation",
+      "module": "M03",
+      "lesson": "L01",
+      "displayOrder": 7,
+      "displayModule": "M07",
+      "title": "Equity Valuation and IPO Analysis",
+      "outcomes": [
+        "LO4",
+        "LO5"
+      ],
       "summary": "Compare intrinsic and relative valuation evidence, then test how IPO assumptions affect price and financial structure.",
-      "skillFocus": ["dividend discount model", "multiples", "IPO pricing", "scenario analysis"],
-      "caseStudy": "Apex Technologies", "estimatedMinutes": 75,
+      "skillFocus": [
+        "dividend discount model",
+        "multiples",
+        "IPO pricing",
+        "scenario analysis"
+      ],
+      "caseStudy": "Apex Technologies",
+      "estimatedMinutes": 75,
       "readingPath": "02-VALUATION/M07/source/bus311-valuation-m07-l01-prereading.md",
       "prepare": "Review the residual equity claim, dividend growth, and the purpose of market multiples.",
       "practice": "Build DDM, free-cash-flow, and ratio calculations with cell references.",
       "apply": "Recommend how Apex should evaluate its IPO price and deployment of proceeds.",
       "deliverable": "A completed Apex valuation workbook and scenario-based recommendation.",
       "materials": [
-        {"type": "Slides", "label": "View lesson slides", "path": "02-VALUATION/M07/bus311-valuation-m07-l01-slides.html", "stage": "Learn", "description": "Equity markets, valuation models, IPO mechanics, and scenario judgment."},
-        {"type": "Starter Workbook", "label": "Download equity starter workbook", "path": "02-VALUATION/M07/bus311-valuation-m07-l01-starter.xlsx", "stage": "Practice", "description": "Starter model for equity valuation and IPO analysis."},
-        {"type": "Assignment Guide", "label": "Download Apex assignment guide", "path": "02-VALUATION/M07/bus311-valuation-m07-l01-apex-guide.docx", "stage": "Prepare", "description": "Detailed student directions, formulas, timing, and submission expectations."},
-        {"type": "Excel Activity", "label": "Download Apex IPO activity", "path": "02-VALUATION/M07/bus311-valuation-m07-l01-apex-ipo-activity.xlsx", "stage": "Apply", "description": "Student workbook for valuation, ratio, and IPO proceeds scenarios."},
-        {"type": "Class Activity", "label": "Download equity-market whiteboard prompts", "path": "02-VALUATION/M07/bus311-valuation-m07-l01-whiteboard-activity.docx", "stage": "Practice", "description": "Prompts for discussing trading, valuation methods, shareholder rights, and payout policy."}
+        {
+          "type": "Slides",
+          "label": "View lesson slides",
+          "path": "02-VALUATION/M07/bus311-valuation-m07-l01-slides.html",
+          "stage": "Learn",
+          "description": "Equity markets, valuation models, IPO mechanics, and scenario judgment."
+        },
+        {
+          "type": "Starter Workbook",
+          "label": "Download equity starter workbook",
+          "path": "02-VALUATION/M07/bus311-valuation-m07-l01-starter.xlsx",
+          "stage": "Practice",
+          "description": "Starter model for equity valuation and IPO analysis."
+        },
+        {
+          "type": "Assignment Guide",
+          "label": "Download Apex assignment guide",
+          "path": "02-VALUATION/M07/bus311-valuation-m07-l01-apex-guide.docx",
+          "stage": "Prepare",
+          "description": "Detailed student directions, formulas, timing, and submission expectations."
+        },
+        {
+          "type": "Excel Activity",
+          "label": "Download Apex IPO activity",
+          "path": "02-VALUATION/M07/bus311-valuation-m07-l01-apex-ipo-activity.xlsx",
+          "stage": "Apply",
+          "description": "Student workbook for valuation, ratio, and IPO proceeds scenarios."
+        },
+        {
+          "type": "Class Activity",
+          "label": "Download equity-market whiteboard prompts",
+          "path": "02-VALUATION/M07/bus311-valuation-m07-l01-whiteboard-activity.docx",
+          "stage": "Practice",
+          "description": "Prompts for discussing trading, valuation methods, shareholder rights, and payout policy."
+        }
       ]
     },
     {
-      "id": "valuation-m04-l01", "track": "valuation", "module": "M04", "lesson": "L01", "displayOrder": 8, "displayModule": "M08",
-      "title": "Capital Budgeting and Project Selection", "outcomes": ["LO4", "LO6"],
+      "id": "valuation-m04-l01",
+      "track": "valuation",
+      "module": "M04",
+      "lesson": "L01",
+      "displayOrder": 8,
+      "displayModule": "M08",
+      "title": "Capital Budgeting and Project Selection",
+      "outcomes": [
+        "LO4",
+        "LO6"
+      ],
       "summary": "Model incremental cash flows, let NPV lead the decision, and use sensitivity to explain the risk in the recommendation.",
-      "skillFocus": ["NPV", "IRR", "profitability index", "incremental cash flow"],
-      "caseStudy": "Harborside Medical Center", "estimatedMinutes": 75,
+      "skillFocus": [
+        "NPV",
+        "IRR",
+        "profitability index",
+        "incremental cash flow"
+      ],
+      "caseStudy": "Harborside Medical Center",
+      "estimatedMinutes": 75,
       "readingPath": "02-VALUATION/M08/source/bus311-valuation-m08-l01-prereading.md",
       "prepare": "Review incremental cash flow, sunk costs, terminal effects, and the NPV decision rule.",
       "practice": "Calculate NPV, IRR, PI, and payback using consistent cash-flow timing.",
       "apply": "Recommend a project under uncertainty and identify the assumption that deserves sensitivity testing.",
       "deliverable": "A project model, sensitivity evidence, and written accept-or-reject recommendation.",
       "materials": [
-        {"type": "Slides", "label": "View lesson slides", "path": "02-VALUATION/M08/bus311-valuation-m08-l01-slides.html", "stage": "Learn", "description": "Interactive NPV lesson with project selection and sensitivity decisions."},
-        {"type": "Starter Workbook", "label": "Download capital-budgeting starter workbook", "path": "02-VALUATION/M08/bus311-valuation-m08-l01-starter.xlsx", "stage": "Practice", "description": "Starter model for the Harborside capital-budgeting decision."},
-        {"type": "Excel Activity", "label": "Download NPV project activity", "path": "02-VALUATION/M08/bus311-valuation-m08-l01-npv-project-activity.xlsx", "stage": "Apply", "description": "Student project workbook for NPV, IRR, PI, and recommendation analysis."},
-        {"type": "Excel Practice", "label": "Download in-class NPV practice", "path": "02-VALUATION/M08/bus311-valuation-m08-l01-npv-practice.xlsx", "stage": "Practice", "description": "Two focused in-class capital-budgeting questions."}
+        {
+          "type": "Slides",
+          "label": "View lesson slides",
+          "path": "02-VALUATION/M08/bus311-valuation-m08-l01-slides.html",
+          "stage": "Learn",
+          "description": "Interactive NPV lesson with project selection and sensitivity decisions."
+        },
+        {
+          "type": "Starter Workbook",
+          "label": "Download capital-budgeting starter workbook",
+          "path": "02-VALUATION/M08/bus311-valuation-m08-l01-starter.xlsx",
+          "stage": "Practice",
+          "description": "Starter model for the Harborside capital-budgeting decision."
+        },
+        {
+          "type": "Excel Activity",
+          "label": "Download NPV project activity",
+          "path": "02-VALUATION/M08/bus311-valuation-m08-l01-npv-project-activity.xlsx",
+          "stage": "Apply",
+          "description": "Student project workbook for NPV, IRR, PI, and recommendation analysis."
+        },
+        {
+          "type": "Excel Practice",
+          "label": "Download in-class NPV practice",
+          "path": "02-VALUATION/M08/bus311-valuation-m08-l01-npv-practice.xlsx",
+          "stage": "Practice",
+          "description": "Two focused in-class capital-budgeting questions."
+        }
       ]
     },
     {
-      "id": "decisions-m01-l01", "track": "decisions", "module": "M01", "lesson": "L01", "displayOrder": 9, "displayModule": "M12",
-      "title": "Risk, Return, and CAPM", "outcomes": ["LO5"],
+      "id": "decisions-m01-l01",
+      "track": "decisions",
+      "module": "M01",
+      "lesson": "L01",
+      "displayOrder": 9,
+      "displayModule": "M12",
+      "title": "Risk, Return, and CAPM",
+      "outcomes": [
+        "LO5"
+      ],
       "summary": "Separate diversifiable and market risk, estimate required return with CAPM, and match the beta to the project.",
-      "skillFocus": ["expected return", "standard deviation", "beta", "CAPM"],
-      "caseStudy": "Boeing", "estimatedMinutes": 75,
+      "skillFocus": [
+        "expected return",
+        "standard deviation",
+        "beta",
+        "CAPM"
+      ],
+      "caseStudy": "Boeing",
+      "estimatedMinutes": 75,
       "readingPath": "03-FIRM-DECISIONS/M12/source/bus311-decisions-m12-l01-prereading.md",
       "prepare": "Review holding-period return, volatility, diversification, and beta interpretation.",
       "practice": "Calculate portfolio beta and CAPM required return with auditable formulas.",
       "apply": "Select a project-specific beta and defend the resulting hurdle rate.",
       "deliverable": "A completed CAPM model and a risk-matched project recommendation.",
       "materials": [
-        {"type": "Slides", "label": "View lesson slides", "path": "03-FIRM-DECISIONS/M12/bus311-decisions-m12-l01-slides.html", "stage": "Learn", "description": "Risk, diversification, beta, CAPM, and project hurdle-rate decisions."},
-        {"type": "Starter Workbook", "label": "Download CAPM starter workbook", "path": "03-FIRM-DECISIONS/M12/bus311-decisions-m12-l01-starter.xlsx", "stage": "Apply", "description": "Starter model for beta sensitivity and CAPM recommendations."}
+        {
+          "type": "Slides",
+          "label": "View lesson slides",
+          "path": "03-FIRM-DECISIONS/M12/bus311-decisions-m12-l01-slides.html",
+          "stage": "Learn",
+          "description": "Risk, diversification, beta, CAPM, and project hurdle-rate decisions."
+        },
+        {
+          "type": "Starter Workbook",
+          "label": "Download CAPM starter workbook",
+          "path": "03-FIRM-DECISIONS/M12/bus311-decisions-m12-l01-starter.xlsx",
+          "stage": "Apply",
+          "description": "Starter model for beta sensitivity and CAPM recommendations."
+        }
       ]
     },
     {
-      "id": "decisions-m02-l01", "track": "decisions", "module": "M02", "lesson": "L01", "displayOrder": 10, "displayModule": "M13",
-      "title": "Cost of Capital and WACC", "outcomes": ["LO5", "LO6"],
+      "id": "decisions-m02-l01",
+      "track": "decisions",
+      "module": "M02",
+      "lesson": "L01",
+      "displayOrder": 10,
+      "displayModule": "M13",
+      "title": "Cost of Capital and WACC",
+      "outcomes": [
+        "LO5",
+        "LO6"
+      ],
       "summary": "Estimate current component returns, weight them by market value, and test whether WACC fits the project’s risk.",
-      "skillFocus": ["cost of equity", "after-tax cost of debt", "capital weights", "hurdle rate"],
-      "caseStudy": "Target", "estimatedMinutes": 75,
+      "skillFocus": [
+        "cost of equity",
+        "after-tax cost of debt",
+        "capital weights",
+        "hurdle rate"
+      ],
+      "caseStudy": "Target",
+      "estimatedMinutes": 75,
       "readingPath": "03-FIRM-DECISIONS/M13/source/bus311-decisions-m13-l01-prereading.md",
       "prepare": "Review CAPM, current debt yield, market-value weights, and the debt tax shield.",
       "practice": "Build each component cost and combine the rows with SUMPRODUCT.",
       "apply": "Decide whether the company WACC is appropriate for a proposed project or valuation.",
       "deliverable": "A formula-audited WACC model and a risk-fit recommendation.",
       "materials": [
-        {"type": "Slides", "label": "View lesson slides", "path": "03-FIRM-DECISIONS/M13/bus311-decisions-m13-l01-slides.html", "stage": "Learn", "description": "Component returns, market-value weights, project fit, and enterprise valuation."},
-        {"type": "Starter Workbook", "label": "Download WACC starter workbook", "path": "03-FIRM-DECISIONS/M13/bus311-decisions-m13-l01-starter.xlsx", "stage": "Apply", "description": "Starter model for WACC and company valuation decisions."},
-        {"type": "Excel Practice", "label": "Download WACC practice workbook", "path": "03-FIRM-DECISIONS/M13/bus311-decisions-m13-l01-wacc-practice.xlsx", "stage": "Practice", "description": "Student practice for component costs, capital weights, and WACC."}
+        {
+          "type": "Slides",
+          "label": "View lesson slides",
+          "path": "03-FIRM-DECISIONS/M13/bus311-decisions-m13-l01-slides.html",
+          "stage": "Learn",
+          "description": "Component returns, market-value weights, project fit, and enterprise valuation."
+        },
+        {
+          "type": "Starter Workbook",
+          "label": "Download WACC starter workbook",
+          "path": "03-FIRM-DECISIONS/M13/bus311-decisions-m13-l01-starter.xlsx",
+          "stage": "Apply",
+          "description": "Starter model for WACC and company valuation decisions."
+        },
+        {
+          "type": "Excel Practice",
+          "label": "Download WACC practice workbook",
+          "path": "03-FIRM-DECISIONS/M13/bus311-decisions-m13-l01-wacc-practice.xlsx",
+          "stage": "Practice",
+          "description": "Student practice for component costs, capital weights, and WACC."
+        }
       ]
     },
     {
-      "id": "decisions-m03-l01", "track": "decisions", "module": "M03", "lesson": "L01", "displayOrder": 11, "displayModule": "M14",
-      "title": "Capital Structure and Financing Decisions", "outcomes": ["LO5", "LO6"],
+      "id": "decisions-m03-l01",
+      "track": "decisions",
+      "module": "M03",
+      "lesson": "L01",
+      "displayOrder": 11,
+      "displayModule": "M14",
+      "title": "Capital Structure and Financing Decisions",
+      "outcomes": [
+        "LO5",
+        "LO6"
+      ],
       "summary": "Compare debt and equity trade-offs, test financing capacity, and write a recommendation that preserves flexibility.",
-      "skillFocus": ["debt versus equity", "financial flexibility", "tax shields", "financing recommendation"],
-      "caseStudy": "Delta Air Lines and Meridian Industrial", "estimatedMinutes": 75,
+      "skillFocus": [
+        "debt versus equity",
+        "financial flexibility",
+        "tax shields",
+        "financing recommendation"
+      ],
+      "caseStudy": "Delta Air Lines and Meridian Industrial",
+      "estimatedMinutes": 75,
       "readingPath": "03-FIRM-DECISIONS/M14/source/bus311-decisions-m14-l01-prereading.md",
       "prepare": "Review the tax benefit of debt, fixed-payment risk, dilution, and financial flexibility.",
       "practice": "Model how issuance and repurchase decisions change the equity section and per-share measures.",
       "apply": "Recommend a financing mix using value, downside cash flow, credit, and flexibility evidence.",
       "deliverable": "A completed financing model and a concise CFO recommendation.",
       "materials": [
-        {"type": "Slides", "label": "View lesson slides", "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-slides.html", "stage": "Learn", "description": "Capital-structure trade-offs, financing capacity, scenario analysis, and CFO recommendations."},
-        {"type": "Starter Workbook", "label": "Download financing starter workbook", "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-starter.xlsx", "stage": "Practice", "description": "Starter model for debt-versus-equity financing analysis."},
-        {"type": "Assignment Guide", "label": "Download equity-accounts guide", "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-equity-accounts-guide.docx", "stage": "Prepare", "description": "Student directions for share counts, equity accounts, issuance, and buybacks."},
-        {"type": "Excel Activity", "label": "Download equity-accounts activity", "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-equity-accounts-activity.xlsx", "stage": "Practice", "description": "Student workbook for equity-account mechanics and transaction analysis."},
-        {"type": "Excel Activity", "label": "Download corporate-decision activity", "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-corporate-decision-activity.xlsx", "stage": "Apply", "description": "Student workbook for WACC, project metrics, and a financing recommendation."}
+        {
+          "type": "Slides",
+          "label": "View lesson slides",
+          "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-slides.html",
+          "stage": "Learn",
+          "description": "Capital-structure trade-offs, financing capacity, scenario analysis, and CFO recommendations."
+        },
+        {
+          "type": "Starter Workbook",
+          "label": "Download financing starter workbook",
+          "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-starter.xlsx",
+          "stage": "Practice",
+          "description": "Starter model for debt-versus-equity financing analysis."
+        },
+        {
+          "type": "Assignment Guide",
+          "label": "Download equity-accounts guide",
+          "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-equity-accounts-guide.docx",
+          "stage": "Prepare",
+          "description": "Student directions for share counts, equity accounts, issuance, and buybacks."
+        },
+        {
+          "type": "Excel Activity",
+          "label": "Download equity-accounts activity",
+          "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-equity-accounts-activity.xlsx",
+          "stage": "Practice",
+          "description": "Student workbook for equity-account mechanics and transaction analysis."
+        },
+        {
+          "type": "Excel Activity",
+          "label": "Download corporate-decision activity",
+          "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-corporate-decision-activity.xlsx",
+          "stage": "Apply",
+          "description": "Student workbook for WACC, project metrics, and a financing recommendation."
+        }
       ]
     }
-  ]
+  ],
+  "capstoneSource": "CAPSTONE/source/bus311-capstone.json"
 }
