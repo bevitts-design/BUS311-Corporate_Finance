@@ -255,7 +255,11 @@ def deck_checks(path, errors):
         ),
         "sensitivity slide": (
             "Sensitivity" in text
-            or (is_approved_intro and "What could change value?" in text)
+            or (
+                is_approved_intro
+                and "The revenue hypothesis drives the valuation model" in text
+                and "Challenge and revise" in text
+            )
             or (
                 is_approved_financial_institutions
                 and "what the result excludes" in text
@@ -404,9 +408,18 @@ def site_hub_checks(course_map, term, errors):
         if not lesson_page.exists():
             errors.append(f"Missing generated lesson page: {lesson_page.relative_to(ROOT)}")
             continue
-        for marker in (lesson["title"], lesson["deliverable"], "Prepare", "Practice", "Apply", "Pre-class briefing"):
+        for marker in (lesson["title"], lesson["deliverable"], "Pre-class briefing"):
             if marker not in lesson_text:
                 errors.append(f"Lesson page missing '{marker}': {lesson_page.relative_to(ROOT)}")
+        has_learning_plan = 'class="learning-plan"' in lesson_text and 'id="learning-plan-title">What to do' in lesson_text
+        if lesson.get("module") == "M01":
+            if not has_learning_plan:
+                errors.append(f"M01 lesson page is missing the Learning Plan / What to Do section: {lesson_page.relative_to(ROOT)}")
+            for marker in ("Prepare", "Practice", "Apply"):
+                if marker not in lesson_text:
+                    errors.append(f"M01 lesson page missing '{marker}': {lesson_page.relative_to(ROOT)}")
+        elif has_learning_plan:
+            errors.append(f"Post-M01 lesson page retains the redundant Learning Plan / What to Do section: {lesson_page.relative_to(ROOT)}")
 
 
 def main():

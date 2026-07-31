@@ -87,6 +87,14 @@ for (const size of [...rawFontSizes, ...rawFontShorthandSizes]) {
 }
 
 const runtimeChecks = {
+  'slide 2 has no visible numerical labels': Boolean(sections[1]) && !/class="n"/.test(sections[1]) && !/>0[1-3]</.test(sections[1]) && (sections[1].match(/<article>/g) || []).length === 3,
+  'slide 10 has no visible numerical labels': Boolean(sections[9]) && !/>0[1-3]</.test(sections[9]) && (sections[9].match(/class="funding-lane /g) || []).length === 3,
+  'slides 12, 16, and 17 have no visible ordinal labels': [11, 15, 16].every((index) => Boolean(sections[index]) && !/>0[1-9]</.test(sections[index])),
+  'no visible ordinal labels anywhere in the deck': !/>0[1-9]</.test(projectedMarkup) && !/class="n"/.test(projectedMarkup),
+  'slide 18 explains decision and module relevance': Boolean(sections[17]) && sections[17].includes('class="decision-bridge"') && sections[17].includes('settlement speed, working capital, and counterparty risk') && sections[17].includes('this module asks financial managers to evaluate'),
+  'slide 24 is a complete non-revealing matching activity': Boolean(sections[23]) && sections[23].includes('Small groups · 4 minutes') && sections[23].includes('class="sort-category-bank"') && sections[23].includes('class="sort-contract"') && sections[23].includes('class="debrief-path"') && sections[23].includes('One completed set + one overlap your group can defend') && !/Speculative bubble\?|International crisis\?|Sovereign default\?|Banking crisis\?|Wider economic crisis\?/.test(sections[23]),
+  'slide 27 contextual visual reinforces the crisis mechanism': Boolean(sections[26]) && sections[26].includes('class="crisis-phase-layout"') && sections[26].includes('assets/crisis-funding-stress.png') && sections[26].includes('short-term funding pressure transmitted the shock'),
+  'slide 29 identifies each named institution without remote assets': Boolean(sections[28]) && (sections[28].match(/class="mark-/g) || []).length === 11 && sections[28].includes('FANNIE MAE') && sections[28].includes('FREDDIE MAC') && sections[28].includes('LEHMAN') && sections[28].includes('MERRILL') && sections[28].includes('BANK OF AMERICA') && sections[28].includes('AIG') && sections[28].includes('RESERVE FUND') && sections[28].includes('GOLDMAN SACHS') && sections[28].includes('MORGAN STANLEY') && sections[28].includes('WaMu') && sections[28].includes('U.S. TREASURY') && !/<img[^>]+src="https?:/i.test(sections[28]),
   'deck-stage': html.includes('<deck-stage width="1920" height="1080" no-rail>'),
   'Fall 2026 term': html.includes('FALL 2026') && html.includes('Fall 2026'),
   'approved BUS209 navy palette': html.includes('--navy:#0A2540') && html.includes('--steel:#2D7DD2'),
@@ -101,7 +109,7 @@ const runtimeChecks = {
   'Coinbase current example': html.includes('100M+') && html.includes('May 7, 2026') && html.includes('investor.coinbase.com'),
   'official Bear Stearns data': html.includes('$18.1B') && html.includes('$2.0B') && html.includes('sec.gov/news/press/2008/2008-48'),
   'official crisis source': html.includes('federalreservehistory.org/essays/great-recession-of-200709'),
-  'editable Great Recession change charts': html.includes('class="impact-chart-grid"') && (html.match(/class="impact-chart-card /g) || []).length === 4 && (html.match(/class="impact-bar-row"/g) || []).length === 8 && html.includes('--bar:95.7%') && html.includes('DEC 2007') && html.includes('OCT 2009'),
+  'editable Great Recession decision charts': html.includes('class="crisis-chart-layout"') && html.includes('class="decline-chart"') && (html.match(/class="decline-row"/g) || []).length === 3 && html.includes('Common horizontal scale · 0% to −60%') && html.includes('class="labor-chart"') && html.includes('+5 percentage points') && html.includes('DEC 2007') && html.includes('OCT 2009'),
   'explicit classroom instructions': html.includes('Choose independently') && html.includes('Small groups · 4 minutes') && html.includes('Classroom activity · 10 minutes'),
   'market-cap numerical consistency': html.includes('$225/share × 15.2 billion shares') && html.includes('$3.42 trillion'),
   'editable graphics': ['market-bridge', 'taxonomy-map', 'function-system', 'information-loop', 'bear-bars', 'financing-matrix'].every((name) => html.includes(`class="${name}`)),
