@@ -168,7 +168,8 @@
         },
         {
           "type": "Excel Activity",
-          "label": "Download market capitalization activity",
+          "label": "Download Market Capitalization Exercise",
+          "cardLabel": "Market cap exercise",
           "path": "01-INTRO/M02/bus311-intro-m02-l01-market-cap-activity.xlsx",
           "stage": "Apply",
           "description": "Student workbook for the Apple market-cap analysis."
