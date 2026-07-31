@@ -1,6 +1,6 @@
 {
-  "sourceVersion": "1.0.0",
-  "sourceSha256": "5e32b46703d49c0d94c576619c1297d2557937863512fed4eb067a8b7bc97a33",
+  "sourceVersion": "1.1.0",
+  "sourceSha256": "e381004b8a1e6dbf3d7d9c44ec799ceded75b5eab207a597a09c411be58a29e1",
   "generatedAt": "2026-07-30",
   "artifacts": [
     {
@@ -69,11 +69,15 @@
     },
     {
       "path": "CAPSTONE/index.html",
-      "sha256": "ab22a440fc48595abfeba5137bb2f707dfc77aad571a1a059727d7aed00a27fe"
+      "sha256": "6ba74f594b3dbd7db832411dd0f836c10f49dd0c1d6e93426541984757a4967e"
+    },
+    {
+      "path": "CAPSTONE/bus311-capstone-canvas.html",
+      "sha256": "36913c05d7ab77dc7c728b20f6d6a71f9089374f3a70a4d3eec570abe51ae190"
     },
     {
       "path": "CAPSTONE/bus311-capstone-assignment.md",
-      "sha256": "1e7fe7e6c8299c1758b9b8b18b38591fe5f253d0d39acfb7ed3b3346a08d38ed"
+      "sha256": "37cfd5b260c468ac08a84204c38017cc2139b7c19c6d6615eb86697ba96d0c20"
     }
   ]
 }

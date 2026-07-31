@@ -1,6 +1,6 @@
 # BUS311 Individual Company Capstone
 
-**Status:** Approved student release | **Source:** CAPSTONE/source/bus311-capstone.json | **Version:** 1.0.0 | **SHA-256:** 5e32b46703d49c0d94c576619c1297d2557937863512fed4eb067a8b7bc97a33
+**Status:** Approved student release | **Source:** CAPSTONE/source/bus311-capstone.json | **Version:** 1.1.0 | **SHA-256:** e381004b8a1e6dbf3d7d9c44ec799ceded75b5eab207a597a09c411be58a29e1
 
 ## Final-file deadline
 

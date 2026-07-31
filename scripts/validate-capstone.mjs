@@ -26,6 +26,12 @@ assert(JSON.stringify(source.presentationSchedule.dates) === JSON.stringify(["20
 assert(JSON.stringify(source.presentationSchedule.plannedDistribution) === JSON.stringify([5, 5, 5, 4]), "presentation distribution mismatch");
 assert(source.requirements.some((item) => item.requirementId === "R05_REVENUE_FIRST"), "revenue-first requirement missing");
 assert(source.requirements.some((item) => item.requirementId === "R12_NO_INVESTOR_RATING"), "Buy/Hold/Sell prohibition missing");
+assert(source.hub.stages.length === 5, "student hub must contain five stages");
+assert(source.hub.stages.reduce((sum, item) => sum + item.points, 0) === 100, "hub stage points must total 100");
+assert(source.hub.decisionMenu.length === 10, "student hub must contain ten CFO decision directions");
+assert(source.hub.faqs.length >= 8, "student hub FAQ is incomplete");
+assert(source.hub.progressChecklist.length >= 12, "student progress checklist is incomplete");
+assert(source.hub.canvasProjectPageUrl.endsWith("/courses/58525/pages/company-capstone"), "Canvas project page URL mismatch");
 
 const criterionIds = new Set(source.rubric.criteria.map((item) => item.criterionId));
 assert(criterionIds.size === source.rubric.criteria.length, "criterion IDs must be unique");
@@ -39,6 +45,25 @@ for (const item of provenance.artifacts) {
   const artifactBytes = await fs.readFile(file).catch(() => null);
   assert(Boolean(artifactBytes), `missing provenance artifact: ${item.path}`);
   if (artifactBytes) assert(crypto.createHash("sha256").update(artifactBytes).digest("hex") === item.sha256, `stale provenance artifact: ${item.path}`);
+}
+
+const publicHub = await fs.readFile(path.join(root, "CAPSTONE/index.html"), "utf8");
+const canvasFragment = await fs.readFile(path.join(root, "CAPSTONE/bus311-capstone-canvas.html"), "utf8");
+const headingLevels = (html) => [...html.matchAll(/<h([1-6])\b/gi)].map((match) => Number(match[1]));
+const hasHeadingJump = (levels) => levels.some((level, index) => index > 0 && level > levels[index - 1] + 1);
+assert((publicHub.match(/<h1\b/gi) || []).length === 1, "public hub must contain exactly one H1");
+assert((canvasFragment.match(/<h1\b/gi) || []).length === 1, "Canvas fragment must contain exactly one H1");
+assert(!hasHeadingJump(headingLevels(publicHub)), "public hub heading order contains a skipped level");
+assert(!hasHeadingJump(headingLevels(canvasFragment)), "Canvas fragment heading order contains a skipped level");
+assert(!/<(?:html|head|body|style|script)\b/i.test(canvasFragment), "Canvas fragment contains prohibited document, style, or script markup");
+assert(!/(javascript:|on(?:click|focus|mouseover)=)/i.test(canvasFragment), "Canvas fragment contains unsafe interactive markup");
+assert(canvasFragment.includes("Open Canvas assignments"), "Canvas submission link missing");
+assert(canvasFragment.includes("Open the public project hub"), "Canvas public-hub link missing");
+assert(publicHub.includes("Student progress checklist") && canvasFragment.includes("Student progress checklist"), "student checklist missing from a hub output");
+assert(publicHub.includes("Frequently asked questions") && canvasFragment.includes("Frequently asked questions"), "FAQ missing from a hub output");
+
+for (const match of publicHub.matchAll(/href="\.\/([^"#?]+)"/g)) {
+  assert(await fs.stat(path.join(root, "CAPSTONE", decodeURIComponent(match[1]))).then((s) => s.isFile()).catch(() => false), `broken public hub file link: ${match[1]}`);
 }
 
 const publicNames = (await fs.readdir(path.join(root, "CAPSTONE"), { recursive: true })).map(String);

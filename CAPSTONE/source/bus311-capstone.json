@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaId": "bus311-individual-company-capstone",
-    "sourceVersion": "1.0.0",
+    "sourceVersion": "1.1.0",
     "status": "approved",
     "effectiveTerm": "Fall 2026",
     "updated": "2026-07-30",
@@ -231,6 +231,153 @@
       4
     ],
     "reserveSlots": 1
+  },
+  "hub": {
+    "publicUrl": "https://bevitts-design.github.io/BUS311-Corporate_Finance/CAPSTONE/",
+    "canvasCourseUrl": "https://endicott.instructure.com/courses/58525",
+    "canvasProjectPageTitle": "Company Capstone",
+    "canvasProjectPageUrl": "https://endicott.instructure.com/courses/58525/pages/company-capstone",
+    "canvasProjectApiUrl": "https://endicott.instructure.com/api/v1/courses/58525/pages/company-capstone",
+    "canvasAssignmentsUrl": "https://endicott.instructure.com/courses/58525/assignments",
+    "factSetSetupUrl": "https://endicott.instructure.com/courses/58525/pages/activate-factset-and-add-it-to-excel",
+    "factSetSetupApiUrl": "https://endicott.instructure.com/api/v1/courses/58525/pages/activate-factset-and-add-it-to-excel",
+    "purpose": "Act as an internal corporate finance analyst. Diagnose how one approved public company creates revenue and value, recommend one company-specific CFO action, and defend it to the company's CFO and Board with traceable evidence and an auditable model.",
+    "centralQuestion": "Given the company's revenue engine, financial position, market expectations, and risks, what specific action should the CFO recommend to the Board, and what evidence makes that decision credible and implementable?",
+    "stages": [
+      {
+        "stageId": "S01_SCOPE",
+        "label": "Stage 1",
+        "title": "Scope the decision",
+        "dateLabel": "September 9",
+        "points": 5,
+        "summary": "Select an eligible company, frame one actionable CFO question, compare credible alternatives, start the evidence register, and secure instructor approval."
+      },
+      {
+        "stageId": "S02_REVENUE",
+        "label": "Stage 2",
+        "title": "Explain the revenue engine",
+        "dateLabel": "September 30",
+        "points": 8,
+        "summary": "Map how the company earns revenue, analyze three to five years of performance, identify drivers and risks, and state one testable revenue hypothesis."
+      },
+      {
+        "stageId": "S03_VALUE",
+        "label": "Stage 3",
+        "title": "Model value and scenarios",
+        "dateLabel": "November 18",
+        "points": 8,
+        "summary": "Build and audit the Excel valuation or capital-budgeting model, connect scenarios to the revenue hypothesis, and identify decision-changing sensitivities."
+      },
+      {
+        "stageId": "S04_RED_TEAM",
+        "label": "Stage 4",
+        "title": "Challenge and revise",
+        "dateLabel": "November 22",
+        "points": 4,
+        "summary": "Complete the bounded AI red-team record, independently verify the strongest challenges, and revise or defend the hypothesis and recommendation."
+      },
+      {
+        "stageId": "S05_BOARD",
+        "label": "Stage 5",
+        "title": "Brief the Board",
+        "dateLabel": "Final files November 30; presentations November 30-December 9",
+        "points": 75,
+        "summary": "Submit the PPTX and one-page executive summary, deliver the seven-minute briefing, and defend the recommendation in three minutes of individual Q&A."
+      }
+    ],
+    "decisionMenu": [
+      {
+        "area": "Capital allocation",
+        "prompt": "How should the company allocate its next material dollar among organic investment, acquisitions, debt repayment, dividends, and share repurchases?"
+      },
+      {
+        "area": "Capital structure",
+        "prompt": "Should the company increase, reduce, refinance, or restructure debt?"
+      },
+      {
+        "area": "Corporate development",
+        "prompt": "Should the company pursue an acquisition, joint venture, partnership, or strategic divestiture?"
+      },
+      {
+        "area": "Growth investment",
+        "prompt": "Which major product, market, geographic, capacity, or technology investment should receive funding?"
+      },
+      {
+        "area": "Market expectations",
+        "prompt": "What operating or capital actions are required to meet or challenge the expectations embedded in the company's valuation?"
+      },
+      {
+        "area": "Operating performance",
+        "prompt": "What operating and capital actions are needed to improve ROIC, margins, or free cash flow?"
+      },
+      {
+        "area": "Payout policy",
+        "prompt": "Should the company change its dividend or share-repurchase policy?"
+      },
+      {
+        "area": "Portfolio strategy",
+        "prompt": "Should the company expand, repair, divest, or discontinue a business segment?"
+      },
+      {
+        "area": "Risk management",
+        "prompt": "Which interest-rate, foreign-exchange, commodity, refinancing, or concentration risk requires a financial response?"
+      },
+      {
+        "area": "Working capital",
+        "prompt": "How should the company improve cash conversion, inventory, receivables, payables, or liquidity?"
+      }
+    ],
+    "progressChecklist": [
+      "I am completing the project individually for one instructor-approved U.S. public company.",
+      "My question asks the CFO and Board to make one specific, material company decision.",
+      "I compared credible alternatives and received approval before advancing the thesis.",
+      "My evidence register identifies each SEC filing, FactSet item, period, units, definition, location, use, and limitation.",
+      "My revenue map explains products or services, segments, geographies, customers, channels, pricing, and recurring or transactional revenue where relevant.",
+      "My three-to-five-year revenue history uses comparable periods and reconciles reporting changes.",
+      "My testable hypothesis names the driver, expected effect, period, and evidence that could support or falsify it.",
+      "My base, upside, and downside cases flow from the revenue diagnosis.",
+      "My Excel model separates inputs, sources, calculations, outputs, checks, scenarios, and sensitivities.",
+      "I completed all four C-A-P-A-J checkpoints using free text chat or the instructor-provided equivalent.",
+      "I independently verified every retained AI claim and recorded accept, modify, or reject judgment.",
+      "My one-page executive summary and PPTX state the same decision, assumptions, results, actions, risks, and source labels.",
+      "My core deck contains eight to ten editable slides; appendix slides are reserved for Q&A support.",
+      "I can deliver the briefing in seven minutes and answer questions for three minutes without relying on AI.",
+      "My two final filenames follow the required pattern and are submitted in Canvas before the file lock."
+    ],
+    "faqs": [
+      {
+        "question": "Is this a group project?",
+        "answer": "No. Research, evidence selection, modeling, writing, slides, delivery, and Q&A are individual work."
+      },
+      {
+        "question": "Is a Buy, Hold, or Sell recommendation enough?",
+        "answer": "No. Market valuation may support the analysis, but the project requires one company-specific action the CFO could recommend to the Board."
+      },
+      {
+        "question": "Do I need a paid AI plan?",
+        "answer": "No. Each checkpoint is designed for free text chat or an instructor-provided noncommercial equivalent. Browsing, uploads, connectors, image generation, and spreadsheet analysis are not required."
+      },
+      {
+        "question": "Can I upload FactSet files or screenshots to a public AI tool?",
+        "answer": "No. Keep raw FactSet exports and screenshots in Canvas Course Files or another course-restricted location. Use only sanitized, student-written summaries in public AI tools."
+      },
+      {
+        "question": "Is AI output a source?",
+        "answer": "No. Verify retained claims with SEC filings, permitted FactSet evidence, Excel calculations, or course concepts, then record an accept, modify, or reject judgment."
+      },
+      {
+        "question": "What happens to the Excel model at the end?",
+        "answer": "The working Excel model is submitted and assessed at Milestone 3. It is not a third final communication file unless the instructor requests it for Q&A verification."
+      },
+      {
+        "question": "What are the final communication files?",
+        "answer": "Submit exactly two files: the editable PPTX Board brief and the one-page executive summary PDF."
+      },
+      {
+        "question": "Which dates and submission links control if something changes?",
+        "answer": "Canvas is the authority for live submission links, exact due times, presentation order, and any later instructor-announced change."
+      }
+    ]
   },
   "materials": [
     {
