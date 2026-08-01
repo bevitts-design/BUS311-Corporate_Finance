@@ -42,8 +42,19 @@ if (sections.length !== 52) errors.push(`Expected 52 approved slides; found ${se
 if (notes.length !== sections.length) errors.push(`Speaker-note parity failed: ${notes.length} notes for ${sections.length} slides.`);
 
 const slide3 = slideByNumber(3);
-if (!slide3.includes('bus311-professor-evitts-headshot.png') || !slide3.includes('class="professor-profile"')) {
+if (!slide3.includes('bus311-professor-evitts-headshot.png') || !slide3.includes('class="profile-layout"')) {
   errors.push('Slide 3 is missing the public professor-introduction treatment and professional headshot.');
+}
+const slide2 = slideByNumber(2);
+if (/class="sequence-step[^>]*">[\s\S]*?<b>0[1-5]<\/b>/.test(slide2)) {
+  errors.push('Slide 2 still contains decorative 01–05 prompt labels.');
+}
+if (!slide2.includes('Are you interested in any of these paths: Series 7, CFA, CFP, or another path?')) {
+  errors.push('Slide 2 is missing the approved professional-path prompt.');
+}
+const slide49 = slideByNumber(49);
+if (!slide49.includes('Sarbanes–Oxley (SOX)') || !slide49.includes('class="failure-symbol sox">LAW</div>')) {
+  errors.push('Slide 49 does not introduce Sarbanes–Oxley before using the SOX abbreviation.');
 }
 
 const stageIds = capstone.hub.stages.map((stage) => stage.stageId);

@@ -17,11 +17,29 @@ const expectedImages = [
   'saving-future.png',
   'productive-borrowing.png',
 ];
+const expectedLogos = [
+  'fannie-mae.png',
+  'freddie-mac.svg',
+  'lehman-brothers.svg',
+  'merrill-lynch.png',
+  'aig.svg',
+  'reserve-fund.svg',
+  'goldman-sachs.svg',
+  'morgan-stanley.svg',
+  'washington-mutual.svg',
+];
 for (const image of expectedImages) {
   try {
     await fs.access(path.join(root, '01-INTRO', 'M02', 'assets', image));
   } catch {
     errors.push(`Expected local image is missing: ${image}.`);
+  }
+}
+for (const logo of expectedLogos) {
+  try {
+    await fs.access(path.join(root, '01-INTRO', 'M02', 'assets', 'logos', logo));
+  } catch {
+    errors.push(`Expected local institution logo is missing: ${logo}.`);
   }
 }
 
@@ -94,7 +112,7 @@ const runtimeChecks = {
   'slide 18 explains decision and module relevance': Boolean(sections[17]) && sections[17].includes('class="decision-bridge"') && sections[17].includes('settlement speed, working capital, and counterparty risk') && sections[17].includes('this module asks financial managers to evaluate'),
   'slide 24 is a complete non-revealing matching activity': Boolean(sections[23]) && sections[23].includes('Small groups · 4 minutes') && sections[23].includes('class="sort-category-bank"') && sections[23].includes('class="sort-contract"') && sections[23].includes('class="debrief-path"') && sections[23].includes('One completed set + one overlap your group can defend') && !/Speculative bubble\?|International crisis\?|Sovereign default\?|Banking crisis\?|Wider economic crisis\?/.test(sections[23]),
   'slide 27 contextual visual reinforces the crisis mechanism': Boolean(sections[26]) && sections[26].includes('class="crisis-phase-layout"') && sections[26].includes('assets/crisis-funding-stress.png') && sections[26].includes('short-term funding pressure transmitted the shock'),
-  'slide 29 identifies each named institution without remote assets': Boolean(sections[28]) && (sections[28].match(/class="mark-/g) || []).length === 11 && sections[28].includes('FANNIE MAE') && sections[28].includes('FREDDIE MAC') && sections[28].includes('LEHMAN') && sections[28].includes('MERRILL') && sections[28].includes('BANK OF AMERICA') && sections[28].includes('AIG') && sections[28].includes('RESERVE FUND') && sections[28].includes('GOLDMAN SACHS') && sections[28].includes('MORGAN STANLEY') && sections[28].includes('WaMu') && sections[28].includes('U.S. TREASURY') && !/<img[^>]+src="https?:/i.test(sections[28]),
+  'slide 29 uses local institution logos without remote assets': Boolean(sections[28]) && expectedLogos.every((name) => sections[28].includes(`assets/logos/${name}`)) && (sections[28].match(/class="panic-logos /g) || []).length === 4 && ['Fannie Mae', 'Freddie Mac', 'Lehman Brothers', 'Merrill Lynch', 'AIG', 'The Reserve Primary Fund', 'Goldman Sachs', 'Morgan Stanley', 'Washington Mutual'].every((name) => sections[28].includes(`alt="${name}"`)) && !/<img[^>]+src="https?:/i.test(sections[28]),
   'deck-stage': html.includes('<deck-stage width="1920" height="1080" no-rail>'),
   'Fall 2026 term': html.includes('FALL 2026') && html.includes('Fall 2026'),
   'approved BUS209 navy palette': html.includes('--navy:#0A2540') && html.includes('--steel:#2D7DD2'),
@@ -106,6 +124,9 @@ const runtimeChecks = {
   'notes toggle': html.includes("event.key==='n'||event.key==='N'"),
   'all 33 source slides represented': sourceSlides.size >= 33,
   'BlackRock current example': html.includes('$15.3T') && html.includes('July 15, 2026') && html.includes('blackrock.com/corporate/newsroom'),
+  'BlackRock why-it-matters context': html.includes('class="case-context"') && html.includes('WHY IT MATTERS') && html.includes('AUM remains client-owned'),
+  'editable evidence-discipline worksheet': html.includes('class="evidence-excel"') && html.includes('Northstar_Bikes_Teaching.xlsx') && html.includes('COUNTBLANK(A5:E7)') && html.includes('ILLUSTRATIVE TEACHING DATA') && html.includes('not live company data'),
+  'crisis definition visual': html.includes('class="crisis-definition-scene"') && html.includes('assets/crisis-funding-stress.png') && html.includes('Financial-market analysts confronting severe funding stress'),
   'Coinbase current example': html.includes('100M+') && html.includes('May 7, 2026') && html.includes('investor.coinbase.com'),
   'official Bear Stearns data': html.includes('$18.1B') && html.includes('$2.0B') && html.includes('sec.gov/news/press/2008/2008-48'),
   'official crisis source': html.includes('federalreservehistory.org/essays/great-recession-of-200709'),

@@ -60,5 +60,7 @@
 - Important numerical or instructional visuals were recreated as HTML/CSS/SVG.
 - No extracted image, logo, Endicott mark, proprietary screen, or source chart was copied into the public repository.
 - Seven original editorial images were generated specifically for the Fall 2026 rebuild and placed locally in `01-INTRO/M02/assets/`; the payment image supports both its section bridge and the later Coinbase case.
+- The crisis-definition slide reuses the approved local `crisis-funding-stress.png`; the source definition slide had no publishable crisis image, and the neighboring source stock photo had no documented public-rights basis.
+- September 2008 institution marks are stored locally in `01-INTRO/M02/assets/logos/`; their public or official source records and identification-only use notes are documented in that folder's `README.md`.
 - The public deck uses company names as editable text and provides source links for current claims.
 - The original PPTX and temporary extraction remain outside the public repository.
