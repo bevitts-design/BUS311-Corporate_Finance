@@ -175,8 +175,8 @@ def deck_checks(path, errors):
             or (is_approved_intro and "FACTSET · COURSE SETUP" in text)
             or (
                 is_approved_financial_institutions
-                and "Data discipline is an ethical practice" in text
-                and "units, and retrieval date" in text
+                and "FactSet Excel add-in" in text
+                and "record units, data period, and retrieval date" in text
             )
             or (
                 is_approved_tvm
@@ -212,7 +212,9 @@ def deck_checks(path, errors):
             )
             or (
                 is_approved_financial_institutions
-                and "=225 * 15.2" in text
+                and "Apple_Market_Cap_Teaching.xlsx" in text
+                and "=B5*B6/1000" in text
+                and "$4.55T" in text
                 and "Build and audit a market-cap comparison" in text
             )
             or (
@@ -262,8 +264,9 @@ def deck_checks(path, errors):
             )
             or (
                 is_approved_financial_institutions
-                and "what the result excludes" in text
-                and "What does the evidence not prove?" in text
+                and "INPUT EFFECT" in text
+                and "About 32.9% higher" in text
+                and "TEACHING ESTIMATE" in text
             )
             or (
                 is_approved_tvm
@@ -310,8 +313,9 @@ def deck_checks(path, errors):
             )
             or (
                 is_approved_financial_institutions
-                and "Where does the cash go?" in text
-                and "Deliverable: one ranked table" in text
+                and "MATCH THE MEASURE" in text
+                and "Equity numerator ↔ equity metric" in text
+                and "Enterprise numerator ↔ operating metric" in text
             )
             or (
                 is_approved_tvm

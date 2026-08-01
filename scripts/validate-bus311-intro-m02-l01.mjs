@@ -44,6 +44,7 @@ for (const logo of expectedLogos) {
 }
 
 const sections = [...html.matchAll(/<section class="slide [\s\S]*?<\/section>/g)].map((match) => match[0]);
+const slideByNumber = (number) => sections.find((section) => section.includes(`data-label="${String(number).padStart(2, '0')} `)) || '';
 const notesMatch = html.match(/<script type="application\/json" id="speaker-notes">([\s\S]*?)<\/script>/);
 let notes = [];
 try {
@@ -132,7 +133,10 @@ const runtimeChecks = {
   'official crisis source': html.includes('federalreservehistory.org/essays/great-recession-of-200709'),
   'editable Great Recession decision charts': html.includes('class="crisis-chart-layout"') && html.includes('class="decline-chart"') && (html.match(/class="decline-row"/g) || []).length === 3 && html.includes('Common horizontal scale · 0% to −60%') && html.includes('class="labor-chart"') && html.includes('+5 percentage points') && html.includes('DEC 2007') && html.includes('OCT 2009'),
   'explicit classroom instructions': html.includes('Choose independently') && html.includes('Small groups · 4 minutes') && html.includes('Classroom activity · 10 minutes'),
-  'market-cap numerical consistency': html.includes('$225/share × 15.2 billion shares') && html.includes('$3.42 trillion'),
+  'slide 36 dated Apple market-cap worksheet': slideByNumber(36).includes('$308.91') && slideByNumber(36).includes('July 31, 2026') && slideByNumber(36).includes('14.714676B') && slideByNumber(36).includes('June 27, 2026') && slideByNumber(36).includes('$4.55T') && slideByNumber(36).includes('TEACHING ESTIMATE') && slideByNumber(36).includes('Weighted-average diluted shares are an EPS denominator') && slideByNumber(36).includes('stockanalysis.com/stocks/aapl/history/') && slideByNumber(36).includes('FY26_Q3_Consolidated_Financial_Statements.pdf'),
+  'slide 36 market-cap numerical consistency': slideByNumber(36).includes('=B5*B6/1000') && slideByNumber(36).includes('$3.42T') && slideByNumber(36).includes('+$1.13T') && slideByNumber(36).includes('32.9%'),
+  'slide 37 distinguishes market cap and enterprise value': slideByNumber(37).includes('Market cap values common equity; enterprise value values operations') && slideByNumber(37).includes('Share price × common shares') && slideByNumber(37).includes('Market cap + debt + preferred + NCI − cash') && slideByNumber(37).includes('EV/Revenue') && slideByNumber(37).includes('EV/EBITDA') && !slideByNumber(37).includes('$4.55T'),
+  'slide 38 uses FactSet add-in and Canvas directions': slideByNumber(38).includes('FactSet Excel add-in') && slideByNumber(38).includes('market-close price') && slideByNumber(38).includes('diluted-share field') && slideByNumber(38).includes('Instructions will be given in Canvas.') && !/Calculate market cap/i.test(slideByNumber(38)),
   'editable graphics': ['market-bridge', 'taxonomy-map', 'function-system', 'information-loop', 'bear-bars', 'financing-matrix'].every((name) => html.includes(`class="${name}`)),
   'illustrated five-function system': html.includes('class="function-system"') && (html.match(/class="function-node f/g) || []).length === 5 && (html.match(/class="function-icon"/g) || []).length === 5 && (html.match(/class="function-link"/g) || []).length === 5 && html.includes('marker-end:url(#function-arrow)'),
   'graphical financing decision map': html.includes('class="financing-matrix financing-map"') && html.includes('class="risk-axis"') && html.includes('class="stage-axis"') && (html.match(/class="financing-quadrant /g) || []).length === 4 && (html.match(/class="financing-icon"/g) || []).length === 4 && (html.match(/class="mix-emphasis/g) || []).length === 4,
