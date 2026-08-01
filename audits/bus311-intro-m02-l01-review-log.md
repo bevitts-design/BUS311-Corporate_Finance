@@ -31,6 +31,10 @@
 | Ethics | Preserve the course-map title and evidence-discipline focus | Course alignment | Added a source/date/units/limits audit-trail slide |
 | Crisis section | Preserve the 2007–09 sequence and major named events | Deck-specific | Rebuilt with official SEC, Federal Reserve, and FDIC evidence |
 | Bear Stearns | Preserve the source liquidity chart | Correction / sourcing | Rebuilt with SEC values of $18.1B, $11.5B, $12.4B, and $2.0B |
+| BlackRock context | Instructor requested the missing why-it-matters explanation | Deck-specific / correction | Added a dark case callout connecting pooled client capital and market access to asset-management intermediation while distinguishing AUM from company-owned assets |
+| Evidence discipline | Instructor requested a concrete company-style Excel example | Pattern / correction | Replaced the abstract checklist with an editable illustrative KPI worksheet showing definitions, units, periods, metadata controls, and an explicit not-live-data limitation |
+| Crisis definition | Instructor requested a financial-crisis image | Deck-specific / correction | Inspected the source slides, rejected undocumented stock media, and reused the approved local funding-stress visual with descriptive alt text |
+| September 2008 institutions | Instructor requested actual marks instead of repeated company-name treatments | Deck-specific / correction | Added consistently sized local institution marks with descriptive alt text and a maintained source record; the event descriptions and FDIC source remain unchanged |
 | Market taxonomy | Preserve money/capital and debt/equity classification | Pattern | Rebuilt as editable taxonomy and maturity-choice slides |
 | Market capitalization | Preserve the calculation activity | Deck-specific | Retained $225 × 15.2B = $3.42T as explicitly illustrative inputs |
 | $4 trillion claim | Source identifies an undated first company above $4T | Correction | Omitted because the pictured-company attribution and date were unsupported in the source |

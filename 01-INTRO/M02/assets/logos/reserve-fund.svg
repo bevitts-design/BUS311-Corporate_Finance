@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 140" role="img" aria-labelledby="title desc">
+  <title id="title">The Reserve</title>
+  <desc id="desc">A locally recreated identification mark based on the historical Reserve exhibit filed with the SEC.</desc>
+  <rect width="520" height="140" rx="16" fill="#ffffff"/>
+  <path d="M34 24h92v92H34z" fill="#6f7479"/>
+  <path d="M55 44h34c21 0 32 10 32 28 0 13-7 22-20 26l22 18H96L76 97v19H55zm21 18v20h12c8 0 12-3 12-10s-4-10-12-10z" fill="#ffffff"/>
+  <text x="150" y="72" font-family="Georgia, 'Times New Roman', serif" font-size="42" fill="#343a40">The Reserve</text>
+  <text x="152" y="104" font-family="Arial, Helvetica, sans-serif" font-size="18" letter-spacing="3" fill="#6f7479">PRIMARY FUND</text>
+</svg>
