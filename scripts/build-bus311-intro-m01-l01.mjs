@@ -122,7 +122,7 @@ blockquote cite{display:block;margin-top:18px;font:500 var(--type-small)/1.4 var
 .pemdas>div{display:flex;align-items:center;gap:28px;background:var(--white);border:1px solid var(--border);padding:24px;border-radius:14px}
 .pemdas b{display:grid;place-items:center;width:96px;height:96px;border-radius:14px;background:var(--accent);color:var(--white);font:500 54px/1 var(--font-mono)}
 .pemdas span{font-size:var(--type-lead)}
-.data-slide{padding-top:72px}
+.data-slide{padding-top:120px}
 .terminal{border:1px solid rgba(255,255,255,.22);border-radius:20px;overflow:hidden;flex:1}
 .terminal-top{padding:22px 28px;background:var(--steel-dark);font:500 var(--type-small)/1 var(--font-mono)}
 .terminal-grid{padding:42px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}

@@ -45,6 +45,9 @@ const slide3 = slideByNumber(3);
 if (!slide3.includes('bus311-professor-evitts-headshot.png') || !slide3.includes('class="profile-layout"')) {
   errors.push('Slide 3 is missing the public professor-introduction treatment and professional headshot.');
 }
+if ((slide3.match(/Assistant Professor/g) || []).length !== 1 || !slide3.includes('<figcaption>Assistant Professor · Gerrish School of Business</figcaption>')) {
+  errors.push('Slide 3 must identify Assistant Professor once in the photo caption without duplicating the title under Teaching goal.');
+}
 const slide2 = slideByNumber(2);
 if (/class="sequence-step[^>]*">[\s\S]*?<b>0[1-5]<\/b>/.test(slide2)) {
   errors.push('Slide 2 still contains decorative 01–05 prompt labels.');
@@ -148,6 +151,7 @@ const runtimeChecks = {
   'BUS209 navy palette': html.includes('--navy:#0A2540') && html.includes('--steel:#2D7DD2'),
   'BUS209 support colors': html.includes('--teal:#1B998B') && html.includes('--gold:#E6A817'),
   'restrained BUS311 terra token': html.includes('--terra:#9C4A2B') && html.includes('--risk:var(--terra)'),
+  'slide 12 title spacing': html.includes('.data-slide{padding-top:120px}'),
   'BUS209 visual reference provenance': html.includes('Visual reference: BUS209 FactSet decks'),
   'hash navigation': html.includes('#slide-') && html.includes('_indexFromHash'),
   'fullscreen': html.includes('requestFullscreen') && html.includes('fullscreenchange'),
