@@ -12,4 +12,8 @@
 
 ## Verification record
 
-Pending until the generated HTML passes the focused validator, public validator, browser navigation/console/activity checks, and full-slide visual inspection.
+- Focused M04 validator: PASS (22 slides, 75 minutes, 22 substantive notes, current-company evidence, four response systems, and independently verified ratio/DuPont calculations).
+- Full-slide browser inspection: PASS at 1920×1080 and 1366×768 after correcting the peer-matrix grid placement on slide 15; no overflow or document scrolling remained.
+- Browser behavior: PASS for keyboard/button navigation, speaker-note toggle, choice checks, DuPont sensitivity controls, exit response, browser title, and slide-one identity/content.
+- Public validator: M04 has no remaining findings. The repository-wide run still reports pre-existing findings in M03 and M07; those files were not changed.
+- Scope check: generated HTML contains no obsolete M02/L02 labels, no `original artwork` note, and no reference to the unnamed exercise inspiration.
