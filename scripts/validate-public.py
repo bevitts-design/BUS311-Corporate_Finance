@@ -66,6 +66,7 @@ def deck_checks(path, errors):
     text = path.read_text(encoding="utf-8")
     is_approved_intro = path.name == "bus311-intro-m01-l01-slides.html"
     is_approved_financial_institutions = path.name == "bus311-intro-m02-l01-slides.html"
+    is_approved_ratio_analysis = path.name == "bus311-intro-m04-l01-slides.html"
     is_approved_tvm = path.name == "bus311-valuation-m05-l01-slides.html"
     is_approved_bonds = path.name == "bus311-valuation-m06-l01-slides.html"
     is_approved_npv = path.name == "bus311-valuation-m08-l01-slides.html"
@@ -120,6 +121,16 @@ def deck_checks(path, errors):
                     'class="excel-sheet',
                     'class="sensitivity-chart"',
                     'class="pattern-tree"',
+                ))
+            )
+            or (
+                is_approved_ratio_analysis
+                and text.count('role="img"') >= 14
+                and all(marker in text for marker in (
+                    'class="family-map"',
+                    'class="excel-sheet"',
+                    'class="peer-matrix"',
+                    'class="dupont-lab"',
                 ))
             )
             or (
@@ -184,6 +195,12 @@ def deck_checks(path, errors):
                 and "Record the field, definition, period, units, currency, supplier, and retrieval date." in text
             )
             or (
+                is_approved_ratio_analysis
+                and 'class="audit-console"' in text
+                and "Filed value and retrieval date?" in text
+                and "GAAP or adjusted?" in text
+            )
+            or (
                 is_approved_bonds
                 and "class='evidence-pipeline'" in text
                 and "Record the field, definition, period, units, currency, supplier, and retrieval date." in text
@@ -222,6 +239,12 @@ def deck_checks(path, errors):
                 and "=FV(B5,B6,B7,B4,B8)" in text
                 and 'class="excel-sheet"' in text
                 and "$14,693.28" in text
+            )
+            or (
+                is_approved_ratio_analysis
+                and '=B4/AVERAGE(B5:B6)' in text
+                and 'class="excel-sheet"' in text
+                and '40.0%' in text
             )
             or (
                 is_approved_bonds
@@ -275,6 +298,12 @@ def deck_checks(path, errors):
                 and 'id="fv-output"' in text
             )
             or (
+                is_approved_ratio_analysis
+                and 'data-interactive="dupont"' in text
+                and 'id="margin-slider"' in text
+                and 'id="roe-output"' in text
+            )
+            or (
                 is_approved_bonds
                 and "id='yield-slider'" in text
                 and "class='price-curve'" in text
@@ -322,6 +351,12 @@ def deck_checks(path, errors):
                 and 'data-interactive="exit"' in text
                 and "Finish one sentence that a CFO could use" in text
                 and "Apply TVM to coupon bonds and yield to maturity." in text
+            )
+            or (
+                is_approved_ratio_analysis
+                and 'data-interactive="exit"' in text
+                and "Finish the recommendation—not the calculation" in text
+                and "Value cash flows that arrive at different times." in text
             )
             or (
                 is_approved_bonds
