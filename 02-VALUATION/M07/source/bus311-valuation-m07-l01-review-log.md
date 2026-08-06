@@ -14,4 +14,9 @@
 
 ## Verification record
 
-Verification results are recorded after regeneration. Required checks include the focused M07 validator, the public structural validator, browser inspection at 1920×1080 and 1366×768, navigation and speaker-note behavior, interactive sensitivity controls, activity reveal states, source coverage, and a final scope review.
+- Focused M07 validator: PASS (21 slides, 75 minutes, 21 substantive notes, prior slides 1–64 represented, verified valuation calculations, public evidence workflow, sensitivity sequence, IPO exercise, and auditable decision standard).
+- Public structural validator: M07 has no findings. The repository-wide run still reports the pre-existing M03 findings; M03 was not changed.
+- Full-slide browser inspection: PASS for all 21 slides at 1920×1080 and 1366×768; no slide overflow, child clipping, document scrolling, or console warning/error remained.
+- Browser behavior: PASS for direct slide hashes, keyboard and button navigation, substantive note toggle, one-period and decision checks, Gordon-growth sensitivity sliders, and exit-response controls.
+- Focused visual inspection: PASS for the public-evidence console, sensitivity attempt, multi-stage Excel model, and decision-standard exercise at the laptop viewport.
+- Scope check: M03 and unrelated files remain unchanged; no workbook, commit, push, publication, or Canvas change was made.
