@@ -119,8 +119,9 @@ function lessonCard(lesson) {
   const termInfo = schedule.get(lesson.id) || { week: '—', dateLabel: 'Schedule in Canvas', releaseState: 'Available' };
   const track = tracks.find((item) => item.id === lesson.track);
   const isCurrent = lesson.id === current.id;
+  const isAvailable = termInfo.releaseState === 'Available';
   const cardMaterial = lesson.materials.find((material) => material.cardLabel);
-  const cardMaterialButton = cardMaterial
+  const cardMaterialButton = isAvailable && cardMaterial
     ? `<a class="card-resource-action" href="${esc(materialHref(cardMaterial))}" download aria-label="${esc(`${cardMaterial.cardLabel} for ${lesson.title}`)}">${esc(cardMaterial.cardLabel)}</a>`
     : '';
   const searchText = [
@@ -131,17 +132,17 @@ function lessonCard(lesson) {
     ...lesson.outcomes.map((id) => outcomes.get(id)),
     ...lesson.skillFocus,
   ].join(' ').toLowerCase();
-  return `<article class="lesson-card track-${esc(lesson.track)}${isCurrent ? ' current-card' : ''}" data-lesson-card data-track="${esc(lesson.track)}" data-search-text="${esc(searchText)}">
+  return `<article class="lesson-card track-${esc(lesson.track)}${isCurrent ? ' current-card' : ''}${isAvailable ? '' : ' locked-card'}" data-lesson-card data-track="${esc(lesson.track)}" data-search-text="${esc(searchText)}">
     <div class="lesson-meta">
       <span>Week ${esc(termInfo.week)} · ${esc(lesson.displayModule)}</span>
       <span class="availability">${isCurrent ? 'Current lesson' : esc(termInfo.releaseState)}</span>
     </div>
     <p class="lesson-date">${esc(termInfo.dateLabel)}</p>
-    <h3><a href="${esc(lessonHref(lesson))}">${esc(lesson.title)}</a></h3>
+    <h3>${isAvailable ? `<a href="${esc(lessonHref(lesson))}">${esc(lesson.title)}</a>` : esc(lesson.title)}</h3>
     <p class="case-study">Case: ${esc(lesson.caseStudy)}</p>
     <p class="lesson-summary">${esc(lesson.summary)}</p>
     <div class="lesson-actions">
-      <a class="primary-action" href="${esc(lessonHref(lesson))}">Open lesson</a>
+      ${isAvailable ? `<a class="primary-action" href="${esc(lessonHref(lesson))}">Open lesson</a>` : '<span class="locked-action" aria-label="Lesson materials are locked until released">🔒 Locked until released</span>'}
       <span>${lesson.materials.length} resource${lesson.materials.length === 1 ? '' : 's'}</span>
     </div>${cardMaterialButton ? `\n    ${cardMaterialButton}` : ''}
   </article>`;
@@ -165,6 +166,7 @@ function currentMaterial(type) {
 
 const currentInfo = schedule.get(current.id);
 const currentSlides = currentMaterial('Slides');
+const currentIsAvailable = currentInfo.releaseState === 'Available';
 const filterOptions = tracks.map((track) => `<option value="${esc(track.id)}">${esc(track.shortLabel)}</option>`).join('');
 const outcomeCards = courseMap.learningOutcomes.map((outcome) => `<article><span>${esc(outcome.id)}</span><p>${esc(outcome.text)}</p></article>`).join('');
 const assessmentItems = term.assessmentWeeks.map((item) => `<li><strong>Week ${esc(item.week)}</strong><span>${esc(item.label)}</span></li>`).join('');
@@ -180,7 +182,7 @@ const homeHtml = `<!doctype html>
   <div class="header-bar"><a class="course-mark" href="./">${esc(courseMap.course.code)}</a><nav aria-label="Course navigation"><a href="#this-week">This week</a><a href="#course-pathway">Course pathway</a><a href="#resources">Resources</a><a href="#find-a-lesson">Find a lesson</a></nav></div>
   <div class="hero-grid">
     <div class="hero-copy"><p class="eyebrow">${esc(term.label)} · ${esc(term.meetingPattern)}</p><h1>${esc(courseMap.course.title)}</h1><p class="hero-tagline">${esc(courseMap.course.tagline)}</p><p class="hero-promise">${esc(courseMap.course.studentPromise)}</p></div>
-    <aside class="current-panel" id="this-week" aria-labelledby="current-title"><p class="panel-kicker">Start here · Week ${esc(currentInfo.week)}</p><h2 id="current-title">${esc(current.title)}</h2><p>${esc(current.summary)}</p><div class="current-meta"><span>${esc(current.displayModule)}</span><span>${esc(currentInfo.dateLabel)}</span><span>${esc(current.estimatedMinutes)} minutes</span></div><div class="current-actions"><a class="primary-action light" href="${esc(lessonHref(current))}">Open current lesson</a>${currentSlides ? `<a class="secondary-action" href="${esc(currentSlides.path)}">View slides</a>` : ''}</div></aside>
+    <aside class="current-panel" id="this-week" aria-labelledby="current-title"><p class="panel-kicker">Start here · Week ${esc(currentInfo.week)}</p><h2 id="current-title">${esc(current.title)}</h2><p>${esc(current.summary)}</p><div class="current-meta"><span>${esc(current.displayModule)}</span><span>${esc(currentInfo.dateLabel)}</span><span>${esc(current.estimatedMinutes)} minutes</span></div><div class="current-actions">${currentIsAvailable ? `<a class="primary-action light" href="${esc(lessonHref(current))}">Open current lesson</a>${currentSlides ? `<a class="secondary-action" href="${esc(currentSlides.path)}">View slides</a>` : ''}` : '<span class="locked-action light" aria-label="Current lesson materials are locked until released">🔒 Lesson unlocks soon</span>'}</div></aside>
   </div>
 </header>
 <main id="main-content">

@@ -9,3 +9,5 @@ audits/migration-manifest.csv
 grading/output/
 student-submissions/
 gradebooks/
+MissionControl/.build/
+MissionControl/dist/
