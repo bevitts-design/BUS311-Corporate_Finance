@@ -4,6 +4,7 @@ import Foundation
 final class MissionControlStore: ObservableObject {
     @Published private(set) var snapshot: CourseSnapshot?
     @Published private(set) var draft: [String: Bool] = [:]
+    @Published private(set) var currentLessonDraft = ""
     @Published private(set) var errorMessage: String?
     @Published private(set) var successMessage: String?
     @Published private(set) var isWorking = false
@@ -19,7 +20,9 @@ final class MissionControlStore: ObservableObject {
     var lessons: [LessonAccess] { snapshot?.lessons ?? [] }
     var repositoryPath: String? { snapshot?.repositoryRoot.path }
     var changes: [AccessChange] { lessons.compactMap { lesson in guard draft[lesson.id] != lesson.isAvailable else { return nil }; return AccessChange(lesson: lesson, willBeAvailable: draft[lesson.id] ?? false) } }
-    var isDirty: Bool { !changes.isEmpty }
+    var selectedCurrentLesson: LessonAccess? { lessons.first { $0.id == currentLessonDraft } }
+    var currentLessonChanged: Bool { guard let snapshot else { return false }; return currentLessonDraft != snapshot.currentLessonId }
+    var isDirty: Bool { !changes.isEmpty || currentLessonChanged }
     var availableCount: Int { lessons.filter { draft[$0.id] ?? $0.isAvailable }.count }
 
     func load() {
@@ -28,19 +31,39 @@ final class MissionControlStore: ObservableObject {
             let loaded = try service.load()
             snapshot = loaded
             draft = Dictionary(uniqueKeysWithValues: loaded.lessons.map { ($0.id, $0.isAvailable) })
+            currentLessonDraft = loaded.currentLessonId
             errorMessage = nil; successMessage = nil
         } catch { errorMessage = error.localizedDescription }
     }
-    func setAvailable(_ value: Bool, for lesson: LessonAccess) { draft[lesson.id] = value; errorMessage = nil; successMessage = nil }
-    func discard() { if let snapshot { draft = Dictionary(uniqueKeysWithValues: snapshot.lessons.map { ($0.id, $0.isAvailable) }) }; errorMessage = nil }
+    func setAvailable(_ value: Bool, for lesson: LessonAccess) {
+        guard value || lesson.id != currentLessonDraft else {
+            errorMessage = "Choose another current lesson before locking this one."
+            return
+        }
+        draft[lesson.id] = value
+        errorMessage = nil; successMessage = nil
+    }
+    func makeCurrent(_ lesson: LessonAccess) {
+        currentLessonDraft = lesson.id
+        draft[lesson.id] = true
+        errorMessage = nil; successMessage = nil
+    }
+    func discard() {
+        if let snapshot {
+            draft = Dictionary(uniqueKeysWithValues: snapshot.lessons.map { ($0.id, $0.isAvailable) })
+            currentLessonDraft = snapshot.currentLessonId
+        }
+        errorMessage = nil
+    }
     func save() {
         guard let snapshot, isDirty, !isWorking else { return }
         isWorking = true; errorMessage = nil
         let desired = draft
+        let desiredCurrentLesson = currentLessonDraft
         Task { @MainActor in
             var wroteTermData = false
             do {
-                try service.save(snapshot: snapshot, availability: desired)
+                try service.save(snapshot: snapshot, availability: desired, currentLessonId: desiredCurrentLesson)
                 wroteTermData = true
                 let process = Process()
                 process.currentDirectoryURL = snapshot.repositoryRoot
@@ -52,7 +75,8 @@ final class MissionControlStore: ObservableObject {
                 let reloaded = try service.load()
                 self.snapshot = reloaded
                 self.draft = Dictionary(uniqueKeysWithValues: reloaded.lessons.map { ($0.id, $0.isAvailable) })
-                successMessage = "Saved the lesson access changes and rebuilt the student homepage."
+                self.currentLessonDraft = reloaded.currentLessonId
+                successMessage = "Saved the current lesson and access changes, then rebuilt the student homepage."
             } catch {
                 if wroteTermData { try? service.restore(snapshot) }
                 errorMessage = "No change was kept because rebuilding the student homepage did not complete. \(error.localizedDescription)"

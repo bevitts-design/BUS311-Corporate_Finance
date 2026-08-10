@@ -5,7 +5,7 @@ struct ContentView: View {
     var body: some View {
         NavigationSplitView {
             List(selection: $store.selectedSection) {
-                Section("Course Controls") { navigationRow("access", title: "Lesson Access", subtitle: "Choose which lessons students can open", icon: "lock.open") }
+                Section("Course Controls") { navigationRow("access", title: "Lesson Access", subtitle: "Choose the current and available lessons", icon: "lock.open") }
                 Section("Publishing") { navigationRow("publish", title: "Publish to GitHub", subtitle: "Review, commit, and push safely", icon: "arrow.up.circle") }
             }
             .listStyle(.sidebar)
@@ -22,11 +22,16 @@ struct ContentView: View {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 5) {
                     Text("BUS311 Mission Control").font(.largeTitle.weight(.semibold))
-                    Text("Corporate Finance lesson access").foregroundStyle(.secondary)
-                    Text("Every lesson card stays on the student site. Locked cards show what is coming without an active lesson link.").font(.callout).foregroundStyle(.secondary)
+                    Text("Corporate Finance lesson access and This week selection").foregroundStyle(.secondary)
+                    Text("The selected current lesson drives the student homepage. Locked cards show what is coming without an active lesson link.").font(.callout).foregroundStyle(.secondary)
                 }
                 Spacer()
-                Text("\(store.availableCount) of \(store.lessons.count) available").font(.callout.monospacedDigit()).foregroundStyle(.secondary)
+                VStack(alignment: .trailing, spacing: 4) {
+                    if let current = store.selectedCurrentLesson {
+                        Text("Current · \(current.module)").font(.callout.weight(.semibold)).help(current.title)
+                    }
+                    Text("\(store.availableCount) of \(store.lessons.count) available").font(.callout.monospacedDigit()).foregroundStyle(.secondary)
+                }
             }.padding(20)
             if let error = store.errorMessage { Label(error, systemImage: "exclamationmark.triangle.fill").foregroundStyle(.red).padding(.horizontal, 20).padding(.bottom, 12) }
             if let success = store.successMessage { Label(success, systemImage: "checkmark.circle.fill").foregroundStyle(.green).padding(.horizontal, 20).padding(.bottom, 12) }
@@ -57,12 +62,13 @@ struct ContentView: View {
     private var lessonList: some View {
         VStack(alignment: .leading, spacing: 0) {
             TextField("Search lessons", text: $store.searchText).textFieldStyle(.roundedBorder).padding(20)
+            Text("“Make current” updates the homepage This week view and also unlocks that lesson.").font(.footnote).foregroundStyle(.secondary).padding(.horizontal, 20).padding(.bottom, 4)
             ScrollView { LazyVStack(alignment: .leading, spacing: 16) {
                 ForEach(["intro", "valuation", "decisions"], id: \.self) { track in
                     let lessons = filtered(track)
                     if !lessons.isEmpty { VStack(alignment: .leading, spacing: 8) {
                         Text(track == "intro" ? "Understand the Business" : track == "valuation" ? "Value the Cash Flows" : "Recommend the Decision").font(.title3.weight(.semibold))
-                        ForEach(lessons) { lesson in LessonRow(lesson: lesson, isAvailable: Binding(get: { store.draft[lesson.id] ?? lesson.isAvailable }, set: { store.setAvailable($0, for: lesson) })) }
+                        ForEach(lessons) { lesson in LessonRow(lesson: lesson, isCurrent: store.currentLessonDraft == lesson.id, isAvailable: Binding(get: { store.draft[lesson.id] ?? lesson.isAvailable }, set: { store.setAvailable($0, for: lesson) }), makeCurrent: { store.makeCurrent(lesson) }) }
                     }}
                 }
             }.padding(20) }
@@ -71,8 +77,14 @@ struct ContentView: View {
     private var preview: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Change preview").font(.title3.weight(.semibold))
-            if store.changes.isEmpty { ContentUnavailableView("No pending changes", systemImage: "checkmark.circle", description: Text("Turn a lesson on or off to preview the student-access change.")) }
-            else { ScrollView { LazyVStack(alignment: .leading, spacing: 10) { ForEach(store.changes) { change in Label("\(change.willBeAvailable ? "Unlock" : "Lock") · \(change.lesson.module) · \(change.lesson.title)", systemImage: change.willBeAvailable ? "lock.open" : "lock") .frame(maxWidth: .infinity, alignment: .leading).padding(10).background(.background.secondary, in: RoundedRectangle(cornerRadius: 8)) } } } }
+            if store.changes.isEmpty && !store.currentLessonChanged { ContentUnavailableView("No pending changes", systemImage: "checkmark.circle", description: Text("Change lesson access or choose a new current lesson to preview the student-site update.")) }
+            else { ScrollView { LazyVStack(alignment: .leading, spacing: 10) {
+                if store.currentLessonChanged, let current = store.selectedCurrentLesson {
+                    Label("Make current · \(current.module) · \(current.title)", systemImage: "calendar.badge.checkmark")
+                        .frame(maxWidth: .infinity, alignment: .leading).padding(10).background(.background.secondary, in: RoundedRectangle(cornerRadius: 8))
+                }
+                ForEach(store.changes) { change in Label("\(change.willBeAvailable ? "Unlock" : "Lock") · \(change.lesson.module) · \(change.lesson.title)", systemImage: change.willBeAvailable ? "lock.open" : "lock") .frame(maxWidth: .infinity, alignment: .leading).padding(10).background(.background.secondary, in: RoundedRectangle(cornerRadius: 8)) }
+            } } }
             Spacer()
             Button { store.save() } label: {
                 Label("Save changes and rebuild", systemImage: "hammer")
@@ -80,7 +92,7 @@ struct ContentView: View {
             }
             .buttonStyle(.borderedProminent)
             .disabled(!store.isDirty || store.isWorking)
-            Text("Saving updates Fall 2026 term data, regenerates the course hub, and runs the site validator. Publishing to GitHub remains a separate step.").font(.footnote).foregroundStyle(.secondary)
+            Text("Saving updates the Fall 2026 current lesson and access data, regenerates the course hub, and runs the site validator. Publishing to GitHub remains a separate step.").font(.footnote).foregroundStyle(.secondary)
         }.padding(20)
     }
     private var publishView: some View {
@@ -138,13 +150,19 @@ private struct RepositoryStatusView: View {
 
 private struct LessonRow: View {
     let lesson: LessonAccess
+    let isCurrent: Bool
     @Binding var isAvailable: Bool
+    let makeCurrent: () -> Void
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
-            Image(systemName: isAvailable ? "building.2.crop.circle.fill" : "lock.fill").foregroundStyle(isAvailable ? .green : .secondary).font(.title3)
+            Image(systemName: isCurrent ? "star.circle.fill" : isAvailable ? "building.2.crop.circle.fill" : "lock.fill").foregroundStyle(isCurrent ? .orange : isAvailable ? .green : .secondary).font(.title3)
             VStack(alignment: .leading, spacing: 3) { Text("Week \(lesson.week) · \(lesson.module) · \(lesson.dateLabel)").font(.caption).foregroundStyle(.secondary); Text(lesson.title).font(.headline) }
             Spacer()
-            Toggle(isOn: $isAvailable) { Text(isAvailable ? "Available" : "Locked").frame(width: 70, alignment: .trailing) }.toggleStyle(.switch).accessibilityLabel("\(lesson.title) student access")
+            VStack(alignment: .trailing, spacing: 8) {
+                if isCurrent { Label("Current", systemImage: "star.fill").font(.caption.weight(.semibold)).foregroundStyle(.orange) }
+                else { Button("Make current", action: makeCurrent).buttonStyle(.bordered).controlSize(.small) }
+                Toggle(isOn: $isAvailable) { Text(isAvailable ? "Available" : "Locked").frame(width: 70, alignment: .trailing) }.toggleStyle(.switch).disabled(isCurrent).accessibilityLabel("\(lesson.title) student access")
+            }
         }.padding(12).background(.background.secondary, in: RoundedRectangle(cornerRadius: 10))
     }
 }

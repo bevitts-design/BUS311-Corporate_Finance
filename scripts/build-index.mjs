@@ -13,7 +13,7 @@ const outcomes = new Map(courseMap.learningOutcomes.map((item) => [item.id, item
 const tracks = [...courseMap.tracks].sort((a, b) => a.displayOrder - b.displayOrder);
 const lessons = [...courseMap.lessons].sort((a, b) => a.displayOrder - b.displayOrder);
 const current = lessons.find((lesson) => lesson.id === term.currentLessonId) || lessons[0];
-const siteAssetVersion = '20260731';
+const siteAssetVersion = '20260810';
 
 const esc = (value = '') => String(value).replace(/[&<>"']/g, (char) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
@@ -132,15 +132,18 @@ function lessonCard(lesson) {
     ...lesson.outcomes.map((id) => outcomes.get(id)),
     ...lesson.skillFocus,
   ].join(' ').toLowerCase();
-  return `<article class="lesson-card track-${esc(lesson.track)}${isCurrent ? ' current-card' : ''}${isAvailable ? '' : ' locked-card'}" data-lesson-card data-track="${esc(lesson.track)}" data-search-text="${esc(searchText)}">
+  const cardContent = isAvailable
+    ? `<p class="case-study">Case: ${esc(lesson.caseStudy)}</p>
+    <p class="lesson-summary">${esc(lesson.summary)}</p>`
+    : `<details class="locked-preview"><summary>Preview lesson</summary><div><p class="case-study">Case: ${esc(lesson.caseStudy)}</p><p class="lesson-summary">${esc(lesson.summary)}</p></div></details>`;
+  return `<article class="lesson-card track-${esc(lesson.track)}${isCurrent ? ' current-card' : ''}${isAvailable ? '' : ' locked-card'}" data-lesson-card data-current="${isCurrent ? 'true' : 'false'}" data-track="${esc(lesson.track)}" data-search-text="${esc(searchText)}">
     <div class="lesson-meta">
       <span>Week ${esc(termInfo.week)} · ${esc(lesson.displayModule)}</span>
       <span class="availability">${isCurrent ? 'Current lesson' : esc(termInfo.releaseState)}</span>
     </div>
     <p class="lesson-date">${esc(termInfo.dateLabel)}</p>
     <h3>${isAvailable ? `<a href="${esc(lessonHref(lesson))}">${esc(lesson.title)}</a>` : esc(lesson.title)}</h3>
-    <p class="case-study">Case: ${esc(lesson.caseStudy)}</p>
-    <p class="lesson-summary">${esc(lesson.summary)}</p>
+    ${cardContent}
     <div class="lesson-actions">
       ${isAvailable ? `<a class="primary-action" href="${esc(lessonHref(lesson))}">Open lesson</a>` : '<span class="locked-action" aria-label="Lesson materials are locked until released">🔒 Locked until released</span>'}
       <span>${lesson.materials.length} resource${lesson.materials.length === 1 ? '' : 's'}</span>
@@ -148,11 +151,20 @@ function lessonCard(lesson) {
   </article>`;
 }
 
+function trackIcon(trackId) {
+  const icons = {
+    intro: '<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="10" y="8" width="28" height="32" rx="4"/><path d="M16 16h16M16 23h10M16 30h16"/><circle cx="31" cy="23" r="2"/></svg>',
+    valuation: '<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 24h32M12 18v12M24 15v18M36 18v12"/><circle cx="12" cy="24" r="4"/><circle cx="24" cy="24" r="4"/><circle cx="36" cy="24" r="4"/></svg>',
+    decisions: '<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M12 7h20l5 5v29H12zM32 7v7h5"/><path d="m18 26 4 4 9-10M18 35h13"/></svg>',
+  };
+  return icons[trackId] || '';
+}
+
 function trackSection(track) {
   const trackLessons = lessons.filter((lesson) => lesson.track === track.id);
-  return `<section class="track-section" id="track-${esc(track.id)}" data-track-section>
+  return `<section class="track-section track-${esc(track.id)}" id="track-${esc(track.id)}" data-track-section>
     <div class="section-heading">
-      <div><p class="section-kicker">${esc(track.shortLabel)}</p><h2>${esc(track.label)}</h2></div>
+      <div class="track-heading"><span class="track-icon">${trackIcon(track.id)}</span><div><p class="section-kicker">${esc(track.shortLabel)}</p><h2>${esc(track.label)}</h2></div></div>
       <p>${esc(track.description)}</p>
     </div>
     <p class="track-question">${esc(track.studentQuestion)}</p>
@@ -168,10 +180,44 @@ const currentInfo = schedule.get(current.id);
 const currentSlides = currentMaterial('Slides');
 const currentIsAvailable = currentInfo.releaseState === 'Available';
 const filterOptions = tracks.map((track) => `<option value="${esc(track.id)}">${esc(track.shortLabel)}</option>`).join('');
-const outcomeCards = courseMap.learningOutcomes.map((outcome) => `<article><span>${esc(outcome.id)}</span><p>${esc(outcome.text)}</p></article>`).join('');
 const assessmentItems = term.assessmentWeeks.map((item) => `<li><strong>Week ${esc(item.week)}</strong><span>${esc(item.label)}</span></li>`).join('');
+const termMilestoneDates = new Map((term.capstone?.milestones || []).map((item) => [item.milestoneId, item.dateLabel]));
+const capstoneMilestones = [
+  ...capstone.milestones.map((item) => ({
+    title: item.title,
+    due: item.due,
+    dateLabel: termMilestoneDates.get(item.milestoneId) || item.due,
+  })),
+  {
+    title: 'Final files and Board briefing',
+    due: capstone.finalSubmission.deadline,
+    dateLabel: capstone.finalSubmission.deadlineLabel,
+  },
+];
+const initialCapstoneMilestone = capstoneMilestones[0];
+const capstoneProgressStages = [capstone.hub.stages[0], capstone.hub.stages[2], capstone.hub.stages[4]];
+const capstoneAssignment = capstone.materials.find((item) => item.materialId === 'ASSIGNMENT');
 
-const capstoneHome = `<section class="resources-section" id="company-capstone" aria-labelledby="capstone-title"><div class="section-heading compact"><div><p class="section-kicker">Semester-long individual project</p><h2 id="capstone-title">${esc(capstone.project.title)}</h2></div><p>${esc(capstone.project.decision)}</p></div><div class="resource-layout"><div class="resource-cards"><a href="CAPSTONE/"><span>CFO and Board decision brief</span><strong>Open the Company Capstone</strong><small>Revenue engine, testable hypothesis, valuation model, recommendation, and presentation requirements.</small></a><a href="${esc(capstone.materials.find((item) => item.materialId === 'ASSIGNMENT').path)}" download><span>Assignment</span><strong>Download the complete capstone brief</strong><small>${esc(capstone.finalSubmission.deadlineLabel)}</small></a></div><div class="assessment-panel"><h3>${esc(capstone.project.projectPoints)} project points · ${esc(capstone.project.courseWeightPercent)}% of the course</h3><ul>${capstone.rubric.components.map((component) => `<li><strong>${esc(component.points)} points</strong><span>${esc(component.title)}</span></li>`).join('')}</ul></div></div></section>`;
+const capstoneSnapshotHome = `<article class="capstone-snapshot" id="company-capstone" aria-labelledby="capstone-title" data-capstone-milestones="${esc(JSON.stringify(capstoneMilestones))}">
+  <div class="capstone-copy"><p class="section-kicker">Capstone snapshot</p><h3 id="capstone-title">Company Capstone</h3><p>Build an auditable company model and defend one evidence-backed CFO recommendation to the Board.</p><ol class="capstone-progress" aria-label="Capstone progress">${capstoneProgressStages.map((stage) => `<li>${esc(stage.title)}</li>`).join('')}</ol><div class="capstone-actions"><a class="primary-action" href="CAPSTONE/">Open capstone hub</a><a class="secondary-text-link" href="${esc(capstoneAssignment.path)}" download>Download project brief</a></div></div>
+  <aside class="capstone-milestone" aria-live="polite"><span>Current milestone</span><strong data-capstone-milestone-title>${esc(initialCapstoneMilestone.title)}</strong><time datetime="${esc(initialCapstoneMilestone.due)}" data-capstone-milestone-date>Due ${esc(initialCapstoneMilestone.dateLabel)}</time></aside>
+</article>`;
+
+const lessonFinderHome = `<section class="lesson-finder-section" id="find-a-lesson" aria-labelledby="filter-title">
+  <div class="filter-panel"><div><p class="section-kicker">Course directory</p><h2 id="filter-title">Find a lesson</h2><p>Start with this week, or switch to the complete course directory.</p></div><div class="directory-controls"><div class="view-switch" role="group" aria-label="Choose lesson view"><button class="view-toggle" type="button" data-lesson-view="this-week" aria-pressed="true" aria-controls="course-results">This week</button><button class="view-toggle" type="button" data-lesson-view="all" aria-pressed="false" aria-controls="course-results">All lessons</button></div><div class="filter-fields" data-search-tools hidden><label for="lesson-search">Search lessons<input id="lesson-search" type="search" data-search placeholder="Try WACC, Apple, or LO4" autocomplete="off"></label><label for="track-filter">Course section<select id="track-filter" data-track-filter><option value="all">All sections</option>${filterOptions}</select></label><button class="clear-search" type="button" data-clear-search hidden>Clear search</button></div></div><p class="results-status" data-results-status role="status" aria-live="polite"></p></div>
+  <div id="course-results" data-course-results>${tracks.map(trackSection).join('')}</div>
+  <div class="no-results" data-no-results hidden><h3>No lessons match that search</h3><p>Try a broader topic, company name, module number, or learning outcome.</p><button type="button" data-reset-filters>Show all lessons</button></div>
+</section>`;
+
+const courseGuideHome = `<section class="course-guide-section" id="course-guide" aria-labelledby="course-guide-title">
+  <div class="section-heading compact"><div><p class="section-kicker">Course essentials</p><h2 id="course-guide-title">Course guide and resources</h2></div><p>Open these supporting sections when you need the learning rhythm, course arc, capstone, or key dates.</p></div>
+  <div class="course-guide-list">
+    <details class="guide-panel" id="how-to-use"><summary><span><small>How to use this hub</small><strong>Prepare, practice, then apply</strong></span><span class="guide-action" aria-hidden="true">View</span></summary><div class="guide-detail"><p class="guide-intro">Each module follows the same learning rhythm so you always know what to do next.</p><div class="start-grid"><article><span>Prepare</span><h3>Read the lesson briefing</h3><p>Preview the decision, vocabulary, and evidence you will need before class.</p></article><article><span>Practice</span><h3>Build the model</h3><p>Use the slides and starter workbook to make the financial logic auditable.</p></article><article><span>Apply</span><h3>Defend a recommendation</h3><p>Use the case activity to connect the calculation to a management decision.</p></article></div></div></details>
+    <details class="guide-panel" id="course-pathway"><summary><span><small>Eleven lessons · three decisions</small><strong>Course pathway</strong></span><span class="guide-action" aria-hidden="true">View</span></summary><div class="guide-detail"><p class="guide-intro">M01–M04 build the evidence base, M05–M08 develop valuation, and M12–M14 turn analysis into firm decisions. M09–M11 are intentionally reserved for review and assessment.</p><div class="pathway-strip" aria-label="Course learning arc">${tracks.map((track) => `<a href="#track-${esc(track.id)}"><span>${esc(track.shortLabel)}</span><strong>${esc(track.label)}</strong></a>`).join('')}</div></div></details>
+    ${capstoneSnapshotHome}
+    <details class="guide-panel" id="resources"><summary><span><small>Course essentials</small><strong>Resources and key dates</strong></span><span class="guide-action" aria-hidden="true">View</span></summary><div class="guide-detail"><p class="guide-intro">Canvas remains the authority for submissions and exact due dates.</p><div class="resource-layout"><div class="resource-cards"><a href="${esc(term.syllabusPath)}" download><span>Course document</span><strong>Download the Fall 2026 syllabus</strong><small>Policies, grading, learning outcomes, and the complete schedule.</small></a>${term.canvasUrl ? `<a href="${esc(term.canvasUrl)}"><span>Course system</span><strong>Open Canvas</strong><small>Assignments, submissions, announcements, and due dates.</small></a>` : ''}<article><span>Required tools</span><strong>${courseMap.course.requiredTools.map(esc).join(' · ')}</strong><small>Bring your laptop and confirm access before the lesson begins.</small></article></div><div class="assessment-panel"><h3>Assessment weeks</h3><ul>${assessmentItems}</ul></div></div></div></details>
+  </div>
+</section>`;
 
 const homeHtml = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -179,28 +225,15 @@ const homeHtml = `<!doctype html>
 <link rel="icon" href="data:,"><link rel="stylesheet" href="assets/index.css?v=${siteAssetVersion}"></head>
 <body><a class="skip-link" href="#main-content">Skip to course content</a>
 <header class="site-header">
-  <div class="header-bar"><a class="course-mark" href="./">${esc(courseMap.course.code)}</a><nav aria-label="Course navigation"><a href="#this-week">This week</a><a href="#course-pathway">Course pathway</a><a href="#resources">Resources</a><a href="#find-a-lesson">Find a lesson</a></nav></div>
+  <div class="header-bar"><a class="course-mark" href="./">${esc(courseMap.course.code)}</a><nav aria-label="Course navigation"><a href="#this-week">Open this week</a><a href="#find-a-lesson" data-open-view="all">Browse lessons</a><a href="#course-guide">Course guide</a></nav></div>
   <div class="hero-grid">
-    <div class="hero-copy"><p class="eyebrow">${esc(term.label)} · ${esc(term.meetingPattern)}</p><h1>${esc(courseMap.course.title)}</h1><p class="hero-tagline">${esc(courseMap.course.tagline)}</p><p class="hero-promise">${esc(courseMap.course.studentPromise)}</p></div>
+    <div class="hero-copy"><img class="hero-illustration" src="assets/bus311-finance-judgment-hero.jpg" alt="Financial statements and an Excel-style worksheet feed a cash-flow line into a CFO and Board recommendation." width="1200" height="800" decoding="async"><div class="hero-copy-content"><p class="eyebrow">${esc(term.label)} · ${esc(term.meetingPattern)}</p><h1>${esc(courseMap.course.title)}</h1><p class="hero-tagline">${esc(courseMap.course.tagline)}</p><p class="hero-promise">${esc(courseMap.course.studentPromise)}</p><div class="hero-actions"><a class="lessons-jump" href="#find-a-lesson" data-open-view="all">Browse all lessons <span aria-hidden="true">↓</span></a></div></div></div>
     <aside class="current-panel" id="this-week" aria-labelledby="current-title"><p class="panel-kicker">Start here · Week ${esc(currentInfo.week)}</p><h2 id="current-title">${esc(current.title)}</h2><p>${esc(current.summary)}</p><div class="current-meta"><span>${esc(current.displayModule)}</span><span>${esc(currentInfo.dateLabel)}</span><span>${esc(current.estimatedMinutes)} minutes</span></div><div class="current-actions">${currentIsAvailable ? `<a class="primary-action light" href="${esc(lessonHref(current))}">Open current lesson</a>${currentSlides ? `<a class="secondary-action" href="${esc(currentSlides.path)}">View slides</a>` : ''}` : '<span class="locked-action light" aria-label="Current lesson materials are locked until released">🔒 Lesson unlocks soon</span>'}</div></aside>
   </div>
 </header>
 <main id="main-content">
-  <section class="start-section" aria-labelledby="start-title"><div class="section-heading compact"><div><p class="section-kicker">How to use this hub</p><h2 id="start-title">Prepare, practice, then apply</h2></div><p>Each module follows the same learning rhythm so you always know what to do next.</p></div>
-    <div class="start-grid"><article><span>Prepare</span><h3>Read the lesson briefing</h3><p>Preview the decision, vocabulary, and evidence you will need before class.</p></article><article><span>Practice</span><h3>Build the model</h3><p>Use the slides and starter workbook to make the financial logic auditable.</p></article><article><span>Apply</span><h3>Defend a recommendation</h3><p>Use the case activity to connect the calculation to a management decision.</p></article></div>
-  </section>
-  <section class="pathway-section" id="course-pathway" aria-labelledby="pathway-title">
-    <div class="section-heading"><div><p class="section-kicker">Eleven lessons · three decisions</p><h2 id="pathway-title">Course pathway</h2></div><p>M01–M04 build the evidence base, M05–M08 develop valuation, and M12–M14 turn analysis into firm decisions. M09–M11 are intentionally reserved for review and assessment.</p></div>
-    <div class="pathway-strip" aria-label="Course learning arc">${tracks.map((track) => `<a href="#track-${esc(track.id)}"><span>${esc(track.shortLabel)}</span><strong>${esc(track.label)}</strong></a>`).join('')}</div>
-  </section>
-  ${capstoneHome}
-  <section class="outcomes-section" aria-labelledby="outcomes-title"><div class="section-heading compact"><div><p class="section-kicker">What you will be able to do</p><h2 id="outcomes-title">Course learning outcomes</h2></div><p>Every lesson names the outcomes it develops; open a lesson to see the complete connection.</p></div><div class="outcome-grid">${outcomeCards}</div></section>
-  <section class="resources-section" id="resources" aria-labelledby="resources-title"><div class="section-heading compact"><div><p class="section-kicker">Course essentials</p><h2 id="resources-title">Resources and key dates</h2></div><p>Canvas remains the authority for submissions and exact due dates.</p></div><div class="resource-layout"><div class="resource-cards"><a href="${esc(term.syllabusPath)}" download><span>Course document</span><strong>Download the Fall 2026 syllabus</strong><small>Policies, grading, learning outcomes, and the complete schedule.</small></a>${term.canvasUrl ? `<a href="${esc(term.canvasUrl)}"><span>Course system</span><strong>Open Canvas</strong><small>Assignments, submissions, announcements, and due dates.</small></a>` : ''}<article><span>Required tools</span><strong>${courseMap.course.requiredTools.map(esc).join(' · ')}</strong><small>Bring your laptop and confirm access before the lesson begins.</small></article></div><div class="assessment-panel"><h3>Assessment weeks</h3><ul>${assessmentItems}</ul></div></div></section>
-  <section class="lesson-finder-section" id="find-a-lesson" aria-labelledby="filter-title">
-    <div class="filter-panel"><div><p class="section-kicker">Course directory</p><h2 id="filter-title">Find a lesson</h2><p>Search by topic, company, skill, or learning outcome.</p></div><div class="filter-fields"><label for="lesson-search">Search lessons<input id="lesson-search" type="search" data-search placeholder="Try WACC, Apple, or LO4" autocomplete="off"></label><label for="track-filter">Course section<select id="track-filter" data-track-filter><option value="all">All sections</option>${filterOptions}</select></label><button class="clear-search" type="button" data-clear-search hidden>Clear search</button></div><p class="results-status" data-results-status role="status" aria-live="polite"></p></div>
-    <div data-course-results>${tracks.map(trackSection).join('')}</div>
-    <div class="no-results" data-no-results hidden><h3>No lessons match that search</h3><p>Try a broader topic, company name, module number, or learning outcome.</p><button type="button" data-reset-filters>Show all lessons</button></div>
-  </section>
+  ${lessonFinderHome}
+  ${courseGuideHome}
 </main>
 <footer><strong>${esc(courseMap.course.code)} · ${esc(courseMap.course.title)}</strong><span>${esc(term.location)}</span><span>Use Canvas for exact assignments and due dates</span></footer>
 <script src="assets/index.js?v=${siteAssetVersion}"></script></body></html>`;

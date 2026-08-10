@@ -398,7 +398,8 @@ def site_hub_checks(course_map, term, errors):
     scheduled_ids = [item.get("lessonId") for item in term.get("schedule", [])]
     if set(scheduled_ids) != lesson_ids or len(scheduled_ids) != len(lesson_ids):
         errors.append("Term schedule must include every lesson exactly once.")
-    if term.get("currentLessonId") not in lesson_ids:
+    current_lesson_id = term.get("currentLessonId")
+    if current_lesson_id not in lesson_ids:
         errors.append("Term currentLessonId does not match a course-map lesson.")
     if not term.get("meetingPattern") or not term.get("location"):
         errors.append("Term meeting pattern and location are required.")
@@ -410,6 +411,9 @@ def site_hub_checks(course_map, term, errors):
             errors.append(f"Invalid releaseState for {item.get('lessonId')}: {item.get('releaseState')}")
         if not item.get("week") or not item.get("dateLabel"):
             errors.append(f"Incomplete term schedule row: {item.get('lessonId')}")
+    current_schedule = next((item for item in term.get("schedule", []) if item.get("lessonId") == current_lesson_id), None)
+    if current_schedule and current_schedule.get("releaseState") != "Available":
+        errors.append("Term current lesson must be Available.")
 
     index_path = ROOT / "index.html"
     index_text = index_path.read_text(encoding="utf-8") if index_path.exists() else ""
@@ -418,14 +422,29 @@ def site_hub_checks(course_map, term, errors):
         "Prepare, practice, then apply",
         "Course pathway",
         "Find a lesson",
-        "Course learning outcomes",
         "Resources and key dates",
+        "Capstone snapshot",
+        "Open capstone hub",
+        "bus311-finance-judgment-hero.jpg",
         'aria-live="polite"',
         'class="skip-link"',
+        'data-lesson-view="this-week"',
+        'data-lesson-view="all"',
+        'id="course-guide"',
     )
     for marker in required_home_markers:
         if marker not in index_text:
             errors.append(f"Generated index missing student-hub marker: {marker}")
+    lesson_directory_position = index_text.find('id="find-a-lesson"')
+    course_guide_position = index_text.find('id="course-guide"')
+    if lesson_directory_position < 0 or course_guide_position < 0 or lesson_directory_position > course_guide_position:
+        errors.append("Generated homepage must place the lesson directory before the course guide.")
+    if index_text.count('data-current="true"') != 1:
+        errors.append("Generated homepage must mark exactly one current lesson card.")
+    if "Course learning outcomes" in index_text:
+        errors.append("Generated homepage must not include the removed Course learning outcomes section.")
+    if not (ROOT / "assets" / "bus311-finance-judgment-hero.jpg").is_file():
+        errors.append("Generated homepage hero illustration is missing.")
 
     for lesson in course_map["lessons"]:
         required_fields = ("summary", "caseStudy", "prepare", "practice", "apply", "deliverable", "readingPath")

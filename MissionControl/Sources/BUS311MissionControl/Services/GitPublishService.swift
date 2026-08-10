@@ -43,7 +43,7 @@ struct GitPublishService {
     }
 
     private func allowed(_ path: String) -> Bool {
-        path == "assets/index.css" || path == "scripts/build-index.mjs" || path == "scripts/validate-public.py" || path == "terms/fall-2026.json" || path == "index.html" || path == ".gitignore" || path.hasPrefix("script/build_mission_control_") || (path.hasPrefix("MissionControl/") && !path.hasPrefix("MissionControl/.build/") && !path.hasPrefix("MissionControl/dist/")) || path.hasSuffix("/index.html")
+        path == "assets/index.css" || path == "assets/index.js" || path == "assets/bus311-finance-judgment-hero.jpg" || path == "scripts/build-index.mjs" || path == "scripts/validate-public.py" || path == "terms/fall-2026.json" || path == "index.html" || path == ".gitignore" || path.hasPrefix("script/build_mission_control_") || (path.hasPrefix("MissionControl/") && !path.hasPrefix("MissionControl/.build/") && !path.hasPrefix("MissionControl/dist/")) || path.hasSuffix("/index.html")
     }
     private func run(_ command: String, in root: URL) throws -> String {
         let process = Process(); let pipe = Pipe()

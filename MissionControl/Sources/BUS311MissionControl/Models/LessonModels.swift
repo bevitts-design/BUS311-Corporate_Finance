@@ -14,6 +14,7 @@ struct LessonAccess: Identifiable, Equatable {
 
 struct CourseSnapshot {
     let lessons: [LessonAccess]
+    let currentLessonId: String
     let sourceData: Data
     let sourceURL: URL
     let repositoryRoot: URL

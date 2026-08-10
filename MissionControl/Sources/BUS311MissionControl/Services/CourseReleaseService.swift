@@ -26,8 +26,9 @@ struct CourseReleaseService {
         guard let map = try JSONSerialization.jsonObject(with: mapData) as? [String: Any],
               let term = try JSONSerialization.jsonObject(with: termData) as? [String: Any],
               let lessons = map["lessons"] as? [[String: Any]],
-              let schedule = term["schedule"] as? [[String: Any]] else {
-            throw CourseReleaseError.invalidSource("course-map.json and terms/fall-2026.json must contain lessons and schedule arrays.")
+              let schedule = term["schedule"] as? [[String: Any]],
+              let currentLessonId = term["currentLessonId"] as? String else {
+            throw CourseReleaseError.invalidSource("course-map.json and terms/fall-2026.json must contain lessons, schedule, and currentLessonId.")
         }
         let lessonByID = Dictionary(uniqueKeysWithValues: lessons.compactMap { row -> (String, [String: Any])? in
             guard let id = row["id"] as? String else { return nil }; return (id, row)
@@ -46,21 +47,31 @@ struct CourseReleaseService {
             }
             return LessonAccess(id: id, track: track, module: module, title: title, week: week, dateLabel: dateLabel, releaseState: state)
         }
-        return CourseSnapshot(lessons: access, sourceData: termData, sourceURL: termURL, repositoryRoot: root)
+        guard access.contains(where: { $0.id == currentLessonId }) else {
+            throw CourseReleaseError.invalidSource("currentLessonId must match a scheduled lesson.")
+        }
+        return CourseSnapshot(lessons: access, currentLessonId: currentLessonId, sourceData: termData, sourceURL: termURL, repositoryRoot: root)
     }
 
-    func save(snapshot: CourseSnapshot, availability: [String: Bool]) throws {
+    func save(snapshot: CourseSnapshot, availability: [String: Bool], currentLessonId: String) throws {
         let current = try Data(contentsOf: snapshot.sourceURL)
         guard current == snapshot.sourceData else { throw CourseReleaseError.externallyModified }
         guard var root = try JSONSerialization.jsonObject(with: current) as? [String: Any],
               var schedule = root["schedule"] as? [[String: Any]] else {
             throw CourseReleaseError.invalidSource("The schedule could not be read.")
         }
+        guard schedule.contains(where: { ($0["lessonId"] as? String) == currentLessonId }) else {
+            throw CourseReleaseError.invalidSource("The selected current lesson is not scheduled.")
+        }
+        guard availability[currentLessonId] == true else {
+            throw CourseReleaseError.invalidSource("The current lesson must also be available to students.")
+        }
         for index in schedule.indices {
             guard let id = schedule[index]["lessonId"] as? String, let available = availability[id] else { continue }
             schedule[index]["releaseState"] = available ? "Available" : "Locked"
         }
         root["schedule"] = schedule
+        root["currentLessonId"] = currentLessonId
         do {
             let updated = try JSONSerialization.data(withJSONObject: root, options: [.prettyPrinted, .sortedKeys])
             try updated.write(to: snapshot.sourceURL, options: .atomic)
