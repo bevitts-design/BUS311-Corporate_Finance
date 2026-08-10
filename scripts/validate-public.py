@@ -406,7 +406,7 @@ def site_hub_checks(course_map, term, errors):
     if not syllabus.is_file():
         errors.append(f"Missing term syllabus: {term.get('syllabusPath', '')}")
     for item in term.get("schedule", []):
-        if item.get("releaseState") not in {"Available", "Coming soon"}:
+        if item.get("releaseState") not in {"Available", "Locked"}:
             errors.append(f"Invalid releaseState for {item.get('lessonId')}: {item.get('releaseState')}")
         if not item.get("week") or not item.get("dateLabel"):
             errors.append(f"Incomplete term schedule row: {item.get('lessonId')}")

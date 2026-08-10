@@ -96,6 +96,11 @@ main > section { padding: 72px 0; }
 .lesson-card.track-valuation { border-top-color: var(--teal); }
 .lesson-card.track-decisions { border-top-color: var(--terra); }
 .lesson-card.current-card { outline: 2px solid var(--gold); outline-offset: 3px; }
+.lesson-card.locked-card { background: linear-gradient(135deg, #f7f4ef, #edf1f2); border-top-color: #7d8790; }
+.locked-card .availability { background: #e4e8eb; color: #34424d; }
+.locked-card h3 { color: #34424d; }
+.locked-action { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 10px 14px; border: 1px solid #aeb8bf; border-radius: 999px; color: #34424d; font-size: .86rem; font-weight: 800; }
+.locked-action.light { border-color: rgba(255,255,255,.55); color: var(--white); }
 .lesson-meta { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; color: var(--soft); font-size: .74rem; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
 .availability { border-radius: 999px; background: #efe8df; color: #70472f; padding: 4px 8px; text-align: right; }
 .current-card .availability { background: #f2d8b7; color: #63331f; }
