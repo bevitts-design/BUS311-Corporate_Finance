@@ -414,6 +414,9 @@ def site_hub_checks(course_map, term, errors):
     current_schedule = next((item for item in term.get("schedule", []) if item.get("lessonId") == current_lesson_id), None)
     if current_schedule and current_schedule.get("releaseState") != "Available":
         errors.append("Term current lesson must be Available.")
+    available_lesson_ids = [item.get("lessonId") for item in term.get("schedule", []) if item.get("releaseState") == "Available"]
+    if available_lesson_ids != [current_lesson_id]:
+        errors.append("Term release state must make exactly the current lesson Available and keep every other lesson Locked.")
 
     index_path = ROOT / "index.html"
     index_text = index_path.read_text(encoding="utf-8") if index_path.exists() else ""
@@ -430,17 +433,61 @@ def site_hub_checks(course_map, term, errors):
         'class="skip-link"',
         'data-lesson-view="this-week"',
         'data-lesson-view="all"',
+        'id="course-units"',
+        'data-course-unit',
+        'data-directory-entry',
         'id="course-guide"',
     )
     for marker in required_home_markers:
         if marker not in index_text:
             errors.append(f"Generated index missing student-hub marker: {marker}")
+    ordered_home_markers = (
+        'id="course-units"',
+        'id="track-intro"',
+        'id="track-valuation"',
+        'id="track-decisions"',
+        'id="course-guide"',
+        'id="find-a-lesson"',
+    )
+    ordered_home_positions = [index_text.find(marker) for marker in ordered_home_markers]
+    if any(position < 0 for position in ordered_home_positions) or ordered_home_positions != sorted(ordered_home_positions):
+        errors.append("Generated homepage must show Intro, Valuation, and Firm Decisions in order above the course guide and bottom lesson directory.")
     lesson_directory_position = index_text.find('id="find-a-lesson"')
-    course_guide_position = index_text.find('id="course-guide"')
-    if lesson_directory_position < 0 or course_guide_position < 0 or lesson_directory_position > course_guide_position:
-        errors.append("Generated homepage must place the lesson directory before the course guide.")
+    main_end_position = index_text.find("</main>", lesson_directory_position)
+    if lesson_directory_position < 0 or main_end_position < 0 or index_text.find("<section", lesson_directory_position + 1, main_end_position) >= 0:
+        errors.append("Generated homepage must place Find a lesson as the final section in main content.")
+    lesson_count = len(course_map["lessons"])
+    if index_text.count("data-lesson-card") != lesson_count:
+        errors.append("Generated homepage must show every lesson exactly once in the three full course-unit card groups.")
+    if index_text.count("data-directory-entry") != lesson_count:
+        errors.append("Generated homepage course directory must index every lesson exactly once.")
     if index_text.count('data-current="true"') != 1:
         errors.append("Generated homepage must mark exactly one current lesson card.")
+    if index_text.count('data-directory-current="true"') != 1:
+        errors.append("Generated homepage directory must mark exactly one current lesson entry.")
+    locked_card_count = len(re.findall(r'<article class="[^"]*\blesson-card\b[^"]*\blocked-card\b', index_text))
+    locked_entry_count = len(re.findall(r'<article class="[^"]*\bdirectory-entry\b[^"]*\blocked-entry\b', index_text))
+    if locked_card_count != lesson_count - 1 or locked_entry_count != lesson_count - 1:
+        errors.append("Generated homepage must keep every non-current lesson card and directory entry locked.")
+    locked_card_bodies = re.findall(r'<article class="lesson-card[^"]*locked-card[^"]*"[^>]*>(.*?)</article>', index_text, re.S)
+    locked_entry_bodies = re.findall(r'<article class="directory-entry[^"]*locked-entry[^"]*"[^>]*>(.*?)</article>', index_text, re.S)
+    if any("<a " in body for body in (*locked_card_bodies, *locked_entry_bodies)):
+        errors.append("Generated homepage must not expose actionable links inside locked lessons.")
+    track_positions = {
+        "intro": index_text.find('id="track-intro"'),
+        "valuation": index_text.find('id="track-valuation"'),
+        "decisions": index_text.find('id="track-decisions"'),
+    }
+    track_bounds = {
+        "intro": track_positions["valuation"],
+        "valuation": track_positions["decisions"],
+        "decisions": index_text.find('id="course-guide"'),
+    }
+    for track_id, start in track_positions.items():
+        expected_cards = sum(lesson.get("track") == track_id for lesson in course_map["lessons"])
+        actual_cards = index_text[start:track_bounds[track_id]].count("data-lesson-card") if start >= 0 and track_bounds[track_id] >= 0 else 0
+        if actual_cards != expected_cards:
+            errors.append(f"Generated homepage course-unit group has the wrong lesson-card count for {track_id}.")
     if "Course learning outcomes" in index_text:
         errors.append("Generated homepage must not include the removed Course learning outcomes section.")
     if not (ROOT / "assets" / "bus311-finance-judgment-hero.jpg").is_file():

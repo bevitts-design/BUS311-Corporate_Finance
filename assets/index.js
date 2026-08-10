@@ -6,8 +6,8 @@ const status = document.querySelector('[data-results-status]');
 const noResults = document.querySelector('[data-no-results]');
 const searchTools = document.querySelector('[data-search-tools]');
 const viewButtons = [...document.querySelectorAll('[data-lesson-view]')];
-const cards = [...document.querySelectorAll('[data-lesson-card]')];
-const sections = [...document.querySelectorAll('[data-track-section]')];
+const entries = [...document.querySelectorAll('[data-directory-entry]')];
+const groups = [...document.querySelectorAll('[data-directory-group]')];
 const capstoneSnapshot = document.querySelector('[data-capstone-milestones]');
 let lessonView = 'this-week';
 
@@ -15,20 +15,20 @@ function applyFilters({ announce = true } = {}) {
   const query = (search?.value || '').trim().toLowerCase();
   const selectedTrack = track?.value || 'all';
 
-  cards.forEach((card) => {
-    const matchesView = lessonView === 'all' || card.dataset.current === 'true';
-    const matchesText = lessonView !== 'all' || !query || card.dataset.searchText.includes(query);
-    const matchesTrack = lessonView !== 'all' || selectedTrack === 'all' || card.dataset.track === selectedTrack;
-    card.classList.toggle('hidden', !(matchesView && matchesText && matchesTrack));
+  entries.forEach((entry) => {
+    const matchesView = lessonView === 'all' || entry.dataset.directoryCurrent === 'true';
+    const matchesText = lessonView !== 'all' || !query || entry.dataset.searchText.includes(query);
+    const matchesTrack = lessonView !== 'all' || selectedTrack === 'all' || entry.dataset.track === selectedTrack;
+    entry.classList.toggle('hidden', !(matchesView && matchesText && matchesTrack));
   });
 
-  sections.forEach((section) => {
-    const hasVisibleLesson = [...section.querySelectorAll('[data-lesson-card]')]
-      .some((card) => !card.classList.contains('hidden'));
-    section.classList.toggle('hidden', !hasVisibleLesson);
+  groups.forEach((group) => {
+    const hasVisibleLesson = [...group.querySelectorAll('[data-directory-entry]')]
+      .some((entry) => !entry.classList.contains('hidden'));
+    group.classList.toggle('hidden', !hasVisibleLesson);
   });
 
-  const visibleCount = cards.filter((card) => !card.classList.contains('hidden')).length;
+  const visibleCount = entries.filter((entry) => !entry.classList.contains('hidden')).length;
   const filtering = lessonView === 'all' && (Boolean(query) || selectedTrack !== 'all');
   if (clearSearch) clearSearch.hidden = !query;
   if (noResults) noResults.hidden = visibleCount !== 0;
@@ -38,7 +38,7 @@ function applyFilters({ announce = true } = {}) {
     } else {
       status.textContent = filtering
         ? `${visibleCount} lesson${visibleCount === 1 ? '' : 's'} found`
-        : `${cards.length} lessons in the course pathway`;
+        : `${entries.length} lessons in the course pathway`;
     }
     if (!announce) status.setAttribute('aria-live', 'off');
     else status.setAttribute('aria-live', 'polite');
@@ -92,9 +92,9 @@ clearSearch?.addEventListener('click', () => {
   search?.focus();
 });
 resetFilters?.addEventListener('click', () => showAllLessons({ focusSearch: true }));
-document.querySelectorAll('[data-open-view="all"], a[href^="#track-"]').forEach((link) => {
+document.querySelectorAll('[data-open-view="all"]').forEach((link) => {
   link.addEventListener('click', () => setLessonView('all', { announce: false }));
 });
 
-setLessonView(window.location.hash.startsWith('#track-') ? 'all' : 'this-week', { announce: false });
+setLessonView(window.location.hash === '#find-a-lesson' ? 'all' : 'this-week', { announce: false });
 updateCapstoneMilestone();
