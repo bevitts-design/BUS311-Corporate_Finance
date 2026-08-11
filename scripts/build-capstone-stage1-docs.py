@@ -620,146 +620,8 @@ def set_approved_footer(doc: Document, source_version: str, source_hash: str, *,
         add_page_field(paragraph)
 
 
-def patch_assignment(capstone: dict, source_hash: str) -> Path:
-    path = CAPSTONE / "bus311-capstone-assignment.docx"
-    doc = Document(path)
-    replacements = [
-        ("Canonical source version 1.0.0 | Updated: July 30, 2026", "Canonical source version 1.3.0 | Updated: August 11, 2026"),
-        ("propose one company-specific CFO decision for instructor approval", "propose one potential company-specific CFO decision during Stage 1"),
-        ("One instructor-approved, publicly traded U.S. company", "One approved public company listed in the United States"),
-        ("One material, company-specific CFO decision, with two or three supporting actions", "Stage 1 proposes one potential CFO decision; later stages develop one evidence-backed company-specific decision with two or three supporting actions"),
-        ("SEC filings, FactSet, Excel analysis, and other credible named sources", "Stage 1 introductory research plus one concrete FactSet learning; later stages use traceable SEC, FactSet, Excel, and other credible named sources"),
-        ("Exactly four bounded free-tier checkpoints; AI may challenge but may not replace your analysis", "Stage 1 may use AI and/or ordinary web search; four bounded checkpoints and verification begin after Stage 1"),
-        ("appropriate to the approved CFO question", "appropriate to the developed CFO question"),
-        ("Act as an internal corporate finance analyst advising the selected company's CFO and Board. Your job is to recommend one primary decision, not to summarize the company or issue an investor rating.", "Act as an internal corporate finance analyst advising the selected company's CFO and Board. Stage 1 begins with one potential decision; later stages turn that idea into an evidence-backed recommendation."),
-        ("Your decision proposal must:", "By the final stages, your decision must:"),
-        ("The instructor must approve both the company and the decision scope. Approval may require a narrower question, different evidence, or a different decision if the proposed scope is too broad, too descriptive, duplicative in a way that limits learning, investor-focused, or not supportable with available evidence.", "Stage 1 is exploratory. You do not need to verify the recommendation, validate a hypothesis, compare or defend alternatives, build an evidence register, prove the claim, or secure a formal approval gate. Those more rigorous activities begin in later stages."),
-        ("Choose one direction that fits your company, then rewrite it as a company-specific decision question. You may propose another direction if it meets every approval standard.", "Choose one direction that seems connected to your company, then rewrite it as a potential company-specific decision. Treat it as a beginner starting point that may change."),
-        ("An acceptable decision is specific enough to analyze and defend within one semester.", "In Stage 1, a potential decision only needs to be specific enough to guide future research. Later stages make it analytical and defensible."),
-        ("into the approved CFO decision", "into the developing CFO decision"),
-        ("appropriate to the approved decision", "appropriate to the developing decision"),
-        ("Submit company name, ticker, exchange, and a concise company-fit rationale. This is the opening part of Milestone 1.", "Select an approved public company; record its name, ticker, and exchange; then begin introductory AI and/or web research plus required FactSet exploration."),
-        ("Milestone 1 - Company and CFO decision: submit the decision approval packet and initial evidence register. Do not proceed with a final project thesis until approved.", "Stage 1 - Company research and potential CFO decision: submit the exploration brief with a company snapshot, one concrete FactSet learning and the screen/report/feature used, and one tentative CFO decision. No evidence register, verification, or approval gate is required yet."),
-        ("Milestone 1 - Company and approved CFO decision (5 points)", "Milestone 1 - Company research and potential CFO decision (5 points)"),
-        ("Submit one approval packet containing:", "Submit one Stage 1 company exploration brief containing:"),
-        ("A concise rationale showing that the company is publicly traded in the United States and has sufficient SEC, FactSet, and operating evidence.", "A short beginner-friendly snapshot of what the company does, based on AI and/or ordinary web search."),
-        ("One primary CFO decision written as an actionable question.", "A brief note identifying whether you used AI, ordinary web search, or both for the introductory research."),
-        ("Two or three proposed supporting actions and at least two credible alternatives.", "One concrete thing learned from FactSet and the screen, report, or feature used."),
-        ("Why the decision is material and appropriate for the CFO and Board.", "One potential company-specific CFO decision written in your own words."),
-        ("The BUS311 concepts and expected quantitative analysis needed to answer it.", "A short explanation of why the potential decision seems worth investigating."),
-        ("An initial evidence register containing at least one SEC filing, one FactSet item, and two additional credible research leads.", "Two questions you want to research in Stage 2."),
-        ("The Checkpoint 1 question-generation record, completed with a free AI version or the instructor-provided equivalent challenge prompt.", "A confirmation that Stage 1 is exploratory and does not yet require proof, hypothesis validation, alternatives, an evidence register, formal citations, or a formal approval gate."),
-        ("Required evidence register", "Beginning in Stage 2: required evidence register"),
-        ("Maintain one evidence register throughout the semester.", "Beginning in Stage 2, maintain one evidence register throughout the rest of the semester."),
-        ("Free-tier AI rules: four bounded checkpoints", "Later-stage free-tier AI rules: four bounded checkpoints"),
-        ("Assess: Verify useful output independently with SEC, FactSet, Excel, or course concepts.", "Assess: Beginning after Stage 1, verify useful output independently with SEC, FactSet, Excel, or course concepts."),
-        ("1. Question generation", "1. Research-direction review"),
-        ("Generate possible CFO decisions and research directions after you have selected a company.", "After Stage 1, challenge the potential CFO direction and identify research questions for later verification."),
-        ("Tool, prompt, possible directions considered, retained research leads, independent verification, and your final decision rationale", "Potential direction reviewed, strongest challenge, evidence checked after Stage 1, and the next research questions"),
-        ("Every checkpoint is required, but each must work in a free AI version.", "The four checkpoints begin after the exploratory Stage 1 brief, and each must work in a free AI version."),
-        ("Company and approved CFO decision", "Company exploration and potential CFO decision"),
-        ("Company fit, material decision, alternatives, two or three supporting actions, evidence-register setup, and initial research questions", "Approved company, introductory AI and/or web research, one concrete FactSet learning with the feature named, and one potential CFO decision"),
-        ("A late milestone delays instructor feedback and approval, and the student may not advance to a dependent project stage until the required work is complete.", "A late milestone delays instructor feedback and can make dependent project work harder; complete missing milestone work before relying on it in a later stage."),
-        ("The company and CFO decision were approved.", "The company and final CFO decision are clearly identified and supported."),
-    ]
-    for old, new in replacements:
-        replace_text(doc, old, new)
-
-    doc.core_properties.comments = (
-        f"Derived from CAPSTONE/source/bus311-capstone.json v{capstone['meta']['sourceVersion']}; "
-        f"SHA-256 {source_hash}"
-    )
-    doc.core_properties.version = capstone["meta"]["sourceVersion"]
-    set_approved_footer(doc, capstone["meta"]["sourceVersion"], source_hash)
-    doc.save(path)
-    return path
-
-
-def patch_student_rubric(capstone: dict, source_hash: str) -> Path:
-    path = CAPSTONE / "bus311-capstone-student-rubric.docx"
-    doc = Document(path)
-    criterion = next(item for item in capstone["rubric"]["criteria"] if item["criterionId"] == "M01_CFO_DECISION")
-    replacements = [
-        ("Schema v1.0.0", f"Schema v{capstone['meta']['sourceVersion']}"),
-        ("d2a6d9101f1d60048c071272ce5db5d46910bac2e8a409339d506ac801c97cfd", source_hash),
-        ("Company and approved CFO decision", criterion["title"]),
-        ("Establishes a suitable U.S. public company, one material company-specific CFO decision, genuine alternatives, and an evidence plan that can support an individual semester-long analysis.", criterion["description"]),
-        ("Approved company, ticker, exchange, and individual owner are identified.", criterion["evidenceRules"][0]),
-        ("The decision is written as a CFO-and-Board action question with two or more genuine alternatives and a material finance consequence.", criterion["evidenceRules"][1]),
-        ("The initial evidence register includes at least one SEC filing, one permitted FactSet item, and two additional credible research leads, each with period, units, and location details.", criterion["evidenceRules"][2]),
-        ("Any AI-generated research lead is independently verified before it is retained; the student's final scope judgment is recorded.", criterion["evidenceRules"][3]),
-        ("Scope is material, company-specific, feasible, and decision-ready; alternatives and finance consequences are explicit; the SEC/FactSet evidence register is complete and all retained research leads are verified.", criterion["performanceLevels"]["EXEMPLARY"]),
-        ("Company and decision are suitable and approved; alternatives and evidence are credible, with only minor gaps in specificity, traceability, or scope rationale.", criterion["performanceLevels"]["PROFICIENT"]),
-        ("The decision is broad, descriptive, or weakly linked to a finance consequence; alternatives are thin or the evidence register has material sourcing and verification gaps.", criterion["performanceLevels"]["DEVELOPING"]),
-        ("Company or decision is unapproved, unsuitable, unsupported, or not framed for the CFO and Board; evidence is missing, fabricated, or not individually attributable.", criterion["performanceLevels"]["INSUFFICIENT"]),
-        ("Generated from BUS311-capstone-rubric-schema.json, version 1.0.0, SHA-256", f"Generated from CAPSTONE/source/bus311-capstone.json, version {capstone['meta']['sourceVersion']}, SHA-256"),
-    ]
-    for old, new in replacements:
-        replace_text(doc, old, new)
-    remove_empty_page_break_before(doc, "2. One-page executive summary — 15 points")
-    doc.core_properties.comments = (
-        f"Derived from CAPSTONE/source/bus311-capstone.json v{capstone['meta']['sourceVersion']}; "
-        f"SHA-256 {source_hash}"
-    )
-    doc.core_properties.version = capstone["meta"]["sourceVersion"]
-    set_approved_footer(doc, capstone["meta"]["sourceVersion"], source_hash, rubric=True)
-    doc.save(path)
-    return path
-
-
-def patch_ai_guide(capstone: dict, source_hash: str) -> Path:
-    path = CAPSTONE / "bus311-capstone-ai-student-guide.docx"
-    doc = Document(path)
-    replacements = [
-        ("AI is not a source. Every claim or calculation you retain must be verified with SEC filings, permitted FactSet evidence, your Excel model, or BUS311 course concepts.", "AI is not a source. The four required C-A-P-A-J checkpoints begin after Stage 1. Stage 1 ideas are exploratory; later retained claims or calculations must be verified with SEC, permitted FactSet evidence, Excel, or BUS311 course concepts."),
-        ("Four short checkpoints", "Four later-stage checkpoints"),
-        ("1. Questions", "1. Research direction"),
-        ("Generate possible CFO questions and research directions.", "After Stage 1, challenge the potential CFO direction and identify later research questions."),
-        ("Directions considered, research leads retained, checks completed, final direction rationale.", "Potential direction reviewed, strongest challenge, evidence checked after Stage 1, and next research questions."),
-        ("Checkpoint 1 - CFO questions and research directions", "Checkpoint 1 - Research-direction review after Stage 1"),
-        ("Complete after selecting the company and before locking the project direction. Ask for possible decision questions and research paths, not for a final recommendation.", "The checkpoints begin after Stage 1. Bring the potential CFO direction from your Stage 1 exploration brief and ask for challenges and research paths, not a final recommendation."),
-        ("Paste a short public-company summary that you wrote yourself.", "Paste a short, student-written public-company summary from the Stage 1 exploration brief."),
-        ("Request several decision questions, competing explanations, and evidence targets.", "Request challenges, missing questions, and evidence targets for the potential direction."),
-        ("Check whether the suggested directions are material, company-specific, researchable, and tied to BUS311 concepts.", "Beginning after Stage 1, check whether the direction is company-specific, researchable, and tied to BUS311 concepts."),
-        ("Retain only directions you can support with SEC, permitted FactSet evidence, Excel, or course concepts.", "Retain later-stage claims only after checking them with SEC, permitted FactSet evidence, Excel, or course concepts."),
-    ]
-    for old, new in replacements:
-        replace_text(doc, old, new)
-    doc.core_properties.comments = (
-        f"Stage 1 boundary aligned to CAPSTONE/source/bus311-capstone.json v{capstone['meta']['sourceVersion']}; "
-        f"SHA-256 {source_hash}"
-    )
-    doc.core_properties.version = capstone["meta"]["sourceVersion"]
-    doc.save(path)
-    return path
-
-
-def patch_capaj_prompts(capstone: dict, source_hash: str) -> Path:
-    path = CAPSTONE / "bus311-capstone-capaj-prompts.docx"
-    doc = Document(path)
-    replacements = [
-        ("Checkpoint 1 - Generate CFO questions and research directions", "Checkpoint 1 - Review a potential CFO direction after Stage 1"),
-        ("Context to prepare: company, public business model, preliminary revenue engine, and the decision areas you are considering. Assumptions to expose: what you currently believe matters and what you may be overlooking.", "Context to prepare: the company snapshot, required FactSet learning, and one potential CFO decision from the Stage 1 exploration brief. Assumptions to expose: what you currently believe matters and what you may be overlooking."),
-        ("You are a skeptical corporate CFO helping me generate research questions, not giving me a final answer. Use only the sanitized context below. Do not browse, cite sources, invent company facts, calculate financial outputs, or recommend a final decision.", "You are a skeptical corporate CFO helping me review a potential research direction after Stage 1, not giving me a final answer. Use only the sanitized context below. Do not browse, cite sources, invent company facts, calculate financial outputs, or recommend a final decision."),
-        ("Possible CFO decision areas: [list]", "Potential CFO decision from Stage 1: [one sentence]"),
-        ("1. Propose 5 company-specific CFO decision questions.", "1. Identify the three most important questions I should investigate before treating this potential decision as a recommendation."),
-        ("2. For each, name the key uncertainty, competing explanation, BUS311 concept, and public evidence I should independently seek.", "2. For each question, name the key uncertainty, a competing explanation, the BUS311 concept involved, and the public evidence I should independently seek."),
-        ("3. Identify 2 directions that are too broad, weakly causal, or difficult to verify and explain why.", "3. Identify any part of the potential decision that is too broad, weakly causal, or difficult to verify and explain why."),
-        ("4. End with a short list of research leads only. Do not choose for me.", "4. End with a short list of research leads only. Do not validate the Stage 1 idea or choose for me."),
-        ("Can the direction be supported with specific SEC, permitted FactSet, Excel, and course evidence?", "This checkpoint occurs after the Stage 1 exploration brief. Can the direction now be tested with specific SEC, permitted FactSet, Excel, and course evidence?"),
-        ("Is it material, company-specific, causal, and appropriate for the CFO and Board?", "Which parts remain tentative, and what evidence would be needed before calling the direction material, causal, or recommendation-ready?"),
-        ("Record which directions you accepted, modified, or rejected and why. Your final project direction must be your decision and still requires instructor approval.", "Record what you accepted, modified, or rejected and why. Your final direction remains your decision. There is no formal Stage 1 approval gate; verification and judgment occur through the later checkpoints."),
-    ]
-    for old, new in replacements:
-        replace_text(doc, old, new)
-    remove_empty_page_break_before(doc, "Checkpoint 4 - Rehearse Board Q&A")
-    doc.core_properties.comments = (
-        f"Stage 1 boundary aligned to CAPSTONE/source/bus311-capstone.json v{capstone['meta']['sourceVersion']}; "
-        f"SHA-256 {source_hash}"
-    )
-    doc.core_properties.version = capstone["meta"]["sourceVersion"]
-    doc.save(path)
-    return path
+# The full assignment, student rubric, AI guide, and prompt guide are maintained by
+# scripts/build-capstone-student-docs.py. This builder now owns only the two Stage 1 files.
 
 
 def main() -> int:
@@ -769,10 +631,6 @@ def main() -> int:
     outputs = [
         build_stage_one_menu(capstone, source_hash),
         build_stage_one_brief(capstone, source_hash),
-        patch_assignment(capstone, source_hash),
-        patch_student_rubric(capstone, source_hash),
-        patch_ai_guide(capstone, source_hash),
-        patch_capaj_prompts(capstone, source_hash),
     ]
     for output in outputs:
         print(output.relative_to(ROOT))

@@ -70,16 +70,13 @@ for (const slideNumber of [17, 18]) {
 }
 const slide17 = slideByNumber(17);
 for (const stage of capstone.hub.stages) {
-  if (!slide17.includes(`data-stage-id="${stage.stageId}" data-date="${stage.dateLabel}" data-points="${stage.points}"`)) {
-    errors.push(`Slide 17 does not match ${stage.stageId} date and points from the capstone source.`);
-  }
-  if (!slide17.includes(`<strong>${stage.title}</strong>`)) {
-    errors.push(`Slide 17 does not use the maintained title for ${stage.stageId}.`);
+  if (!slide17.includes(`data-stage-id="${stage.stageId}" data-date="${stage.dateLabel}" data-points="${stage.points}" data-title="${stage.title}"`)) {
+    errors.push(`Slide 17 does not match ${stage.stageId} title, date, and points from the capstone source.`);
   }
 }
 const slide18 = slideByNumber(18);
 for (const stage of capstone.hub.stages) {
-  if (!slide18.includes(`<h3>${stage.title}</h3>`)) errors.push(`Slide 18 does not use the maintained title for ${stage.stageId}.`);
+  if (!slide18.includes(`data-stage-id="${stage.stageId}" data-title="${stage.title}"`)) errors.push(`Slide 18 does not use the maintained title for ${stage.stageId}.`);
 }
 if (!slide18.includes('The revenue hypothesis drives the valuation model')) {
   errors.push('Slide 18 is missing the required revenue-before-valuation sequencing rule.');
