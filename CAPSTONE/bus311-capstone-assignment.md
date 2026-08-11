@@ -1,6 +1,6 @@
 # BUS311 Individual Company Capstone
 
-**Status:** Approved student release | **Source:** CAPSTONE/source/bus311-capstone.json | **Version:** 1.3.0 | **SHA-256:** fb4abefaa35e5930198593169f7406750603efb398ee677ecc8baf46dc80fe6a
+**Status:** Approved student release | **Source:** CAPSTONE/source/bus311-capstone.json | **Version:** 1.3.0 | **SHA-256:** 4ed6f97d17903b36d21d313b96f2cf7f1486ef5a137aeb3291bcf0e139370bd8
 
 ## Stage 1: Explore the company and a CFO decision
 
@@ -9,6 +9,8 @@
 **Outcome:** An approved public company, one concrete FactSet learning, and one potential CFO decision to investigate.
 
 **Submit:** Stage 1 company exploration brief.
+
+**Due:** Wednesday, Sept. 9, 2026 at 12:30 p.m. ET (class-start time).
 
 **Required FactSet learning:** State one specific thing you learned from FactSet and identify the screen, report, or feature used. A company or segment metric, ownership or market item, peer observation, estimate, or relevant news/data discovery all work. Formal citation and validation are not required in Stage 1.
 
@@ -36,14 +38,15 @@ Monday, Nov. 30, 2026 at 12:30 p.m. ET, when class begins.
 
 ## Milestones
 
-- **Company research and potential CFO decision (5 points):** 2026-09-09
-- **Revenue engine and initial hypothesis (8 points):** 2026-09-30
-- **Excel valuation model and scenarios (8 points):** 2026-11-18
-- **CFO red team and revision (4 points):** 2026-11-22
+- **Company research and potential CFO decision (5 points):** Wednesday, Sept. 9, 2026 at 12:30 p.m. ET (class-start time)
+- **Revenue engine and initial hypothesis (8 points):** Wednesday, Sept. 30, 2026 at 12:30 p.m. ET (class-start time)
+- **Excel valuation model and scenarios (8 points):** Wednesday, Nov. 18, 2026 at 12:30 p.m. ET (class-start time)
+- **CFO red team and revision (4 points):** Sunday, Nov. 22, 2026 at 12:30 p.m. ET (class-start time)
 
 ## Policies
 
 - Stage 1 is a beginner-level exploration, not an evidence gate. Approved means the company fits the course scope; students do not need a separate formal approval decision before continuing. Students may use AI, ordinary web search, or both for introductory research, but FactSet use is required. They record one concrete FactSet learning and name the screen, report, or feature used without formal citation or validation at this stage.
+- Stages 1-4 are due at 12:30 p.m. ET (the course's class-start time) on their listed dates: Sept. 9, Sept. 30, Nov. 18, and Nov. 22, 2026.
 - Students and the instructor may use FactSet evidence in BUS311 course deliverables. Raw exports and screenshots remain in approved course-restricted systems and are not committed publicly or uploaded to public AI tools.
 - Beginning in Stage 2, for each FactSet item, name FactSet, the report/screen/chart/metric, data-through or retrieval date, units/currency/period, definition or adjustment, peer group and rationale when applicable, exact use, and limitations.
 - After Stage 1, AI may challenge student work but is never financial evidence. Retained output must be independently checked with SEC, FactSet, Excel, or course concepts and classified as accepted, modified, or rejected with a human rationale. Raw licensed data and screenshots are not uploaded to public AI tools.

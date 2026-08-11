@@ -8,6 +8,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sourcePath = path.join(root, "CAPSTONE/source/bus311-capstone.json");
 const bytes = await fs.readFile(sourcePath);
 const source = JSON.parse(bytes.toString("utf8"));
+const term = JSON.parse(await fs.readFile(path.join(root, "terms/fall-2026.json"), "utf8"));
 const sourceHash = crypto.createHash("sha256").update(bytes).digest("hex");
 const failures = [];
 const assert = (condition, message) => { if (!condition) failures.push(message); };
@@ -22,6 +23,21 @@ assert(source.milestones.reduce((sum, item) => sum + item.points, 0) === 25, "mi
 assert(source.aiCheckpoints.length === 4, "exactly four AI checkpoints required");
 assert(source.finalSubmission.communicationFileCount === 2, "exactly two final communication files required");
 assert(source.finalSubmission.deadline === "2026-11-30T12:30:00-05:00", "approved final deadline mismatch");
+const approvedMilestoneDeadlines = {
+  M01: "2026-09-09T12:30:00-04:00",
+  M02: "2026-09-30T12:30:00-04:00",
+  M03: "2026-11-18T12:30:00-05:00",
+  M04: "2026-11-22T12:30:00-05:00",
+};
+for (const milestone of source.milestones) {
+  assert(milestone.due === approvedMilestoneDeadlines[milestone.milestoneId], `${milestone.milestoneId} approved 12:30 p.m. deadline mismatch`);
+  assert(milestone.dueLabel?.includes("12:30 p.m. ET") && milestone.dueLabel.includes("class-start time"), `${milestone.milestoneId} deadline label is incomplete`);
+}
+for (const milestone of term.capstone?.milestones || []) {
+  assert(milestone.due === approvedMilestoneDeadlines[milestone.milestoneId], `term ${milestone.milestoneId} deadline mismatch`);
+  assert(milestone.dateLabel?.includes("12:30 p.m. ET"), `term ${milestone.milestoneId} date label is missing the time`);
+}
+assert(term.capstone?.finalFileDeadline === source.finalSubmission.deadline, "term final-file deadline mismatch");
 assert(JSON.stringify(source.presentationSchedule.dates) === JSON.stringify(["2026-11-30", "2026-12-02", "2026-12-07", "2026-12-09"]), "presentation dates mismatch");
 assert(JSON.stringify(source.presentationSchedule.plannedDistribution) === JSON.stringify([5, 5, 5, 4]), "presentation distribution mismatch");
 assert(source.requirements.some((item) => item.requirementId === "R05_REVENUE_FIRST"), "revenue-first requirement missing");
@@ -29,6 +45,8 @@ assert(source.requirements.some((item) => item.requirementId === "R12_NO_INVESTO
 assert(source.hub.stages.length === 5, "student hub must contain five stages");
 assert(source.hub.stages.reduce((sum, item) => sum + item.points, 0) === 100, "hub stage points must total 100");
 assert(source.hub.stages.every((item) => item.outcome && item.requiredSubmission && item.guideMaterialId), "each hub stage needs a concise outcome, one submission, and a detail guide");
+assert(source.hub.stages.slice(0, 4).every((item) => item.dateLabel.includes("12:30 p.m. ET")), "Stages 1-4 hub labels must show the 12:30 p.m. ET deadline");
+assert(source.hub.stages[4].dateLabel === "Final files November 30 at 12:30 p.m. ET; presentations November 30-December 9", "Stage 5 label or presentation window changed");
 const stageOne = source.hub.stages.find((item) => item.stageId === "S01_SCOPE");
 const milestoneOne = source.milestones.find((item) => item.milestoneId === "M01");
 const stageOneRubric = source.rubric.criteria.find((item) => item.criterionId === "M01_CFO_DECISION");
@@ -75,6 +93,10 @@ assert(stageOneMenuText.includes("stage 1 is a guided first look") && stageOneMe
 assert(stageOneBriefText.includes("one specific thing i learned from factset") && stageOneBriefText.includes("screen, report, or feature"), "Stage 1 exploration brief is missing the FactSet learning field");
 assert(stageOneBriefText.includes("not required in stage 1") && stageOneBriefText.includes("formal approval gate"), "Stage 1 exploration brief is missing the exploratory boundary");
 assert(assignmentText.includes("company research and potential cfo decision") && assignmentText.includes("one concrete thing learned from factset"), "assignment DOCX Stage 1 requirements are stale");
+assert(!assignmentText.includes("11:59") && !assignmentText.includes("23:59"), "assignment DOCX still contains the old milestone deadline");
+for (const marker of ["sept. 9 at 12:30 p.m. et", "sept. 30 at 12:30 p.m. et", "nov. 18 at 12:30 p.m. et", "nov. 22 at 12:30 p.m. et"]) {
+  assert(assignmentText.includes(marker), `assignment DOCX is missing deadline: ${marker}`);
+}
 assert(rubricText.includes("company exploration and potential cfo decision") && !rubricText.includes("company and approved cfo decision"), "student rubric Stage 1 criterion is stale");
 assert(aiGuideText.includes("begin after stage 1") && capajText.includes("after the stage 1 exploration brief"), "AI guidance does not preserve the later-stage verification boundary");
 
@@ -90,6 +112,14 @@ for (const item of provenance.artifacts) {
 
 const publicHub = await fs.readFile(path.join(root, "CAPSTONE/index.html"), "utf8");
 const canvasFragment = await fs.readFile(path.join(root, "CAPSTONE/bus311-capstone-canvas.html"), "utf8");
+const assignmentMarkdown = await fs.readFile(path.join(root, "CAPSTONE/bus311-capstone-assignment.md"), "utf8");
+const courseHub = await fs.readFile(path.join(root, "index.html"), "utf8");
+for (const [label, contents] of [["public hub", publicHub], ["Canvas fragment", canvasFragment], ["assignment Markdown", assignmentMarkdown], ["course hub", courseHub]]) {
+  assert(!contents.includes("11:59") && !contents.includes("T23:59"), `${label} still contains the old milestone deadline`);
+}
+for (const marker of ["September 9 at 12:30 p.m. ET", "September 30 at 12:30 p.m. ET", "November 18 at 12:30 p.m. ET", "November 22 at 12:30 p.m. ET"]) {
+  assert(publicHub.includes(marker) && canvasFragment.includes(marker), `hub output is missing deadline: ${marker}`);
+}
 const headingLevels = (html) => [...html.matchAll(/<h([1-6])\b/gi)].map((match) => Number(match[1]));
 const hasHeadingJump = (levels) => levels.some((level, index) => index > 0 && level > levels[index - 1] + 1);
 assert((publicHub.match(/<h1\b/gi) || []).length === 1, "public hub must contain exactly one H1");

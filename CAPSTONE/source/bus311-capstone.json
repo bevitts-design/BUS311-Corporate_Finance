@@ -88,6 +88,7 @@
     "sourceLabels": "Beginning in Stage 2, for each FactSet item, name FactSet, the report/screen/chart/metric, data-through or retrieval date, units/currency/period, definition or adjustment, peer group and rationale when applicable, exact use, and limitations.",
     "verifiedAIJudgment": "After Stage 1, AI may challenge student work but is never financial evidence. Retained output must be independently checked with SEC, FactSet, Excel, or course concepts and classified as accepted, modified, or rejected with a human rationale. Raw licensed data and screenshots are not uploaded to public AI tools.",
     "revenueSpine": "Revenue generation, three to five years of sales evidence, company-specific drivers, a testable revenue hypothesis, and explicit forecast and decision linkage are required.",
+    "milestoneDeadlines": "Stages 1-4 are due at 12:30 p.m. ET (the course's class-start time) on their listed dates: Sept. 9, Sept. 30, Nov. 18, and Nov. 22, 2026.",
     "lateWork": "Milestones remain eligible under the BUS311 syllabus late-work policy. A late milestone delays feedback and can make dependent project work harder; complete missing milestone work before relying on it in a later stage. Documented exceptions follow the applicable college and course process.",
     "revision": "Milestones 1-3 may each be revised once within seven calendar days of written instructor feedback with a concise change log. The revised score replaces the original when higher.",
     "finalFileLock": "The final PPTX and one-page executive summary are due Monday, Nov. 30, 2026 at 12:30 p.m. ET, when class begins. Files lock at that time for every student regardless of presentation date. Only instructor-authorized accessibility or file-repair corrections that do not alter the analysis or recommendation are permitted afterward.",
@@ -121,7 +122,8 @@
       "milestoneId": "M01",
       "title": "Company research and potential CFO decision",
       "points": 5,
-      "due": "2026-09-09T23:59:00-04:00",
+      "due": "2026-09-09T12:30:00-04:00",
+      "dueLabel": "Wednesday, Sept. 9, 2026 at 12:30 p.m. ET (class-start time)",
       "requirementIds": [
         "R01_INDIVIDUAL",
         "R02_CFO_BOARD",
@@ -132,7 +134,8 @@
       "milestoneId": "M02",
       "title": "Revenue engine and initial hypothesis",
       "points": 8,
-      "due": "2026-09-30T23:59:00-04:00",
+      "due": "2026-09-30T12:30:00-04:00",
+      "dueLabel": "Wednesday, Sept. 30, 2026 at 12:30 p.m. ET (class-start time)",
       "requirementIds": [
         "R03_REVENUE_ENGINE",
         "R04_HYPOTHESIS",
@@ -145,7 +148,8 @@
       "milestoneId": "M03",
       "title": "Excel valuation model and scenarios",
       "points": 8,
-      "due": "2026-11-18T23:59:00-05:00",
+      "due": "2026-11-18T12:30:00-05:00",
+      "dueLabel": "Wednesday, Nov. 18, 2026 at 12:30 p.m. ET (class-start time)",
       "requirementIds": [
         "R05_REVENUE_FIRST",
         "R06_EVIDENCE",
@@ -156,7 +160,8 @@
       "milestoneId": "M04",
       "title": "CFO red team and revision",
       "points": 4,
-      "due": "2026-11-22T23:59:00-05:00",
+      "due": "2026-11-22T12:30:00-05:00",
+      "dueLabel": "Sunday, Nov. 22, 2026 at 12:30 p.m. ET (class-start time)",
       "requirementIds": [
         "R04_HYPOTHESIS",
         "R06_EVIDENCE",
@@ -252,7 +257,7 @@
         "stageId": "S01_SCOPE",
         "label": "Stage 1",
         "title": "Explore the company and a CFO decision",
-        "dateLabel": "September 9",
+        "dateLabel": "September 9 at 12:30 p.m. ET",
         "points": 5,
         "objective": "Select an approved public company, learn the basics through AI and/or ordinary web search plus required FactSet research, and propose one potential CFO decision.",
         "outcome": "An approved public company, one concrete FactSet learning, and one potential CFO decision to investigate.",
@@ -273,7 +278,7 @@
         "stageId": "S02_REVENUE",
         "label": "Stage 2",
         "title": "Explain the revenue engine",
-        "dateLabel": "September 30",
+        "dateLabel": "September 30 at 12:30 p.m. ET",
         "points": 8,
         "outcome": "A traceable revenue diagnosis and testable company hypothesis.",
         "requiredSubmission": "Revenue analysis workbook with hypothesis",
@@ -284,7 +289,7 @@
         "stageId": "S03_VALUE",
         "label": "Stage 3",
         "title": "Model value and scenarios",
-        "dateLabel": "November 18",
+        "dateLabel": "November 18 at 12:30 p.m. ET",
         "points": 8,
         "outcome": "An auditable valuation model with linked scenarios and sensitivities.",
         "requiredSubmission": "Valuation working model",
@@ -295,7 +300,7 @@
         "stageId": "S04_RED_TEAM",
         "label": "Stage 4",
         "title": "Challenge and revise",
-        "dateLabel": "November 22",
+        "dateLabel": "November 22 at 12:30 p.m. ET",
         "points": 4,
         "outcome": "A verified red-team record and a revised or defended recommendation.",
         "requiredSubmission": "Completed red-team record",
@@ -306,7 +311,7 @@
         "stageId": "S05_BOARD",
         "label": "Stage 5",
         "title": "Brief the Board",
-        "dateLabel": "Final files November 30; presentations November 30-December 9",
+        "dateLabel": "Final files November 30 at 12:30 p.m. ET; presentations November 30-December 9",
         "points": 75,
         "outcome": "A concise Board recommendation that can withstand individual Q&A.",
         "requiredSubmission": "Final Board package: PPTX and one-page PDF",
@@ -462,7 +467,7 @@
       },
       {
         "question": "Which dates and submission links control if something changes?",
-        "answer": "Canvas is the authority for live submission links, exact due times, presentation order, and any later instructor-announced change."
+        "answer": "Stages 1-4 and the Stage 5 final-file package are scheduled for 12:30 p.m. ET. Canvas is the authority for live submission links, presentation order, and any later instructor-announced change."
       }
     ]
   },

@@ -1,15 +1,15 @@
 {
   "sourceVersion": "1.3.0",
-  "sourceSha256": "fb4abefaa35e5930198593169f7406750603efb398ee677ecc8baf46dc80fe6a",
+  "sourceSha256": "4ed6f97d17903b36d21d313b96f2cf7f1486ef5a137aeb3291bcf0e139370bd8",
   "generatedAt": "2026-08-11",
   "artifacts": [
     {
       "path": "CAPSTONE/bus311-capstone-assignment.docx",
-      "sha256": "859283dfa1fa0db213d5e67c492e991e95ca695ad6c2155a65310a6ff433af5b"
+      "sha256": "b58ad141633ac60a1efc91175149719b12b582b6295c4991086e341a592f007c"
     },
     {
       "path": "CAPSTONE/bus311-capstone-student-rubric.docx",
-      "sha256": "fb2a0939f05947deb2e3032cb87f25c1d4a675ef2100e2b3bfa11fd5af0cba9b"
+      "sha256": "6885ebf32904ee4f9f81e851331d0124034ea18c2e70bc3a9a740da038a88003"
     },
     {
       "path": "CAPSTONE/bus311-capstone-cfo-decision-menu.docx",
@@ -69,15 +69,15 @@
     },
     {
       "path": "CAPSTONE/index.html",
-      "sha256": "9aab6b0d7f33a4b52e2818112798643564c2fcad039c2c43bca263f52237dfc8"
+      "sha256": "d8345c4c493f6e93b55d175cef3e9edc9f745cac5d1f7aa37154daecf56e32c9"
     },
     {
       "path": "CAPSTONE/bus311-capstone-canvas.html",
-      "sha256": "ebf7672b226d8b769cea5261d7ce66f27faff1f62a86023d74107172bc041882"
+      "sha256": "66ffc278688f803b838d87319877c9da0a766154fcc5323a026bb36444685e9f"
     },
     {
       "path": "CAPSTONE/bus311-capstone-assignment.md",
-      "sha256": "a73ea705675d6ab6dbdd51bba13ada4745fbd85a1284f7e922075aea6047e4b1"
+      "sha256": "7d9d5cf60d64e3bce39fdaa5df7e7b59ea7b94218ce1ab1a79a7f2f29994e18d"
     }
   ]
 }

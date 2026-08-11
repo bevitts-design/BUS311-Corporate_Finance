@@ -25,15 +25,16 @@ const presentationDates = capstone.presentationSchedule.dates.map((date) => {
   return new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric" }).format(parsed);
 }).join(", ");
 const milestoneDueById = new Map(capstone.milestones.map((item) => [item.milestoneId, item.due]));
+const stageById = new Map(capstone.hub.stages.map((stage) => [stage.stageId, stage]));
 const stageOne = capstone.hub.stages.find((stage) => stage.stageId === "S01_SCOPE");
 
 const resourceGroups = [
   { stageId: "OVERVIEW", title: "Assignment and scoring", eyebrow: "Project overview", ids: ["ASSIGNMENT", "ASSIGNMENT_DOCX", "STUDENT_RUBRIC"] },
-  { stageId: "S01_SCOPE", label: "Stage 1", title: "Explore the company and a CFO decision", eyebrow: "Due September 9", due: milestoneDueById.get("M01"), ids: ["M01_MENU", "M01_EXPLORATION"] },
-  { stageId: "S02_REVENUE", label: "Stage 2", title: "Build the revenue case", eyebrow: "Due September 30", due: milestoneDueById.get("M02"), ids: ["REVENUE_GUIDE", "REVENUE_WORKBOOK", "HYPOTHESIS_CHECKLIST", "M02_RUBRIC"] },
-  { stageId: "S03_VALUE", label: "Stage 3", title: "Model value and scenarios", eyebrow: "Due November 18", due: milestoneDueById.get("M03"), ids: ["VALUATION_MODEL"] },
-  { stageId: "S04_RED_TEAM", label: "Stage 4", title: "Challenge and revise", eyebrow: "Due November 22", due: milestoneDueById.get("M04"), ids: ["AI_GUIDE", "CAPAJ", "RED_TEAM"] },
-  { stageId: "S05_BOARD", label: "Stage 5", title: "Brief the Board", eyebrow: "Final files due November 30", due: capstone.finalSubmission.deadline, ids: ["BOARD_TEMPLATE", "SUMMARY_TEMPLATE", "SUMMARY_GUIDE", "SUMMARY_EXAMPLE"] },
+  { stageId: "S01_SCOPE", label: "Stage 1", title: "Explore the company and a CFO decision", eyebrow: `Due ${stageById.get("S01_SCOPE").dateLabel}`, due: milestoneDueById.get("M01"), ids: ["M01_MENU", "M01_EXPLORATION"] },
+  { stageId: "S02_REVENUE", label: "Stage 2", title: "Build the revenue case", eyebrow: `Due ${stageById.get("S02_REVENUE").dateLabel}`, due: milestoneDueById.get("M02"), ids: ["REVENUE_GUIDE", "REVENUE_WORKBOOK", "HYPOTHESIS_CHECKLIST", "M02_RUBRIC"] },
+  { stageId: "S03_VALUE", label: "Stage 3", title: "Model value and scenarios", eyebrow: `Due ${stageById.get("S03_VALUE").dateLabel}`, due: milestoneDueById.get("M03"), ids: ["VALUATION_MODEL"] },
+  { stageId: "S04_RED_TEAM", label: "Stage 4", title: "Challenge and revise", eyebrow: `Due ${stageById.get("S04_RED_TEAM").dateLabel}`, due: milestoneDueById.get("M04"), ids: ["AI_GUIDE", "CAPAJ", "RED_TEAM"] },
+  { stageId: "S05_BOARD", label: "Stage 5", title: "Brief the Board", eyebrow: "Final files due November 30 at 12:30 p.m. ET", due: capstone.finalSubmission.deadline, ids: ["BOARD_TEMPLATE", "SUMMARY_TEMPLATE", "SUMMARY_GUIDE", "SUMMARY_EXAMPLE"] },
 ];
 const stageResourceGroups = resourceGroups.filter((group) => group.stageId !== "OVERVIEW");
 
@@ -194,7 +195,7 @@ canvasHtml = canvasHtml
   .replace('<h2 style="margin:0 0 14px;color:#152536;font-family:Georgia,\'Times New Roman\',serif;font-size:29px;font-weight:normal;">Rubrics, templates, and milestone files</h2>', '<h2 style="margin:0 0 14px;color:#152536;font-family:Georgia,\'Times New Roman\',serif;font-size:29px;font-weight:normal;">Current-stage files</h2>')
   .replace(canvasResourceGroups, canvasStageOneFiles);
 
-const assignmentMarkdown = `# ${capstone.project.title}\n\n**Status:** Approved student release | **Source:** ${capstone.meta.maintainedSource} | **Version:** ${capstone.meta.sourceVersion} | **SHA-256:** ${sourceHash}\n\n## Stage 1: ${stageOne.title}\n\n**Objective:** ${stageOne.objective}\n\n**Outcome:** ${stageOne.outcome}\n\n**Submit:** ${stageOne.requiredSubmission}.\n\n**Required FactSet learning:** ${stageOne.factSetLearning}\n\n**Not required yet:** ${stageOne.notRequiredYet.join("; ")}.\n\n## Final-file deadline\n\n${capstone.finalSubmission.deadlineLabel}.\n\n## Requirements\n\n${capstone.requirements.map((item) => `- ${item.text}`).join("\n")}\n\n## Milestones\n\n${capstone.milestones.map((item) => `- **${item.title} (${item.points} points):** ${item.due.slice(0, 10)}`).join("\n")}\n\n## Policies\n\n- ${capstone.policies.stageOneExploration}\n- ${capstone.policies.factSetPermission}\n- ${capstone.policies.sourceLabels}\n- ${capstone.policies.verifiedAIJudgment}\n- ${capstone.policies.lateWork}\n- ${capstone.policies.revision}\n- ${capstone.policies.finalFileLock}\n`;
+const assignmentMarkdown = `# ${capstone.project.title}\n\n**Status:** Approved student release | **Source:** ${capstone.meta.maintainedSource} | **Version:** ${capstone.meta.sourceVersion} | **SHA-256:** ${sourceHash}\n\n## Stage 1: ${stageOne.title}\n\n**Objective:** ${stageOne.objective}\n\n**Outcome:** ${stageOne.outcome}\n\n**Submit:** ${stageOne.requiredSubmission}.\n\n**Due:** ${capstone.milestones.find((item) => item.milestoneId === "M01").dueLabel}.\n\n**Required FactSet learning:** ${stageOne.factSetLearning}\n\n**Not required yet:** ${stageOne.notRequiredYet.join("; ")}.\n\n## Final-file deadline\n\n${capstone.finalSubmission.deadlineLabel}.\n\n## Requirements\n\n${capstone.requirements.map((item) => `- ${item.text}`).join("\n")}\n\n## Milestones\n\n${capstone.milestones.map((item) => `- **${item.title} (${item.points} points):** ${item.dueLabel}`).join("\n")}\n\n## Policies\n\n- ${capstone.policies.stageOneExploration}\n- ${capstone.policies.milestoneDeadlines}\n- ${capstone.policies.factSetPermission}\n- ${capstone.policies.sourceLabels}\n- ${capstone.policies.verifiedAIJudgment}\n- ${capstone.policies.lateWork}\n- ${capstone.policies.revision}\n- ${capstone.policies.finalFileLock}\n`;
 
 await fs.mkdir(outputDir, { recursive: true });
 await fs.writeFile(path.join(outputDir, "index.html"), publicHtml);
