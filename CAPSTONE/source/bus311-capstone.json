@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaId": "bus311-individual-company-capstone",
-    "sourceVersion": "1.2.0",
+    "sourceVersion": "1.3.0",
     "status": "approved",
     "effectiveTerm": "Fall 2026",
     "updated": "2026-08-11",
@@ -12,7 +12,7 @@
     "title": "BUS311 Individual Company Capstone",
     "subtitle": "CFO and Board Decision Brief",
     "ownership": "Individual",
-    "companyEligibility": "One instructor-approved, publicly traded U.S. company",
+    "companyEligibility": "One approved public company listed in the United States",
     "audience": "The selected company's CFO and Board",
     "decision": "One material, company-specific CFO decision, with two or three supporting actions",
     "projectPoints": 100,
@@ -36,6 +36,10 @@
       "text": "The analysis advises the selected company's CFO and Board on one actionable company decision."
     },
     {
+      "requirementId": "R13_STAGE1_EXPLORATION",
+      "text": "Stage 1 is exploratory: select an approved public company, learn the company basics through AI and/or ordinary web search plus required FactSet research, state one concrete FactSet learning and the screen, report, or feature used, and propose one potential CFO decision. Verification, hypothesis validation, alternatives, an evidence register, proof, and a formal approval gate are not required yet."
+    },
+    {
       "requirementId": "R03_REVENUE_ENGINE",
       "text": "Explain how the company generates sales, using three to five years of consistent revenue evidence and company-specific drivers."
     },
@@ -53,7 +57,7 @@
     },
     {
       "requirementId": "R07_AI",
-      "text": "Complete exactly four bounded free-tier AI checkpoints using C-A-P-A-J; independently verify retained output and record an accept, modify, or reject judgment."
+      "text": "Beginning after Stage 1, complete exactly four bounded free-tier AI or instructor-provided equivalent checkpoints using C-A-P-A-J; independently verify retained output and record an accept, modify, or reject judgment."
     },
     {
       "requirementId": "R08_EXCEL",
@@ -73,17 +77,18 @@
     },
     {
       "requirementId": "R12_NO_INVESTOR_RATING",
-      "text": "A Buy/Hold/Sell rating is not required and cannot substitute for the approved CFO decision."
+      "text": "A Buy/Hold/Sell rating is not required and cannot substitute for the evidence-backed CFO decision developed in later stages."
     }
   ],
   "policies": {
     "individualWork": "Each student owns the research, evidence selection, model, writing, slides, presentation, and Q&A. Every submitted figure, formula, source choice, and recommendation must be explainable by that student.",
-    "factSetAndSources": "Material claims and model inputs must be traceable to SEC filings, permitted FactSet evidence, Excel calculations, or another credible named source. FactSet labels include item or report name, period or as-of date, units, and access date. Conflicting definitions are reconciled or disclosed.",
+    "stageOneExploration": "Stage 1 is a beginner-level exploration, not an evidence gate. Approved means the company fits the course scope; students do not need a separate formal approval decision before continuing. Students may use AI, ordinary web search, or both for introductory research, but FactSet use is required. They record one concrete FactSet learning and name the screen, report, or feature used without formal citation or validation at this stage.",
+    "factSetAndSources": "Beginning in Stage 2, material claims and model inputs must be traceable to SEC filings, permitted FactSet evidence, Excel calculations, or another credible named source. FactSet labels include item or report name, period or as-of date, units, and access date. Conflicting definitions are reconciled or disclosed.",
     "factSetPermission": "Students and the instructor may use FactSet evidence in BUS311 course deliverables. Raw exports and screenshots remain in approved course-restricted systems and are not committed publicly or uploaded to public AI tools.",
-    "sourceLabels": "For each FactSet item, name FactSet, the report/screen/chart/metric, data-through or retrieval date, units/currency/period, definition or adjustment, peer group and rationale when applicable, exact use, and limitations.",
-    "verifiedAIJudgment": "AI may challenge student work but is never financial evidence. Retained output must be independently checked with SEC, FactSet, Excel, or course concepts and classified as accepted, modified, or rejected with a human rationale. Raw licensed data and screenshots are not uploaded to public AI tools.",
+    "sourceLabels": "Beginning in Stage 2, for each FactSet item, name FactSet, the report/screen/chart/metric, data-through or retrieval date, units/currency/period, definition or adjustment, peer group and rationale when applicable, exact use, and limitations.",
+    "verifiedAIJudgment": "After Stage 1, AI may challenge student work but is never financial evidence. Retained output must be independently checked with SEC, FactSet, Excel, or course concepts and classified as accepted, modified, or rejected with a human rationale. Raw licensed data and screenshots are not uploaded to public AI tools.",
     "revenueSpine": "Revenue generation, three to five years of sales evidence, company-specific drivers, a testable revenue hypothesis, and explicit forecast and decision linkage are required.",
-    "lateWork": "Milestones remain eligible under the BUS311 syllabus late-work policy. A late milestone delays feedback and approval, and a student may not advance to a dependent project stage until the required work is complete. Documented exceptions follow the applicable college and course process.",
+    "lateWork": "Milestones remain eligible under the BUS311 syllabus late-work policy. A late milestone delays feedback and can make dependent project work harder; complete missing milestone work before relying on it in a later stage. Documented exceptions follow the applicable college and course process.",
     "revision": "Milestones 1-3 may each be revised once within seven calendar days of written instructor feedback with a concise change log. The revised score replaces the original when higher.",
     "finalFileLock": "The final PPTX and one-page executive summary are due Monday, Nov. 30, 2026 at 12:30 p.m. ET, when class begins. Files lock at that time for every student regardless of presentation date. Only instructor-authorized accessibility or file-repair corrections that do not alter the analysis or recommendation are permitted afterward.",
     "submissionLocation": "Submit exactly two final communication files in the designated Canvas assignment: the final PPTX and one-page executive summary PDF. The Excel model is collected earlier at Milestone 3.",
@@ -92,8 +97,8 @@
   "aiCheckpoints": [
     {
       "checkpointId": "AI01_QUESTION",
-      "title": "Question generation",
-      "purpose": "Generate possible CFO decisions and research directions after company selection."
+      "title": "Research-direction review",
+      "purpose": "After Stage 1, challenge the potential CFO direction and identify research questions to verify in later stages."
     },
     {
       "checkpointId": "AI02_REVENUE",
@@ -114,14 +119,13 @@
   "milestones": [
     {
       "milestoneId": "M01",
-      "title": "Company and approved CFO decision",
+      "title": "Company research and potential CFO decision",
       "points": 5,
       "due": "2026-09-09T23:59:00-04:00",
       "requirementIds": [
         "R01_INDIVIDUAL",
         "R02_CFO_BOARD",
-        "R06_EVIDENCE",
-        "R07_AI"
+        "R13_STAGE1_EXPLORATION"
       ]
     },
     {
@@ -247,13 +251,23 @@
       {
         "stageId": "S01_SCOPE",
         "label": "Stage 1",
-        "title": "Scope the decision",
+        "title": "Explore the company and a CFO decision",
         "dateLabel": "September 9",
         "points": 5,
-        "outcome": "An approved company and one actionable CFO decision question.",
-        "requiredSubmission": "Company and decision approval form",
+        "objective": "Select an approved public company, learn the basics through AI and/or ordinary web search plus required FactSet research, and propose one potential CFO decision.",
+        "outcome": "An approved public company, one concrete FactSet learning, and one potential CFO decision to investigate.",
+        "requiredSubmission": "Stage 1 company exploration brief",
         "guideMaterialId": "M01_MENU",
-        "summary": "Select an eligible company, frame one actionable CFO question, compare credible alternatives, start the evidence register, and secure instructor approval."
+        "summary": "Learn what the company does, use FactSet, record one specific FactSet discovery with the screen, report, or feature used, and propose a tentative CFO decision. AI and ordinary web search are optional research paths; FactSet is required.",
+        "factSetLearning": "State one specific thing you learned from FactSet and identify the screen, report, or feature used. A company or segment metric, ownership or market item, peer observation, estimate, or relevant news/data discovery all work. Formal citation and validation are not required in Stage 1.",
+        "notRequiredYet": [
+          "verify the recommendation or prove the claim",
+          "validate a hypothesis",
+          "compare or defend alternatives",
+          "build an evidence register",
+          "complete formal citations",
+          "secure a formal approval gate"
+        ]
       },
       {
         "stageId": "S02_REVENUE",
@@ -391,10 +405,12 @@
       "Record the challenge, evidence, and accept, modify, or reject judgment in the red-team record."
     ],
     "progressChecklist": [
-      "I am completing the project individually for one instructor-approved U.S. public company.",
-      "My question asks the CFO and Board to make one specific, material company decision.",
-      "I compared credible alternatives and received approval before advancing the thesis.",
-      "My evidence register identifies each SEC filing, FactSet item, period, units, definition, location, use, and limitation.",
+      "For Stage 1, I selected one approved U.S. public company and recorded its name, ticker, and exchange.",
+      "I used AI and/or ordinary web search for introductory company research and understand that these notes are exploratory, not verified evidence.",
+      "I used FactSet, wrote one specific thing I learned, and named the screen, report, or feature I used.",
+      "I proposed one potential CFO decision in my own words and explained briefly why it seems worth investigating.",
+      "I understand that Stage 1 does not require proof, hypothesis validation, alternatives, an evidence register, formal citations, or a formal approval gate.",
+      "Beginning in Stage 2, my evidence register identifies each SEC filing, FactSet item, period, units, definition, location, use, and limitation.",
       "My revenue map explains products or services, segments, geographies, customers, channels, pricing, and recurring or transactional revenue where relevant.",
       "My three-to-five-year revenue history uses comparable periods and reconciles reporting changes.",
       "My testable hypothesis names the driver, expected effect, period, and evidence that could support or falsify it.",
@@ -408,6 +424,14 @@
       "My two final filenames follow the required pattern and are submitted in Canvas before the file lock."
     ],
     "faqs": [
+      {
+        "question": "What is the goal of Stage 1?",
+        "answer": "Explore one approved public company, learn the basics through AI and/or ordinary web search plus required FactSet research, record one concrete FactSet learning and the screen, report, or feature used, and propose one potential CFO decision."
+      },
+      {
+        "question": "Do I need to prove or validate my Stage 1 idea?",
+        "answer": "No. Stage 1 is exploratory. You do not yet need to verify the recommendation, validate a hypothesis, compare or defend alternatives, build an evidence register, complete formal citations, or obtain a formal approval decision. Those tasks belong in later stages."
+      },
       {
         "question": "Is this a group project?",
         "answer": "No. Research, evidence selection, modeling, writing, slides, delivery, and Q&A are individual work."
@@ -463,14 +487,14 @@
     },
     {
       "materialId": "M01_MENU",
-      "label": "CFO decision menu",
+      "label": "Potential CFO decision starter",
       "path": "CAPSTONE/bus311-capstone-cfo-decision-menu.docx",
       "public": true
     },
     {
-      "materialId": "M01_APPROVAL",
-      "label": "Company and decision approval form",
-      "path": "CAPSTONE/bus311-capstone-company-decision-approval-form.docx",
+      "materialId": "M01_EXPLORATION",
+      "label": "Stage 1 company exploration brief",
+      "path": "CAPSTONE/bus311-capstone-stage-1-exploration-brief.docx",
       "public": true
     },
     {
@@ -617,20 +641,20 @@
         "criterionId": "M01_CFO_DECISION",
         "sequence": 1,
         "componentId": "MILESTONES_MODEL_REVISION",
-        "title": "Company and approved CFO decision",
+        "title": "Company exploration and potential CFO decision",
         "points": 5,
-        "description": "Establishes a suitable U.S. public company, one material company-specific CFO decision, genuine alternatives, and an evidence plan that can support an individual semester-long analysis.",
+        "description": "Selects an approved U.S. public company, completes beginner-level introductory research through AI and/or ordinary web search plus required FactSet use, and proposes one potential company-specific CFO decision for later investigation.",
         "evidenceRules": [
-          "Approved company, ticker, exchange, and individual owner are identified.",
-          "The decision is written as a CFO-and-Board action question with two or more genuine alternatives and a material finance consequence.",
-          "The initial evidence register includes at least one SEC filing, one permitted FactSet item, and two additional credible research leads, each with period, units, and location details.",
-          "Any AI-generated research lead is independently verified before it is retained; the student's final scope judgment is recorded."
+          "The approved public company, ticker, exchange, and individual student are identified.",
+          "Introductory notes show that the student used AI and/or ordinary web search to learn what the company does and what may matter financially; these notes are exploratory rather than verified evidence.",
+          "One specific FactSet learning is stated and the screen, report, or feature used is named; formal citation and validation are not required at Stage 1.",
+          "One potential company-specific CFO decision is proposed in the student's own words with a short explanation of why it seems worth investigating."
         ],
         "performanceLevels": {
-          "EXEMPLARY": "Scope is material, company-specific, feasible, and decision-ready; alternatives and finance consequences are explicit; the SEC/FactSet evidence register is complete and all retained research leads are verified.",
-          "PROFICIENT": "Company and decision are suitable and approved; alternatives and evidence are credible, with only minor gaps in specificity, traceability, or scope rationale.",
-          "DEVELOPING": "The decision is broad, descriptive, or weakly linked to a finance consequence; alternatives are thin or the evidence register has material sourcing and verification gaps.",
-          "INSUFFICIENT": "Company or decision is unapproved, unsuitable, unsupported, or not framed for the CFO and Board; evidence is missing, fabricated, or not individually attributable."
+          "EXEMPLARY": "The company snapshot is clear and beginner-friendly, the FactSet discovery is concrete and names the feature used, and the potential CFO decision is specific, company-connected, and appropriately tentative.",
+          "PROFICIENT": "The approved company, introductory research, required FactSet learning, and potential CFO decision are complete and understandable, with only minor gaps in specificity or connection.",
+          "DEVELOPING": "The submission shows a plausible start but the company snapshot is thin, the FactSet learning or feature is vague, or the potential CFO decision is broad or weakly connected to the initial research.",
+          "INSUFFICIENT": "The company is outside the approved course scope, required FactSet use is missing, the potential CFO decision is absent, or the work is not individually attributable."
         }
       },
       {

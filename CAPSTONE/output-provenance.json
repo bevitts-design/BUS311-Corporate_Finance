@@ -1,23 +1,23 @@
 {
-  "sourceVersion": "1.2.0",
-  "sourceSha256": "04b6e5d01e7f7a92897266750508f8b63756b846171f52c9d080137aad4644a0",
+  "sourceVersion": "1.3.0",
+  "sourceSha256": "fb4abefaa35e5930198593169f7406750603efb398ee677ecc8baf46dc80fe6a",
   "generatedAt": "2026-08-11",
   "artifacts": [
     {
       "path": "CAPSTONE/bus311-capstone-assignment.docx",
-      "sha256": "fb0e90d63460dbb145607b837f443193fb99f31601a015b10a896757b1a1fdf8"
+      "sha256": "859283dfa1fa0db213d5e67c492e991e95ca695ad6c2155a65310a6ff433af5b"
     },
     {
       "path": "CAPSTONE/bus311-capstone-student-rubric.docx",
-      "sha256": "c99502203242f1a7d106d7afcbfdf9995afaf843014123af6b171af2ccf7f0dc"
+      "sha256": "fb2a0939f05947deb2e3032cb87f25c1d4a675ef2100e2b3bfa11fd5af0cba9b"
     },
     {
       "path": "CAPSTONE/bus311-capstone-cfo-decision-menu.docx",
-      "sha256": "dfa2dd71c976011ccc70aeb5e061279a0aa0236edfb16c6d499e0492689bf3ef"
+      "sha256": "e7bee4fa287e12924db5d509bf7bf6794de8f40f546198030c4993ae62e49e49"
     },
     {
-      "path": "CAPSTONE/bus311-capstone-company-decision-approval-form.docx",
-      "sha256": "f6d16f68b36f6d2238e17fcb429e6709d3543d135ada0b6d28cecbda6d307117"
+      "path": "CAPSTONE/bus311-capstone-stage-1-exploration-brief.docx",
+      "sha256": "91ccfb8a9f11b883b34fd614981db948ee15f843cc251e57bb545fa61832a88e"
     },
     {
       "path": "CAPSTONE/bus311-capstone-revenue-analysis.xlsx",
@@ -57,11 +57,11 @@
     },
     {
       "path": "CAPSTONE/bus311-capstone-ai-student-guide.docx",
-      "sha256": "f938a209114c60395accd4c83710d456ac1109e71f12b434867cfa20d446da58"
+      "sha256": "504aae5cc2433ea37d3f9e2cc05fc13ac23d22a34ca8411da3fd1ae957df2e1d"
     },
     {
       "path": "CAPSTONE/bus311-capstone-capaj-prompts.docx",
-      "sha256": "cb92725de6eaa8ed577251a963a1fe550f077e087ab19a0be81eab33deca7907"
+      "sha256": "fbb556e84d7cd0fb1f1bb824766871ba44481482f7e6294790bf732e17b8756c"
     },
     {
       "path": "CAPSTONE/bus311-capstone-red-team-record.xlsx",
@@ -69,15 +69,15 @@
     },
     {
       "path": "CAPSTONE/index.html",
-      "sha256": "f428d08eba827b50d649992fcec4d53476a6be32f76b1dc1195b8f1c524b4e94"
+      "sha256": "9aab6b0d7f33a4b52e2818112798643564c2fcad039c2c43bca263f52237dfc8"
     },
     {
       "path": "CAPSTONE/bus311-capstone-canvas.html",
-      "sha256": "05d633fe93c76a14d4732992511187f6f35dbe6c7e8a903d5e5b6a37f9225817"
+      "sha256": "ebf7672b226d8b769cea5261d7ce66f27faff1f62a86023d74107172bc041882"
     },
     {
       "path": "CAPSTONE/bus311-capstone-assignment.md",
-      "sha256": "dfff3988c825498e765ce3d42b13202d08ff40162b75d5d9993a05860e66727a"
+      "sha256": "a73ea705675d6ab6dbdd51bba13ada4745fbd85a1284f7e922075aea6047e4b1"
     }
   ]
 }

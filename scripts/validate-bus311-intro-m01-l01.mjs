@@ -84,6 +84,12 @@ for (const stage of capstone.hub.stages) {
 if (!slide18.includes('The revenue hypothesis drives the valuation model')) {
   errors.push('Slide 18 is missing the required revenue-before-valuation sequencing rule.');
 }
+if (!slide18.includes('AI/web plus required FactSet') || !slide18.includes('one FactSet finding and feature')) {
+  errors.push('Slide 18 is missing the required beginner FactSet discovery and feature-used prompt.');
+}
+if (!slide18.includes('Stage 1 explores; verification begins in Stage 2.')) {
+  errors.push('Slide 18 is missing the explicit Stage 1 exploration and later-verification boundary.');
+}
 
 for (const slideNumber of [25, 26, 27]) {
   const section = slideByNumber(slideNumber);
