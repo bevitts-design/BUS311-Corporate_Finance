@@ -1,7 +1,7 @@
 {
-  "sourceVersion": "1.1.0",
-  "sourceSha256": "e381004b8a1e6dbf3d7d9c44ec799ceded75b5eab207a597a09c411be58a29e1",
-  "generatedAt": "2026-07-30",
+  "sourceVersion": "1.2.0",
+  "sourceSha256": "04b6e5d01e7f7a92897266750508f8b63756b846171f52c9d080137aad4644a0",
+  "generatedAt": "2026-08-11",
   "artifacts": [
     {
       "path": "CAPSTONE/bus311-capstone-assignment.docx",
@@ -69,15 +69,15 @@
     },
     {
       "path": "CAPSTONE/index.html",
-      "sha256": "3a8d3a07970b66e649e9e32428b5560c2e072d5e24406de4ae1fbd6d45555aef"
+      "sha256": "f428d08eba827b50d649992fcec4d53476a6be32f76b1dc1195b8f1c524b4e94"
     },
     {
       "path": "CAPSTONE/bus311-capstone-canvas.html",
-      "sha256": "36913c05d7ab77dc7c728b20f6d6a71f9089374f3a70a4d3eec570abe51ae190"
+      "sha256": "05d633fe93c76a14d4732992511187f6f35dbe6c7e8a903d5e5b6a37f9225817"
     },
     {
       "path": "CAPSTONE/bus311-capstone-assignment.md",
-      "sha256": "37cfd5b260c468ac08a84204c38017cc2139b7c19c6d6615eb86697ba96d0c20"
+      "sha256": "dfff3988c825498e765ce3d42b13202d08ff40162b75d5d9993a05860e66727a"
     }
   ]
 }

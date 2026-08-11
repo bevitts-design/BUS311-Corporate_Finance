@@ -28,7 +28,10 @@ assert(source.requirements.some((item) => item.requirementId === "R05_REVENUE_FI
 assert(source.requirements.some((item) => item.requirementId === "R12_NO_INVESTOR_RATING"), "Buy/Hold/Sell prohibition missing");
 assert(source.hub.stages.length === 5, "student hub must contain five stages");
 assert(source.hub.stages.reduce((sum, item) => sum + item.points, 0) === 100, "hub stage points must total 100");
+assert(source.hub.stages.every((item) => item.outcome && item.requiredSubmission && item.guideMaterialId), "each hub stage needs a concise outcome, one submission, and a detail guide");
+assert(source.hub.decisionFamilies.length >= 4 && source.hub.decisionFamilies.length <= 5, "student hub must group decisions into four or five families");
 assert(source.hub.decisionMenu.length === 10, "student hub must contain ten CFO decision directions");
+assert(source.hub.aiStageChecklist.length === 4, "Stages 3-4 AI checklist must contain four concise controls");
 assert(source.hub.faqs.length >= 8, "student hub FAQ is incomplete");
 assert(source.hub.progressChecklist.length >= 12, "student progress checklist is incomplete");
 assert(source.hub.canvasProjectPageUrl.endsWith("/courses/58525/pages/company-capstone"), "Canvas project page URL mismatch");
@@ -61,6 +64,24 @@ assert(canvasFragment.includes("Open Canvas assignments"), "Canvas submission li
 assert(canvasFragment.includes("Open the public project hub"), "Canvas public-hub link missing");
 assert(publicHub.includes("Student progress checklist") && canvasFragment.includes("Student progress checklist"), "student checklist missing from a hub output");
 assert(publicHub.includes("Frequently asked questions") && canvasFragment.includes("Frequently asked questions"), "FAQ missing from a hub output");
+for (const marker of ["What am I doing?", "What is due next?", "What do I open now?", "1. Open CFO decision menu", "2. Open approval form"]) {
+  assert(publicHub.includes(marker) && canvasFragment.includes(marker), `first-visit action marker missing: ${marker}`);
+}
+assert(publicHub.includes(`href="./${path.basename(source.materials.find((item) => item.materialId === "M01_MENU").path)}"`), "public hub Stage 1 decision-menu action is missing");
+assert(publicHub.includes(`href="./${path.basename(source.materials.find((item) => item.materialId === "M01_APPROVAL").path)}"`), "public hub Stage 1 approval-form action is missing");
+assert((publicHub.match(/class="stage-card"/g) || []).length === 5, "public hub must show five streamlined stage cards");
+assert((publicHub.match(/<dt>Outcome<\/dt>/g) || []).length === 5 && (publicHub.match(/<dt>Submit<\/dt>/g) || []).length === 5, "public stage cards must show one outcome and submission each");
+assert(publicHub.includes("See all 10 decision options") && canvasFragment.includes("See all 10 decision options"), "complete decision menu disclosure is missing");
+for (const family of source.hub.decisionFamilies) {
+  assert(publicHub.includes(family.family) && canvasFragment.includes(family.family), `decision family missing from a hub output: ${family.family}`);
+}
+for (const option of source.hub.decisionMenu) {
+  assert(publicHub.includes(option.area) && canvasFragment.includes(option.area), `full decision option missing from a hub output: ${option.area}`);
+}
+assert(publicHub.includes("Stages 3–4") && canvasFragment.includes("Stages 3-4 bounded AI checklist"), "streamlined Stages 3-4 AI checklist is missing");
+assert(publicHub.includes("Open bounded AI guide") && canvasFragment.includes("Open bounded AI guide"), "bounded AI guide link is missing");
+assert(publicHub.includes("Current stage files") && canvasFragment.includes("Current stage files"), "current-stage file view is missing");
+assert(publicHub.includes(`Open the complete file library (${source.materials.length} files)`) && canvasFragment.includes(`Open the complete file library (${source.materials.length} files)`), "complete file library disclosure is missing");
 
 for (const match of publicHub.matchAll(/href="\.\/([^"#?]+)"/g)) {
   assert(await fs.stat(path.join(root, "CAPSTONE", decodeURIComponent(match[1]))).then((s) => s.isFile()).catch(() => false), `broken public hub file link: ${match[1]}`);

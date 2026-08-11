@@ -1,10 +1,10 @@
 {
   "meta": {
     "schemaId": "bus311-individual-company-capstone",
-    "sourceVersion": "1.1.0",
+    "sourceVersion": "1.2.0",
     "status": "approved",
     "effectiveTerm": "Fall 2026",
-    "updated": "2026-07-30",
+    "updated": "2026-08-11",
     "maintainedSource": "CAPSTONE/source/bus311-capstone.json",
     "canvasAuthority": "Canvas remains the authority for live submission links and any later instructor-announced change."
   },
@@ -250,6 +250,9 @@
         "title": "Scope the decision",
         "dateLabel": "September 9",
         "points": 5,
+        "outcome": "An approved company and one actionable CFO decision question.",
+        "requiredSubmission": "Company and decision approval form",
+        "guideMaterialId": "M01_MENU",
         "summary": "Select an eligible company, frame one actionable CFO question, compare credible alternatives, start the evidence register, and secure instructor approval."
       },
       {
@@ -258,6 +261,9 @@
         "title": "Explain the revenue engine",
         "dateLabel": "September 30",
         "points": 8,
+        "outcome": "A traceable revenue diagnosis and testable company hypothesis.",
+        "requiredSubmission": "Revenue analysis workbook with hypothesis",
+        "guideMaterialId": "REVENUE_GUIDE",
         "summary": "Map how the company earns revenue, analyze three to five years of performance, identify drivers and risks, and state one testable revenue hypothesis."
       },
       {
@@ -266,6 +272,9 @@
         "title": "Model value and scenarios",
         "dateLabel": "November 18",
         "points": 8,
+        "outcome": "An auditable valuation model with linked scenarios and sensitivities.",
+        "requiredSubmission": "Valuation working model",
+        "guideMaterialId": "VALUATION_MODEL",
         "summary": "Build and audit the Excel valuation or capital-budgeting model, connect scenarios to the revenue hypothesis, and identify decision-changing sensitivities."
       },
       {
@@ -274,6 +283,9 @@
         "title": "Challenge and revise",
         "dateLabel": "November 22",
         "points": 4,
+        "outcome": "A verified red-team record and a revised or defended recommendation.",
+        "requiredSubmission": "Completed red-team record",
+        "guideMaterialId": "AI_GUIDE",
         "summary": "Complete the bounded AI red-team record, independently verify the strongest challenges, and revise or defend the hypothesis and recommendation."
       },
       {
@@ -282,7 +294,52 @@
         "title": "Brief the Board",
         "dateLabel": "Final files November 30; presentations November 30-December 9",
         "points": 75,
+        "outcome": "A concise Board recommendation that can withstand individual Q&A.",
+        "requiredSubmission": "Final Board package: PPTX and one-page PDF",
+        "guideMaterialId": "SUMMARY_GUIDE",
         "summary": "Submit the PPTX and one-page executive summary, deliver the seven-minute briefing, and defend the recommendation in three minutes of individual Q&A."
+      }
+    ],
+    "decisionFamilies": [
+      {
+        "family": "Invest and grow",
+        "summary": "Fund the product, market, geography, capacity, or technology investment most likely to create durable value.",
+        "includes": [
+          "Growth investment",
+          "Market expectations"
+        ]
+      },
+      {
+        "family": "Fund the business and return capital",
+        "summary": "Choose the right mix of debt, liquidity, dividends, repurchases, and reinvestment.",
+        "includes": [
+          "Capital allocation",
+          "Capital structure",
+          "Payout policy"
+        ]
+      },
+      {
+        "family": "Buy, partner, or reshape",
+        "summary": "Evaluate acquisitions, partnerships, divestitures, and portfolio changes that sharpen strategic focus.",
+        "includes": [
+          "Corporate development",
+          "Portfolio strategy"
+        ]
+      },
+      {
+        "family": "Improve operating cash flow",
+        "summary": "Strengthen margins, ROIC, free cash flow, working capital, or liquidity through specific operating and capital actions.",
+        "includes": [
+          "Operating performance",
+          "Working capital"
+        ]
+      },
+      {
+        "family": "Manage financial risk",
+        "summary": "Respond to interest-rate, currency, commodity, refinancing, or concentration risk with a finance action.",
+        "includes": [
+          "Risk management"
+        ]
       }
     ],
     "decisionMenu": [
@@ -326,6 +383,12 @@
         "area": "Working capital",
         "prompt": "How should the company improve cash conversion, inventory, receivables, payables, or liquidity?"
       }
+    ],
+    "aiStageChecklist": [
+      "Sanitize inputs: use student-written summaries and never upload raw FactSet files, screenshots, private information, or instructor-only materials.",
+      "Challenge the model and recommendation with C-A-P-A-J during Stages 3 and 4.",
+      "Verify every retained claim or calculation with SEC filings, permitted FactSet evidence, Excel, or course concepts.",
+      "Record the challenge, evidence, and accept, modify, or reject judgment in the red-team record."
     ],
     "progressChecklist": [
       "I am completing the project individually for one instructor-approved U.S. public company.",

@@ -13,7 +13,7 @@ const outcomes = new Map(courseMap.learningOutcomes.map((item) => [item.id, item
 const tracks = [...courseMap.tracks].sort((a, b) => a.displayOrder - b.displayOrder);
 const lessons = [...courseMap.lessons].sort((a, b) => a.displayOrder - b.displayOrder);
 const current = lessons.find((lesson) => lesson.id === term.currentLessonId) || lessons[0];
-const siteAssetVersion = '20260810b';
+const siteAssetVersion = '20260811a';
 
 const esc = (value = '') => String(value).replace(/[&<>"']/g, (char) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
@@ -142,29 +142,6 @@ function lessonCard(lesson) {
   </article>`;
 }
 
-function lessonSearchText(lesson) {
-  return [
-    lesson.displayModule,
-    lesson.title,
-    lesson.summary,
-    lesson.caseStudy,
-    ...lesson.outcomes,
-    ...lesson.outcomes.map((id) => outcomes.get(id)),
-    ...lesson.skillFocus,
-  ].join(' ').toLowerCase();
-}
-
-function directoryEntry(lesson) {
-  const termInfo = schedule.get(lesson.id) || { week: '—', dateLabel: 'Schedule in Canvas', releaseState: 'Available' };
-  const track = tracks.find((item) => item.id === lesson.track);
-  const isCurrent = lesson.id === current.id;
-  const isAvailable = termInfo.releaseState === 'Available';
-  return `<article class="directory-entry track-${esc(lesson.track)}${isCurrent ? ' current-entry' : ''}${isAvailable ? '' : ' locked-entry'}" data-directory-entry data-directory-current="${isCurrent ? 'true' : 'false'}" data-track="${esc(lesson.track)}" data-search-text="${esc(lessonSearchText(lesson))}">
-    <div class="directory-entry-copy"><p class="directory-entry-meta">Week ${esc(termInfo.week)} · ${esc(lesson.displayModule)} · ${esc(track.shortLabel)}</p><h4>${esc(lesson.title)}</h4><p>Case: ${esc(lesson.caseStudy)} · ${esc(termInfo.dateLabel)}</p></div>
-    <div class="directory-entry-status"><span class="availability">${isCurrent ? 'Current lesson' : esc(termInfo.releaseState)}</span>${isAvailable ? `<a class="directory-open-action" href="${esc(lessonHref(lesson))}">Open lesson</a>` : '<span class="directory-lock" aria-label="Lesson materials are locked until released">🔒 Locked</span>'}</div>
-  </article>`;
-}
-
 function trackIcon(trackId) {
   const icons = {
     intro: '<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="10" y="8" width="28" height="32" rx="4"/><path d="M16 16h16M16 23h10M16 30h16"/><circle cx="31" cy="23" r="2"/></svg>',
@@ -186,22 +163,6 @@ function trackSection(track) {
   </section>`;
 }
 
-function directoryGroup(track) {
-  const trackLessons = lessons.filter((lesson) => lesson.track === track.id);
-  return `<div class="directory-group track-${esc(track.id)}" data-directory-group data-track="${esc(track.id)}" role="group" aria-labelledby="directory-${esc(track.id)}-title">
-    <div class="directory-group-heading"><span class="track-icon">${trackIcon(track.id)}</span><div><p>${esc(track.shortLabel)}</p><h3 id="directory-${esc(track.id)}-title">${esc(track.label)}</h3></div></div>
-    <div class="directory-list">${trackLessons.map(directoryEntry).join('')}</div>
-  </div>`;
-}
-
-function currentMaterial(type) {
-  return current.materials.find((material) => material.type === type);
-}
-
-const currentInfo = schedule.get(current.id);
-const currentSlides = currentMaterial('Slides');
-const currentIsAvailable = currentInfo.releaseState === 'Available';
-const filterOptions = tracks.map((track) => `<option value="${esc(track.id)}">${esc(track.shortLabel)}</option>`).join('');
 const assessmentItems = term.assessmentWeeks.map((item) => `<li><strong>Week ${esc(item.week)}</strong><span>${esc(item.label)}</span></li>`).join('');
 const termMilestoneDates = new Map((term.capstone?.milestones || []).map((item) => [item.milestoneId, item.dateLabel]));
 const capstoneMilestones = [
@@ -230,12 +191,6 @@ const courseUnitsHome = `<section class="course-units-section" id="course-units"
   <div class="course-unit-stack">${tracks.map(trackSection).join('')}</div>
 </section>`;
 
-const lessonFinderHome = `<section class="lesson-finder-section" id="find-a-lesson" aria-labelledby="filter-title">
-  <div class="filter-panel"><div><p class="section-kicker">Course directory</p><h2 id="filter-title">Find a lesson</h2><p>Jump to this week or search the complete course by topic, company, skill, module, or learning outcome.</p></div><div class="directory-controls"><div class="view-switch" role="group" aria-label="Choose lesson view"><button class="view-toggle" type="button" data-lesson-view="this-week" aria-pressed="true" aria-controls="course-results">This week</button><button class="view-toggle" type="button" data-lesson-view="all" aria-pressed="false" aria-controls="course-results">All lessons</button></div><div class="filter-fields" data-search-tools hidden><label for="lesson-search">Search lessons<input id="lesson-search" type="search" data-search placeholder="Try WACC, Apple, or LO4" autocomplete="off"></label><label for="track-filter">Course section<select id="track-filter" data-track-filter><option value="all">All sections</option>${filterOptions}</select></label><button class="clear-search" type="button" data-clear-search hidden>Clear search</button></div></div><p class="results-status" data-results-status role="status" aria-live="polite"></p></div>
-  <div class="directory-results" id="course-results" data-course-results>${tracks.map(directoryGroup).join('')}</div>
-  <div class="no-results" data-no-results hidden><h3>No lessons match that search</h3><p>Try a broader topic, company name, module number, or learning outcome.</p><button type="button" data-reset-filters>Show all lessons</button></div>
-</section>`;
-
 const courseGuideHome = `<section class="course-guide-section" id="course-guide" aria-labelledby="course-guide-title">
   <div class="section-heading compact"><div><p class="section-kicker">Course essentials</p><h2 id="course-guide-title">Course guide and resources</h2></div><p>Open these supporting sections when you need the learning rhythm, course arc, capstone, or key dates.</p></div>
   <div class="course-guide-list">
@@ -252,16 +207,14 @@ const homeHtml = `<!doctype html>
 <link rel="icon" href="data:,"><link rel="stylesheet" href="assets/index.css?v=${siteAssetVersion}"></head>
 <body><a class="skip-link" href="#main-content">Skip to course content</a>
 <header class="site-header">
-  <div class="header-bar"><a class="course-mark" href="./">${esc(courseMap.course.code)}</a><nav aria-label="Course navigation"><a href="#this-week">Open this week</a><a href="#course-units">Course units</a><a href="#course-guide">Course guide</a><a href="#find-a-lesson" data-open-view="all">Find a lesson</a></nav></div>
+  <div class="header-bar"><a class="course-mark" href="./">${esc(courseMap.course.code)}</a><nav aria-label="Course navigation"><a href="#course-units">Course units</a><a href="#course-guide">Course guide</a></nav></div>
   <div class="hero-grid">
     <div class="hero-copy"><img class="hero-illustration" src="assets/bus311-finance-judgment-hero.jpg" alt="Financial statements and an Excel-style worksheet feed a cash-flow line into a CFO and Board recommendation." width="1200" height="800" decoding="async"><div class="hero-copy-content"><p class="eyebrow">${esc(term.label)} · ${esc(term.meetingPattern)}</p><h1>${esc(courseMap.course.title)}</h1><p class="hero-tagline">${esc(courseMap.course.tagline)}</p><p class="hero-promise">${esc(courseMap.course.studentPromise)}</p><div class="hero-actions"><a class="lessons-jump" href="#course-units">Explore the course units <span aria-hidden="true">↓</span></a></div></div></div>
-    <aside class="current-panel" id="this-week" aria-labelledby="current-title"><p class="panel-kicker">Start here · Week ${esc(currentInfo.week)}</p><h2 id="current-title">${esc(current.title)}</h2><p>${esc(current.summary)}</p><div class="current-meta"><span>${esc(current.displayModule)}</span><span>${esc(currentInfo.dateLabel)}</span><span>${esc(current.estimatedMinutes)} minutes</span></div><div class="current-actions">${currentIsAvailable ? `<a class="primary-action light" href="${esc(lessonHref(current))}">Open current lesson</a>${currentSlides ? `<a class="secondary-action" href="${esc(currentSlides.path)}">View slides</a>` : ''}` : '<span class="locked-action light" aria-label="Current lesson materials are locked until released">🔒 Lesson unlocks soon</span>'}</div></aside>
   </div>
 </header>
 <main id="main-content">
   ${courseUnitsHome}
   ${courseGuideHome}
-  ${lessonFinderHome}
 </main>
 <footer><strong>${esc(courseMap.course.code)} · ${esc(courseMap.course.title)}</strong><span>${esc(term.location)}</span><span>Use Canvas for exact assignments and due dates</span></footer>
 <script src="assets/index.js?v=${siteAssetVersion}"></script></body></html>`;

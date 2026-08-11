@@ -421,21 +421,16 @@ def site_hub_checks(course_map, term, errors):
     index_path = ROOT / "index.html"
     index_text = index_path.read_text(encoding="utf-8") if index_path.exists() else ""
     required_home_markers = (
-        "Start here",
         "Prepare, practice, then apply",
         "Course pathway",
-        "Find a lesson",
         "Resources and key dates",
         "Capstone snapshot",
         "Open capstone hub",
         "bus311-finance-judgment-hero.jpg",
         'aria-live="polite"',
         'class="skip-link"',
-        'data-lesson-view="this-week"',
-        'data-lesson-view="all"',
         'id="course-units"',
         'data-course-unit',
-        'data-directory-entry',
         'id="course-guide"',
     )
     for marker in required_home_markers:
@@ -447,31 +442,35 @@ def site_hub_checks(course_map, term, errors):
         'id="track-valuation"',
         'id="track-decisions"',
         'id="course-guide"',
-        'id="find-a-lesson"',
     )
     ordered_home_positions = [index_text.find(marker) for marker in ordered_home_markers]
     if any(position < 0 for position in ordered_home_positions) or ordered_home_positions != sorted(ordered_home_positions):
-        errors.append("Generated homepage must show Intro, Valuation, and Firm Decisions in order above the course guide and bottom lesson directory.")
-    lesson_directory_position = index_text.find('id="find-a-lesson"')
-    main_end_position = index_text.find("</main>", lesson_directory_position)
-    if lesson_directory_position < 0 or main_end_position < 0 or index_text.find("<section", lesson_directory_position + 1, main_end_position) >= 0:
-        errors.append("Generated homepage must place Find a lesson as the final section in main content.")
+        errors.append("Generated homepage must show Intro, Valuation, and Firm Decisions in order above the course guide.")
+    removed_home_markers = (
+        "Start here · Week",
+        'class="current-panel"',
+        'id="this-week"',
+        "Course directory",
+        "Find a lesson",
+        'id="find-a-lesson"',
+        "data-directory-entry",
+        "data-lesson-view",
+        "data-track-filter",
+        "data-search-tools",
+    )
+    for marker in removed_home_markers:
+        if marker in index_text:
+            errors.append(f"Generated homepage still contains removed hero or directory UI: {marker}")
     lesson_count = len(course_map["lessons"])
     if index_text.count("data-lesson-card") != lesson_count:
         errors.append("Generated homepage must show every lesson exactly once in the three full course-unit card groups.")
-    if index_text.count("data-directory-entry") != lesson_count:
-        errors.append("Generated homepage course directory must index every lesson exactly once.")
     if index_text.count('data-current="true"') != 1:
         errors.append("Generated homepage must mark exactly one current lesson card.")
-    if index_text.count('data-directory-current="true"') != 1:
-        errors.append("Generated homepage directory must mark exactly one current lesson entry.")
     locked_card_count = len(re.findall(r'<article class="[^"]*\blesson-card\b[^"]*\blocked-card\b', index_text))
-    locked_entry_count = len(re.findall(r'<article class="[^"]*\bdirectory-entry\b[^"]*\blocked-entry\b', index_text))
-    if locked_card_count != lesson_count - 1 or locked_entry_count != lesson_count - 1:
-        errors.append("Generated homepage must keep every non-current lesson card and directory entry locked.")
+    if locked_card_count != lesson_count - 1:
+        errors.append("Generated homepage must keep exactly one current lesson card actionable and every other card locked.")
     locked_card_bodies = re.findall(r'<article class="lesson-card[^"]*locked-card[^"]*"[^>]*>(.*?)</article>', index_text, re.S)
-    locked_entry_bodies = re.findall(r'<article class="directory-entry[^"]*locked-entry[^"]*"[^>]*>(.*?)</article>', index_text, re.S)
-    if any("<a " in body for body in (*locked_card_bodies, *locked_entry_bodies)):
+    if any("<a " in body for body in locked_card_bodies):
         errors.append("Generated homepage must not expose actionable links inside locked lessons.")
     track_positions = {
         "intro": index_text.find('id="track-intro"'),
