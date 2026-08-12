@@ -172,7 +172,7 @@ const capstoneMilestones = [
     dateLabel: termMilestoneDates.get(item.milestoneId) || item.due,
   })),
   {
-    title: 'PowerPoint submission and oral Board presentation',
+    title: 'PowerPoint submission and Oral Presentation',
     due: capstone.finalSubmission.deadline,
     dateLabel: capstone.finalSubmission.deadlineLabel,
   },

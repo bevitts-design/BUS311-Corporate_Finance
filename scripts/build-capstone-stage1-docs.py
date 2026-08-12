@@ -199,8 +199,6 @@ def configure_document(doc: Document, *, title: str, source_version: str, source
     footer = section.footer.paragraphs[0]
     clear_paragraph(footer)
     footer.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-    run = footer.add_run("Approved student release  |  Page ")
-    set_run_font(run, size=8.5, color=GRAY)
     add_page_field(footer)
 
     doc.core_properties.title = title
@@ -608,15 +606,12 @@ def replace_text(doc: Document, old: str, new: str, *, required=True) -> int:
     return count
 
 
-def set_approved_footer(doc: Document, source_version: str, source_hash: str, *, rubric=False) -> None:
+def set_page_number_footer(doc: Document) -> None:
     for section in doc.sections:
         footer = section.footer
         paragraph = footer.paragraphs[0]
         clear_paragraph(paragraph)
         paragraph.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-        label = f"Rubric v{source_version} · {source_hash[:12]}  |  Page " if rubric else "Approved student release  |  Page "
-        run = paragraph.add_run(label)
-        set_run_font(run, size=8.5, color=GRAY)
         add_page_field(paragraph)
 
 

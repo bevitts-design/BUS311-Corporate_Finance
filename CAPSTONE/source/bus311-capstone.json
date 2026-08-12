@@ -4,7 +4,7 @@
     "sourceVersion": "1.4.0",
     "status": "approved",
     "effectiveTerm": "Fall 2026",
-    "updated": "2026-08-11",
+    "updated": "2026-08-12",
     "maintainedSource": "CAPSTONE/source/bus311-capstone.json",
     "canvasAuthority": "Canvas remains the authority for live submission links and any later instructor-announced change."
   },
@@ -29,7 +29,7 @@
   "requirements": [
     {
       "requirementId": "R01_INDIVIDUAL",
-      "text": "All company-specific research, evidence selection, analysis, modeling, writing, slides, oral presentation, and responses to live questions are individual work."
+      "text": "All company-specific research, evidence selection, analysis, modeling, writing, slides, the Oral Presentation, and responses to live questions are individual work."
     },
     {
       "requirementId": "R02_CFO_BOARD",
@@ -69,7 +69,7 @@
     },
     {
       "requirementId": "R11_PRESENTATION",
-      "text": "Deliver an individual oral Board presentation to the class on the assigned date: up to seven minutes for the decision briefing and up to three minutes for live questions, all assessed together as one oral-presentation criterion."
+      "text": "Deliver an individual Oral Presentation to the class on the assigned date: up to seven minutes for the decision briefing and up to three minutes for live questions, all assessed together as one Oral Presentation criterion."
     },
     {
       "requirementId": "R12_NO_INVESTOR_RATING",
@@ -77,7 +77,7 @@
     }
   ],
   "policies": {
-    "individualWork": "Each student owns the research, evidence selection, model, writing, slides, oral presentation, and responses to live questions. Every submitted figure, formula, source choice, and recommendation must be explainable by that student.",
+    "individualWork": "Each student owns the research, evidence selection, model, writing, slides, the Oral Presentation, and responses to live questions. Every submitted figure, formula, source choice, and recommendation must be explainable by that student.",
     "stageOneExploration": "Stage 1 is a beginner-level exploration, not an evidence gate. Approved means the company fits the course scope; students do not need a separate formal approval decision before continuing. Students may use AI, ordinary web search, or both for introductory research, but FactSet use is required. They record one concrete FactSet learning and name the screen, report, or feature used without formal citation or validation at this stage.",
     "factSetAndSources": "Beginning in Stage 2, material claims and model inputs must be traceable to SEC filings, permitted FactSet evidence, Excel calculations, or another credible named source. FactSet labels include item or report name, period or as-of date, units, and access date. Conflicting definitions are reconciled or disclosed.",
     "factSetPermission": "Students and the instructor may use FactSet evidence in BUS311 course deliverables. Raw exports and screenshots remain in approved course-restricted systems and are not committed publicly or uploaded to public AI tools.",
@@ -87,9 +87,9 @@
     "milestoneDeadlines": "Stages 1-4 are due at 12:30 p.m. ET (the course's class-start time) on their listed dates: Sept. 9, Sept. 30, Nov. 18, and Nov. 22, 2026.",
     "lateWork": "Milestones remain eligible under the BUS311 syllabus late-work policy. A late milestone delays feedback and can make dependent project work harder; complete missing milestone work before relying on it in a later stage. Documented exceptions follow the applicable college and course process.",
     "revision": "Milestones 1-3 may each be revised once within seven calendar days of written instructor feedback with a concise change log. The revised score replaces the original when higher.",
-    "finalFileLock": "The PowerPoint company-analysis project file is due Monday, Nov. 30, 2026 at 12:30 p.m. ET, when class begins. The submitted .pptx locks at that time for every student regardless of oral-presentation date. Only instructor-authorized accessibility or file-repair corrections that do not alter the analysis or recommendation are permitted afterward.",
-    "submissionLocation": "Upload exactly one final Stage 5 file in the designated Canvas assignment: the editable PowerPoint company-analysis project (.pptx). The oral Board presentation is delivered live to the class on the assigned date and is not a second uploaded file. The Excel model is collected earlier at Milestone 3.",
-    "absence": "Approved documented absences use the next protected slot or instructor-scheduled make-up. The live oral Board presentation, including responses to questions, remains required. Unexcused absences follow the BUS311 late-work policy and still require a make-up oral presentation."
+    "finalFileLock": "The PowerPoint company-analysis project file is due Monday, Nov. 30, 2026 at 12:30 p.m. ET, when class begins. The submitted .pptx locks at that time for every student regardless of Oral Presentation date. Only instructor-authorized accessibility or file-repair corrections that do not alter the analysis or recommendation are permitted afterward.",
+    "submissionLocation": "Upload exactly one final Stage 5 file in the designated Canvas assignment: the editable PowerPoint company-analysis project (.pptx). The Oral Presentation is delivered live to the class on the assigned date and is not a second uploaded file. The Excel model is collected earlier at Milestone 3.",
+    "absence": "Approved documented absences use the next protected slot or instructor-scheduled make-up. The live Oral Presentation, including responses to questions, remains required. Unexcused absences follow the BUS311 late-work policy and still require a make-up Oral Presentation."
   },
   "aiCheckpoints": [
     {
@@ -109,7 +109,7 @@
     },
     {
       "checkpointId": "AI04_ORAL",
-      "title": "Oral Board presentation rehearsal",
+      "title": "Oral Presentation rehearsal",
       "purpose": "Rehearse the decision briefing and live questions on revenue, valuation, implementation, and risk using a student-written outline."
     }
   ],
@@ -183,10 +183,10 @@
     },
     {
       "deliverableId": "D02_ORAL_BOARD_PRESENTATION",
-      "title": "oral Board presentation to the class",
+      "title": "Oral Presentation",
       "format": "Live in class",
       "points": 25,
-      "limit": "Up to 7 minutes presenting plus up to 3 minutes responding to live questions within the same oral criterion",
+      "limit": "Up to 7 minutes presenting plus up to 3 minutes responding to live questions within the same Oral Presentation criterion",
       "requirementIds": [
         "R01_INDIVIDUAL",
         "R11_PRESENTATION"
@@ -293,26 +293,26 @@
         "stageId": "S05_BOARD",
         "label": "Stage 5",
         "title": "Submit the company analysis and present to the Board",
-        "dateLabel": "PowerPoint due November 30 at 12:30 p.m. ET; oral presentations November 30-December 9",
+        "dateLabel": "PowerPoint due November 30 at 12:30 p.m. ET; Oral Presentation dates November 30-December 9",
         "points": 75,
-        "outcome": "A submitted, traceable company analysis and an individually delivered oral Board presentation to the class.",
+        "outcome": "A submitted, traceable company analysis and an individually delivered Oral Presentation to the class.",
         "requiredSubmission": "Upload one editable .pptx; present live to the class on the assigned date",
         "guideMaterialId": "BOARD_TEMPLATE",
-        "summary": "Stage 5 has exactly two assessed components: a 50-point PowerPoint company-analysis project submission and a 25-point oral Board presentation to the class. Upload the .pptx by the final file lock; the oral presentation happens live on the assigned date.",
+        "summary": "Stage 5 has exactly two assessed components: a 50-point PowerPoint company-analysis project submission and a 25-point Oral Presentation. Upload the .pptx by the final file lock; the Oral Presentation happens live to the class on the assigned date.",
         "components": [
           {
             "title": "PowerPoint company-analysis project submission",
             "points": 50,
             "mode": "Canvas upload",
             "format": "One editable .pptx with 8-10 core slides plus an optional analytical appendix",
-            "timing": "Upload by Monday, Nov. 30, 2026 at 12:30 p.m. ET; the same file is used for the live presentation",
+            "timing": "Upload by Monday, Nov. 30, 2026 at 12:30 p.m. ET; the same file is used for the Oral Presentation",
             "grading": "Assesses the company-specific CFO recommendation; revenue engine and three-to-five-year evidence; hypothesis and red-team revision; model-reconciled valuation, scenarios, and sensitivities; alternatives; implementation; risks; accessible visuals; source notes; and verified AI-use disclosure."
           },
           {
-            "title": "oral Board presentation to the class",
+            "title": "Oral Presentation",
             "points": 25,
             "mode": "Live in class",
-            "format": "Individual presentation using the submitted PowerPoint; no second Stage 5 file is uploaded",
+            "format": "Individual Oral Presentation using the submitted PowerPoint; no second Stage 5 file is uploaded",
             "timing": "Present on the assigned date for up to 7 minutes, then respond to live questions for up to 3 minutes within this same 25-point criterion",
             "grading": "Assesses decision-led organization, revenue-before-valuation explanation, professional voice and pacing, audience fit, command of sources and model logic, accurate responses about assumptions, scenarios, alternatives, implementation, risks, and clear acknowledgment of limitations."
           }
@@ -425,9 +425,9 @@
       "I independently verified every retained AI claim and recorded accept, modify, or reject judgment.",
       "My PowerPoint company-analysis project states the decision, revenue and valuation logic, alternatives, actions, risks, limitations, source notes, and verified AI-use disclosure.",
       "My submitted .pptx contains eight to ten editable core slides; optional appendix slides support analytical depth and live questions.",
-      "I can present the decision in up to seven minutes and respond to live questions for up to three minutes without relying on AI; both are graded together in the 25-point oral criterion.",
+      "I can present the decision in up to seven minutes and respond to live questions for up to three minutes without relying on AI; both are graded together in the 25-point Oral Presentation criterion.",
       "My one final Stage 5 filename follows the required pattern and the editable .pptx is uploaded in Canvas before the file lock.",
-      "I know that the oral Board presentation is delivered live to the class on my assigned date and is not a second uploaded file."
+      "I know that the Oral Presentation is delivered live to the class on my assigned date and is not a second uploaded file."
     ],
     "faqs": [
       {
@@ -440,7 +440,7 @@
       },
       {
         "question": "Is this a group project?",
-        "answer": "No. Research, evidence selection, modeling, writing, slides, the oral presentation, and responses to live questions are individual work."
+        "answer": "No. Research, evidence selection, modeling, writing, slides, the Oral Presentation, and responses to live questions are individual work."
       },
       {
         "question": "Is a Buy, Hold, or Sell recommendation enough?",
@@ -460,15 +460,15 @@
       },
       {
         "question": "What happens to the Excel model at the end?",
-        "answer": "The working Excel model is submitted and assessed at Milestone 3. It is not uploaded again for Stage 5, but you must be able to explain its logic and locate supporting evidence during the live oral presentation."
+        "answer": "The working Excel model is submitted and assessed at Milestone 3. It is not uploaded again for Stage 5, but you must be able to explain its logic and locate supporting evidence during the live Oral Presentation."
       },
       {
         "question": "What do I upload and what do I present for Stage 5?",
-        "answer": "Upload exactly one editable PowerPoint company-analysis project (.pptx) by the November 30 file lock. Present that submitted deck live to the class on your assigned date. The upload is worth 50 points and the live oral presentation is worth 25 points."
+        "answer": "Upload exactly one editable PowerPoint company-analysis project (.pptx) by the November 30 file lock. Present that submitted deck live to the class on your assigned date. The upload is worth 50 points and the live Oral Presentation is worth 25 points."
       },
       {
         "question": "Which dates and submission links control if something changes?",
-        "answer": "Stages 1-4 and the Stage 5 PowerPoint upload are scheduled for 12:30 p.m. ET. Canvas is the authority for the live upload link, oral-presentation order, and any later instructor-announced change."
+        "answer": "Stages 1-4 and the Stage 5 PowerPoint upload are scheduled for 12:30 p.m. ET. Canvas is the authority for the live upload link, Oral Presentation order, and any later instructor-announced change."
       }
     ]
   },
@@ -581,7 +581,7 @@
       {
         "levelId": "COMPLETE",
         "label": "Complete",
-        "summary": "All required evidence is accurate, traceable, company-specific, and ready for the assigned submission or live presentation."
+        "summary": "All required evidence is accurate, traceable, company-specific, and ready for the assigned submission or Oral Presentation."
       },
       {
         "levelId": "DEVELOPING",
@@ -612,7 +612,7 @@
       {
         "componentId": "ORAL_BOARD_PRESENTATION",
         "sequence": 3,
-        "title": "oral Board presentation to the class",
+        "title": "Oral Presentation",
         "points": 25,
         "courseGradePoints": 6.25
       }
@@ -714,7 +714,7 @@
         "componentId": "MILESTONES_MODEL_REVISION",
         "title": "AI red team and revision",
         "points": 4,
-        "description": "Documents bounded C-A-P-A-J challenge, independent verification, human judgment, and revision of the hypothesis, assumptions, recommendation, and oral-presentation preparation.",
+        "description": "Documents bounded C-A-P-A-J challenge, independent verification, human judgment, and revision of the hypothesis, assumptions, recommendation, and Oral Presentation preparation.",
         "evidenceRules": [
           "The record identifies context, student-written assumptions, prompt purpose, strongest challenge, and the specific output retained.",
           "Evidence checked names the exact SEC filing, FactSet item, Excel calculation, or course concept used to test the challenge.",
@@ -772,28 +772,28 @@
         "sequence": 6,
         "stageId": "S05_BOARD",
         "componentId": "ORAL_BOARD_PRESENTATION",
-        "title": "oral Board presentation to the class",
+        "title": "Oral Presentation",
         "points": 25,
         "description": "Delivers the submitted company analysis live to the class with professional Board-level communication and demonstrates individual command of the evidence, model, assumptions, alternatives, implementation, risks, and limitations.",
         "evidenceRules": [
-          "The student presents live on the assigned date using the submitted PowerPoint; the oral presentation is not a second uploaded file.",
+          "The student presents live on the assigned date using the submitted PowerPoint; the Oral Presentation is not a second uploaded file.",
           "The decision briefing uses up to seven minutes, leads with the recommendation, explains revenue before valuation, and uses the slides as evidence rather than as a script.",
           "Voice, pacing, transitions, terminology, and audience engagement are clear, professional, and appropriate for a CFO-and-Board audience in the classroom.",
           "For up to three additional minutes, the student responds accurately to live questions about sources, revenue drivers, assumptions, calculations, scenarios, alternatives, implementation, risks, and conditions that would change the decision.",
-          "When uncertain, the student states the limitation and the next evidence or calculation needed; presentation and responses demonstrate individual ownership. The briefing and question responses are scored together in this single 25-point criterion."
+          "When uncertain, the student states the limitation and the next evidence or calculation needed; the Oral Presentation and responses demonstrate individual ownership. The briefing and question responses are scored together in this single 25-point criterion."
         ],
         "performanceLevels": {
           "COMPLETE": {
             "points": 25,
-            "description": "The student gives a decision-led, well-paced presentation within the allotted briefing time and responds accurately and specifically to live questions, tracing sources and model logic, explaining alternatives and risks, acknowledging limits, and demonstrating clear individual ownership throughout."
+            "description": "The student gives a decision-led, well-paced Oral Presentation within the allotted briefing time and responds accurately and specifically to live questions, tracing sources and model logic, explaining alternatives and risks, acknowledging limits, and demonstrating clear individual ownership throughout."
           },
           "DEVELOPING": {
             "points": 13,
-            "description": "The core message is understandable, but timing, organization, reading, jargon, pacing, audience fit, source or model command, response accuracy, treatment of alternatives and risks, or acknowledgment of uncertainty materially weakens the live presentation."
+            "description": "The core message is understandable, but timing, organization, reading, jargon, pacing, audience fit, source or model command, response accuracy, treatment of alternatives and risks, or acknowledgment of uncertainty materially weakens the Oral Presentation."
           },
           "NOT_DEMONSTRATED": {
             "points": 0,
-            "description": "The student does not deliver the required live presentation, is substantially unprepared, cannot explain essential evidence or model mechanics, gives materially inaccurate or invented responses, or does not demonstrate individual ownership."
+            "description": "The student does not deliver the required Oral Presentation, is substantially unprepared, cannot explain essential evidence or model mechanics, gives materially inaccurate or invented responses, or does not demonstrate individual ownership."
           }
         }
       }

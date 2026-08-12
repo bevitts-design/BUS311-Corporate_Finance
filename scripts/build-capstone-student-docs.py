@@ -57,7 +57,7 @@ def add_bullets(doc: Document, items: list[str], *, checkbox: bool = False) -> N
         helpers.add_bullet(doc, item, checkbox=checkbox)
 
 
-def set_properties(doc: Document, capstone: dict, source_hash: str, *, title: str, rubric: bool = False) -> None:
+def set_properties(doc: Document, capstone: dict, source_hash: str, *, title: str) -> None:
     doc.core_properties.title = title
     doc.core_properties.subject = "BUS311 Individual Company Capstone"
     doc.core_properties.author = "Professor Bethany Evitts"
@@ -66,7 +66,7 @@ def set_properties(doc: Document, capstone: dict, source_hash: str, *, title: st
         f"SHA-256 {source_hash}"
     )
     doc.core_properties.version = capstone["meta"]["sourceVersion"]
-    helpers.set_approved_footer(doc, capstone["meta"]["sourceVersion"], source_hash, rubric=rubric)
+    helpers.set_page_number_footer(doc)
 
 
 def build_assignment(capstone: dict, source_hash: str) -> Path:
@@ -95,9 +95,9 @@ def build_assignment(capstone: dict, source_hash: str) -> Path:
             ["Decision", capstone["project"]["decision"]],
             ["Stages 1-4", "5 + 8 + 8 + 4 = 25 points; dates and requirements are unchanged"],
             ["Stage 5 component 1", "PowerPoint company-analysis project submission — 50 points"],
-            ["Stage 5 component 2", "oral Board presentation to the class — 25 points"],
+            ["Stage 5 component 2", "Oral Presentation — 25 points"],
             ["Stage 5 upload", f"Exactly one editable .pptx due {capstone['finalSubmission']['deadlineLabel']}"],
-            ["Live presentation", "On the assigned class date; up to 7 minutes presenting plus up to 3 minutes responding to live questions, scored together"],
+            ["Oral Presentation", "On the assigned class date; up to 7 minutes presenting plus up to 3 minutes responding to live questions, scored together"],
             ["Project total", "100 points = 25% of the BUS311 course grade"],
         ],
         [2500, 6860],
@@ -120,7 +120,7 @@ def build_assignment(capstone: dict, source_hash: str) -> Path:
         milestone_rows.append([stage["label"], milestone["title"], milestone["dueLabel"], str(milestone["points"])])
     milestone_rows.extend([
         ["Stage 5 upload", "PowerPoint company-analysis project submission", capstone["finalSubmission"]["deadlineLabel"], "50"],
-        ["Stage 5 live", "oral Board presentation to the class", "Assigned date: Nov. 30, Dec. 2, Dec. 7, or Dec. 9", "25"],
+        ["Stage 5 live", "Oral Presentation", "Assigned date: Nov. 30, Dec. 2, Dec. 7, or Dec. 9", "25"],
         ["", "Project total", "", "100"],
     ])
     helpers.add_table(doc, milestone_rows, [1250, 3330, 3480, 1300], font_size=8.7)
@@ -175,17 +175,17 @@ def build_assignment(capstone: dict, source_hash: str) -> Path:
         "Document context, assumptions, prompt purpose, strongest challenge, and the output retained.",
         "Check the challenge using an exact SEC filing, FactSet item, Excel calculation, or course concept.",
         "Record the finding, uncertainty, accept/modify/reject judgment, and the resulting revision or defense.",
-        "Prepare the final verified AI-use disclosure and rehearse the oral Board presentation, including live questions.",
+        "Prepare the final verified AI-use disclosure and rehearse the Oral Presentation, including live questions.",
         "Never provide raw licensed FactSet files or screenshots, private information, instructor-only material, or nonpublic information to a public AI tool.",
     ])
 
     doc.add_page_break()
     add_heading(doc, "Stage 5 — Submit the company analysis and present to the Board (75 points)", 1)
-    helpers.add_callout(doc, "Exactly two assessed components", "PowerPoint company-analysis project submission — 50 points; oral Board presentation to the class — 25 points. There is one uploaded file and one live performance.", fill=helpers.PALE_GOLD, accent=helpers.TERRA)
+    helpers.add_callout(doc, "Exactly two assessed components", "PowerPoint company-analysis project submission — 50 points; Oral Presentation — 25 points. There is one uploaded file and one live performance.", fill=helpers.PALE_GOLD, accent=helpers.TERRA)
     helpers.add_table(
         doc,
         [
-            ["Expectation", "PowerPoint upload", "Live oral presentation"],
+            ["Expectation", "PowerPoint upload", "Oral Presentation"],
             ["What you do", "Upload one editable company-analysis .pptx", "Present the submitted deck individually to the class"],
             ["When", capstone["finalSubmission"]["deadlineLabel"], "Assigned date between Nov. 30 and Dec. 9"],
             ["Length", "8-10 core slides plus optional analytical appendix", "Up to 7 minutes presenting plus up to 3 minutes responding to live questions"],
@@ -209,7 +209,7 @@ def build_assignment(capstone: dict, source_hash: str) -> Path:
     ])
 
     doc.add_page_break()
-    add_heading(doc, "Component 2 — oral Board presentation to the class (25 points)", 2)
+    add_heading(doc, "Component 2 — Oral Presentation (25 points)", 2)
     helpers.add_callout(doc, "Live requirement", "Present the submitted PowerPoint individually on your assigned date. The live performance is not a second upload. Delivery and responses to questions are assessed together in this single 25-point criterion.", fill=helpers.PALE_BLUE, accent=helpers.STEEL)
     add_bullets(doc, [
         "Use up to seven minutes for the decision briefing. Lead with the recommendation, explain revenue before valuation, and use the deck as evidence rather than as a script.",
@@ -255,8 +255,8 @@ def build_assignment(capstone: dict, source_hash: str) -> Path:
         "My 8-10 core slides make the decision, revenue logic, model-linked valuation, alternatives, implementation, risks, limitations, sources, and AI disclosure easy to trace.",
         "I have rehearsed the decision briefing to fit within seven minutes without reading the slides.",
         "I can respond for up to three minutes to live questions about my sources, model, assumptions, scenarios, alternatives, implementation, and risks.",
-        "I understand the 25-point oral criterion includes both delivery and responses to live questions.",
-        "I know my assigned class presentation date and will use the same PowerPoint submitted by the file lock.",
+        "I understand the 25-point Oral Presentation criterion includes both delivery and responses to live questions.",
+        "I know my assigned Oral Presentation date and will use the same PowerPoint submitted by the file lock.",
     ], checkbox=True)
 
     set_properties(doc, capstone, source_hash, title="BUS311 Individual Company Capstone Assignment")
@@ -269,8 +269,8 @@ def build_rubric(capstone: dict, source_hash: str) -> Path:
     doc = Document()
     helpers.configure_document(doc, title="BUS311 Individual Company Capstone Student Rubric", source_version=capstone["meta"]["sourceVersion"], source_hash=source_hash)
     add_title(doc, "BUS311 Corporate Finance · Student rubric", "Individual Company Capstone Rubric", f"100 points  |  Complete · Developing · Not demonstrated  |  Source v{capstone['meta']['sourceVersion']}")
-    helpers.add_callout(doc, "Point structure", "Stages 1-4 = 25 points (5 + 8 + 8 + 4). Stage 5 has exactly two criteria: PowerPoint company-analysis project submission = 50 points; oral Board presentation to the class = 25 points. Project total = 100 points.", fill=helpers.PALE_GOLD, accent=helpers.TERRA)
-    helpers.add_table(doc, [["Component", "Points"], ["Stages 1-4: milestones, Excel model, and revision", "25"], ["PowerPoint company-analysis project submission", "50"], ["oral Board presentation to the class", "25"], ["Project total", "100"]], [7960, 1400], font_size=9.3)
+    helpers.add_callout(doc, "Point structure", "Stages 1-4 = 25 points (5 + 8 + 8 + 4). Stage 5 has exactly two criteria: PowerPoint company-analysis project submission = 50 points; Oral Presentation = 25 points. Project total = 100 points.", fill=helpers.PALE_GOLD, accent=helpers.TERRA)
+    helpers.add_table(doc, [["Component", "Points"], ["Stages 1-4: milestones, Excel model, and revision", "25"], ["PowerPoint company-analysis project submission", "50"], ["Oral Presentation", "25"], ["Project total", "100"]], [7960, 1400], font_size=9.3)
     helpers.add_body(doc, "Use the evidence list under each criterion to prepare. The rating table shows the concrete evidence expected for Complete, Developing, and Not demonstrated performance.")
 
     for index, criterion in enumerate(capstone["rubric"]["criteria"]):
@@ -290,8 +290,8 @@ def build_rubric(capstone: dict, source_hash: str) -> Path:
     doc.add_page_break()
     add_heading(doc, "Final point check", 1)
     helpers.add_table(doc, [["Criterion", "Maximum points"]] + [[item["title"], str(item["points"])] for item in capstone["rubric"]["criteria"]] + [["Total", "100"]], [7960, 1400], font_size=9)
-    helpers.add_callout(doc, "Stage 5 scoring boundary", "There is no separate score for delivery or for responses to questions. Both are included in the single 25-point oral Board presentation criterion.", fill=helpers.PALE_BLUE, accent=helpers.STEEL)
-    set_properties(doc, capstone, source_hash, title="BUS311 Individual Company Capstone Student Rubric", rubric=True)
+    helpers.add_callout(doc, "Stage 5 scoring boundary", "There is no separate score for delivery or for responses to questions. Both are included in the single 25-point Oral Presentation criterion.", fill=helpers.PALE_BLUE, accent=helpers.STEEL)
+    set_properties(doc, capstone, source_hash, title="BUS311 Individual Company Capstone Student Rubric")
     output = CAPSTONE / "bus311-capstone-student-rubric.docx"
     doc.save(output)
     return output
@@ -300,15 +300,15 @@ def build_rubric(capstone: dict, source_hash: str) -> Path:
 def patch_supporting_docs(capstone: dict, source_hash: str) -> list[Path]:
     changes = {
         "bus311-capstone-ai-student-guide.docx": [
-            ("Checkpoint 4 - Board Q&A rehearsal", "Checkpoint 4 - Oral Board presentation rehearsal"),
+            ("Checkpoint 4 - Board Q&A rehearsal", "Checkpoint 4 - Oral Presentation rehearsal"),
             ("Revise the deck, executive summary, recommendation logic, or speaking notes as appropriate.", "Revise the PowerPoint company analysis, recommendation logic, model support, or speaking notes as appropriate."),
-            ("Board Q&A weakness and the revision made to the recommendation, implementation, risk response, deck, or speaking notes.", "Oral Board presentation weakness and the revision made to the recommendation, implementation, risk response, PowerPoint, or speaking notes."),
-            ("The Q&A rehearsal covers revenue, valuation, implementation, and risk.", "The oral-presentation rehearsal covers delivery and live questions about revenue, valuation, implementation, and risk."),
-            ("4. Board Q&A", "4. Oral Board presentation"),
+            ("Board Q&A weakness and the revision made to the recommendation, implementation, risk response, deck, or speaking notes.", "Oral Presentation weakness and the revision made to the recommendation, implementation, risk response, PowerPoint, or speaking notes."),
+            ("The Q&A rehearsal covers revenue, valuation, implementation, and risk.", "The Oral Presentation rehearsal covers delivery and live questions about revenue, valuation, implementation, and risk."),
+            ("4. Board Q&A", "4. Oral Presentation"),
             ("Rehearse revenue, valuation, implementation, and risk questions.", "Rehearse the decision briefing and live questions about revenue, valuation, implementation, and risk."),
         ],
         "bus311-capstone-capaj-prompts.docx": [
-            ("Checkpoint 4 - Rehearse Board Q&A", "Checkpoint 4 - Rehearse the oral Board presentation"),
+            ("Checkpoint 4 - Rehearse Board Q&A", "Checkpoint 4 - Rehearse the Oral Presentation"),
             ("Recheck the evidence behind weak answers and identify any revision needed in the deck, executive summary, recommendation, model support, or speaking notes.", "Recheck the evidence behind weak answers and identify any revision needed in the PowerPoint company analysis, recommendation, model support, or speaking notes."),
         ],
     }
@@ -317,6 +317,13 @@ def patch_supporting_docs(capstone: dict, source_hash: str) -> list[Path]:
         path = CAPSTONE / name
         doc = Document(path)
         for old, new in replacements:
+            helpers.replace_text(doc, old, new, required=False)
+        for old, new in [
+            ("Oral Board presentation", "Oral Presentation"),
+            ("oral Board presentation", "Oral Presentation"),
+            ("oral-presentation", "Oral Presentation"),
+            ("oral presentation", "Oral Presentation"),
+        ]:
             helpers.replace_text(doc, old, new, required=False)
         all_text = " ".join(p.text for p in helpers.iter_paragraphs(doc)).lower()
         if "executive summary" in all_text or "q&a" in all_text:

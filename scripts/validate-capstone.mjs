@@ -26,16 +26,16 @@ const expectedCriteria = [
   ["Valuation model and scenarios", 8, "S03_VALUE"],
   ["AI red team and revision", 4, "S04_RED_TEAM"],
   ["PowerPoint company-analysis project submission", 50, "S05_BOARD"],
-  ["oral Board presentation to the class", 25, "S05_BOARD"],
+  ["Oral Presentation", 25, "S05_BOARD"],
 ];
 const expectedComponents = [
   ["Stages 1-4: milestones, Excel model, and revision", 25],
   ["PowerPoint company-analysis project submission", 50],
-  ["oral Board presentation to the class", 25],
+  ["Oral Presentation", 25],
 ];
 const expectedDeliverables = [
   ["PowerPoint company-analysis project submission", 50, "PPTX upload"],
-  ["oral Board presentation to the class", 25, "Live in class"],
+  ["Oral Presentation", 25, "Live in class"],
 ];
 const oldPatterns = [
   /executive[ -]summary/i,
@@ -49,6 +49,17 @@ const oldPatterns = [
 const assertNoOld = (label, text) => {
   for (const pattern of oldPatterns) assert(!pattern.test(text), `${label} contains obsolete Stage 5 language: ${pattern}`);
 };
+const staleOralPatterns = [
+  /oral Board presentation/i,
+  /\boral-presentation\b/,
+  /\boral presentation\b/,
+  /\blive presentation\b/,
+  /\bclass presentation\b/,
+  /\boral criterion\b/,
+];
+const assertOralPresentationTitle = (label, text) => {
+  for (const pattern of staleOralPatterns) assert(!pattern.test(text), `${label} contains a nonstandard Oral Presentation reference: ${pattern}`);
+};
 
 assert(source.meta.status === "approved", "source status must be approved");
 assert(source.meta.sourceVersion === "1.4.0", "source version must be 1.4.0");
@@ -61,7 +72,7 @@ assert(sum(source.deliverables) === 75, "Stage 5 deliverables must total 75 poin
 assert(source.finalSubmission.communicationFileCount === 1 && source.finalSubmission.assessedComponentCount === 2, "Stage 5 must have one uploaded file and two assessed components");
 assert(JSON.stringify(source.finalSubmission.files) === JSON.stringify(["BUS311_[LastName]_[Ticker]_CompanyAnalysis.pptx"]), "final filename contract mismatch");
 assert(source.finalSubmission.deadline === "2026-11-30T12:30:00-05:00", "final PowerPoint deadline changed");
-assert(source.presentationSchedule.presentationMinutes === 7 && source.presentationSchedule.questionMinutes === 3, "oral-presentation timing must remain 7 + 3 minutes");
+assert(source.presentationSchedule.presentationMinutes === 7 && source.presentationSchedule.questionMinutes === 3, "Oral Presentation timing must remain 7 + 3 minutes");
 assert(JSON.stringify(source.presentationSchedule.dates) === JSON.stringify(["2026-11-30", "2026-12-02", "2026-12-07", "2026-12-09"]), "presentation dates changed");
 assert(JSON.stringify(source.presentationSchedule.plannedDistribution) === JSON.stringify([5, 5, 5, 4]), "presentation distribution changed");
 assert(term.capstone?.finalFileDeadline === source.finalSubmission.deadline, "term final-file deadline mismatch");
@@ -102,6 +113,7 @@ for (const item of source.unlistedLegacyMaterials || []) {
 const exposedSource = structuredClone(source);
 delete exposedSource.unlistedLegacyMaterials;
 assertNoOld("maintained exposed source", JSON.stringify(exposedSource));
+assertOralPresentationTitle("maintained exposed source", JSON.stringify(exposedSource));
 
 const decodeXml = (text) => String(text)
   .replace(/<[^>]+>/g, " ")
@@ -113,6 +125,27 @@ const decodeXml = (text) => String(text)
   .replace(/\s+/g, " ")
   .trim();
 const unzipText = (relative, patterns) => decodeXml(execFileSync("unzip", ["-p", path.join(root, relative), ...patterns], { encoding: "utf8", maxBuffer: 80 * 1024 * 1024 }));
+const zipEntries = (relative, pattern) => execFileSync("unzip", ["-Z1", path.join(root, relative)], { encoding: "utf8" })
+  .split(/\r?\n/)
+  .filter((entry) => pattern.test(entry));
+const zipEntryText = (relative, entry) => execFileSync("unzip", ["-p", path.join(root, relative), entry], { encoding: "utf8", maxBuffer: 10 * 1024 * 1024 });
+const xmlEntities = (text) => String(text)
+  .replaceAll("&amp;", "&")
+  .replaceAll("&lt;", "<")
+  .replaceAll("&gt;", ">")
+  .replaceAll("&#39;", "'")
+  .replaceAll("&quot;", '"');
+const validatePageNumberOnlyFooters = (relative, label) => {
+  const entries = zipEntries(relative, /^word\/footer\d+\.xml$/);
+  assert(entries.length > 0, `${label} has no footer XML`);
+  for (const entry of entries) {
+    const xml = zipEntryText(relative, entry);
+    const visible = [...xml.matchAll(/<w:t(?:\s[^>]*)?>([\s\S]*?)<\/w:t>/g)].map((match) => xmlEntities(match[1])).join("").trim();
+    const instructions = [...xml.matchAll(/<w:instrText(?:\s[^>]*)?>([\s\S]*?)<\/w:instrText>/g)].map((match) => xmlEntities(match[1]).trim());
+    assert(/^\d+$/.test(visible), `${label} ${entry} must display only a numeric page number; found: ${JSON.stringify(visible)}`);
+    assert(instructions.some((item) => item === "PAGE"), `${label} ${entry} is missing the PAGE field`);
+  }
+};
 const assignmentDocx = unzipText("CAPSTONE/bus311-capstone-assignment.docx", ["word/*.xml"]);
 const rubricDocx = unzipText("CAPSTONE/bus311-capstone-student-rubric.docx", ["word/*.xml"]);
 const aiGuideDocx = unzipText("CAPSTONE/bus311-capstone-ai-student-guide.docx", ["word/*.xml"]);
@@ -125,30 +158,42 @@ const assignmentPdf = execFileSync(pdftotext, [path.join(root, "CAPSTONE/bus311-
 
 for (const [label, text] of [["assignment DOCX", assignmentDocx], ["assignment PDF", assignmentPdf]]) {
   assertNoOld(label, text);
-  for (const marker of ["PowerPoint company-analysis project submission", "oral Board presentation to the class", "50 points", "25 points", "exactly one editable", "up to seven minutes", "up to three", "100 points"]) assert(text.toLowerCase().includes(marker.toLowerCase()), `${label} is missing: ${marker}`);
+  assertOralPresentationTitle(label, text);
+  for (const marker of ["PowerPoint company-analysis project submission", "Oral Presentation", "50 points", "25 points", "exactly one editable", "up to seven minutes", "up to three", "100 points"]) assert(text.toLowerCase().includes(marker.toLowerCase()), `${label} is missing: ${marker}`);
   for (const marker of ["Sept. 9", "Sept. 30", "Nov. 18", "Nov. 22"]) assert(text.includes(marker), `${label} is missing unchanged date: ${marker}`);
 }
 assertNoOld("student rubric DOCX", rubricDocx);
+assertOralPresentationTitle("student rubric DOCX", rubricDocx);
 for (const [title, points] of expectedCriteria) assert(rubricDocx.includes(title) && rubricDocx.includes(`${points} points`), `student rubric is missing ${title} (${points})`);
 for (const rating of ["Complete", "Developing", "Not demonstrated"]) assert(rubricDocx.includes(rating), `student rubric is missing ${rating}`);
+validatePageNumberOnlyFooters("CAPSTONE/bus311-capstone-assignment.docx", "assignment DOCX");
+validatePageNumberOnlyFooters("CAPSTONE/bus311-capstone-student-rubric.docx", "student rubric DOCX");
 assertNoOld("AI student guide", aiGuideDocx);
 assertNoOld("C-A-P-A-J prompt guide", capajDocx);
-assert(aiGuideDocx.includes("Oral Board presentation rehearsal") && capajDocx.includes("Rehearse the oral Board presentation"), "supporting AI documents are missing the oral-presentation rehearsal language");
+assertOralPresentationTitle("AI student guide", aiGuideDocx);
+assertOralPresentationTitle("C-A-P-A-J prompt guide", capajDocx);
+assert(aiGuideDocx.includes("Oral Presentation rehearsal") && capajDocx.includes("Rehearse the Oral Presentation"), "supporting AI documents are missing the Oral Presentation rehearsal language");
 assertNoOld("Board PowerPoint template", pptxText);
+assertOralPresentationTitle("Board PowerPoint template", pptxText);
 for (const marker of ["QUESTION READY", "REVENUE QUESTION SUPPORT", "MODEL QUESTION SUPPORT", "SENSITIVITY QUESTION SUPPORT", "SOURCE QUESTION SUPPORT", "LIVE QUESTIONS ONLY"]) assert(pptxText.includes(marker), `Board PowerPoint template is missing: ${marker}`);
 assertNoOld("red-team workbook", redTeamText);
-assert(redTeamText.includes("ORAL BOARD PRESENTATION REVISION") && redTeamText.includes("PowerPoint company analysis"), "red-team workbook Stage 5 language is stale");
+assertOralPresentationTitle("red-team workbook", redTeamText);
+assert(redTeamText.includes("ORAL PRESENTATION REVISION") && redTeamText.includes("PowerPoint company analysis"), "red-team workbook Stage 5 language is stale");
 assertNoOld("valuation workbook", valuationText);
-assert(valuationText.includes("oral-presentation readiness") && valuationText.includes("live-question support"), "valuation workbook Stage 5 language is stale");
+assertOralPresentationTitle("valuation workbook", valuationText);
+assert(valuationText.includes("Oral Presentation readiness") && valuationText.includes("live-question support"), "valuation workbook Stage 5 language is stale");
 
 const publicHub = await fs.readFile(path.join(root, "CAPSTONE/index.html"), "utf8");
 const canvasFragment = await fs.readFile(path.join(root, "CAPSTONE/bus311-capstone-canvas.html"), "utf8");
 const assignmentMarkdown = await fs.readFile(path.join(root, "CAPSTONE/bus311-capstone-assignment.md"), "utf8");
 const courseHub = await fs.readFile(path.join(root, "index.html"), "utf8");
 const m01Deck = await fs.readFile(path.join(root, "01-INTRO/M01/bus311-intro-m01-l01-slides.html"), "utf8");
-for (const [label, text] of [["public capstone hub", publicHub], ["Canvas fragment", canvasFragment], ["assignment Markdown", assignmentMarkdown], ["M01 orientation deck", m01Deck]]) assertNoOld(label, text);
+for (const [label, text] of [["public capstone hub", publicHub], ["Canvas fragment", canvasFragment], ["assignment Markdown", assignmentMarkdown], ["M01 orientation deck", m01Deck]]) {
+  assertNoOld(label, text);
+  assertOralPresentationTitle(label, text);
+}
 for (const text of [publicHub, canvasFragment, assignmentMarkdown]) {
-  assert(text.includes("PowerPoint company-analysis project submission") && text.includes("oral Board presentation to the class"), "a generated Stage 5 output is missing the two exact component names");
+  assert(text.includes("PowerPoint company-analysis project submission") && text.includes("Oral Presentation"), "a generated Stage 5 output is missing the two exact component names");
   assert(text.includes("50 points") && text.includes("25 points"), "a generated Stage 5 output is missing the 50/25 scoring");
   assert(text.includes("one") && text.toLowerCase().includes("live"), "a generated Stage 5 output is missing upload/live detail");
 }
@@ -161,8 +206,8 @@ assert((publicHub.match(/class="stage-card"/g) || []).length === 5, "public hub 
 assert(publicHub.includes("stage-five-components") && publicHub.includes("@media(max-width:700px)"), "public hub is missing responsive Stage 5 layout");
 assert(!/<(?:html|head|body|style|script)\b/i.test(canvasFragment), "Canvas fragment contains prohibited document, style, or script markup");
 assert((canvasFragment.match(/<h1\b/gi) || []).length === 1, "Canvas fragment must contain exactly one H1");
-assert(courseHub.includes("PowerPoint submission and oral Board presentation") && courseHub.includes(stageFive.title), "course homepage capstone snapshot is stale");
-assert(m01Deck.includes("uploaded PowerPoint company analysis (50 points)") && m01Deck.includes("live oral Board presentation to the class (25 points)"), "M01 orientation deck scoring is stale");
+assert(courseHub.includes("PowerPoint submission and Oral Presentation") && courseHub.includes(stageFive.title), "course homepage capstone snapshot is stale");
+assert(m01Deck.includes("uploaded PowerPoint company analysis (50 points)") && m01Deck.includes("live Oral Presentation (25 points)"), "M01 orientation deck scoring is stale");
 
 const provenance = JSON.parse(await fs.readFile(path.join(root, "CAPSTONE/output-provenance.json"), "utf8"));
 assert(provenance.sourceVersion === source.meta.sourceVersion && provenance.sourceSha256 === sourceHash, "provenance source identity mismatch");
@@ -193,6 +238,7 @@ const csvPath = "/Users/bethanyevittsair2/Documents/Codex/2026-08-10/realtime-vo
 const csvText = await fs.readFile(csvPath, "utf8").catch(() => "");
 assert(Boolean(csvText), "Canvas-import rubric CSV is missing");
 assertNoOld("Canvas-import rubric CSV", csvText);
+assertOralPresentationTitle("Canvas-import rubric CSV", csvText);
 const csvRows = parseCsv(csvText);
 assert(csvRows.length === 7 && csvRows.every((row) => row.length === 13), "Canvas-import CSV must have one header and six 13-column criteria rows");
 const expectedCsvNames = expectedCriteria.map(([title, , stage], index) => stage === "S05_BOARD" ? title : `Stage ${index + 1}: ${title}`);
