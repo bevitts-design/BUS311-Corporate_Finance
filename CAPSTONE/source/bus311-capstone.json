@@ -1,10 +1,10 @@
 {
   "meta": {
     "schemaId": "bus311-individual-company-capstone",
-    "sourceVersion": "1.4.0",
+    "sourceVersion": "1.5.0",
     "status": "approved",
     "effectiveTerm": "Fall 2026",
-    "updated": "2026-08-12",
+    "updated": "2026-09-02",
     "maintainedSource": "CAPSTONE/source/bus311-capstone.json",
     "canvasAuthority": "Canvas remains the authority for live submission links and any later instructor-announced change."
   },
@@ -263,9 +263,15 @@
         "dateLabel": "September 30 at 12:30 p.m. ET",
         "points": 8,
         "outcome": "A traceable revenue diagnosis and testable company hypothesis.",
-        "requiredSubmission": "Revenue analysis workbook with hypothesis",
+        "requiredSubmission": "One completed Revenue Analysis Workbook (.xlsx), including the Hypothesis & Scenarios sheet",
         "guideMaterialId": "REVENUE_GUIDE",
-        "summary": "Map how the company earns revenue, analyze three to five years of performance, identify drivers and risks, and state one testable revenue hypothesis."
+        "materialIds": [
+          "REVENUE_GUIDE",
+          "REVENUE_WORKBOOK",
+          "HYPOTHESIS_CHECKLIST",
+          "M02_RUBRIC"
+        ],
+        "summary": "Map how the company earns revenue, analyze three to five years of performance, identify drivers and risks, state one testable revenue hypothesis, and upload the completed .xlsx workbook."
       },
       {
         "stageId": "S03_VALUE",
@@ -319,6 +325,65 @@
         ]
       }
     ],
+    "stageTwoHelp": {
+      "title": "Stage 2: start here",
+      "timeExpectation": "Plan for approximately six to eight focused hours across two weeks, including scheduled class workdays.",
+      "submission": "Upload one required file in the designated Canvas assignment: the completed BUS311 Capstone Revenue Analysis Workbook (.xlsx), including the Hypothesis & Scenarios sheet. Do not create or upload a separate PDF or DOCX unless Canvas or the instructor explicitly requests an additional readable export.",
+      "passMeaning": "PASS on the workbook's Checks & Submission sheet confirms that the required fields and structural checks are complete. It does not guarantee full credit or prove that the analysis, evidence, or judgment is correct.",
+      "steps": [
+        {
+          "title": "Read the Revenue Engine Student Guide",
+          "materialId": "REVENUE_GUIDE",
+          "instruction": "Use the scope limits and eight-step workflow before collecting data."
+        },
+        {
+          "title": "Complete the Revenue Analysis Workbook",
+          "materialId": "REVENUE_WORKBOOK",
+          "instruction": "Work through the nine visible sheets in order and maintain the Evidence Register as you go."
+        },
+        {
+          "title": "Test the hypothesis twice",
+          "materialId": "HYPOTHESIS_CHECKLIST",
+          "instruction": "Use the checklist before the skeptical-CFO challenge and again after revising the hypothesis."
+        },
+        {
+          "title": "Check the eight-point rubric",
+          "materialId": "M02_RUBRIC",
+          "instruction": "Compare the completed workbook with every criterion before submission."
+        },
+        {
+          "title": "Resolve checks and submit",
+          "materialId": "REVENUE_WORKBOOK",
+          "instruction": "Review Checks & Submission, explain honest limitations, and upload the completed .xlsx in Canvas."
+        }
+      ],
+      "factSet": {
+        "title": "Need FactSet access or the Excel add-in?",
+        "instruction": "Use the course FactSet activation and Excel setup page before beginning the workbook. Keep raw FactSet exports and screenshots inside approved course-restricted systems."
+      },
+      "edgeCases": [
+        {
+          "title": "Fewer than three defensible peers",
+          "instruction": "Use the defensible peers available and explain why additional companies are not sufficiently comparable."
+        },
+        {
+          "title": "A segment, market-share measure, or driver is not disclosed",
+          "instruction": "State the limitation, use a supportable proxy only when its definition is clear, and never invent a figure."
+        },
+        {
+          "title": "Definitions changed across years",
+          "instruction": "Reconcile or disclose restatements, acquisitions, divestitures, fiscal-year changes, and segment-definition changes before comparing growth."
+        },
+        {
+          "title": "A driver cannot be quantified",
+          "instruction": "Classify it as directional, cite the supporting evidence, and state what would be needed to quantify it."
+        },
+        {
+          "title": "Using AI or the non-AI path",
+          "instruction": "Either path must produce the same skeptical-CFO challenge record. AI output is not evidence, and raw FactSet files or screenshots may not be uploaded to public AI tools."
+        }
+      ]
+    },
     "decisionFamilies": [
       {
         "family": "Invest and grow",
@@ -420,6 +485,8 @@
       "My three-to-five-year revenue history uses comparable periods and reconciles reporting changes.",
       "My testable hypothesis names the driver, expected effect, period, and evidence that could support or falsify it.",
       "My base, upside, and downside cases flow from the revenue diagnosis.",
+      "I reviewed the workbook's Checks & Submission sheet and understand that PASS confirms structural completion, not analytical quality or full credit.",
+      "I will upload one completed Revenue Analysis Workbook (.xlsx) for Stage 2; I will provide a separate readable export only if Canvas or the instructor explicitly requests one.",
       "My Excel model separates inputs, sources, calculations, outputs, checks, scenarios, and sensitivities.",
       "I completed all four C-A-P-A-J checkpoints using free text chat or the instructor-provided equivalent.",
       "I independently verified every retained AI claim and recorded accept, modify, or reject judgment.",
@@ -437,6 +504,18 @@
       {
         "question": "Do I need to prove or validate my Stage 1 idea?",
         "answer": "No. Stage 1 is exploratory. You do not yet need to verify the recommendation, validate a hypothesis, compare or defend alternatives, build an evidence register, complete formal citations, or obtain a formal approval decision. Those tasks belong in later stages."
+      },
+      {
+        "question": "What exactly do I submit for Stage 2?",
+        "answer": "Upload one required file: the completed BUS311 Capstone Revenue Analysis Workbook (.xlsx), including the Hypothesis & Scenarios sheet. Submit a separate PDF or DOCX only if Canvas or the instructor explicitly requests an additional readable export."
+      },
+      {
+        "question": "What if I cannot find three peers or the company does not disclose a segment, market-share measure, or driver?",
+        "answer": "Use the defensible evidence available and state the limitation. Explain why fewer peers are appropriate, use a supportable proxy only when its definition is clear, classify an unquantifiable driver as directional, and never invent a figure."
+      },
+      {
+        "question": "Does PASS on the workbook mean I earned full credit?",
+        "answer": "No. PASS on Checks & Submission confirms structural completion only. The rubric still evaluates the quality, comparability, traceability, analysis, hypothesis, and student judgment."
       },
       {
         "question": "Is this a group project?",
@@ -477,84 +556,98 @@
       "materialId": "ASSIGNMENT",
       "label": "Capstone assignment",
       "path": "CAPSTONE/bus311-capstone-assignment.pdf",
+      "description": "Read this first for the complete project contract, dates, submissions, policies, and scoring.",
       "public": true
     },
     {
       "materialId": "ASSIGNMENT_DOCX",
       "label": "Editable capstone assignment",
       "path": "CAPSTONE/bus311-capstone-assignment.docx",
+      "description": "Use the accessible Word version of the complete capstone assignment.",
       "public": true
     },
     {
       "materialId": "STUDENT_RUBRIC",
       "label": "Student rubric",
       "path": "CAPSTONE/bus311-capstone-student-rubric.docx",
+      "description": "Review the evidence required for every project criterion and performance level.",
       "public": true
     },
     {
       "materialId": "M01_MENU",
       "label": "Potential CFO decision starter",
       "path": "CAPSTONE/bus311-capstone-cfo-decision-menu.docx",
+      "description": "Browse company-specific CFO decision directions before completing Stage 1.",
       "public": true
     },
     {
       "materialId": "M01_EXPLORATION",
       "label": "Stage 1 company exploration brief",
       "path": "CAPSTONE/bus311-capstone-stage-1-exploration-brief.docx",
+      "description": "Complete and submit this guided Stage 1 exploration brief.",
       "public": true
     },
     {
       "materialId": "REVENUE_WORKBOOK",
       "label": "Revenue analysis workbook",
       "path": "CAPSTONE/bus311-capstone-revenue-analysis.xlsx",
+      "description": "Complete all nine visible sheets, resolve the submission checks, and upload this .xlsx for Stage 2.",
       "public": true
     },
     {
       "materialId": "REVENUE_GUIDE",
       "label": "Revenue-engine student guide",
       "path": "CAPSTONE/bus311-capstone-revenue-engine-guide.docx",
+      "description": "Start here for the Stage 2 scope, eight-step workflow, evidence rules, and submission instructions.",
       "public": true
     },
     {
       "materialId": "HYPOTHESIS_CHECKLIST",
       "label": "Revenue-hypothesis quality checklist",
       "path": "CAPSTONE/bus311-capstone-hypothesis-checklist.docx",
+      "description": "Use this before and after the skeptical-CFO challenge to test and revise the hypothesis.",
       "public": true
     },
     {
       "materialId": "M02_RUBRIC",
       "label": "Revenue milestone rubric",
       "path": "CAPSTONE/bus311-capstone-revenue-milestone-rubric.docx",
+      "description": "Check the seven Stage 2 criteria and eight-point scoring evidence before submission.",
       "public": true
     },
     {
       "materialId": "VALUATION_MODEL",
       "label": "Valuation working model",
       "path": "CAPSTONE/bus311-capstone-valuation-model.xlsx",
+      "description": "Build the Stage 3 valuation, scenarios, sensitivities, sources, and model checks here.",
       "public": true
     },
     {
       "materialId": "BOARD_TEMPLATE",
       "label": "Board deck template",
       "path": "CAPSTONE/bus311-capstone-board-deck-template.pptx",
+      "description": "Build the final editable company-analysis PowerPoint from this Stage 5 template.",
       "public": true
     },
     {
       "materialId": "AI_GUIDE",
       "label": "Bounded AI student guide",
       "path": "CAPSTONE/bus311-capstone-ai-student-guide.docx",
+      "description": "Follow the approved privacy, verification, and judgment rules for all four AI checkpoints.",
       "public": true
     },
     {
       "materialId": "CAPAJ",
       "label": "C-A-P-A-J prompt templates",
       "path": "CAPSTONE/bus311-capstone-capaj-prompts.docx",
+      "description": "Use these sanitized prompt structures to challenge assumptions without exposing licensed data.",
       "public": true
     },
     {
       "materialId": "RED_TEAM",
       "label": "Red-team record",
       "path": "CAPSTONE/bus311-capstone-red-team-record.xlsx",
+      "description": "Record the Stage 4 challenge, independent verification, judgment, and resulting revision.",
       "public": true
     }
   ],

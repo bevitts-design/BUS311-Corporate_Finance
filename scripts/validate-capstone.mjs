@@ -62,7 +62,7 @@ const assertOralPresentationTitle = (label, text) => {
 };
 
 assert(source.meta.status === "approved", "source status must be approved");
-assert(source.meta.sourceVersion === "1.4.0", "source version must be 1.4.0");
+assert(source.meta.sourceVersion === "1.5.0", "source version must be 1.5.0");
 assert(source.project.ownership === "Individual", "project must remain individual");
 assert(source.project.projectPoints === 100 && source.project.courseWeightPercent === 25, "project must remain 100 points and 25% of BUS311");
 assert(JSON.stringify(source.milestones.map((item) => [item.milestoneId, item.points, item.due])) === JSON.stringify(expectedMilestones), "Stages 1-4 points or dates changed");
@@ -79,8 +79,17 @@ assert(term.capstone?.finalFileDeadline === source.finalSubmission.deadline, "te
 assert(JSON.stringify((term.capstone?.milestones || []).map((item) => [item.milestoneId, item.due])) === JSON.stringify(expectedMilestones.map(([id, , due]) => [id, due])), "term milestone dates changed");
 
 const stageFive = source.hub.stages.find((item) => item.stageId === "S05_BOARD");
+const stageTwo = source.hub.stages.find((item) => item.stageId === "S02_REVENUE");
+const stageTwoHelp = source.hub.stageTwoHelp;
 assert(source.hub.stages.length === 5 && sum(source.hub.stages) === 100, "hub must retain five stages totaling 100 points");
 assert(source.hub.stages.slice(0, 4).map((item) => item.points).join(",") === "5,8,8,4", "hub Stages 1-4 points changed");
+assert(stageTwo?.requiredSubmission === "One completed Revenue Analysis Workbook (.xlsx), including the Hypothesis & Scenarios sheet", "Stage 2 must require exactly one completed .xlsx workbook");
+assert(JSON.stringify(stageTwo?.materialIds) === JSON.stringify(["REVENUE_GUIDE", "REVENUE_WORKBOOK", "HYPOTHESIS_CHECKLIST", "M02_RUBRIC"]), "Stage 2 must expose the guide, workbook, checklist, and rubric in sequence");
+assert(stageTwoHelp?.steps?.length === 5, "Stage 2 help must contain five sequenced start-here steps");
+assert(stageTwoHelp?.edgeCases?.length >= 5, "Stage 2 help must address the approved edge cases");
+assert(stageTwoHelp?.submission?.includes("Upload one required file") && stageTwoHelp.submission.includes(".xlsx") && stageTwoHelp.submission.includes("Do not create or upload a separate PDF or DOCX"), "Stage 2 help must distinguish the required workbook from a conditional readable export");
+assert(stageTwoHelp?.passMeaning?.includes("structural checks") && stageTwoHelp.passMeaning.includes("does not guarantee full credit"), "Stage 2 help must explain that PASS is structural only");
+assert(stageTwoHelp?.factSet?.instruction?.includes("FactSet activation and Excel setup page"), "Stage 2 help must route students to FactSet setup");
 assert(stageFive?.points === 75 && stageFive?.components?.length === 2, "hub Stage 5 must expose exactly two components totaling 75 points");
 assert(JSON.stringify(stageFive?.components?.map((item) => [item.title, item.points])) === JSON.stringify(expectedDeliverables.map(([title, points]) => [title, points])), "hub Stage 5 component names or points mismatch");
 assert(stageFive?.requiredSubmission.includes("one editable .pptx") && stageFive.requiredSubmission.includes("present live"), "hub Stage 5 upload/live boundary is incomplete");
@@ -102,6 +111,7 @@ assert(JSON.stringify(source.validation.milestonePoints) === JSON.stringify([5, 
 assert(source.validation.communicationFiles === 1 && source.validation.stageFiveAssessedComponents === 2, "source validation upload/component counts mismatch");
 
 assert(source.materials.length === 14, "current student file library must contain 14 materials");
+assert(source.materials.every((item) => typeof item.description === "string" && item.description.length >= 40), "every current student material needs a useful description");
 assert(source.unlistedLegacyMaterials?.length === 3, "three obsolete written-summary files must be deliberately unlisted");
 const currentPaths = new Set(source.materials.map((item) => item.path));
 for (const item of source.materials) assert(await fs.stat(path.join(root, item.path)).then((s) => s.isFile()).catch(() => false), `missing current material: ${item.path}`);
@@ -124,6 +134,8 @@ const decodeXml = (text) => String(text)
   .replaceAll("&quot;", '"')
   .replace(/\s+/g, " ")
   .trim();
+const compactText = (text) => String(text).toLowerCase().replace(/[^a-z0-9]+/g, "");
+const includesLoose = (text, marker) => compactText(text).includes(compactText(marker));
 const unzipText = (relative, patterns) => decodeXml(execFileSync("unzip", ["-p", path.join(root, relative), ...patterns], { encoding: "utf8", maxBuffer: 80 * 1024 * 1024 }));
 const zipEntries = (relative, pattern) => execFileSync("unzip", ["-Z1", path.join(root, relative)], { encoding: "utf8" })
   .split(/\r?\n/)
@@ -148,11 +160,15 @@ const validatePageNumberOnlyFooters = (relative, label) => {
 };
 const assignmentDocx = unzipText("CAPSTONE/bus311-capstone-assignment.docx", ["word/*.xml"]);
 const rubricDocx = unzipText("CAPSTONE/bus311-capstone-student-rubric.docx", ["word/*.xml"]);
+const revenueGuideDocx = unzipText("CAPSTONE/bus311-capstone-revenue-engine-guide.docx", ["word/*.xml"]);
+const hypothesisChecklistDocx = unzipText("CAPSTONE/bus311-capstone-hypothesis-checklist.docx", ["word/*.xml"]);
+const revenueRubricDocx = unzipText("CAPSTONE/bus311-capstone-revenue-milestone-rubric.docx", ["word/*.xml"]);
 const aiGuideDocx = unzipText("CAPSTONE/bus311-capstone-ai-student-guide.docx", ["word/*.xml"]);
 const capajDocx = unzipText("CAPSTONE/bus311-capstone-capaj-prompts.docx", ["word/*.xml"]);
 const pptxText = unzipText("CAPSTONE/bus311-capstone-board-deck-template.pptx", ["ppt/slides/*.xml", "ppt/notesSlides/*.xml"]);
 const redTeamText = unzipText("CAPSTONE/bus311-capstone-red-team-record.xlsx", ["xl/sharedStrings.xml", "xl/worksheets/*.xml"]);
 const valuationText = unzipText("CAPSTONE/bus311-capstone-valuation-model.xlsx", ["xl/sharedStrings.xml", "xl/worksheets/*.xml"]);
+const revenueWorkbookText = unzipText("CAPSTONE/bus311-capstone-revenue-analysis.xlsx", ["xl/sharedStrings.xml", "xl/worksheets/*.xml"]);
 const pdftotext = process.env.PDFTOTEXT || "/Users/bethanyevittsair2/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/poppler/bin/pdftotext";
 const assignmentPdf = execFileSync(pdftotext, [path.join(root, "CAPSTONE/bus311-capstone-assignment.pdf"), "-"], { encoding: "utf8", maxBuffer: 40 * 1024 * 1024 }).replace(/\s+/g, " ").trim();
 
@@ -161,6 +177,7 @@ for (const [label, text] of [["assignment DOCX", assignmentDocx], ["assignment P
   assertOralPresentationTitle(label, text);
   for (const marker of ["PowerPoint company-analysis project submission", "Oral Presentation", "50 points", "25 points", "exactly one editable", "up to seven minutes", "up to three", "100 points"]) assert(text.toLowerCase().includes(marker.toLowerCase()), `${label} is missing: ${marker}`);
   for (const marker of ["Sept. 9", "Sept. 30", "Nov. 18", "Nov. 22"]) assert(text.includes(marker), `${label} is missing unchanged date: ${marker}`);
+  for (const marker of ["Submit one required file", "Stage 2 start here", "FactSet access or the Excel add-in", "PASS", "structural checks are complete", "Fewer than three defensible peers"]) assert(includesLoose(text, marker), `${label} is missing Stage 2 help: ${marker}`);
 }
 assertNoOld("student rubric DOCX", rubricDocx);
 assertOralPresentationTitle("student rubric DOCX", rubricDocx);
@@ -183,6 +200,15 @@ assertNoOld("valuation workbook", valuationText);
 assertOralPresentationTitle("valuation workbook", valuationText);
 assert(valuationText.includes("Oral Presentation readiness") && valuationText.includes("live-question support"), "valuation workbook Stage 5 language is stale");
 
+for (const [label, text] of [["revenue guide", revenueGuideDocx], ["hypothesis checklist", hypothesisChecklistDocx], ["revenue milestone rubric", revenueRubricDocx]]) {
+  assert(!/Instructor-review draft/i.test(text), `${label} still exposes an instructor-review draft label`);
+  assert(!/Submit two files/i.test(text), `${label} still requires two Stage 2 files`);
+}
+for (const marker of ["Approved student release", "One required file", "eight-step workflow", "FactSet access or the Excel add-in", "structural checks are complete"]) assert(includesLoose(revenueGuideDocx, marker), `revenue guide is missing: ${marker}`);
+for (const marker of ["Approved student release", "Base", "Upside", "Downside", "skeptical-CFO judgment"]) assert(includesLoose(hypothesisChecklistDocx, marker), `hypothesis checklist is missing: ${marker}`);
+for (const marker of ["Approved student scoring standard", "8 points", "Revenue Engine and Initial Hypothesis", "challenge linkage", "AI output is not evidence"]) assert(includesLoose(revenueRubricDocx, marker), `revenue milestone rubric is missing: ${marker}`);
+for (const marker of ["Complete all nine visible sheets", "Reported revenue change", "Quantified driver effects", "Directional remainder"]) assert(revenueWorkbookText.includes(marker), `revenue workbook is missing revised Stage 2 guidance: ${marker}`);
+
 const publicHub = await fs.readFile(path.join(root, "CAPSTONE/index.html"), "utf8");
 const canvasFragment = await fs.readFile(path.join(root, "CAPSTONE/bus311-capstone-canvas.html"), "utf8");
 const assignmentMarkdown = await fs.readFile(path.join(root, "CAPSTONE/bus311-capstone-assignment.md"), "utf8");
@@ -196,6 +222,7 @@ for (const text of [publicHub, canvasFragment, assignmentMarkdown]) {
   assert(text.includes("PowerPoint company-analysis project submission") && text.includes("Oral Presentation"), "a generated Stage 5 output is missing the two exact component names");
   assert(text.includes("50 points") && text.includes("25 points"), "a generated Stage 5 output is missing the 50/25 scoring");
   assert(text.includes("one") && text.toLowerCase().includes("live"), "a generated Stage 5 output is missing upload/live detail");
+  for (const marker of ["Start here", "six to eight focused hours", "Upload one required file", "FactSet", "PASS", "structural", "Fewer than three defensible peers"]) assert(includesLoose(text, marker), `a generated Stage 2 output is missing: ${marker}`);
 }
 for (const legacy of source.unlistedLegacyMaterials || []) {
   const name = path.basename(legacy.path);
@@ -203,7 +230,13 @@ for (const legacy of source.unlistedLegacyMaterials || []) {
 }
 assert(publicHub.includes(`Open the complete file library (${source.materials.length} files)`) && canvasFragment.includes(`Open the complete file library (${source.materials.length} files)`), "file-library count is stale");
 assert((publicHub.match(/class="stage-card"/g) || []).length === 5, "public hub must show five stage cards");
+for (const step of stageTwoHelp.steps) assert(publicHub.includes(step.title), `public hub is missing Stage 2 step: ${step.title}`);
+for (const materialId of stageTwo.materialIds) {
+  const material = source.materials.find((item) => item.materialId === materialId);
+  assert(material && publicHub.includes(path.basename(material.path)) && canvasFragment.includes(path.basename(material.path)), `Stage 2 help does not expose ${materialId}`);
+}
 assert(publicHub.includes("stage-five-components") && publicHub.includes("@media(max-width:700px)"), "public hub is missing responsive Stage 5 layout");
+assert(publicHub.includes("stage-two-help") && publicHub.includes("@media(max-width:700px)"), "public hub is missing responsive Stage 2 help layout");
 assert(!/<(?:html|head|body|style|script)\b/i.test(canvasFragment), "Canvas fragment contains prohibited document, style, or script markup");
 assert((canvasFragment.match(/<h1\b/gi) || []).length === 1, "Canvas fragment must contain exactly one H1");
 assert(courseHub.includes("PowerPoint submission and Oral Presentation") && courseHub.includes(stageFive.title), "course homepage capstone snapshot is stale");

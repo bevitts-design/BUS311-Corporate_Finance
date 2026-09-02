@@ -1,6 +1,6 @@
 # BUS311 Individual Company Capstone
 
-**Status:** Approved student release | **Source:** CAPSTONE/source/bus311-capstone.json | **Version:** 1.4.0 | **SHA-256:** 88763e7c05734d68a231bf55f21a49b57244bc21d4ac76bda49f19b6c34e86fc
+**Status:** Approved student release | **Source:** CAPSTONE/source/bus311-capstone.json | **Version:** 1.5.0 | **SHA-256:** f4837831f74562762cfc0ab95e656a1890bbfa684ec2c88f00f4707c512e6ff7
 
 ## Stage 1: Explore the company and a CFO decision
 
@@ -15,6 +15,36 @@
 **Required FactSet learning:** State one specific thing you learned from FactSet and identify the screen, report, or feature used. A company or segment metric, ownership or market item, peer observation, estimate, or relevant news/data discovery all work. Formal citation and validation are not required in Stage 1.
 
 **Not required yet:** verify the recommendation or prove the claim; validate a hypothesis; compare or defend alternatives; build an evidence register; complete formal citations; secure a formal approval gate.
+
+## Stage 2: Explain the revenue engine — 8 points
+
+**Outcome:** A traceable revenue diagnosis and testable company hypothesis.
+
+**Due:** Wednesday, Sept. 30, 2026 at 12:30 p.m. ET (class-start time).
+
+**Submit one required file:** Upload one required file in the designated Canvas assignment: the completed BUS311 Capstone Revenue Analysis Workbook (.xlsx), including the Hypothesis & Scenarios sheet. Do not create or upload a separate PDF or DOCX unless Canvas or the instructor explicitly requests an additional readable export.
+
+**Time expectation:** Plan for approximately six to eight focused hours across two weeks, including scheduled class workdays.
+
+### Start here
+
+1. **Read the Revenue Engine Student Guide:** Use the scope limits and eight-step workflow before collecting data. File: [Revenue-engine student guide](./bus311-capstone-revenue-engine-guide.docx).
+2. **Complete the Revenue Analysis Workbook:** Work through the nine visible sheets in order and maintain the Evidence Register as you go. File: [Revenue analysis workbook](./bus311-capstone-revenue-analysis.xlsx).
+3. **Test the hypothesis twice:** Use the checklist before the skeptical-CFO challenge and again after revising the hypothesis. File: [Revenue-hypothesis quality checklist](./bus311-capstone-hypothesis-checklist.docx).
+4. **Check the eight-point rubric:** Compare the completed workbook with every criterion before submission. File: [Revenue milestone rubric](./bus311-capstone-revenue-milestone-rubric.docx).
+5. **Resolve checks and submit:** Review Checks & Submission, explain honest limitations, and upload the completed .xlsx in Canvas. File: [Revenue analysis workbook](./bus311-capstone-revenue-analysis.xlsx).
+
+**FactSet help:** Use the course FactSet activation and Excel setup page before beginning the workbook. Keep raw FactSet exports and screenshots inside approved course-restricted systems. [Open the course FactSet setup page](https://endicott.instructure.com/courses/58525/pages/activate-factset-and-add-it-to-excel).
+
+**What PASS means:** PASS on the workbook's Checks & Submission sheet confirms that the required fields and structural checks are complete. It does not guarantee full credit or prove that the analysis, evidence, or judgment is correct.
+
+### Common edge cases
+
+- **Fewer than three defensible peers:** Use the defensible peers available and explain why additional companies are not sufficiently comparable.
+- **A segment, market-share measure, or driver is not disclosed:** State the limitation, use a supportable proxy only when its definition is clear, and never invent a figure.
+- **Definitions changed across years:** Reconcile or disclose restatements, acquisitions, divestitures, fiscal-year changes, and segment-definition changes before comparing growth.
+- **A driver cannot be quantified:** Classify it as directional, cite the supporting evidence, and state what would be needed to quantify it.
+- **Using AI or the non-AI path:** Either path must produce the same skeptical-CFO challenge record. AI output is not evidence, and raw FactSet files or screenshots may not be uploaded to public AI tools.
 
 ## Stage 5: exactly two assessed components — 75 points
 
