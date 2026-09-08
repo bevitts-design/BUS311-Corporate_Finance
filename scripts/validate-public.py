@@ -282,8 +282,8 @@ def deck_checks(path, errors):
             "Sensitivity" in text
             or (
                 is_approved_intro
-                and "The revenue hypothesis drives the valuation model" in text
-                and "Challenge and revise" in text
+                and "The forecast claim informs the cash-flow model" in text
+                and "Model, challenge, and revise" in text
             )
             or (
                 is_approved_financial_institutions
@@ -415,8 +415,6 @@ def site_hub_checks(course_map, term, errors):
     if current_schedule and current_schedule.get("releaseState") != "Available":
         errors.append("Term current lesson must be Available.")
     available_lesson_ids = [item.get("lessonId") for item in term.get("schedule", []) if item.get("releaseState") == "Available"]
-    if available_lesson_ids != [current_lesson_id]:
-        errors.append("Term release state must make exactly the current lesson Available and keep every other lesson Locked.")
 
     index_path = ROOT / "index.html"
     index_text = index_path.read_text(encoding="utf-8") if index_path.exists() else ""
@@ -467,8 +465,23 @@ def site_hub_checks(course_map, term, errors):
     if index_text.count('data-current="true"') != 1:
         errors.append("Generated homepage must mark exactly one current lesson card.")
     locked_card_count = len(re.findall(r'<article class="[^"]*\blesson-card\b[^"]*\blocked-card\b', index_text))
-    if locked_card_count != lesson_count - 1:
-        errors.append("Generated homepage must keep exactly one current lesson card actionable and every other card locked.")
+    if locked_card_count != lesson_count - len(available_lesson_ids):
+        errors.append("Generated homepage locked cards must match the term release states.")
+    cards = re.findall(r'<article class="lesson-card[^"]*"[^>]*>.*?</article>', index_text, re.S)
+    for lesson in course_map["lessons"]:
+        matching = [card for card in cards if re.search(
+            r"<h3>(?:<a\b[^>]*>)?" + re.escape(lesson["title"]) + r"(?:</a>)?</h3>", unescape(card)
+        )]
+        if len(matching) != 1:
+            errors.append(f"Generated homepage must have one identifiable card for {lesson['id']}.")
+            continue
+        card = matching[0]
+        is_available = lesson["id"] in available_lesson_ids
+        is_locked = "locked-card" in card.split(">", 1)[0]
+        if is_locked == is_available or (is_available and 'class="primary-action"' not in card):
+            errors.append(f"Generated homepage access does not match term release state: {lesson['id']}")
+        if ('data-current="true"' in card) != (lesson["id"] == current_lesson_id):
+            errors.append(f"Generated homepage current lesson does not match the term: {lesson['id']}")
     locked_card_bodies = re.findall(r'<article class="lesson-card[^"]*locked-card[^"]*"[^>]*>(.*?)</article>', index_text, re.S)
     if any("<a " in body for body in locked_card_bodies):
         errors.append("Generated homepage must not expose actionable links inside locked lessons.")

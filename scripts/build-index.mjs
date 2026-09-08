@@ -178,11 +178,11 @@ const capstoneMilestones = [
   },
 ];
 const initialCapstoneMilestone = capstoneMilestones[0];
-const capstoneProgressStages = [capstone.hub.stages[0], capstone.hub.stages[2], capstone.hub.stages[4]];
+const capstoneProgressStages = [capstone.hub.stages[0], capstone.hub.stages[2], capstone.hub.stages.at(-1)];
 const capstoneAssignment = capstone.materials.find((item) => item.materialId === 'ASSIGNMENT');
 
 const capstoneSnapshotHome = `<article class="capstone-snapshot" id="company-capstone" aria-labelledby="capstone-title" data-capstone-milestones="${esc(JSON.stringify(capstoneMilestones))}">
-  <div class="capstone-copy"><p class="section-kicker">Capstone snapshot</p><h3 id="capstone-title">Company Capstone</h3><p>Build an auditable company model and defend one evidence-backed CFO recommendation to the Board.</p><ol class="capstone-progress" aria-label="Capstone progress">${capstoneProgressStages.map((stage) => `<li>${esc(stage.title)}</li>`).join('')}</ol><div class="capstone-actions"><a class="primary-action" href="CAPSTONE/">Open capstone hub</a><a class="secondary-text-link" href="${esc(capstoneAssignment.path)}" download>Download project brief</a></div></div>
+  <div class="capstone-copy"><p class="section-kicker">Capstone snapshot</p><h3 id="capstone-title">Company Capstone</h3><p>Use company evidence and one continuing workbook to recommend a financial decision.</p><ol class="capstone-progress" aria-label="Capstone progress">${capstoneProgressStages.map((stage) => `<li>${esc(stage.title)}</li>`).join('')}</ol><div class="capstone-actions"><a class="primary-action" href="CAPSTONE/">Open capstone hub</a><a class="secondary-text-link" href="${esc(capstoneAssignment.path)}" download>Download project brief</a></div></div>
   <aside class="capstone-milestone" aria-live="polite"><span>Current milestone</span><strong data-capstone-milestone-title>${esc(initialCapstoneMilestone.title)}</strong><time datetime="${esc(initialCapstoneMilestone.due)}" data-capstone-milestone-date>Due ${esc(initialCapstoneMilestone.dateLabel)}</time></aside>
 </article>`;
 

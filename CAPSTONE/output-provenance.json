@@ -1,71 +1,34 @@
 {
-  "sourceVersion": "1.5.0",
-  "sourceSha256": "f4837831f74562762cfc0ab95e656a1890bbfa684ec2c88f00f4707c512e6ff7",
-  "generatedAt": "2026-09-02",
+  "sourceVersion": "2.0.0",
+  "sourceSha256": "cd231b895df70d8c76fdd27f4223e97c3b6318f863b389a6a0f8083e0e47091b",
   "artifacts": [
     {
-      "path": "CAPSTONE/bus311-capstone-assignment.docx",
-      "sha256": "f8d0563eddff4a63663c6136a502b1e5ad7b74d0cd0084728bf2f63559fc46e7"
-    },
-    {
-      "path": "CAPSTONE/bus311-capstone-student-rubric.docx",
-      "sha256": "a3be5a79176d70fbe77223bc5341173384b63a9812c12510c49c266f73d6cd92"
-    },
-    {
-      "path": "CAPSTONE/bus311-capstone-cfo-decision-menu.docx",
-      "sha256": "ef612eb76034de560a46446428c6902e382597860c0e199deba3c744cb07f991"
-    },
-    {
-      "path": "CAPSTONE/bus311-capstone-stage-1-exploration-brief.docx",
-      "sha256": "7113ad84c8e6e4930602e477e3752fd4a953047325be1a1370f1357f41f147e3"
-    },
-    {
-      "path": "CAPSTONE/bus311-capstone-revenue-analysis.xlsx",
-      "sha256": "be45cbdd5326e020a824bcba6c9ffd70d6e851ee698daac88a7b4bff97c40a79"
-    },
-    {
-      "path": "CAPSTONE/bus311-capstone-revenue-engine-guide.docx",
-      "sha256": "3c52b1ea35189bf418386e372ef1cd2568f085fad3ff22f87ad865b5cd9cca75"
-    },
-    {
-      "path": "CAPSTONE/bus311-capstone-hypothesis-checklist.docx",
-      "sha256": "97494c9356fb70186cd91e60833ee0e75bd167df151224973ec2990c12906d09"
-    },
-    {
-      "path": "CAPSTONE/bus311-capstone-revenue-milestone-rubric.docx",
-      "sha256": "d9c735a52fec76f7db1c77b527e73f01a494f5ccf31f553c1205d74c102e045a"
-    },
-    {
-      "path": "CAPSTONE/bus311-capstone-valuation-model.xlsx",
-      "sha256": "9107721c60317c9a7bc8ec07c95b2aca475f37b00b560e7045614ff3d698f604"
+      "path": "CAPSTONE/bus311-capstone-project-workbook.xlsx",
+      "sha256": "71845808c1ba63199b12d14fadc40575188719fc7e9f552496936c1ea6a3982f"
     },
     {
       "path": "CAPSTONE/bus311-capstone-board-deck-template.pptx",
-      "sha256": "6b5edc2e7026a1ffe1c24a9b8f964fe2c24dd1e08225fffbe9864a8893d687c1"
+      "sha256": "2cc88f0713fd57d31231a9f2999e0b2288081868e5aa575dc3db8f9e8a3a8464"
     },
     {
-      "path": "CAPSTONE/bus311-capstone-ai-student-guide.docx",
-      "sha256": "390235097bd9e5b1f598a9b268caa32e6945b080674193ceeb5d839bf8fc2de9"
+      "path": "CAPSTONE/bus311-capstone-assignment.pdf",
+      "sha256": "a6e086e26524c5fc64eb661bb750e1bdde8c48cc3288ce56e114cfeff4d4b3f2"
     },
     {
-      "path": "CAPSTONE/bus311-capstone-capaj-prompts.docx",
-      "sha256": "ba723b7afb41640c1b638d3c21ce2e9c5ebe6f12cf335111e1f59933326465b7"
-    },
-    {
-      "path": "CAPSTONE/bus311-capstone-red-team-record.xlsx",
-      "sha256": "0d7b1240f15d5be61915eb1053b2fb3992f60aaf4e2f8eebc6707b7a9fefed9a"
+      "path": "CAPSTONE/bus311-capstone-assignment.docx",
+      "sha256": "ab4add7359993bb6a8cd370dacda99daeb5bd00c0df901fabdce80dcb6d5e346"
     },
     {
       "path": "CAPSTONE/index.html",
-      "sha256": "874734cee35f41b20ca8c849c87e28ccfbf010735f64082381860272a0277c72"
+      "sha256": "592580c1c70a87fcf43982acb15c4cb49a01329fd37934c59214bc70273dec00"
     },
     {
       "path": "CAPSTONE/bus311-capstone-canvas.html",
-      "sha256": "66350432c8677c18a5ab6d2925d7e5e873918dfddca99e1c5619ba9655638c3e"
+      "sha256": "facde1edb4d406815178b04ce41eab24f7499320a452fc0f0adb91dc381fa267"
     },
     {
       "path": "CAPSTONE/bus311-capstone-assignment.md",
-      "sha256": "1ac60f974b103ac2ee0392ed25f5f90b8ea3a6cdc713dca79ec5af32746ab52f"
+      "sha256": "1210582cd50f670bbc599f6864c9196a3655b5e3fc09b65df13b74cbd2e9cb3b"
     }
   ]
 }

@@ -1,118 +1,115 @@
 # BUS311 Individual Company Capstone
 
-**Status:** Approved student release | **Source:** CAPSTONE/source/bus311-capstone.json | **Version:** 1.5.0 | **SHA-256:** f4837831f74562762cfc0ab95e656a1890bbfa684ec2c88f00f4707c512e6ff7
+Use company evidence and an Excel model to recommend one financial decision.
 
-## Stage 1: Explore the company and a CFO decision
+100 project points; 25% of the course grade.
 
-**Objective:** Select an approved public company, learn the basics through AI and/or ordinary web search plus required FactSet research, and propose one potential CFO decision.
+## Stage 1: Choose a company and decision
 
-**Outcome:** An approved public company, one concrete FactSet learning, and one potential CFO decision to investigate.
+**Due:** September 9 at 12:30 p.m. ET. **Points:** 5.
 
-**Submit:** Stage 1 company exploration brief.
+**Do:** Complete Start: company, ticker, a short company snapshot, one FactSet learning and feature used, and one tentative decision.
 
-**Due:** Wednesday, Sept. 9, 2026 at 12:30 p.m. ET (class-start time).
+**Submit:** Upload the continuing workbook with Start complete.
 
-**Required FactSet learning:** State one specific thing you learned from FactSet and identify the screen, report, or feature used. A company or segment metric, ownership or market item, peer observation, estimate, or relevant news/data discovery all work. Formal citation and validation are not required in Stage 1.
+**Grading:** Company and snapshot 2; specific FactSet learning 1; a plausible tentative decision 2.
 
-**Not required yet:** verify the recommendation or prove the claim; validate a hypothesis; compare or defend alternatives; build an evidence register; complete formal citations; secure a formal approval gate.
+About 1–2 focused hours.
 
-## Stage 2: Explain the revenue engine — 8 points
+## Stage 2: Explain sales and the decision
 
-**Outcome:** A traceable revenue diagnosis and testable company hypothesis.
+**Due:** September 30 at 12:30 p.m. ET. **Points:** 8.
 
-**Due:** Wednesday, Sept. 30, 2026 at 12:30 p.m. ET (class-start time).
+**Do:** Complete Revenue and Sources: three comparable years of sales, two drivers, one peer comparison, two risks, and one forecast claim.
 
-**Submit one required file:** Upload one required file in the designated Canvas assignment: the completed BUS311 Capstone Revenue Analysis Workbook (.xlsx), including the Hypothesis & Scenarios sheet. Do not create or upload a separate PDF or DOCX unless Canvas or the instructor explicitly requests an additional readable export.
+**Submit:** Upload the same workbook with Revenue and Sources updated.
 
-**Time expectation:** Plan for approximately six to eight focused hours across two weeks, including scheduled class workdays.
+**Grading:** Revenue history 2; two drivers 2; peer and risks 2; forecast claim and sources 2.
 
-### Start here
+About 3–4 focused hours, including class work.
 
-1. **Read the Revenue Engine Student Guide:** Use the scope limits and eight-step workflow before collecting data. File: [Revenue-engine student guide](./bus311-capstone-revenue-engine-guide.docx).
-2. **Complete the Revenue Analysis Workbook:** Work through the nine visible sheets in order and maintain the Evidence Register as you go. File: [Revenue analysis workbook](./bus311-capstone-revenue-analysis.xlsx).
-3. **Test the hypothesis twice:** Use the checklist before the skeptical-CFO challenge and again after revising the hypothesis. File: [Revenue-hypothesis quality checklist](./bus311-capstone-hypothesis-checklist.docx).
-4. **Check the eight-point rubric:** Compare the completed workbook with every criterion before submission. File: [Revenue milestone rubric](./bus311-capstone-revenue-milestone-rubric.docx).
-5. **Resolve checks and submit:** Review Checks & Submission, explain honest limitations, and upload the completed .xlsx in Canvas. File: [Revenue analysis workbook](./bus311-capstone-revenue-analysis.xlsx).
+## Stage 3: Model, challenge, and revise
 
-**FactSet help:** Use the course FactSet activation and Excel setup page before beginning the workbook. Keep raw FactSet exports and screenshots inside approved course-restricted systems. [Open the course FactSet setup page](https://endicott.instructure.com/courses/58525/pages/activate-factset-and-add-it-to-excel).
+**Due:** November 4 at 12:30 p.m. ET. **Points:** 12.
 
-**What PASS means:** PASS on the workbook's Checks & Submission sheet confirms that the required fields and structural checks are complete. It does not guarantee full credit or prove that the analysis, evidence, or judgment is correct.
+**Do:** Complete Model, Sources, and Revision. Compare base, upside, and downside NPV; vary one important assumption; check one meaningful challenge and record your judgment.
 
-### Common edge cases
+**Submit:** Upload the same workbook. The challenge record is inside it; there is no separate revision assignment.
 
-- **Fewer than three defensible peers:** Use the defensible peers available and explain why additional companies are not sufficiently comparable.
-- **A segment, market-share measure, or driver is not disclosed:** State the limitation, use a supportable proxy only when its definition is clear, and never invent a figure.
-- **Definitions changed across years:** Reconcile or disclose restatements, acquisitions, divestitures, fiscal-year changes, and segment-definition changes before comparing growth.
-- **A driver cannot be quantified:** Classify it as directional, cite the supporting evidence, and state what would be needed to quantify it.
-- **Using AI or the non-AI path:** Either path must produce the same skeptical-CFO challenge record. AI output is not evidence, and raw FactSet files or screenshots may not be uploaded to public AI tools.
+**Grading:** Cash-flow model and assumptions 4; scenarios and sensitivity 4; verified challenge and judgment 4.
 
-## Stage 5: exactly two assessed components — 75 points
+About 4–6 focused hours, including the worked example and class support.
 
-### PowerPoint company-analysis project submission — 50 points
+## Stage 4: Recommend and present
 
-- **Mode:** Canvas upload
-- **Format:** One editable .pptx with 8-10 core slides plus an optional analytical appendix
-- **Timing:** Upload by Monday, Nov. 30, 2026 at 12:30 p.m. ET; the same file is used for the Oral Presentation
-- **Grading evidence:** Assesses the company-specific CFO recommendation; revenue engine and three-to-five-year evidence; hypothesis and red-team revision; model-reconciled valuation, scenarios, and sensitivities; alternatives; implementation; risks; accessible visuals; source notes; and verified AI-use disclosure.
+**Due:** PowerPoint: November 30 at 12:30 p.m. ET; presentations: November 30–December 9. **Points:** 75.
 
-### Oral Presentation — 25 points
+**Do:** Use six core slides to explain your decision, evidence, numbers, risks, and next step. Put supporting calculations and sources in an optional appendix.
 
-- **Mode:** Live in class
-- **Format:** Individual Oral Presentation using the submitted PowerPoint; no second Stage 5 file is uploaded
-- **Timing:** Present on the assigned date for up to 7 minutes, then respond to live questions for up to 3 minutes within this same 25-point criterion
-- **Grading evidence:** Assesses decision-led organization, revenue-before-valuation explanation, professional voice and pacing, audience fit, command of sources and model logic, accurate responses about assumptions, scenarios, alternatives, implementation, risks, and clear acknowledgment of limitations.
+**Submit:** Upload one editable PowerPoint, then present that file live. Up to 7 minutes presenting and 3 minutes answering questions.
 
-### Upload versus Oral Presentation
+**Grading:** PowerPoint 50; Oral Presentation 25.
 
-Upload exactly one editable PowerPoint company-analysis project file in Canvas by **Monday, Nov. 30, 2026 at 12:30 p.m. ET, when class begins**. Required filename: `BUS311_[LastName]_[Ticker]_CompanyAnalysis.pptx`. The Oral Presentation happens live to the class on the assigned date and is not a second uploaded file. Use up to 7 minutes for the decision briefing and up to 3 minutes for live questions; both are scored together in the single 25-point Oral Presentation criterion.
+About 3–4 focused hours to prepare and rehearse.
 
-## Project scoring
+## Decision paths
 
-- Stages 1-4: 5 + 8 + 8 + 4 = 25 points.
-- PowerPoint company-analysis project submission: 50 points.
-- Oral Presentation: 25 points.
-- **Total: 100 points.**
+### Growth or efficiency investment
 
-## Requirements
+Should the company fund a specific capacity, technology, or process improvement?
 
-- All company-specific research, evidence selection, analysis, modeling, writing, slides, the Oral Presentation, and responses to live questions are individual work.
-- The analysis advises the selected company's CFO and Board on one actionable company decision.
-- Stage 1 is exploratory: select an approved public company, learn the company basics through AI and/or ordinary web search plus required FactSet research, state one concrete FactSet learning and the screen, report, or feature used, and propose one potential CFO decision. Verification, hypothesis validation, alternatives, an evidence register, proof, and a formal approval gate are not required yet.
-- Explain how the company generates sales, using three to five years of consistent revenue evidence and company-specific drivers.
-- State one testable revenue hypothesis naming the driver, expected effect, period, and evidence that would support or falsify it.
-- Revenue evidence must flow into forecasts, scenarios, valuation, and the CFO decision; market valuation cannot replace the revenue analysis.
-- Every material figure, assumption, and claim is traceable to SEC filings, permitted FactSet evidence, Excel analysis, or another credible named source.
-- Beginning after Stage 1, complete exactly four bounded free-tier AI or instructor-provided equivalent checkpoints using C-A-P-A-J; independently verify retained output and record an accept, modify, or reject judgment.
-- Submit the working Excel model at Milestone 3 for valuation, scenarios, sensitivities, and finance-logic assessment.
-- Submit one editable PowerPoint company-analysis project file (.pptx) with 8-10 core slides plus an optional analytical appendix.
-- Deliver an individual Oral Presentation to the class on the assigned date: up to seven minutes for the decision briefing and up to three minutes for live questions, all assessed together as one Oral Presentation criterion.
-- A Buy/Hold/Sell rating is not required and cannot substitute for the evidence-backed CFO decision developed in later stages.
+Incremental after-tax cash flow and NPV versus doing nothing. Initial equipment and setup cash cost; annual additional sales or cost savings; operating costs; tax; additional working capital; end-of-project recovery. Use a bounded five-year project. Explain any estimated project cost using a public benchmark.
 
-## Milestones
+Choose a project with a defensible public cost benchmark. A whole-company acquisition, buyback, debt restructuring, or full enterprise valuation is outside this project.
 
-- **Company research and potential CFO decision (5 points):** Wednesday, Sept. 9, 2026 at 12:30 p.m. ET (class-start time)
-- **Revenue engine and initial hypothesis (8 points):** Wednesday, Sept. 30, 2026 at 12:30 p.m. ET (class-start time)
-- **Excel valuation model and scenarios (8 points):** Wednesday, Nov. 18, 2026 at 12:30 p.m. ET (class-start time)
-- **CFO red team and revision (4 points):** Sunday, Nov. 22, 2026 at 12:30 p.m. ET (class-start time)
+### Working-capital improvement
 
-## Rubric evidence
+Should the company reduce cash tied up in inventory or receivables without damaging service or sales?
 
-- **Company exploration and potential CFO decision (5 points):** Complete — The approved company and beginner-friendly snapshot are clear; one concrete FactSet learning names the feature used; and the potential CFO decision is specific, company-connected, individually authored, and appropriately tentative. Developing — The submission shows a plausible start, but the company snapshot is thin, the FactSet learning or feature is vague, or the potential CFO decision is broad or weakly connected to the initial research. Not demonstrated — The company is outside the approved course scope, required FactSet use is missing, the potential CFO decision is absent, or the work is not individually attributable.
-- **Revenue engine and initial hypothesis (8 points):** Complete — The revenue map, reconciled multi-year evidence, company-specific drivers, indicators, risks, and a falsifiable hypothesis are complete, traceable, and connected to the later forecast and CFO decision. Developing — Revenue history is partly descriptive, incompletely sourced, or weakly decomposed; the hypothesis is vague, only partly testable, or weakly challenged and verified. Not demonstrated — Revenue generation, multi-year evidence, or the hypothesis is missing or materially inaccurate; sources or retained AI claims are unverified.
-- **Valuation model and scenarios (8 points):** Complete — The model is revenue-linked, auditable, correctly structured, source-traceable, scenario-responsive, and free of unresolved errors; checks and sensitivities support the decision under uncertainty. Developing — The model runs but has material gaps in driver linkage, sourcing, checks, scenario logic, sensitivity, or applicable finance mechanics. Not demonstrated — The model is missing, materially incorrect, hardcoded at key outputs, disconnected from revenue evidence, or contains errors that make the valuation unreliable.
-- **AI red team and revision (4 points):** Complete — The record provides a concise verification trail showing skeptical challenge, authoritative evidence, transparent uncertainty, independent judgment, and a material revision or well-defended decision not to revise. Developing — An AI interaction is recorded, but verification is shallow, the accept/modify/reject judgment is weak, or the revision and disclosure trail is incomplete. Not demonstrated — AI output substitutes for student analysis, or verification, judgment, disclosure, privacy safeguards, or the required record is missing.
-- **PowerPoint company-analysis project submission (50 points):** Complete — One on-time editable .pptx meets the slide limit and presents a precise company-specific CFO decision supported by traceable revenue evidence, a tested hypothesis, model-reconciled valuation and scenarios, credible alternatives, an actionable implementation plan, risks and limitations, accessible visuals, source notes, and verified AI disclosure. Developing — An editable PowerPoint and recommendation are present, but one or more material gaps weaken decision readiness: revenue-to-valuation linkage, model reconciliation, scenarios, alternatives, implementation, risks, source notes, accessibility, traceability, file format, or slide discipline. Not demonstrated — No usable editable .pptx is submitted, or the file is materially incomplete, generic, unsupported, inaccessible, unreconciled to the model, or does not communicate an individually authored company-analysis recommendation.
-- **Oral Presentation (25 points):** Complete — The student gives a decision-led, well-paced Oral Presentation within the allotted briefing time and responds accurately and specifically to live questions, tracing sources and model logic, explaining alternatives and risks, acknowledging limits, and demonstrating clear individual ownership throughout. Developing — The core message is understandable, but timing, organization, reading, jargon, pacing, audience fit, source or model command, response accuracy, treatment of alternatives and risks, or acknowledgment of uncertainty materially weakens the Oral Presentation. Not demonstrated — The student does not deliver the required Oral Presentation, is substantially unprepared, cannot explain essential evidence or model mechanics, gives materially inaccurate or invented responses, or does not demonstrate individual ownership.
+Incremental cash released, implementation and operating costs, and NPV versus current practice. For receivables, annual sales / 365 × days reduced; for inventory, annual cost of goods sold / 365 × days reduced. Use one lever. Count the release once, explain the duration, and include restoration if the improvement ends.
+
+Use one cash-conversion lever, with two service or revenue risks. Do not count the same cash release again as operating revenue or recurring savings.
+
+## Feedback and revision
+
+Feedback target: November 11, 2026. Revise the existing Stage 3 Canvas submission within seven calendar days of written feedback. The higher score replaces the original. If feedback arrives November 11, the revision window ends November 18. No separate revision file or assignment is required.
+
+If feedback changes your numbers, replace the workbook in the original Stage 3 assignment and use that version in the slides. Identify the workbook version and model cell below each financial result.
+
+## Six-slide presentation
+
+1. **What should the company do?** State the company, your name, the proposed action, and one clear recommendation. One sentence naming the decision and its scope.
+2. **Why this decision?** Explain the business need and how the company makes money. A simple three-year sales chart and two drivers.
+3. **What evidence supports it?** Show the decisive evidence and the assumption it supports. One peer comparison, one forecast claim, and source IDs.
+4. **What do the numbers show?** Compare doing nothing with the change in base, upside, and downside cases. Three scenario NPVs, one sensitivity, and the model version/cells.
+5. **What could go wrong?** Explain two risks, the strongest challenge, and what you changed. One observable condition that would change your recommendation.
+6. **What happens next?** Name the first action, responsible role, timing, and one measure to monitor. A practical next step and a stop, review, or expand trigger.
+
+## Grading
+
+- **Company and tentative decision (5):** Company and snapshot 2; specific FactSet learning 1; tentative decision 2.
+- **Sales evidence and forecast claim (8):** Comparable history 2; two drivers 2; peer and two risks 2; forecast claim and sources 2.
+- **Cash-flow model and uncertainty (8):** Correct incremental cash flows and supported assumptions 4; three scenarios and one decision-relevant sensitivity 4.
+- **Challenge and judgment (4):** A specific challenge 1; independent evidence or recalculation 2; a justified change or decision to retain 1.
+- **Recommendation (10):** Specific action and coherent rationale 6; connection to the company problem 4.
+- **Financial evidence (20):** Company evidence 6; correct model reconciliation 8; interpretation of scenarios and sensitivity 6.
+- **Alternatives and risk (10):** Comparison with the status quo 4; two risks and a decision-changing condition 4; actionable next step 2.
+- **Communication (10):** Clear six-slide story 4; readable visuals and labels 3; usable source notes, model references, and applicable AI disclosure 3.
+- **Oral Presentation (25):** Clear explanation and pacing 10; command of evidence and calculations 10; accurate responses and acknowledgment of limits 5.
+
+Award points within each listed subcategory for the evidence demonstrated. A minor gap loses points in that subcategory only. Developing is a midpoint anchor, not a mandatory score jump. Missing or materially wrong evidence earns zero for the affected subcategory. Avoid deducting twice for the same defect within a criterion.
 
 ## Policies
 
-- Stage 1 is a beginner-level exploration, not an evidence gate. Approved means the company fits the course scope; students do not need a separate formal approval decision before continuing. Students may use AI, ordinary web search, or both for introductory research, but FactSet use is required. They record one concrete FactSet learning and name the screen, report, or feature used without formal citation or validation at this stage.
-- Stages 1-4 are due at 12:30 p.m. ET (the course's class-start time) on their listed dates: Sept. 9, Sept. 30, Nov. 18, and Nov. 22, 2026.
+- Research, assumptions, formulas, writing, and presentation are individual work. You must explain the submitted analysis yourself.
+- Stage 1 is exploration. Use web research and/or AI plus FactSet. Name one FactSet learning and the feature used. Formal citations and proof are not required until Stage 2. The decision may change as the evidence develops.
+- From Stage 2, use one Sources tab. Record a source ID, exact SEC filing/table or FactSet report/metric, link or report locator, date and period, units, and the fact or assumption used. Put that ID beside the input or claim. Explain changed definitions or missing evidence where they matter.
 - Students and the instructor may use FactSet evidence in BUS311 course deliverables. Raw exports and screenshots remain in approved course-restricted systems and are not committed publicly or uploaded to public AI tools.
-- Beginning in Stage 2, for each FactSet item, name FactSet, the report/screen/chart/metric, data-through or retrieval date, units/currency/period, definition or adjustment, peer group and rationale when applicable, exact use, and limitations.
-- After Stage 1, AI may challenge student work but is never financial evidence. Retained output must be independently checked with SEC, FactSet, Excel, or course concepts and classified as accepted, modified, or rejected with a human rationale. Raw licensed data and screenshots are not uploaded to public AI tools.
+- Complete one challenge before the Stage 3 submission. Use AI, a peer, or the provided self-review questions. Record the strongest challenge, what you checked, and what you changed or why you kept the original conclusion. AI output is not financial evidence.
+- Give public AI tools only a short summary you wrote from public information. Do not upload workbooks, raw FactSet exports or screenshots, personal information, private teaching material, or nonpublic information. If AI is used, name the tool and purpose in Revision and disclose it briefly in the presentation appendix or source notes.
+- Use the required minimum where evidence supports it. If no defensible peer or comparable historical figure exists, state why and discuss an appropriate limitation or proxy with the instructor. Never invent company facts. Label estimated project inputs as assumptions and explain their basis.
 - Milestones remain eligible under the BUS311 syllabus late-work policy. A late milestone delays feedback and can make dependent project work harder; complete missing milestone work before relying on it in a later stage. Documented exceptions follow the applicable college and course process.
-- Milestones 1-3 may each be revised once within seven calendar days of written instructor feedback with a concise change log. The revised score replaces the original when higher.
+- Stages 1–3 may each be revised once within seven calendar days of written feedback. Replace the workbook in the original assignment; the higher score replaces the original. Summarize the change in Revision.
 - The PowerPoint company-analysis project file is due Monday, Nov. 30, 2026 at 12:30 p.m. ET, when class begins. The submitted .pptx locks at that time for every student regardless of Oral Presentation date. Only instructor-authorized accessibility or file-repair corrections that do not alter the analysis or recommendation are permitted afterward.
-- Upload exactly one final Stage 5 file in the designated Canvas assignment: the editable PowerPoint company-analysis project (.pptx). The Oral Presentation is delivered live to the class on the assigned date and is not a second uploaded file. The Excel model is collected earlier at Milestone 3.
 - Approved documented absences use the next protected slot or instructor-scheduled make-up. The live Oral Presentation, including responses to questions, remains required. Unexcused absences follow the BUS311 late-work policy and still require a make-up Oral Presentation.
+- Submit the continuing workbook at Stages 1, 2, and 3. Submit one editable .pptx at Stage 4. The Oral Presentation uses that same deck; no second final file is required. Canvas supplies the live upload links and presentation order.

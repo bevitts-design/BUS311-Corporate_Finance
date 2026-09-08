@@ -78,8 +78,8 @@ const slide18 = slideByNumber(18);
 for (const stage of capstone.hub.stages) {
   if (!slide18.includes(`data-stage-id="${stage.stageId}" data-title="${stage.title}"`)) errors.push(`Slide 18 does not use the maintained title for ${stage.stageId}.`);
 }
-if (!slide18.includes('The revenue hypothesis drives the valuation model')) {
-  errors.push('Slide 18 is missing the required revenue-before-valuation sequencing rule.');
+if (!slide18.includes('The forecast claim informs the cash-flow model')) {
+  errors.push('Slide 18 is missing the required evidence-to-model connection.');
 }
 if (!slide18.includes('AI/web plus required FactSet') || !slide18.includes('one FactSet finding and feature')) {
   errors.push('Slide 18 is missing the required beginner FactSet discovery and feature-used prompt.');
