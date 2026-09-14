@@ -22,13 +22,13 @@ struct ContentView: View {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 5) {
                     Text("BUS311 Mission Control").font(.largeTitle.weight(.semibold))
-                    Text("Corporate Finance lesson access and This week selection").foregroundStyle(.secondary)
+                    Text("Corporate Finance current lesson and student access").foregroundStyle(.secondary)
                     Text("The selected current lesson drives the student homepage. Locked cards show what is coming without an active lesson link.").font(.callout).foregroundStyle(.secondary)
                 }
                 Spacer()
                 VStack(alignment: .trailing, spacing: 4) {
                     if let current = store.selectedCurrentLesson {
-                        Text("Current · \(current.module)").font(.callout.weight(.semibold)).help(current.title)
+                        Text("\(store.currentLessonChanged ? "Selected" : "Current") · \(current.module)").font(.callout.weight(.semibold)).help(current.title)
                     }
                     Text("\(store.availableCount) of \(store.lessons.count) available").font(.callout.monospacedDigit()).foregroundStyle(.secondary)
                 }
@@ -61,8 +61,9 @@ struct ContentView: View {
     }
     private var lessonList: some View {
         VStack(alignment: .leading, spacing: 0) {
+            CurrentLessonPicker(store: store).padding(20)
             TextField("Search lessons", text: $store.searchText).textFieldStyle(.roundedBorder).padding(20)
-            Text("“Make current” updates the homepage This week view and also unlocks that lesson.").font(.footnote).foregroundStyle(.secondary).padding(.horizontal, 20).padding(.bottom, 4)
+            Text("Choose a current lesson above, or use “Make current” below. Save and rebuild to update the local homepage.").font(.footnote).foregroundStyle(.secondary).padding(.horizontal, 20).padding(.bottom, 4)
             ScrollView { LazyVStack(alignment: .leading, spacing: 16) {
                 ForEach(["intro", "valuation", "decisions"], id: \.self) { track in
                     let lessons = filtered(track)
@@ -72,7 +73,7 @@ struct ContentView: View {
                     }}
                 }
             }.padding(20) }
-        }
+        }.disabled(store.isWorking)
     }
     private var preview: some View {
         VStack(alignment: .leading, spacing: 12) {
