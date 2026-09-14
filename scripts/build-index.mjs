@@ -119,9 +119,11 @@ function lessonCard(lesson) {
   const termInfo = schedule.get(lesson.id) || { week: '—', dateLabel: 'Schedule in Canvas', releaseState: 'Available' };
   const isCurrent = lesson.id === current.id;
   const isAvailable = termInfo.releaseState === 'Available';
-  const cardMaterial = lesson.materials.find((material) => material.cardLabel);
-  const cardMaterialButton = isAvailable && cardMaterial
-    ? `<a class="card-resource-action" href="${esc(materialHref(cardMaterial))}" download aria-label="${esc(`${cardMaterial.cardLabel} for ${lesson.title}`)}">${esc(cardMaterial.cardLabel)}</a>`
+  const cardMaterialButton = isAvailable
+    ? lesson.materials.filter((material) => material.cardLabel).map((material) => {
+      const localDownload = material.path && /\.(xlsx|docx|pdf)$/i.test(material.path);
+      return `<a class="card-resource-action" href="${esc(materialHref(material))}"${localDownload ? ' download' : ''} aria-label="${esc(`${material.cardLabel} for ${lesson.title}`)}">${esc(material.cardLabel)}</a>`;
+    }).join('\n    ')
     : '';
   const cardContent = isAvailable
     ? `<p class="case-study">Case: ${esc(lesson.caseStudy)}</p>

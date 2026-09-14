@@ -223,6 +223,14 @@
           "path": "01-INTRO/M03/bus311-intro-m03-l01-factset-cat-activity.xlsx",
           "stage": "Apply",
           "description": "Student worksheet for gathering and interpreting Caterpillar financial evidence."
+        },
+        {
+          "type": "Infographic",
+          "label": "Financial Statement",
+          "cardLabel": "Financial Statement",
+          "path": "assets/Financial Statement Infographic",
+          "stage": "Learn",
+          "description": "Visual guide to the income statement, balance sheet, cash flow statement, and how they connect."
         }
       ]
     },
