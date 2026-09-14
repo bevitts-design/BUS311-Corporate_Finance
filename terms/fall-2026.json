@@ -48,7 +48,7 @@
     "source" : "CAPSTONE\/source\/bus311-capstone.json",
     "targetPresentersPerDate" : 5
   },
-  "currentLessonId" : "intro-m01-l01",
+  "currentLessonId" : "intro-m03-l01",
   "id" : "fall-2026",
   "label" : "Fall 2026",
   "location" : "Gerrish School of Business · Room 349",
