@@ -74,38 +74,7 @@ async function exportPair(definition) {
 }
 
 const definitions = [
-  {
-    id: 'intro-m03-l01', track: '01-INTRO', module: 'M03',
-    build(keyed) {
-      const wb = baseWorkbook('Financial Statements and Cash Flow', 'intro-m03-l01');
-      const s = wb.worksheets.add('Financial Statements');
-      styleTitle(s, 'Coastal Outfitters — Statement Bridge', 'F');
-      s.getRange('A3:B3').values = [['Income Statement ($ millions)', 'Value']];
-      s.getRange('A3:B3').format = { fill: colors.terra, font: { bold: true, color: colors.white } };
-      s.getRange('A4:B13').values = [
-        ['Revenue', 1200], ['Cost of goods sold', 520], ['Gross profit', null], ['Operating expenses', 330],
-        ['EBIT', null], ['Interest expense', 40], ['Earnings before tax', null], ['Taxes', 65], ['Net income', null], ['Operating cash flow', 310]
-      ];
-      inputStyle(s.getRange('B4:B5')); inputStyle(s.getRange('B7:B7')); inputStyle(s.getRange('B9:B9')); inputStyle(s.getRange('B11:B11')); inputStyle(s.getRange('B13:B13'));
-      if (keyed) s.getRange('B6:B12').formulas = [['=B4-B5'], [null], ['=B6-B7'], [null], ['=B8-B9'], [null], ['=B10-B11']];
-      answerStyle(s.getRange('B6'), keyed); answerStyle(s.getRange('B8'), keyed); answerStyle(s.getRange('B10'), keyed); answerStyle(s.getRange('B12'), keyed);
-      s.getRange('D3:F3').values = [['FactSet Field', 'Period / Units', 'Student Note']];
-      s.getRange('D3:F3').format = { fill: colors.terra, font: { bold: true, color: colors.white } };
-      s.getRange('D4:F8').values = [['Revenue', '', ''], ['EBIT', '', ''], ['Net Income', '', ''], ['Operating Cash Flow', '', ''], ['Cash & Equivalents', '', '']];
-      inputStyle(s.getRange('E4:F8'));
-      s.getRange('A:A').format.columnWidth = 30; s.getRange('B:B').format.columnWidth = 16; s.getRange('D:D').format.columnWidth = 24; s.getRange('E:F').format.columnWidth = 22;
-      const c = wb.worksheets.add('Checks'); styleTitle(c, 'Model Checks', 'E');
-      c.getRange('A3:E3').values = [['Check', 'Actual', 'Expected', 'Difference', 'Status']];
-      c.getRange('A3:E3').format = { fill: colors.terra, font: { bold: true, color: colors.white } };
-      c.getRange('A4:A7').values = [['Gross profit'], ['EBIT'], ['Net income'], ['Cash conversion']];
-      c.getRange('B4:B7').formulas = [["='Financial Statements'!B6"], ["='Financial Statements'!B8"], ["='Financial Statements'!B12"], ["=IFERROR('Financial Statements'!B13/'Financial Statements'!B12,\"\")"]];
-      c.getRange('C4:C7').values = [[680], [350], [245], [310/245]];
-      c.getRange('D4:D7').formulas = [['=B4-C4'], ['=B5-C5'], ['=B6-C6'], ['=B7-C7']];
-      c.getRange('E4:E7').formulas = [['=IF(ABS(D4)<0.01,"OK","CHECK")'], ['=IF(ABS(D5)<0.01,"OK","CHECK")'], ['=IF(ABS(D6)<0.01,"OK","CHECK")'], ['=IF(ABS(D7)<0.01,"OK","CHECK")']];
-      c.getRange('A:A').format.columnWidth = 28; c.getRange('B:D').format.columnWidth = 16; c.getRange('E:E').format.columnWidth = 14;
-      return wb;
-    }
-  },
+  // M03 is generated as a shared pair by BUS311-instructor/scripts/build-bus311-m03-workbooks.mjs.
   {
     id: 'valuation-m01-l01', artifactId: 'valuation-m05-l01', track: '02-VALUATION', module: 'M05', publicOnly: true,
     build() {

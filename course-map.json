@@ -194,13 +194,13 @@
         "cash-flow statement",
         "10-K navigation"
       ],
-      "caseStudy": "Microsoft and Caterpillar",
+      "caseStudy": "Coastal Outfitters (illustrative) and Caterpillar",
       "estimatedMinutes": 75,
       "readingPath": "01-INTRO/M03/source/bus311-intro-m03-l01-prereading.md",
       "prepare": "Review what each financial statement measures and where the statements connect.",
-      "practice": "Trace profit, working capital, and cash through an integrated statement model.",
+      "practice": "Trace profit through CFO, FCFF and FCFE; calculate payout capacity and test an inventory increase.",
       "apply": "Use FactSet evidence to explain one operating or financing change at Caterpillar.",
-      "deliverable": "A completed CAT worksheet with one evidence-based interpretation.",
+      "deliverable": "Completed Coastal Cash Flow and Decision Memo tabs; separate CAT worksheet and interpretation as assigned.",
       "materials": [
         {
           "type": "Slides",
@@ -211,10 +211,10 @@
         },
         {
           "type": "Starter Workbook",
-          "label": "Download statement model",
+          "label": "Download guided cash-flow workbook",
           "path": "01-INTRO/M03/bus311-intro-m03-l01-starter.xlsx",
           "stage": "Practice",
-          "description": "Formula-ready model for linking the three statements."
+          "description": "Guided cash-flow and payout decision, with an inventory experiment and optional balance-sheet extension."
         },
         {
           "type": "Excel Activity",

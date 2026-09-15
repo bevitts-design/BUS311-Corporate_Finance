@@ -388,6 +388,24 @@ def deck_checks(path, errors):
         ),
         "practical file size": path.stat().st_size < 5_000_000,
     }
+    # M03 uses a supplied-data workbook plus a separate CAT retrieval exercise.
+    # Validate its actual teaching tasks rather than requiring legacy mockup labels.
+    if path.name == "bus311-intro-m03-l01-slides.html":
+        checks["FactSet public mockup"] = all(marker in text for marker in (
+            "separate CAT FactSet activity workbook", "year-end periods and units",
+        )) and "PRIVATE CAPTURE" not in text
+        checks["Excel model slide"] = all(marker in text for marker in (
+            'data-label="Coastal guided practice"', "Cash Flow", "Routine links are supplied",
+            "Profit → CFO → FCFF → FCFE", "20 minutes",
+        ))
+        checks["sensitivity slide"] = all(marker in text for marker in (
+            'data-label="Coastal inventory experiment"', "Inputs!C17: 170 → 230",
+            "Before changing the input", "restore inventory to 170",
+        ))
+        checks["decision slide"] = all(marker in text for marker in (
+            'data-label="Coastal payout decision"', "MAX(0, cash − reserve)",
+            "recommend an amount", "cite three numbers", "monitoring trigger",
+        ))
     for label, passed in checks.items():
         if not passed:
             errors.append(f"Deck check failed ({label}): {path.relative_to(ROOT)}")
