@@ -36,7 +36,14 @@ def workbook_checks(path, errors, require_lesson_contract=True):
         text = " ".join(searchable)
         lowered = text.lower()
         if require_lesson_contract:
-            if "factset" not in lowered:
+            if path.name == "bus311-intro-m03-l01-starter.xlsx":
+                # Coastal is a supplied-data case; CAT is the separate FactSet activity.
+                required_sheets = {"START HERE", "Inputs", "Cash Flow", "Decision Memo", "Statement Extension"}
+                if not required_sheets.issubset({name for name, _ in workbook_sheets(path)}) or not all(
+                    marker in lowered for marker in ("illustrative", "supplied inputs", "inventory")
+                ):
+                    errors.append(f"Workbook lacks the M03 supplied-data case structure: {path.relative_to(ROOT)}")
+            elif "factset" not in lowered:
                 errors.append(f"Workbook lacks identified FactSet inputs: {path.relative_to(ROOT)}")
             if not any(marker in lowered for marker in ("decision output", "recommendation", "decision, evidence")):
                 errors.append(f"Workbook lacks a decision output: {path.relative_to(ROOT)}")
@@ -404,8 +411,18 @@ def deck_checks(path, errors):
         ))
         checks["decision slide"] = all(marker in text for marker in (
             'data-label="Coastal payout decision"', "MAX(0, cash − reserve)",
-            "recommend an amount", "cite three numbers", "monitoring trigger",
+            "draft a recommendation", "cite three numbers", "monitoring trigger",
         ))
+        expected_order = [
+            "Coastal guided practice", "54 Strategic decisions based on cash flow",
+            "56 Using FCF for decision making", "Coastal payout decision",
+            "Coastal inventory experiment", "60 Reading the signals", "Coastal debrief",
+            "Future cash flows determine value", "55 Connecting FCF to decision making",
+            "59 Corporate finance cheat sheet", "61 Key takeaways", "62 Appendix",
+        ]
+        labels = re.findall(r'<section[^>]+data-label="([^"]+)"', text)
+        checks["M03 learning sequence"] = labels[54:66] == expected_order
+        checks["M03 exit response"] = "What two additional facts" in text and "Exit response" in text
     for label, passed in checks.items():
         if not passed:
             errors.append(f"Deck check failed ({label}): {path.relative_to(ROOT)}")

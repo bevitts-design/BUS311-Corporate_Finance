@@ -71,13 +71,13 @@ The workbook assumes cash taxes equal tax expense, no additional noncash adjustm
 
 Complete **Cash Flow**, then **Decision Memo**. Yellow cells identify student formulas and responses; routine links and prior-year profit are supplied. Each calculation checkpoint activates independently. The **Statement Extension** is optional.
 
-Distinguish annual FCFE from the ending cash balance and from dividends already paid. Calculate the maximum additional payout that preserves the reserve, then recommend an amount and support it with three numbers. The maximum is a limit, not an automatic recommendation.
+Distinguish annual FCFE from the ending cash balance and from dividends already paid. Calculate the maximum additional payout that preserves the reserve, then draft a recommendation supported by three numbers. The maximum is a limit, not an automatic recommendation.
 
-Predict what happens when ending inventory increases, test the change specified in the workbook, record your explanation, and restore the original input. Negative FCF calls for investigation of investment quality and funding needs.
+Predict what happens when ending inventory increases, test the change specified in the workbook, record your explanation, and restore the original input. Negative FCF calls for investigation of investment quality and funding needs. After the class debrief, finalize the base-case recommendation and monitoring trigger.
 
 ## Cash flow and valuation
 
-Match **FCFF with WACC** to value the business and **FCFE with the cost of equity** to value the owners’ claim. M03 asks you to identify these matches; a full discounted-cash-flow valuation comes later.
+Match **FCFF with WACC** to value the business and **FCFE with the cost of equity** to value the owners’ claim. Complete the workbook’s discount-rate responses after the valuation discussion. M03 asks you to identify these matches; a full discounted-cash-flow valuation comes later.
 
 ## FactSet application
 

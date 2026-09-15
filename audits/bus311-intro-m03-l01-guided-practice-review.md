@@ -29,3 +29,9 @@ The generic public validator now checks the actual M03 guided practice, separate
 - Browser checks confirm 72 slides / 72 notes, keyboard/button/hash navigation, no page errors, no missing images and no detected slide-boundary overflow. Changed slides are visually inspected.
 
 Publication status: local only.
+
+## Learning-flow revision
+
+Authorized implementation of the slide 55–72 review. Slides 1–54, including the Excel solution, are unchanged. The revised sequence is guided calculation (55), allocation choices (56–57), draft payout (58), inventory prediction/test (59), interpretation (60), explicit debrief/final decision (61), combined valuation principle/mechanism (62), NPV (63), claim/rate matching (64), and synthesis/exit response (65). Slides 66–72 remain optional reference, and the stock-compensation caution moves to a separate reference slide 73.
+
+Workbook directions defer final recommendations until after the experiment/debrief and rate responses until after valuation. The recent removal of CAT instructions from START HERE is preserved and reflected in the shared private builder. Shared task addresses and formulas are retained.
