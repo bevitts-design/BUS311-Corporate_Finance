@@ -35,3 +35,12 @@ Publication status: local only.
 Authorized implementation of the slide 55–72 review. Slides 1–54, including the Excel solution, are unchanged. The revised sequence is guided calculation (55), allocation choices (56–57), draft payout (58), inventory prediction/test (59), interpretation (60), explicit debrief/final decision (61), combined valuation principle/mechanism (62), NPV (63), claim/rate matching (64), and synthesis/exit response (65). Slides 66–72 remain optional reference, and the stock-compensation caution moves to a separate reference slide 73.
 
 Workbook directions defer final recommendations until after the experiment/debrief and rate responses until after valuation. The recent removal of CAT instructions from START HERE is preserved and reflected in the shared private builder. Shared task addresses and formulas are retained.
+
+
+## September 16: simple examples and method connection
+
+Deck-specific classroom feedback: retain the successful FCFF/FCFE partner exercise and original numbers. Revised slides46–52 model one small example; slides53–54 retain the activity and labeled Excel solution; slides55–57 explain chapter versus activity conventions before Coastal. Later slides shift by3; total76. Public reading and private teaching sequence are synchronized. Workbooks and CAT activity are unchanged.
+
+Source check identifies the earlier107 cash-flow-from-assets example as Ross, while Brealey Chapter3 teaches statement CFO and actual-tax FCF. The new original example separates actual taxes20 from taxes on EBIT25 and demonstrates FCFF55 by both routes. Comparisons assume consistent reinvestment definitions; general NWC and operating NWC are not interchangeable. Formula reference: https://people.stern.nyu.edu/adamodar/New_Home_Page/problems/dcfprob.htm. Licensed slide contents are not reproduced.
+
+Verification: public validator and private instructor coverage pass. Browser checks confirm76 slides/76 notes, keyboard/button/hash navigation, notes, image loading, and no detected slide-boundary overflow. Revised examples were visually reviewed. Numerical identities and original practice/solution preservation were checked. No workbook files changed. Local edits only; no publication.

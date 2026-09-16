@@ -59,13 +59,37 @@ FactSet accelerates retrieval but does not remove the need to reconcile a value 
 
 ## Cash-flow definitions for this lesson
 
-- **Textbook OCF:** EBIT + D&A − taxes, before the working-capital deduction in the cash-flow-from-assets example.
+- **Ross OCF (earlier example):** EBIT + D&A − taxes, before the working-capital deduction in the cash-flow-from-assets example.
 - **Statement CFO:** net income + noncash adjustments − increase in operating NWC in our simplified case. Interest is already reflected in net income. Do not subtract the working-capital change twice.
 - **Operating NWC:** operating current assets − operating current liabilities. Unlike general NWC, it excludes cash and interest-bearing debt.
 - **FCFF:** EBIT × (1 − tax rate) + D&A − increase in operating NWC − CapEx. It can also be built from CFO by adding after-tax interest and subtracting CapEx in this case.
 - **FCFE:** FCFF − after-tax interest + net borrowing. This measures equity cash-generation capacity, not dividends actually paid.
 
 The workbook assumes cash taxes equal tax expense, no additional noncash adjustments, and all D&A relates to PP&E. These simplifications make the two routes reconcile; real company analysis requires attention to classifications and other adjustments.
+
+## Why the chapter and activity use different methods
+
+Brealey Chapter 3 starts with net income to explain statement CFO. Its introductory free-cash-flow calculation adds **full interest** to CFO and deducts investment, retaining the effect of actual taxes. The earlier Ross example instead starts with EBIT + D&A − actual taxes, then deducts reinvestment. Ross uses general NWC; the valuation activity uses operating NWC. Compare definitions before comparing results.
+
+The activity extends this foundation to investor claims: **FCFF** taxes operating profit as if no interest were deducted; **FCFE** includes debt effects. The activity is preparing you for valuation and payout analysis. The chapter methods explain the statements and cash flows to investors.
+
+### One small example ($ thousands)
+
+Assume EBIT100, D&A10, CapEx25, an increase in operating NWC5, interest20, tax rate25%, and no net borrowing. Interest is paid and fully deductible; taxes are paid as expensed, with no other adjustments.
+
+| Measure | Calculation | Result |
+|---|---|---:|
+| Actual taxes | (100 − 20) × 25% | 20 |
+| Net income | 100 − 20 − 20 | 60 |
+| Statement CFO | 60 + 10 − 5 | 65 |
+| Chapter FCF using actual taxes | 65 + 20 − 25 | 60 |
+| Activity FCFF | 100 × 75% + 10 − 25 − 5 | 55 |
+| Same FCFF, starting with CFO | 65 + 20 × 75% − 25 | 55 |
+| FCFE | 55 − 20 × 75% + 0 | 40 |
+
+The 5 difference between chapter FCF and activity FCFF is the interest tax saving: 20 × 25%. Two routes to **FCFF** agree; two differently defined cash-flow measures need not. Do not subtract the working-capital increase again when starting from CFO. D&A is added back because it reduced profit without a current cash payment; equipment purchases and the assumed inventory increase use cash.
+
+The original in-class FCFF/FCFE practice uses a separate set of inputs in **millions**. Work it with a partner before checking the labeled Excel solution. Then apply the same logic to Coastal.
 
 ## Guided Coastal activity
 

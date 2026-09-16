@@ -421,7 +421,10 @@ def deck_checks(path, errors):
             "59 Corporate finance cheat sheet", "61 Key takeaways", "62 Appendix",
         ]
         labels = re.findall(r'<section[^>]+data-label="([^"]+)"', text)
-        checks["M03 learning sequence"] = labels[54:66] == expected_order
+        start = labels.index("Coastal guided practice") if "Coastal guided practice" in labels else -1
+        checks["M03 learning sequence"] = start >= 0 and labels[start:start+len(expected_order)] == expected_order
+        learning_arc = ['Simple example inputs', 'Simple example cash events', 'Simple example CFO', 'Simple example FCFF', 'Simple example FCFE', 'Simple example borrowing', '48 Who gets the cash', '52 Give it a try', '53 Give it a try solution', 'Why the methods differ', 'Same numbers different taxes', 'Two routes same FCFF']
+        checks["M03 worked example and practice"] = labels[45:57] == learning_arc
         checks["M03 exit response"] = "What two additional facts" in text and "Exit response" in text
     for label, passed in checks.items():
         if not passed:
