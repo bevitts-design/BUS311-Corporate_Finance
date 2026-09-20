@@ -177,3 +177,15 @@ h1,h2,h3,p,figure{margin:0}h1{font:800 var(--display)/.96 var(--font-body);lette
 .retailer-steps span{font-size:var(--small);font-weight:650;color:var(--steel)}
 .retailer-steps h3{font-size:36px;line-height:1.2;margin:0;overflow-wrap:anywhere}
 .retailer-steps p{font-size:var(--body);line-height:1.4;margin:0}
+
+/* Light green consistently marks workbook actions, with explicit text directions. */
+.slide.workbook-action{background:#E7F4E9}
+.workbook-action .rule{background:#B9D8C0}
+.workbook-action .retailer-context,.workbook-action .deliverable{background:#CFE8D5;color:var(--navy)}
+.workbook-action .scenario-context{background:#CFE8D5;color:var(--navy);padding:20px 24px;border-radius:16px}
+.workbook-action .excel-ribbon span{font-family:var(--font-body);font-weight:650}
+.slide.workbook-action{color:var(--navy)}
+.workbook-action .eyebrow,.workbook-action .brief-grid span{color:var(--steel)}
+.workbook-action .brief-grid article{background:var(--white);border-color:#B9D8C0}
+.workbook-action .brief-grid small{color:var(--soft)}
+.workbook-action .brief-deliverable{background:var(--navy);color:var(--white)}
