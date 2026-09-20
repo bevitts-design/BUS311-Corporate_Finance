@@ -17,7 +17,7 @@ Students move from financial-statement relationships to a driver-based corporate
 - Use the approved BUS311 navy, steel, teal, gold, and terra system.
 - Use editable HTML/CSS/SVG for ratio families, DuPont, peer selection, evidence chains, and sensitivity.
 - Preserve the approved local BUS311 hero asset without a projected production credit.
-- Use a dedicated 25-slide source instead of the generic lesson generator.
+- Use a dedicated 29-slide source instead of the generic lesson generator.
 - Provide explicit action, time, interaction method, and deliverable on activity slides.
 - Keep formative answers, rationale, misconceptions, and debrief prompts in teaching notes.
 

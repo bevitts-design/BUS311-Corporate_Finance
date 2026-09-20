@@ -58,3 +58,10 @@
 - Net margin is labeled profitability; the new equity multiplier is distinguished from previously calculated asset turnover. Slide 13 applies the identity through the sliders.
 - Preserved 75 minutes across 25 slides by splitting the former five-minute explanation into three and two minutes. Updated instructor slide references.
 - Focused deck validator passed. Browser checks covered all 25 slides at 1920×1080 and 1366×768, every reveal stage and reset, and existing interactive activities; no overflow or JavaScript errors. Fully revealed slides visually inspected. Full public validation is blocked only by the Excel temporary owner file for the starter workbook; it was preserved. Local only, unpublished.
+
+## September 20, 2026 — guided workbook introduction
+
+- Added slides 14–16 after the DuPont sliders: four ratios for both retailers (including equity multiplier needed by the linked decomposition), a predict/test/explain expense experiment, and a provisional dashboard interpretation. Added slide 23 after coverage instruction to calculate coverage and revisit the judgment.
+- Prompts use verified workbook sheet names and addresses and leave numerical answers for student work. Students finish the remaining core rows and written recommendation after class.
+- Rebalanced discussion time to retain 75 minutes across 29 slides, including 12 minutes for the new guided tasks. Updated pre-reading and instructor sequence.
+- Focused validator and browser checks passed: all 29 slides at 1920×1080 and 1366×768; no overflow or JavaScript errors; DuPont reveals, slider reset, guided choices, conflict reset, and exit check passed. Added slides visually inspected. Full public validator reports only the existing Excel owner file. Local only; no publication.

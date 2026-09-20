@@ -56,6 +56,20 @@
     }
   }));
 
+  document.querySelectorAll('[data-action="reset-choice"]').forEach((reset) => {
+    const group = reset.closest('[data-interactive]');
+    const output = group.querySelector('output');
+    const originalFeedback = output.textContent;
+    reset.addEventListener('click', (event) => {
+      event.stopPropagation();
+      group.querySelectorAll('button[data-correct]').forEach((button) => {
+        button.setAttribute('aria-pressed', 'false');
+        button.classList.remove('correct', 'incorrect');
+      });
+      output.textContent = originalFeedback;
+    });
+  });
+
   const margin = document.getElementById('margin-slider');
   const turnover = document.getElementById('turnover-slider');
   const leverage = document.getElementById('leverage-slider');

@@ -11,7 +11,7 @@ factset_required: false
 
 ## Why this matters
 
-Statements organize the evidence; ratios make patterns and comparisons visible. In class, use the starter’s **Class Practice** tab. After class, compare the supplied fictional retailers **TechStyle Retail** and **Urban Goods**. The goal is not merely to reproduce a formula; it is to explain what the result means for a financial decision and what evidence could change the conclusion.
+Statements organize the evidence; ratios make patterns and comparisons visible. In class, begin with the starter’s **Class Practice** tab, then start the supplied fictional retailer comparison using **Student Calculations**, **DuPont & Driver**, and **Ratio Dashboard**. Finish the **TechStyle Retail** and **Urban Goods** comparison after class. The goal is not merely to reproduce a formula; it is to explain what the result means for a financial decision and what evidence could change the conclusion.
 
 ## Learning objectives
 
@@ -92,7 +92,8 @@ M04 uses supplied classroom data; FactSet retrieval is not required. In a later 
 ## What to complete
 
 - In class: five ratios in Class Practice!E5:E9, the linked DuPont bridge, and the brief in A21.
-- After class: eight CORE ratio rows for each retailer: current ratio, gross margin, net margin, ROE, debt ratio, equity multiplier, asset turnover, and interest coverage. Complete the operating-expense test and recommendation.
+- Begin the retailer calculations, driver test, and dashboard interpretation in class; return to coverage after it is taught.
+- After class: finish eight CORE ratio rows for each retailer: current ratio, gross margin, net margin, ROE, debt ratio, equity multiplier, asset turnover, and interest coverage. Complete the operating-expense test and recommendation.
 - Other ratios are optional reference practice; their definitions are supplied.
 - Benchmark/reference values are illustrative classroom assumptions, not observed industry averages.
 - Lemonade Stand is reserved for later use and is not part of the M04 submission.

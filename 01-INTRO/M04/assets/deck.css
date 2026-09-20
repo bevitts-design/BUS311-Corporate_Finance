@@ -36,7 +36,22 @@ h1,h2,h3,p,figure{margin:0}h1{font:800 var(--display)/.96 var(--font-body);lette
 .activity-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:30px}.case-data{background:var(--navy);color:var(--white);border-radius:24px;padding:30px}.case-data>span{font:650 var(--small)/1.2 var(--font-mono);color:var(--gold)}.case-data>div{display:flex;justify-content:space-between;gap:24px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.17);font-size:var(--body)}.case-data strong{font-family:var(--font-mono)}.activity-steps{display:grid;gap:16px}.activity-steps article{background:var(--white);border:2px solid var(--line);border-radius:20px;padding:24px;display:grid;grid-template-columns:110px 1fr;gap:12px 22px}.activity-steps span{grid-row:1/3;font:650 var(--small)/1 var(--font-mono);color:var(--steel)}.activity-steps strong{font-size:30px}.activity-steps small{font-size:var(--small);color:var(--soft)}
 .choice-check{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:14px;align-items:stretch;margin-top:24px}.choice-check button{border:2px solid var(--line);border-radius:14px;background:var(--white);padding:18px;font:650 var(--small)/1.2 var(--font-body);cursor:pointer}.choice-check button[aria-pressed="true"]{border-color:var(--steel);background:#DCEBFA}.choice-check .correct{border-color:var(--teal);background:#D6F2ED}.choice-check .incorrect{border-color:var(--terra);background:#F7DEDA}.choice-check output{grid-column:1/-1;font:600 var(--small)/1.2 var(--font-mono);color:var(--steel)}.check-button{background:var(--steel)!important;color:var(--white);border-color:var(--steel)!important}.dark-check button{background:rgba(255,255,255,.08);color:var(--white);border-color:rgba(255,255,255,.28)}.dark-check output{color:#9CC7FF}
 
-.dashboard{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;flex:1;align-items:center}.dashboard article{min-height:360px;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.2);border-radius:24px;padding:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:20px}.dashboard span{font:650 var(--small)/1.2 var(--font-mono);color:#9CC7FF}.dashboard strong{font:400 var(--stat)/1 var(--font-display);color:var(--gold)}.dashboard small{font-size:var(--small)}.dashboard .risk{border-color:var(--terra)}.dashboard .focus{border-color:var(--teal)}.reveal-question{padding:24px;text-align:center;font-size:36px;font-weight:700;color:#D9E8F4}
+/* Dashboard: four diagnostics and a distinct shareholder-return panel. */
+.dashboard-shell{flex:1;display:flex;flex-direction:column;gap:22px;min-height:0}
+.dashboard-heading{display:flex;justify-content:space-between;align-items:center;font-size:var(--small);color:#D9E8F4;padding:0 4px}
+.dashboard-heading span{color:#9CC7FF}
+.dashboard{display:grid;grid-template-columns:1fr 1fr 1.05fr;grid-template-rows:1fr 1fr;gap:22px;flex:1;min-height:0}
+.dashboard article{background:#183750;border:2px solid #416078;border-radius:20px;padding:24px 28px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:10px}
+.dashboard article>span{font:600 var(--small)/1.2 var(--font-body);color:#AFCFF0}
+.dashboard h3{font-size:32px;margin:0}
+.dashboard strong{font:700 68px/1.1 var(--font-body);color:#FFFFFF}
+.dashboard small{font-size:var(--small);line-height:1.3;color:#D9E8F4}
+.dashboard .focus{grid-column:3;grid-row:1/3;background:#103E46;border-color:#49BEB0;gap:22px}
+.dashboard .focus>strong{font-size:104px;color:#93E5D6}
+.dashboard-next{border-top:2px solid #49BEB0;padding-top:26px;margin-top:22px;font-size:var(--small);line-height:1.35}
+.dashboard-next b{color:#93E5D6}.dashboard-next p{margin:12px 0 0}
+.reveal-question{padding:22px 4px 0;font-size:var(--body);font-weight:600;color:#D9E8F4;line-height:1.3}
+
 
 .dupont-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:18px;align-items:center;flex:1}.dupont-flow article{min-height:420px;background:var(--white);border:2px solid var(--line);border-radius:24px;padding:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:22px}.dupont-flow article.risk{border-color:var(--terra)}.dupont-flow article.result{background:var(--navy);color:var(--white);border-color:var(--teal)}.dupont-flow span{font:650 var(--small)/1 var(--font-mono);color:var(--steel)}.dupont-flow strong{font:400 78px/1 var(--font-display);color:var(--navy)}.dupont-flow .result strong{color:var(--gold)}.dupont-flow code{font:600 var(--small)/1.3 var(--font-mono)}.dupont-flow small{font-size:var(--small);color:var(--soft)}.dupont-flow .result small{color:#BFD3E4}.dupont-flow>b{font-size:46px;color:var(--steel)}
 
@@ -144,3 +159,21 @@ h1,h2,h3,p,figure{margin:0}h1{font:800 var(--display)/.96 var(--font-body);lette
 .identity-result{font-size:34px;text-align:center;padding:18px;background:#D6F2ED;border-radius:16px}
 .identity-numbers{text-align:center}.identity-numbers strong{font-size:36px}.identity-numbers p{font-size:var(--small);margin:14px 0}
 .dupont-teach [hidden]{display:none!important}
+
+/* Remind students what each adjustable DuPont factor measures. */
+.sliders label{row-gap:12px}
+.sliders .slider-equation{grid-column:1/-1;font-size:var(--small);font-weight:500;line-height:1.3;color:var(--soft)}
+
+.choice-check[data-interactive="conflict"] output{grid-column:1/4;align-self:center}
+.choice-check [data-action="reset-choice"]{grid-column:4}
+
+.retailer-context{font-size:var(--body);line-height:1.35;background:#DCEBFA;border-radius:16px;padding:24px 28px;margin-bottom:28px}
+.retailer-table{border-collapse:collapse;width:100%;font-size:var(--body);background:white;flex:1}
+.retailer-table th,.retailer-table td{text-align:left;padding:24px;border-bottom:2px solid var(--line)}
+.retailer-table thead{background:var(--navy);color:white}
+.retailer-note{font-size:var(--small);line-height:1.3;margin-top:24px}
+.retailer-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;flex:1}
+.retailer-steps article{padding:32px;background:white;border:2px solid var(--line);border-radius:24px;display:flex;flex-direction:column;justify-content:center;gap:24px}
+.retailer-steps span{font-size:var(--small);font-weight:650;color:var(--steel)}
+.retailer-steps h3{font-size:36px;line-height:1.2;margin:0;overflow-wrap:anywhere}
+.retailer-steps p{font-size:var(--body);line-height:1.4;margin:0}
