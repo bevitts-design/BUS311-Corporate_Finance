@@ -35,12 +35,12 @@ export const ratioM04Deck = {
 
     slide('4', 'Ratios turn statements into questions', 'cream question-slide', `
       <div class="header-row"><h2>Every ratio should answer a business question</h2><div class="eyebrow">Statements → signal → decision</div></div><div class="rule"></div>
-      <div class="question-machine" role="img" aria-label="Income statement and balance sheet feed a ratio, which feeds a driver question and then a management decision">
+      <div class="question-machine" role="img" aria-label="Financial statements feed a ratio: net income divided by revenue. A 10 percent net margin means 10 cents of profit per dollar of sales. Then investigate the driver.">
         <article class="statement-node"><span>Financial statements</span><strong>What happened?</strong><small>Revenue · profit · assets · debt · cash</small></article><i>→</i>
-        <article class="ratio-node"><span>Ratio</span><strong>What relationship matters?</strong><small>Margin · turnover · coverage · return</small></article><i>→</i>
+        <article class="ratio-node"><span>Ratio example · net margin</span><strong>How much profit per $1 of sales?</strong><small>Net income ÷ revenue<br><b>10% margin = 10¢ per $1</b></small></article><i>→</i>
         <article class="decision-node"><span>Driver</span><strong>Why did it change?</strong><small>Operations · efficiency · financing · accounting</small></article>
       </div><div class="decision-banner">A ratio is a compressed question—not a verdict.</div>`,
-      'Use one example aloud: ROE relates earnings to shareholder capital, but the decision question is whether the return came from better operations, more efficient asset use, or more leverage. Likely misconception: a higher ratio is automatically better. Ask for one ratio where “higher” can signal risk. Time: 3 minutes.'),
+      'Continue the example from slide 3: $12,000 of annual net income divided by $120,000 of annual revenue is a 10% net margin. Say it in plain language: the business keeps 10 cents of net income for each dollar of sales after all expenses. This is what a ratio relationship means: compare two statement amounts to answer a specific business question. To explain a change, first compare with a prior period, then investigate pricing, costs, financing, or unusual items. Likely misconception: a higher ratio is automatically better. Ask for one ratio where “higher” can signal risk. Time: 3 minutes.'),
 
     slide('5,6,7,8', 'Four diagnostic families', 'dark family-slide', `
       <div class="header-row"><h2>Four lenses describe one operating system</h2><div class="eyebrow">Diagnostic map</div></div><div class="rule dark-rule"></div>
