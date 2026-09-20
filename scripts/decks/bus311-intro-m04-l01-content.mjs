@@ -14,18 +14,18 @@ export const ratioM04Deck = {
       <div class="title-copy"><div class="eyebrow">BUS311 · Intro M04</div><h1>Ratio Analysis and Corporate Performance</h1><p>Turn financial statements into a driver-based recommendation.</p><div class="title-meta"><span>Professor Bethany Evitts</span><span>Fall 2026</span></div></div>`,
       'Open with the question: if two firms report strong growth, do they deserve the same performance judgment? Frame ratios as diagnostic questions about liquidity, operating efficiency, profitability, and financing—not as a scoreboard. Tell students the class ends with a short executive recommendation. Time: 1 minute.'),
 
-    slide('2', 'The 75-minute route', 'cream route-slide', `
-      <div class="header-row"><h2>Move from statements to a decision</h2><div class="eyebrow">75-minute route</div></div><div class="rule"></div>
+    slide('2', 'The lesson route', 'cream route-slide', `
+      <div class="header-row"><h2>Move from statements to a decision</h2><div class="eyebrow">Lesson route</div></div><div class="rule"></div>
       <div class="route" role="img" aria-label="Lesson route from defining ratio questions through building and interpreting ratios to defending a recommendation">
-        <article><span>Opening · 8 min</span><strong>Frame</strong><small>What question does each ratio answer?</small></article><i>→</i>
-        <article><span>Build · 23 min</span><strong>Calculate</strong><small>Excel formulas, periods, and denominators</small></article><i>→</i>
-        <article><span>Interpret · 28 min</span><strong>Diagnose</strong><small>Drivers, peers, IPO effects, and conflicts</small></article><i>→</i>
-        <article><span>Recommend · 16 min</span><strong>Defend</strong><small>Evidence, risk, and next question</small></article>
+        <article><span>Opening</span><strong>Frame</strong><small>What question does each ratio answer?</small></article><i>→</i>
+        <article><span>Build</span><strong>Calculate</strong><small>Excel formulas, periods, and denominators</small></article><i>→</i>
+        <article><span>Interpret</span><strong>Diagnose</strong><small>Drivers, peers, IPO effects, and conflicts</small></article><i>→</i>
+        <article><span>Recommend</span><strong>Defend</strong><small>Evidence, risk, and next question</small></article>
       </div>`,
-      'Preview the four phases and time boxes. The visible deliverables are a correctly built ratio set, a diagnosis of the driver behind ROE, and a two-sentence recommendation that names evidence and risk. Keep the route brisk; the student work and debriefs carry the lesson. Time: 2 minutes.'),
+      'Preview the four phases. The visible deliverables are a correctly built ratio set, a diagnosis of the driver behind ROE, and a two-sentence recommendation that names evidence and risk. Keep the route brisk; the student work and debriefs carry the lesson. Time: 2 minutes.'),
 
     slide('3', 'Learning goals', 'cream goals-slide', `
-      <div class="header-row"><h2>By the end, you can explain the number—not just calculate it</h2><div class="eyebrow">LO2 · LO3</div></div><div class="rule"></div>
+      <div class="header-row"><h2>By the end, you can explain the number—not just calculate it</h2></div><div class="rule"></div>
       <div class="goal-flow" role="img" aria-label="Financial statement evidence flows through consistent ratio formulas and driver analysis into a recommendation">
         <article><span>Build cleanly</span><strong>Calculate</strong><small>Use consistent periods, units, and average balance-sheet denominators.</small></article><b>→</b>
         <article><span>Read the engine</span><strong>Diagnose</strong><small>Separate margin, efficiency, and leverage effects.</small></article><b>→</b>
@@ -55,12 +55,13 @@ export const ratioM04Deck = {
 
     slide('9,10,11', 'Choose the business model before the peer', 'cream model-slide', `
       <div class="header-row"><h2>Recent IPOs show why “tech company” is not a peer group</h2><div class="eyebrow">Business model first</div></div><div class="rule"></div>
+      <div class="model-metric-heading">FY2025 GAAP net margin · Net income ÷ revenue</div>
       <div class="model-cards">
-        <article><span>Figma · NYSE FIG</span><strong>Software platform</strong><small>High gross-margin potential; equity compensation and growth investment shape GAAP margins.</small></article>
-        <article><span>Reddit · NYSE RDDT</span><strong>Audience platform</strong><small>Advertising economics and user engagement drive scale and margin.</small></article>
-        <article><span>CoreWeave · Nasdaq CRWV</span><strong>AI infrastructure</strong><small>Compute capacity, financing cost, utilization, and contracted demand drive performance.</small></article>
-      </div><div class="compare-strip"><span>Same label: recently public technology</span><b>≠</b><strong>Same ratio benchmark</strong></div>`,
-      'Figma and CoreWeave began public trading in 2025; Reddit began in 2024. Use them only to classify business models here, not to rank investment quality. Ask students which firm should naturally carry the most physical assets and financing needs. Answer: CoreWeave, because AI infrastructure requires compute and data-center capacity. Time: 4 minutes.'),
+        <article><span>Figma · NYSE FIG</span><strong>Software platform</strong><b class="model-ratio negative">−118.4%</b><small>IPO-related stock compensation deepened the reported loss.</small><a class="source-link" href="${figmaSource}">Figma FY2025 results</a></article>
+        <article><span>Reddit · NYSE RDDT</span><strong>Audience platform</strong><b class="model-ratio positive">24.1%</b><small>Advertising scale and monetization supported profitability.</small><a class="source-link" href="${redditSource}">Reddit FY2025 results</a></article>
+        <article><span>CoreWeave · Nasdaq CRWV</span><strong>AI infrastructure</strong><b class="model-ratio negative">−22.7%</b><small>Infrastructure costs and interest expense weighed on profit.</small><a class="source-link" href="${coreweaveSource}">CoreWeave FY2025 results</a></article>
+      </div><div class="compare-strip"><span>Same ratio · same year</span><b>≠</b><strong>Same economics or benchmark</strong></div>`,
+      'All three values use fiscal 2025 GAAP net income divided by revenue, rounded to one decimal place. Figma: -1,250.463 / 1,055.788 = -118.4%; Reddit: 530 / 2,203 = 24.1%; CoreWeave: -1,167 / 5,131 = -22.7% (inputs in millions). A negative margin means a net loss per dollar of revenue; a loss can exceed revenue when costs and charges exceed sales. Figma recognized $975.7 million of IPO-related stock compensation; CoreWeave reported $1.229 billion of net interest expense. Ask which business needs the most physical infrastructure and why net margin alone cannot rank operating quality. Answer: CoreWeave; business model, financing, and unusual expenses differ. These are diagnostic signals, not peer targets. Time: 4 minutes.'),
 
     slide('12', 'Definition discipline', 'dark evidence-slide', `
       <div class="header-row"><h2>Comparable ratios require comparable inputs</h2><div class="eyebrow">Evidence audit</div></div><div class="rule dark-rule"></div>

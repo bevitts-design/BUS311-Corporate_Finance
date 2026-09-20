@@ -17,3 +17,11 @@
 - Browser behavior: PASS for keyboard/button navigation, speaker-note toggle, choice checks, DuPont sensitivity controls, exit response, browser title, and slide-one identity/content.
 - Public validator: M04 has no remaining findings. The repository-wide run still reports pre-existing findings in M03 and M07; those files were not changed.
 - Scope check: generated HTML contains no obsolete M02/L02 labels, no `original artwork` note, and no reference to the unnamed exercise inspiration.
+
+## September 20, 2026 — focused instructor revisions
+
+- Deck-specific: removed projected timing labels from slide 2; retained instructor pacing in notes.
+- Deck-specific: removed the LO2 / LO3 header codes from slide 3.
+- Deck-specific: added comparable FY2025 GAAP net margins on slide 6, company-specific drivers, and links to official annual results.
+- Calculation evidence (USD millions): Figma -1,250.463 / 1,055.788 = -118.4%; Reddit 530 / 2,203 = 24.1%; CoreWeave -1,167 / 5,131 = -22.7%. Rounded to one decimal; all use net income, not income attributable to common stockholders.
+- Official results verified September 20, 2026; sources are linked on slide 6. Net margin avoids treating differently classified infrastructure costs as comparable gross margins.

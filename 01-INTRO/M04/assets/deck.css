@@ -58,3 +58,10 @@ h1,h2,h3,p,figure{margin:0}h1{font:800 var(--display)/.96 var(--font-body);lette
 .close-slide{justify-content:center;gap:34px}.close-slide h2{max-width:1400px}.exit-frame{padding:32px 38px;border:2px solid rgba(255,255,255,.28);border-radius:20px;font:650 34px/1.35 var(--font-mono);background:rgba(255,255,255,.06)}.exit-actions{display:flex;gap:20px}.exit-actions button{flex:1;padding:22px;border:2px solid rgba(255,255,255,.25);border-radius:14px;background:rgba(255,255,255,.08);color:var(--white);font:650 var(--small)/1.2 var(--font-body);cursor:pointer}.exit-actions button[aria-pressed="true"]{background:var(--teal);border-color:var(--teal)}.close-slide output{font:600 var(--small)/1.2 var(--font-mono);color:#9CC7FF}.next-band{display:flex;gap:30px;align-items:center}.next-band span{font:650 var(--small)/1 var(--font-mono);color:var(--gold)}.next-band strong{font-size:34px}
 
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+/* Slide 6: comparable fiscal-year ratio evidence. */
+.model-metric-heading{font:600 var(--body)/1.3 var(--font-body);margin-bottom:24px;color:var(--soft)}
+.model-cards .model-ratio{font:700 var(--stat)/1 var(--font-display)}
+.model-ratio.negative{color:var(--terra)}.model-ratio.positive{color:var(--teal)}
+.model-cards .source-link{margin-top:auto}
+.model-slide .model-cards article{gap:20px;padding:32px}
