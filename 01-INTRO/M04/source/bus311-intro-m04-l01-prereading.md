@@ -4,14 +4,14 @@ lesson_id: intro-m04-l01
 title: "Ratio Analysis and Corporate Performance"
 outcomes: [LO2, LO3]
 status: draft
-factset_required: true
+factset_required: false
 ---
 
 # Ratio Analysis and Corporate Performance
 
 ## Why this matters
 
-Statements organize the evidence; ratios make patterns and comparisons visible. This lesson uses **Nike** as a decision context. The goal is not merely to reproduce a formula; it is to explain what the result means for a financial decision and what evidence could change the conclusion.
+Statements organize the evidence; ratios make patterns and comparisons visible. In class, use the starter’s **Class Practice** tab. After class, compare the supplied fictional retailers **TechStyle Retail** and **Urban Goods**. The goal is not merely to reproduce a formula; it is to explain what the result means for a financial decision and what evidence could change the conclusion.
 
 ## Learning objectives
 
@@ -61,15 +61,15 @@ Move from result to driver to implication: the ratio changed, a specific numerat
 
 **Excel:** `=net_income/AVERAGE(beginning_equity,ending_equity)`
 
-**Manual logic:** 245 ÷ ((1,000 + 1,100) ÷ 2)
+**Manual logic:** 12,000 ÷ ((28,000 + 32,000) ÷ 2)
 
-**Expected conclusion:** 23.3% ROE.
+**Expected conclusion:** 40.0% ROE.
 
 Ask whether the result came from stronger profitability, asset use, or leverage. The workbook dashboard supports the driver discussion.
 
-## FactSet application
+## Source discipline
 
-Before using a FactSet value, record the field name, company, fiscal period, units, currency, and retrieval date. Reconcile material inputs to the company filing or FactSet definition. A correct-looking formula built from mismatched periods or units is not a valid analysis.
+M04 uses supplied classroom data; FactSet retrieval is not required. In a later real-company application, before using a FactSet value, record the field name, company, fiscal period, units, currency, and retrieval date. Reconcile material inputs to the company filing or FactSet definition. A correct-looking formula built from mismatched periods or units is not a valid analysis.
 
 ## Decision questions
 
@@ -86,5 +86,15 @@ Before using a FactSet value, record the field name, company, fiscal period, uni
 
 - Review the learning objectives and define every bold term in your own words.
 - Open the linked lesson workbook when one is provided.
-- Confirm that you can access FactSet before class.
+- Locate the Class Practice tab; its inputs match the slides.
 - Bring one question about an assumption, data definition, or decision trade-off.
+
+## What to complete
+
+- In class: five ratios in Class Practice!E5:E9, the linked DuPont bridge, and the brief in A21.
+- After class: eight CORE ratio rows for each retailer: current ratio, gross margin, net margin, ROE, debt ratio, equity multiplier, asset turnover, and interest coverage. Complete the operating-expense test and recommendation.
+- Other ratios are optional reference practice; their definitions are supplied.
+- Benchmark/reference values are illustrative classroom assumptions, not observed industry averages.
+- Lemonade Stand is reserved for later use and is not part of the M04 submission.
+
+Interest coverage is annual EBIT divided by annual interest expense. At 1.0x EBIT equals interest; below 1.0x, investigate cash and payment timing. A value above 1.0x is not by itself proof of safety.

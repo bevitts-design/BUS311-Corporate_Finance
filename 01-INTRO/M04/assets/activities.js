@@ -41,20 +41,28 @@
     const m = Number(margin.value); const t = Number(turnover.value); const l = Number(leverage.value);
     document.getElementById('margin-value').textContent = m.toFixed(0) + '%';
     document.getElementById('turnover-value').textContent = t.toFixed(1) + '×';
-    document.getElementById('leverage-value').textContent = l.toFixed(1) + '×';
+    document.getElementById('leverage-value').textContent = l.toFixed(2) + '×';
     document.getElementById('roe-output').textContent = (m * t * l).toFixed(1) + '%';
-    const drivers = [m / 10, t / 1.5, l / 2.7];
+    const drivers = [m / 10, t / 1.5, l / (80000 / 30000)];
     const labels = ['margin','asset turnover','leverage'];
     const leader = labels[drivers.indexOf(Math.max(...drivers))];
-    document.getElementById('roe-driver').textContent = 'Largest relative driver: ' + leader + '.';
+    document.getElementById('roe-driver').textContent = drivers.every(value => Math.abs(value - 1) < 1e-10)
+      ? 'Class example: 10% × 1.50 × (80,000 / 30,000).'
+      : 'Largest relative driver versus class example: ' + leader + '.';
   };
   [margin,turnover,leverage].forEach((input) => input && input.addEventListener('input', updateDupont));
+  document.getElementById('reset-dupont')?.addEventListener('click', () => {
+    margin.value = '10'; turnover.value = '1.5'; leverage.value = String(80000 / 30000);
+    updateDupont();
+  });
   updateDupont();
 
   const exitFeedback = document.getElementById('exit-feedback');
   document.querySelectorAll('[data-exit]').forEach((button) => button.addEventListener('click', (event) => {
     event.stopPropagation();
     document.querySelectorAll('[data-exit]').forEach((item) => item.setAttribute('aria-pressed', item === button ? 'true' : 'false'));
-    if(exitFeedback) exitFeedback.textContent = 'Now complete the four-part sentence and name the evidence you would verify next.';
+    if(exitFeedback) exitFeedback.textContent = button.dataset.exit === 'financing'
+      ? 'Yes: the equity multiplier changed. Explain one financing risk to check.'
+      : 'Trace the factor that changed: margin and turnover stayed fixed. Revise your choice and explain the risk.';
   }));
 })();

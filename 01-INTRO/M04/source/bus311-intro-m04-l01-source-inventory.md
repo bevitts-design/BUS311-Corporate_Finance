@@ -20,3 +20,9 @@ The prior 27-slide M04 HTML supplied the reusable lesson concepts: ratio familie
 | Reddit | February 5, 2026 | Reddit FY2025 results | Platform scale, revenue growth, net income, and net margin. |
 
 No proprietary FactSet capture, publisher material, private answer key, or student information is included.
+
+## September 20 teaching additions
+
+- Gross/net bridge derives $72,000 gross profit and $60,000 remaining net expenses from the existing class-example inputs; it does not invent individual expense accounts.
+- Interest-coverage bridge uses explicitly illustrative annual EBIT of $80,000 and interest of $100,000. The equipment-rental conflict is a separate hypothetical teaching scenario, not public-company data.
+- Company evidence and source links remain unchanged; CoreWeave and Reddit net margins now use the same one-decimal precision on overview and detail slides.

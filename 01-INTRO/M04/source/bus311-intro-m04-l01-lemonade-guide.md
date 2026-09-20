@@ -1,5 +1,9 @@
 # BUS311 Lemonade Stand Finance Model
 
+## Reserved for later use — not assigned in M04
+
+No submission is required until your instructor assigns this activity.
+
 ## From a simple stand to an integrated finance decision
 
 Use this guide with the M04 Lemonade Stand workbook and Bill Ackman's finance lesson:
@@ -15,38 +19,37 @@ https://www.youtube.com/watch?v=WEDIj9JBTC8
 
 ### Your deliverable
 
-Submit one completed workbook with all model checks passing and five concise interpretation responses.
+When assigned, enter assumptions and trace the supplied formulas. This is model interpretation, not a formula-building assessment. Complete prompts 1–4 for the operations/cash-flow stage; complete valuation and prompt 5 after those concepts have been taught.
 
 ---
 
-# Your 50-minute route
+# Staged route
 
-## Prepare | 0-5 minutes
+## Prepare before the application session
 
-- Open the video, workbook, and this guide.
-- Read the input legend and scan the nine workbook tabs.
+- Watch the video and capture its base assumptions before class.
+- Enter base assumptions and the fixed stand schedule. The later downside-growth input is separate.
 
-## Capture | 5-15 minutes
+## Stage A: statements, margins, and cash
 
-- Enter only the yellow assumption cells.
-- Use the video's share, debt, stand, unit, cost, growth, tax, and valuation facts.
-- Stop when the workbook status changes to READY.
+- Trace Day 1 funding, Day 2 investment, and Year 1 operations.
+- Explain gross profit versus net income and profit versus cash.
+- Discuss the two explicit accounting conventions below.
+- Complete interpretation prompts 1, 3, and 4 when assigned.
 
-## Build | 15-30 minutes
+## Stage B: operating sensitivity
 
-- Trace Day 1 funding into the opening balance sheet.
-- Trace Day 2 cash into the stand and initial inventory.
-- Separate gross profit, operating expenses, depreciation, interest, taxes, and net income.
+- Enter a lower unit-growth assumption and compare Year-5 revenue and EBIT.
+- Explain why fixed labor and depreciation make profit sensitive to sales.
+- Complete interpretation prompt 2.
+- The stand schedule remains fixed. This test neither ranks every growth driver nor establishes funding feasibility.
 
-## Analyze | 30-40 minutes
+## Later: valuation and ownership
 
-- Follow the five-year forecast from operating drivers to cash and equity value.
-- Compare the base case with the lower-volume-growth sensitivity.
+- Return to EPS, P/E, equity value, and share transactions after these topics are taught.
+- Complete interpretation prompt 5.
 
-## Decide | 40-50 minutes
-
-- Answer all five interpretation prompts.
-- Confirm MODEL STATUS: PASS before submitting.
+The instructor will specify timing and submission requirements. Do not combine this full activity with the M04 ratio assignment.
 
 ---
 
@@ -144,10 +147,10 @@ These transactions can involve the same number of shares and price but have diff
 
 ## Final submission check
 
-- Every required input is populated.
-- All statement and ownership checks pass.
+- Every base input is populated; downside growth is entered when that stage is assigned.
+- All statement and ownership checks pass; PASS is an internal-consistency check, not a completion grade.
 - The sensitivity case recalculates from its own growth assumption.
-- All five interpretation responses are complete.
+- The interpretation responses for the assigned stage are complete.
 - No formula cell has been overwritten.
 
 Source transcript used for cross-checking the case assumptions:

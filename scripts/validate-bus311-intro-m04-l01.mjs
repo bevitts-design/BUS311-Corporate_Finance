@@ -10,7 +10,7 @@ const errors = [];
 const expect = (condition, message) => { if(!condition) errors.push(message); };
 
 const slides = [...html.matchAll(/<section id="slide-(\d+)" class="slide ([^"]+)" data-label="([^"]+)" data-source-slides="([^"]+)">/g)];
-expect(slides.length === 22, 'Expected 22 slides; found ' + slides.length + '.');
+expect(slides.length === 24, 'Expected 24 slides; found ' + slides.length + '.');
 expect(ratioM04Deck.slides.length === slides.length, 'Content module and generated slide counts differ.');
 expect(ratioM04Deck.slides.every((item) => item.note && item.note.length >= 180), 'Every slide needs a substantive teaching note of at least 180 characters.');
 expect(slides.every((match, index) => Number(match[1]) === index + 1), 'Slide IDs must be continuous.');
@@ -55,9 +55,9 @@ expect((html.match(/data-interactive=/g) || []).length >= 4, 'Expected at least 
 expect((html.match(/Required deliverable|Deliverable|deliverable/g) || []).length >= 6, 'Activity and close slides need visible deliverables.');
 
 const required = [
-  '=B4/AVERAGE(B5:B6)', '2.00×', '60.0%', '1.50×', '50.0%', '40.0%',
-  '10% × 1.5 × 2.67', 'Figma', 'CoreWeave', 'Reddit', '$1.056B', '−122%',
-  '$5.131B', '$66.8B', '−23%', '$1.229B', '69%', '$2.2B', '$530M',
+  '=B7/AVERAGE(B13:B14)', '2.00×', '60.0%', '1.50×', '50.0%', '40.0%',
+  '10% × 1.5 × (80 / 30)', 'Figma', 'CoreWeave', 'Reddit', '$1.056B', '−122%',
+  '$5.131B', '$66.8B', '−22.7%', '$1.229B', '69%', '$2.2B', '$530M',
   'data-interactive="denominator"', 'data-interactive="conflict"', 'data-interactive="dupont"', 'data-interactive="exit"',
   'Source: Figma FY2025 results', 'Source: CoreWeave FY2025 results', 'Source: Reddit FY2025 results'
 ];
@@ -78,6 +78,18 @@ expect(Math.abs(debtRatio - 0.50) < 1e-12, 'Debt-ratio calculation failed.');
 expect(Math.abs(roe - 0.40) < 1e-12, 'ROE calculation failed.');
 expect(Math.abs(dupont - roe) < 1e-12, 'DuPont decomposition does not reconcile to direct ROE.');
 
+expect(Math.abs((120000 - 48000 - 60000) / 120000 - 0.10) < 1e-12, 'Gross-to-net margin bridge does not reconcile.');
+expect(80000 / 100000 === 0.8, 'Interest coverage illustration failed.');
+const lessonOrder = ratioM04Deck.slides.map(item => item.label);
+const precedes = (a, b) => lessonOrder.indexOf(a) < lessonOrder.indexOf(b);
+expect(lessonOrder.indexOf('Stress the DuPont drivers') === lessonOrder.indexOf('DuPont reads the engine behind ROE') + 1, 'DuPont application must immediately follow its explanation.');
+expect(precedes('Gross margin and net margin answer different questions', 'DuPont reads the engine behind ROE'), 'Net margin must be explained before DuPont.');
+expect(precedes('Interest coverage makes the financing constraint visible', 'Activity: resolve a ratio conflict'), 'Coverage must be taught before the conflict activity.');
+expect(precedes('Write the recommendation as an evidence chain', 'Activity: resolve a ratio conflict'), 'Recommendation framework must precede guided practice.');
+const lab = ratioM04Deck.slides.find(item => item.label === 'Stress the DuPont drivers');
+const startingLeverage = Number(lab.body.match(/id="leverage-slider"[^>]*value="([^"]+)"/)[1]);
+expect(Math.abs(10 * 1.5 * startingLeverage - 40) < 1e-10, 'Interactive DuPont must start at the exact classroom ROE.');
+
 const provenancePatterns = [/source[- ]slide/i,/original (?:deck|powerpoint|pptx)/i,/carried over|carryover/i,/rebuild decision|production note/i];
 ratioM04Deck.slides.forEach((item, index) => provenancePatterns.forEach((pattern) => {
   expect(!pattern.test(item.note), 'Slide ' + (index + 1) + ' note contains production provenance.');
@@ -89,4 +101,4 @@ if(errors.length){
   process.exit(1);
 }
 
-console.log('BUS311 M04 ratio-analysis deck validation: PASS (22 slides, 75 minutes, 22 substantive notes, prior slides 1-27 represented, current IPO/AI evidence, four response systems, accessible editable visuals, and independently verified ratio/DuPont calculations).');
+console.log('BUS311 M04 ratio-analysis deck validation: PASS (24 slides, 75 minutes, 24 substantive notes, prior slides 1-27 represented, current IPO/AI evidence, four response systems, accessible editable visuals, and independently verified ratio/DuPont calculations).');

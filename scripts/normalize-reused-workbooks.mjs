@@ -8,7 +8,7 @@ const qaRoot = '/private/tmp/bus311-workbook-qa';
 
 const lessons = [
   ['01-INTRO', 'M02', 'intro-m02-l01', 'intro-m02-l01', 'Financial Institutions, Markets, and Ethics'],
-  ['01-INTRO', 'M04', 'intro-m04-l01', 'intro-m04-l01', 'Ratio Analysis and Corporate Performance'],
+  // M04 uses its supplied-data guide; maintain with BUS311-instructor/scripts/update-bus311-m04-workbooks.mjs.
   ['02-VALUATION', 'M06', 'valuation-m02-l01', 'valuation-m06-l01', 'Bond Valuation, Interest Rates, and YTM'],
   ['02-VALUATION', 'M07', 'valuation-m03-l01', 'valuation-m07-l01', 'Equity Valuation and IPO Analysis'],
   ['02-VALUATION', 'M08', 'valuation-m04-l01', 'valuation-m08-l01', 'Capital Budgeting and Project Selection'],

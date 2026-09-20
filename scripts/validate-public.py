@@ -249,7 +249,7 @@ def deck_checks(path, errors):
             )
             or (
                 is_approved_ratio_analysis
-                and '=B4/AVERAGE(B5:B6)' in text
+                and '=B7/AVERAGE(B13:B14)' in text
                 and 'class="excel-sheet"' in text
                 and '40.0%' in text
             )
@@ -362,7 +362,9 @@ def deck_checks(path, errors):
             or (
                 is_approved_ratio_analysis
                 and 'data-interactive="exit"' in text
-                and "Finish the recommendation—not the calculation" in text
+                and 'class="recommendation-chain"' in text
+                and "A two-sentence CFO brief + one follow-up data request" in text
+                and "Does higher ROE prove better operations?" in text
                 and "Value cash flows that arrive at different times." in text
             )
             or (
