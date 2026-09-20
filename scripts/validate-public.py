@@ -203,9 +203,9 @@ def deck_checks(path, errors):
             )
             or (
                 is_approved_ratio_analysis
-                and 'class="audit-console"' in text
-                and "Filed value and retrieval date?" in text
-                and "GAAP or adjusted?" in text
+                and 'class="trust-checks"' in text
+                and "Trace inputs to Class Practice: B7, B13, B14." in text
+                and "40% matches our definition: net income ÷ average equity." in text
             )
             or (
                 is_approved_bonds

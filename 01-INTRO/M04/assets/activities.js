@@ -1,4 +1,22 @@
 (function(){
+  document.querySelectorAll('[data-teach]').forEach((panel) => {
+    const next = panel.querySelector('[data-teach-next]');
+    const labels = panel.dataset.teach === 'factors'
+      ? ['Reveal net margin','Reveal asset turnover','Reveal equity multiplier','All factors revealed']
+      : ['Cancel revenue','Cancel average assets','Show the matching ROE','Identity complete'];
+    const messages = panel.dataset.teach === 'factors'
+      ? ['Use the workbook inputs to predict each factor before revealing.','Net margin: the profitability measure from the previous slide.','Asset turnover: the E7 result you already calculated.','Equity multiplier: the new factor. Next, explain why their product is ROE.']
+      : ['Which terms appear once above and once below a fraction line?','Revenue cancels. Which other terms cancel?','Average assets cancels. Net income ÷ average equity remains.','Same inputs, same 40% ROE. Now investigate the drivers.'];
+    function show(stage){
+      panel.dataset.stage = String(stage);
+      panel.querySelectorAll('[data-reveal]').forEach(el => el.hidden = Number(el.dataset.reveal) > stage);
+      next.textContent = labels[stage]; next.disabled = stage === 3;
+      panel.querySelector('output').textContent = messages[stage];
+    }
+    next.addEventListener('click',event => {event.stopPropagation();show(Math.min(3,Number(panel.dataset.stage)+1));});
+    panel.querySelector('[data-teach-reset]').addEventListener('click',event => {event.stopPropagation();show(0);});
+    show(0);
+  });
   function setPressed(button, group){
     group.querySelectorAll('button[data-correct]').forEach((item) => item.setAttribute('aria-pressed', item === button ? 'true' : 'false'));
   }
@@ -7,7 +25,12 @@
     button.setAttribute('aria-pressed', 'false');
     button.addEventListener('click', (event) => {
       event.stopPropagation();
-      setPressed(button, button.closest('[data-interactive]'));
+      const group = button.closest('[data-interactive]');
+      setPressed(button, group);
+      if(group.dataset.interactive === 'denominator'){
+        group.querySelectorAll('button[data-correct]').forEach((item) => item.classList.remove('correct','incorrect'));
+        group.querySelector('output').textContent = 'Selected: ' + button.textContent.trim() + '. Click Check answer.';
+      }
     });
   });
 

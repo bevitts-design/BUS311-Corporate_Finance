@@ -51,3 +51,10 @@
 - Saved-file verification: shared student/key sheets match labels, dimensions, merged cells, and answer addresses; private worked answers remain separate. Functional recalculation tests passed for required completion, optional blanks, Urban reconciliation failure, coverage, expense savings, base forecast balance, blank downside, zero growth, and equal-growth scenarios. No cached formula errors in student outputs.
 - Browser check: 24 slides at 1920×1080 and 1366×768, no overflow or JavaScript errors; navigation, notes, sliders/reset, guided checks, and exit feedback passed. Guide PDF rendered and visually checked. Native Microsoft Excel execution was not tested.
 - The shared-layout workbook update source is maintained in the private repository at scripts/update-bus311-m04-workbooks.mjs; generic workbook normalization excludes M04. Changes remain local and unpublished.
+
+## September 20, 2026 — DuPont derivation
+
+- Replaced the single DuPont introduction with slides 11–12: progressive factor calculations from Class Practice, then color-matched cancellation of revenue and average assets. Both anchor to E9 and reconcile to 40% ROE.
+- Net margin is labeled profitability; the new equity multiplier is distinguished from previously calculated asset turnover. Slide 13 applies the identity through the sliders.
+- Preserved 75 minutes across 25 slides by splitting the former five-minute explanation into three and two minutes. Updated instructor slide references.
+- Focused deck validator passed. Browser checks covered all 25 slides at 1920×1080 and 1366×768, every reveal stage and reset, and existing interactive activities; no overflow or JavaScript errors. Fully revealed slides visually inspected. Full public validation is blocked only by the Excel temporary owner file for the starter workbook; it was preserved. Local only, unpublished.

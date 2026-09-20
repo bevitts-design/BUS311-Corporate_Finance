@@ -10,7 +10,7 @@ const errors = [];
 const expect = (condition, message) => { if(!condition) errors.push(message); };
 
 const slides = [...html.matchAll(/<section id="slide-(\d+)" class="slide ([^"]+)" data-label="([^"]+)" data-source-slides="([^"]+)">/g)];
-expect(slides.length === 24, 'Expected 24 slides; found ' + slides.length + '.');
+expect(slides.length === 25, 'Expected 25 slides; found ' + slides.length + '.');
 expect(ratioM04Deck.slides.length === slides.length, 'Content module and generated slide counts differ.');
 expect(ratioM04Deck.slides.every((item) => item.note && item.note.length >= 180), 'Every slide needs a substantive teaching note of at least 180 characters.');
 expect(slides.every((match, index) => Number(match[1]) === index + 1), 'Slide IDs must be continuous.');
@@ -101,4 +101,4 @@ if(errors.length){
   process.exit(1);
 }
 
-console.log('BUS311 M04 ratio-analysis deck validation: PASS (24 slides, 75 minutes, 24 substantive notes, prior slides 1-27 represented, current IPO/AI evidence, four response systems, accessible editable visuals, and independently verified ratio/DuPont calculations).');
+console.log('BUS311 M04 ratio-analysis deck validation: PASS (25 slides, 75 minutes, 25 substantive notes, prior slides 1-27 represented, current IPO/AI evidence, four response systems, accessible editable visuals, and independently verified ratio/DuPont calculations).');
