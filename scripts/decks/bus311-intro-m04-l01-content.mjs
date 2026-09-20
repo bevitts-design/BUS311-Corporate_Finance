@@ -27,11 +27,11 @@ export const ratioM04Deck = {
     slide('3', 'Learning goals', 'cream goals-slide', `
       <div class="header-row"><h2>A strong answer makes the number useful</h2></div><div class="rule"></div>
       <div class="goal-flow" role="img" aria-label="Success means an auditable formula, a defensible driver explanation, and a conditional recommendation">
-        <article><span>Formula integrity</span><strong>Show the inputs</strong><small>Match the period, units, and denominator.</small></article><b>→</b>
-        <article><span>Driver logic</span><strong>Explain the cause</strong><small>Distinguish margin, asset use, and financing.</small></article><b>→</b>
-        <article><span>Decision quality</span><strong>Name the limit</strong><small>State what evidence could change your judgment.</small></article>
+        <article><span>Formula integrity</span><strong>Show the inputs</strong><small>Match the period, units, and denominator.</small><p class="goal-example"><b>Example · annual net margin</b>$12,000 net income ÷ $120,000 revenue = <em>10%</em></p></article><b>→</b>
+        <article><span>Driver logic</span><strong>Explain the cause</strong><small>Distinguish margin, asset use, and financing.</small><p class="goal-example"><b>Investigate the driver</b>Did pricing improve, costs fall, or a one-time gain lift profit?</p></article><b>→</b>
+        <article><span>Decision quality</span><strong>Name the limit</strong><small>State what evidence could change your judgment.</small><p class="goal-example"><b>Make a conditional decision</b>Consider expansion only if the margin is repeatable and cash flow can fund it.</p></article>
       </div>`,
-      'Use these as success criteria rather than another agenda. A strong response lets another analyst reproduce the number, explains a plausible driver, and identifies evidence that could change the conclusion. Briefly contrast a correct calculation with a defensible judgment. Time: 1 minute.'),
+      'Use these as success criteria rather than another agenda. A strong response lets another analyst reproduce the number, explains a plausible driver, and identifies evidence that could change the conclusion. Walk through the illustrative annual example: $12,000 of net income divided by $120,000 of revenue gives a 10% net margin. Those totals establish the ratio but cannot identify its cause. Pricing, cost changes, and one-time gains are hypotheses to investigate, not conclusions from the ratio alone. A conditional expansion recommendation needs evidence of recurring earnings and available cash. Preview the reasoning without teaching a second calculation. Time: 1 minute.'),
 
     slide('4', 'Ratios turn statements into questions', 'cream question-slide', `
       <div class="header-row"><h2>Every ratio should answer a business question</h2><div class="eyebrow">Statements → signal → decision</div></div><div class="rule"></div>

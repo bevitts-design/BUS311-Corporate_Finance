@@ -83,3 +83,10 @@ h1,h2,h3,p,figure{margin:0}h1{font:800 var(--display)/.96 var(--font-body);lette
 .sliders label{grid-template-columns:260px 1fr 120px}
 .conflict-slide .conflict-cards article{min-height:260px;padding:26px}
 .conflict-slide .conflict-cards strong{font-size:64px}
+
+/* Slide 3: a concrete example under each success criterion. */
+.goals-slide .goal-flow article{align-self:stretch;min-height:0;padding:36px 32px;gap:20px}
+.goals-slide .goal-flow{align-items:stretch;margin-top:24px}
+.goal-example{margin:12px 0 0;padding-top:24px;border-top:2px solid var(--line);font-size:var(--body);line-height:1.35;color:var(--navy)}
+.goal-example b{display:block;margin-bottom:16px;font-size:var(--small);color:var(--steel)}
+.goal-example em{font-style:normal;font-weight:700;color:var(--teal)}
