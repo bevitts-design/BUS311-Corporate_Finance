@@ -1,235 +1,142 @@
+import { tvmM05L01Deck as components } from './bus311-valuation-m05-l01-components.mjs';
+
+// The PowerPoint supplies the topic map. The M05 starter supplies every model input and cell address.
+// Each teaching block follows definition → Excel function → corporate use → Excel example.
 const slide = (slides, label, classes, body, note) => ({ slides, label, classes, body, note });
+const note = (detail, prompt) => `${detail} ${prompt} Have students check the cash-flow direction, rate unit, timing, and value date before accepting the result. Tie the explanation to the named starter-workbook cell and ask for one reasonableness check.`;
+const opening = components.slides.slice(0, 3).map((item) => ({ ...item }));
+opening[0].slides = 'PPTX 2-3; public baseline';
+opening[1].slides = 'PPTX 34,37; starter workbook';
+opening[2].slides = 'PPTX 10,13-15; starter workbook';
+opening[1].body = opening[1].body.replace('Financing quote', 'Company valuation rate').replace('9.6% nominal APR', '9.6% annual nominal').replace('Compounded monthly', 'Discount rate · monthly compounding');
+opening[1].note = note('Introduce the hypothetical Berkshire equipment decision. The 9.6% rate is the company valuation assumption, not the APR implied by the offer. Students will solve the offer rate later.', 'Ask which payment path has lower present cost.');
+opening[2].body = opening[2].body
+  .replace(/<div class="formula-band light">[\s\S]*?<\/div>/, '')
+  .replace('Pairs · 3 minutes · In 1 Timeline-Diagnose', 'In 1 Timeline-Diagnose')
+  .replace(/^[ \t]+$/gm, '');
+opening[2].note = note('Use one timeline review: 24 payments start today and end at Month 23, while the $8,000 balloon occurs at Month 24. Students complete B18:H20 before building formulas.', 'Ask students to name the first payment date.');
+const slides = [...opening];
 
-export const tvmM05L01Deck = {
-  title: 'Time Value of Money',
-  slides: [
-    slide('1', 'Time value of money', 'dark title-slide', `
-      <div class="gradient-bar"></div>
-      <div class="title-grid">
-        <div class="title-copy"><div class="eyebrow">BUS311 · Valuation M05</div><h1>A dollar’s job depends on <em>when</em> it arrives</h1><p>Move cash through time, audit the Excel model, and defend the decision.</p></div>
-        <div class="clock-orbit" role="img" aria-label="Cash moves around a clock from today to a future date and back to present value"><span class="now">TODAY</span><span class="future">FUTURE</span><b>FV →</b><b>← PV</b><i></i></div>
-      </div>`,
-      'Open with the clock visual. Ask students for one business decision where timing changes value: acquiring equipment, reserving cash for a debt maturity, funding a pension, or choosing payment terms. Frame the lesson as decision discipline, not formula memorization. Time: 2 minutes.'),
+function block(b) {
+  const source = `${b.source}; starter workbook`;
+  slides.push(slide(source, `${b.name}: definition`, `dark tvm-definition ${b.slug}`, `
+    <div class="gradient-bar"></div><div class="eyebrow">${b.name} · Definition</div><h2>${b.definitionTitle}</h2>
+    <p class="tvm-lead">${b.definition}</p><div class="tvm-diagram" role="img" aria-label="${b.alt}">
+    ${b.diagram.map((part, i) => i % 2 ? `<b>${part}</b>` : `<article><span>${part[0]}</span><strong>${part[1]}</strong></article>`).join('')}</div>
+    <div class="tvm-takeaway">${b.definitionTakeaway}</div>`, note(b.definitionNote, 'Ask students to state the definition in terms of the diagram.')));
+  slides.push(slide(source, `${b.name}: Excel function`, `cream tvm-function ${b.slug}`, `
+    <div class="header-row"><h2>${b.functionTitle}</h2><div class="eyebrow">${b.name} · Excel function</div></div><div class="rule"></div>
+    <div class="tvm-function-layout"><div class="tvm-formulas">${b.formulas.map((f) => `<code>${f}</code>`).join('')}</div>
+    <div class="tvm-function-explain"><strong>${b.functionRule}</strong><p>${b.functionDetail}</p></div></div>
+    <div class="tvm-takeaway light">${b.functionTakeaway}</div>`, note(b.functionNote, 'Point to the corresponding Excel arguments and their units.')));
+  slides.push(slide(source, `${b.name}: corporate use`, `cream tvm-use ${b.slug}`, `
+    <div class="header-row"><h2>${b.useTitle}</h2><div class="eyebrow">${b.name} · Corporate use</div></div><div class="rule"></div>
+    <p class="tvm-use-intro">${b.useIntro}</p><div class="tvm-use-cards" role="img" aria-label="${b.useAlt}">
+    ${b.cards.map((card) => `<article><span>${card[0]}</span><strong>${card[1]}</strong><small>${card[2]}</small></article>`).join('')}</div>
+    <div class="tvm-takeaway light">${b.useTakeaway}</div>`, note(b.useNote, 'Ask what decision the result would help a corporate manager make.')));
+  slides.push(slide(source, `${b.name}: Excel example`, `cream tvm-example ${b.slug}`, `
+    <div class="header-row"><h2>${b.exampleTitle}</h2><div class="eyebrow">${b.name} · Excel example</div></div><div class="rule"></div>
+    <div class="tvm-example-layout"><div class="tvm-excel"><div class="tvm-excel-bar"><span>${b.sheet}</span><strong>${b.address}</strong></div>
+    <div class="tvm-excel-prompt">${b.prompt}</div><div class="tvm-excel-inputs">${b.inputs.map((row) => `<span>${row[0]}</span><strong>${row[1]}</strong>`).join('')}</div>
+    <div class="tvm-excel-formula"><span>Enter in ${b.address}</span><code>${b.exampleFormula}</code></div></div>
+    <div class="tvm-example-right"><button type="button" class="tvm-reveal" data-reveal="${b.slug}" aria-controls="answer-${b.slug}" aria-expanded="false">Reveal result</button>
+    <div class="tvm-answer" id="answer-${b.slug}" hidden><span>Calculated result</span><strong>${b.answer}</strong><p>${b.interpretation}</p></div>
+    <div class="tvm-check">${b.check}</div></div></div>`, note(b.exampleNote, 'Have students enter the linked formula before revealing the worked result.')));
+}
 
-    slide('2', 'The decision path', 'cream roadmap-slide', `
-      <div class="header-row"><h2>The class moves from timing to judgment</h2><div class="eyebrow">Today’s route</div></div><div class="rule"></div>
-      <div class="route" role="img" aria-label="Lesson route from a cash timing prediction through timelines, Excel functions, rate alignment, sensitivity, and cash-flow patterns">
-        <article><span>Opening</span><strong>Predict</strong><small>Is future cash actually better?</small></article><i>→</i>
-        <article><span>Foundations</span><strong>Map</strong><small>Timeline, compounding, discounting</small></article><i>→</i>
-        <article><span>Model</span><strong>Build</strong><small>FV, signs, rates, sensitivity</small></article><i>→</i>
-        <article><span>Transfer</span><strong>Choose</strong><small>Lump sum, annuity, perpetuity</small></article><i>→</i>
-        <article><span>Close</span><strong>Defend</strong><small>State the value and the assumption</small></article>
-      </div>`,
-      'Preview the route. Keep the pacing plan in these notes: 5 minutes for the opening, 18 for foundations, 27 for the model, 20 for transfer, and 5 to close. The two student deliverables are a formula-audited Excel result and a short decision statement that names the assumption most likely to change the answer. Keep transitions crisp so the final pattern activity receives the full twenty minutes. Time: 2 minutes.'),
+block({
+  name:'Rate conventions',slug:'rate-conventions',source:'PPTX 13-15,21',
+  definitionTitle:'A rate belongs to a specific interval',definition:'A nominal annual rate is a quote with a compounding frequency. A periodic rate belongs to one model period. An effective annual rate includes the effect of compounding.',
+  alt:'9.6 percent nominal annual becomes 0.8 percent per month and 10.03 percent effective annual',diagram:[['Annual nominal','9.6%'],'÷ 12 →',['Monthly model','0.8%'],'→ 12 months',['Effective annual','10.03%']],definitionTakeaway:'For 24 monthly periods, use 0.8% per month.',
+  functionTitle:'Convert the rate before valuation',formulas:['=B9/B10','=EFFECT(B9,B10)','=(1+F8)^B10-1'],functionRule:'EFFECT returns one-year growth from the nominal rate and compounding count.',functionDetail:'The direct compound formula is equivalent. Neither 9.6% nominal nor 10.03% EAR belongs directly beside 24 monthly periods.',functionTakeaway:'F8 is monthly; F10 is effective annual. Label both.',
+  useTitle:'Treasury compares like time units',useIntro:'The hypothetical Berkshire equipment decision uses a 9.6% nominal annual company valuation discount rate with monthly compounding.',useAlt:'Company valuation rate converted to monthly periodic rate for a 24 month model',cards:[['Assumption','9.6% nominal','Company valuation rate'],['Conversion','0.8% monthly','Use in TVM functions'],['Model interval','24 months','Matches the rate unit']],useTakeaway:'The 9.6% valuation rate is not the offer’s implied loan APR.',
+  exampleTitle:'Normalize the rate in the starter',sheet:'1 Timeline-Diagnose',address:'F8:F10',prompt:'Link the given rate and term; calculate periodic and effective annual rates.',inputs:[['B9 · annual nominal','9.6%'],['B10 · periods/year','12'],['B11 · term','24 months']],exampleFormula:'F8=B9/B10 · F9=B11 · F10=(1+F8)^B10-1',answer:'0.8% monthly · 24 months · 10.03% EAR',interpretation:'The model uses F8 and F9. F10 supports annual comparisons and the later real-rate example.',check:'Rate unit and nper unit must match.',
+  definitionNote:'Distinguish annual nominal, monthly periodic, and annual effective rates. Annual does not by itself identify the correct monthly model input.',functionNote:'Show EFFECT and the equivalent compound formula. Students may use either, while the workbook model uses its linked monthly rate.',useNote:'Explain that corporate treasury documents the rate definition and compounding frequency so a later reviewer can reproduce the valuation.',exampleNote:'Students complete F8 through F10 with formulas linked to the given assumptions. Reveal the monthly rate and annual effective outcome after a direction prediction.'
+});
 
-    slide('3', 'Learning goals', 'cream goal-slide', `
-      <div class="header-row"><h2>By the end, you can audit a valuation before trusting it</h2><div class="eyebrow">LO4</div></div><div class="rule"></div>
-      <div class="goal-system" role="img" aria-label="A timeline feeds an Excel model, which feeds a decision recommendation">
-        <article class="timeline-goal"><span>See the cash</span><strong>Draw the timeline</strong><small>Dates · direction · frequency</small></article><b>→</b>
-        <article class="model-goal"><span>Translate the timeline</span><strong>Use PV and FV</strong><small>Rate · periods · signs · type</small></article><b>→</b>
-        <article class="decision-goal"><span>Explain the result</span><strong>Defend the choice</strong><small>Value date · assumption · sensitivity</small></article>
-      </div>`,
-      'Read these as observable performance goals. A correct Excel output is not sufficient if the rate and periods are inconsistent or if the student cannot say what the result means on a common valuation date. Ask students which stage currently feels least comfortable. Time: 1 minute.'),
+block({
+  name:'Future value',slug:'future-value',source:'PPTX 10-11,18-21',
+  definitionTitle:'FV moves today’s amount forward',definition:'Future value asks what a single amount today is equivalent to at a later date, given a periodic rate and number of periods.',
+  alt:'An 80000 dollar cash outflow today grows to a Month 24 equivalent',diagram:[['Today','−$80,000'],'× 1.008²⁴ →',['Month 24','?']],definitionTakeaway:'FV gives a Month 24 equivalent, not a current cost.',
+  functionTitle:'FV handles the one-time cash price',formulas:['=FV(rate,nper,pmt,pv,type)','=FV(C9,D9,E9,F9,G9)'],functionRule:'Enter the cash price as a negative present-value input.',functionDetail:'Set pmt to zero because the purchase is a lump sum. A positive FV is the equivalent value of the negative outflow.',functionTakeaway:'Excel’s positive result is not a profit.',
+  useTitle:'Translate the cash option to Month 24',useIntro:'A finance team can express the immediate equipment payment in later dollars and use the result to check that its model moves values consistently.',useAlt:'Cash cost today grows for 24 months to a future equivalent',cards:[['Cash outflow','−$80,000','Today'],['Growth rate','0.8%','Each month'],['Equivalent','Calculate','At Month 24']],useTakeaway:'The final choice will compare both alternatives in today’s dollars.',
+  exampleTitle:'Build the cash option’s FV row',sheet:'2 Build-Compare',address:'H9',prompt:'Use C9:G9. Predict whether the magnitude exceeds $80,000.',inputs:[['C9 · rate','0.8% monthly'],['D9 · periods','24'],['E9 · payment','$0'],['F9 · present cash','−$80,000'],['G9 · type','0']],exampleFormula:'=FV(C9,D9,E9,F9,G9)',answer:'$96,859.62 at Month 24',interpretation:'This is the cash outflow’s Month 24 equivalent at the company valuation rate.',check:'Positive growth makes the magnitude exceed $80,000.',
+  definitionNote:'First identify which date each value belongs to. One amount is an actual payment; the other is a calculated equivalent under a stated rate.',functionNote:'Read all five FV arguments in the starter row. The one-time purchase belongs in pv, not the recurring pmt position.',useNote:'Explain how managers translate cash flows to one date for comparison and why an FV result alone cannot determine a present-cost choice.',exampleNote:'Students enter the linked formula in H9, then explain why the returned positive amount represents an equivalent cost rather than investment profit.'
+});
 
-    slide('4', 'Prediction: cash today or later?', 'dark choice-slide', `
-      <div class="eyebrow">Prediction setup · Berkshire Hathaway teaching scenario</div><h2>Choose one payment—before you know the discount rate</h2>
-      <div class="cash-choice"><article><span>Available now</span><strong>$10,000</strong><small>Today</small></article><div class="versus">OR</div><article class="later"><span>Promised later</span><strong>$14,000</strong><small>Five years from today</small></article></div>
-      <div class="question-band">Which is worth more on today’s date?</div>`,
-      'Do not reveal the break-even rate. Take a quick show of hands for cash today, cash later, or cannot decide. Emphasize that the dollar amounts alone do not establish value because they are measured at different dates. The company reference supplies a real capital-allocation context; the payment amounts are a clearly labeled teaching scenario. Time: 2 minutes.'),
+block({
+  name:'Present value',slug:'present-value',source:'PPTX 10-11,22-24',
+  definitionTitle:'PV brings a future payment to today',definition:'Present value is the amount today that is equivalent to a specified future cash flow at a given periodic discount rate.',
+  alt:'An 8000 dollar balloon in Month 24 is discounted to a present cost today',diagram:[['Month 24 balloon','−$8,000'],'÷ 1.008²⁴ →',['Today’s cost','?']],definitionTakeaway:'Discounting reduces the present magnitude of a later fixed payment.',
+  functionTitle:'PV values one balloon with pmt = 0',formulas:['=PV(rate,nper,0,fv,0)','=PV(C13,D13,E13,F13,G13)'],functionRule:'Enter the future company outflow as a negative fv input.',functionDetail:'The returned amount is a positive present cost. PV can also reverse the cash FV row as a round-trip audit.',functionTakeaway:'Do not put the balloon in the recurring pmt argument.',
+  useTitle:'Separate the end-of-term obligation',useIntro:'The equipment offer includes an $8,000 outflow in Month 24. Treasury values it separately from the 24 installment payments.',useAlt:'Single balloon payment discounted independently from installments',cards:[['Payment date','Month 24','One future outflow'],['Pattern','Lump sum','No recurring pmt'],['Present cost','Calculate','Today’s dollars']],useTakeaway:'A balloon remains one lump sum even when the contract has monthly payments.',
+  exampleTitle:'Discount the balloon in its own row',sheet:'2 Build-Compare',address:'H13',prompt:'Use C13:G13 with pmt equal to zero.',inputs:[['C13 · rate','0.8% monthly'],['D13 · periods','24'],['E13 · payment','$0'],['F13 · balloon','−$8,000'],['G13 · type','0']],exampleFormula:'=PV(C13,D13,E13,F13,G13)',answer:'$6,607.50 today',interpretation:'H10 also checks the cash FV row: its PV should return $80,000.',check:'Present cost is positive and below the $8,000 nominal outflow.',
+  definitionNote:'Show that the full eight thousand dollars is still owed later even though its value today is lower at a positive discount rate.',functionNote:'Walk through PV argument order. The company’s future outflow has a negative input sign and the recurring payment position is zero.',useNote:'Corporate finance separates contract components before adding their present costs. A balloon is not an extra installment.',exampleNote:'Students calculate H13, check its date and magnitude, and use H10 as an independent round-trip check of the cash option.'
+});
 
-    slide('4', 'Student attempt: find the missing assumption', 'cream activity-slide', `
-      <div class="header-row"><h2>Make the choice conditional, not absolute</h2><div class="eyebrow">Individual → pair · 3 minutes</div></div><div class="rule"></div>
-      <div class="attempt-board"><div class="attempt-question"><span>Your task</span><strong>Write the one assumption needed to compare the payments.</strong></div><div class="attempt-steps"><article><b>Think</b><p>Choose now, later, or “it depends.”</p></article><article><b>Pair</b><p>Name the missing input and explain why it matters.</p></article><article><b>Deliver</b><p>One sentence with a decision rule.</p></article></div></div>
-      <div class="deliverable">Required deliverable: “Choose ___ when the required return is ___.”</div>`,
-      'Listen for discount rate, opportunity cost, or required return. Likely misconception: inflation is the only reason money has time value. Clarify that the decision rate can also include risk and the return available on alternatives. Do not accept “today is always better” without a rate-based condition. Debrief by asking one pair from each choice. Time: 3 minutes.'),
+block({
+  name:'Annuity due',slug:'annuity-due',source:'PPTX 25,31-33',
+  definitionTitle:'An annuity due begins today',definition:'An annuity is a finite series of equal payments. An annuity due pays at the beginning of each interval; an ordinary annuity pays at the end.',
+  alt:'Twenty four payments begin at Month 0 and end at Month 23; the balloon is in Month 24',diagram:[['Month 0','−$3,150'],'→ 22 more →',['Month 23','−$3,150'],'then',['Month 24','balloon']],definitionTakeaway:'The 24 installments end at Month 23; the balloon is separate.',
+  functionTitle:'PV uses type = 1 for beginning payments',formulas:['=PV(rate,nper,pmt,0,1)','=PV(C12,D12,E12,F12,G12)'],functionRule:'Type 1 moves each payment one month earlier than type 0.',functionDetail:'At a positive rate, that makes the annuity-due present cost higher. Keep all other arguments identical in the timing audit.',functionTakeaway:'H17 − H16 isolates the positive timing effect.',
+  useTitle:'Payment timing changes financing cost',useIntro:'The hypothetical offer requires 24 beginning-of-month payments of $3,150. An analyst must model when each outflow occurs.',useAlt:'Beginning payments have a higher present cost than identical end payments',cards:[['Ordinary · type 0','Lower PV','First payment Month 1'],['Due · type 1','Higher PV','First payment today'],['Timing premium','Calculate','Due minus ordinary']],useTakeaway:'Use type 1 for the actual financing stream.',
+  exampleTitle:'Value the 24 beginning payments',sheet:'2 Build-Compare',address:'H12',prompt:'Predict which of H16 and H17 is larger, then build H12.',inputs:[['C12 · rate','0.8% monthly'],['D12 · payments','24'],['E12 · each','−$3,150'],['F12 · future','$0'],['G12 · type','1']],exampleFormula:'=PV(C12,D12,E12,F12,G12)',answer:'$69,085.37 today',interpretation:'End-of-month timing would cost $68,537.08. Beginning payments add $548.30.',check:'H12 ties to H17; H18 = H17 − H16 is positive.',
+  definitionNote:'Count twenty-four installments from Month 0 through Month 23 and keep the separately contracted balloon at Month 24.',functionNote:'Compare type zero and type one with identical cash amounts, rate, and count. Require a prediction before the timing premium is shown.',useNote:'Explain why the nominal total can stay fixed while the present cost changes; earlier company outflows cost more today.',exampleNote:'Students calculate H12 and complete the H16:H18 timing audit before the due present cost and premium are revealed.'
+});
 
-    slide('4', 'Reveal: the discount rate decides', 'cream reveal-slide', `
-      <div class="header-row"><h2>The decision flips at a 6.96% annual return</h2><div class="eyebrow">Reveal and debrief</div></div><div class="rule"></div>
-      <div class="threshold-scale" role="img" aria-label="A required return scale with the break-even point at 6.96 percent; below it the future 14000 dollars is preferred and above it the current 10000 dollars is preferred"><div class="scale-line"></div><div class="threshold" style="left:58%"><i></i><strong>6.96%</strong><span>Break-even return</span></div><div class="scale-side future-side"><strong>Below 6.96%</strong><span>$14,000 later has greater present value</span></div><div class="scale-side today-side"><strong>Above 6.96%</strong><span>$10,000 today has greater value</span></div></div>
-      <div class="formula-band"><code>Break-even r = ($14,000 ÷ $10,000)<sup>1/5</sup> − 1 = 6.96%</code></div>`,
-      'Reveal the threshold only after students commit. At exactly 6.96 percent the two choices are economically equivalent. Below it, the future payment discounts to more than ten thousand dollars; above it, to less. Likely misconception: the later amount wins because fourteen thousand exceeds ten thousand. Debrief: what business evidence would justify the required return? Time: 2 minutes.'),
+slides.push(slide('starter workbook', 'Equipment decision: compare present costs', 'cream tvm-decision', `
+  <div class="header-row"><h2>Compare both paths on today’s date</h2><div class="eyebrow">Equipment decision</div></div><div class="rule"></div>
+  <div class="tvm-use-cards" role="img" aria-label="Cash costs 80000 dollars today while financing has a 75692.87 dollar present cost"><article><span>Cash cost · H8</span><strong>$80,000.00</strong><small>Today</small></article><article><span>Finance PV · H14</span><strong>$75,692.87</strong><small>H12 + H13</small></article><article><span>Finance − cash · B24</span><strong>−$4,307.13</strong><small>Financing is lower</small></article></div>
+  <div class="tvm-takeaway light">H14 = H12 + H13. State the value date and 9.6% nominal company discount-rate assumption with the recommendation.</div>`,note('Add the payment-stream and balloon present costs only after both are valued today. A negative financing-minus-cash difference means financing has lower present cost.', 'Ask which contract term could reverse the choice.')));
+slides.push(slide('starter workbook', 'Equipment decision: sensitivity and checks', 'cream tvm-decision', `
+  <div class="header-row"><h2>Stress-test the choice and audit the model</h2><div class="eyebrow">3 Sensitivity · 4 Checks-Decision</div></div><div class="rule"></div>
+  <p class="tvm-use-intro">Hold the payment contract fixed while the company valuation rate varies. Then vary the monthly payment. Recalculate the payment-stream PV plus the balloon PV in every sensitivity cell.</p>
+  <div class="tvm-use-cards" role="img" aria-label="The sensitivity base, cash round trip, and written decision form three model checks"><article><span>Base tie</span><strong>D9 = H14</strong><small>Same financing PV</small></article><article><span>Round trip</span><strong>PV(FV) = $80k</strong><small>Rate, periods, and signs agree</small></article><article><span>Decision note</span><strong>Name reversal risk</strong><small>Fees, amount, and timing</small></article></div>
+  <div class="tvm-takeaway light">Changing the valuation discount rate tests a scenario; it does not reprice the financing quote.</div>`,note('Use the starter sensitivity grid and checks sheet. Explain that quoted payments remain fixed as the company valuation rate changes; the rate scenario is not a new offer.', 'Ask students to verify the base-cell tie.')));
 
-    slide('5', 'Timeline first', 'dark section', `<div class="gradient-bar"></div><div class="eyebrow">The valuation grammar</div><h2>Put cash on dates before putting numbers in Excel</h2><p>Timing errors are model errors.</p>`,
-      'Transition from the opening choice to the core valuation grammar. State the rule: every TVM calculation should begin with the valuation date, the cash-flow dates, and the direction of each cash flow. Ask students to watch for those three items on every quantitative slide. Time: 1 minute.'),
+block({
+  name:'RATE',slug:'implied-rate',source:'PPTX 11',
+  definitionTitle:'RATE solves the return implied by fixed cash flows',definition:'When the present amount, equal payments, term, and final amount are known, the periodic rate is the unknown that makes those cash flows balance.',
+  alt:'The equipment financing terms have a monthly and annual implied rate that must be solved',diagram:[['Received today','$80,000'],'with',['Payments + balloon','fixed'],'solve →',['Monthly rate','?']],definitionTakeaway:'The offer rate differs from the 9.6% company valuation rate.',
+  functionTitle:'RATE balances the financing offer',formulas:['=RATE(nper,pmt,pv,fv,type)','=RATE(B11,B9,B8,B10,B12)'],functionRule:'The company receives funds today and pays installments and balloon later.',functionDetail:'Use opposite cash-flow signs. The function returns a monthly rate because the period count is monthly.',functionTakeaway:'Nominal APR = monthly RATE × 12.',
+  useTitle:'Audit what a quote actually implies',useIntro:'Treasury can solve the rate embedded in the fixed payment schedule and compare it with other financing or a separate company valuation rate.',useAlt:'Fixed financing terms imply a rate that can be compared with the company discount rate',cards:[['Offer','24 × $3,150','Beginning payments'],['Balloon','$8,000','Month 24'],['Implied APR','Calculate','Versus 9.6% valuation rate']],useTakeaway:'A low implied financing rate can make deferring payment attractive.',
+  exampleTitle:'Solve the offer’s implied APR',sheet:'5 Rate-Applications',address:'B13:B16',prompt:'Use the terms linked from the timeline; find monthly, nominal annual, and effective annual rates.',inputs:[['B8 · received','$80,000'],['B9 · installment','−$3,150'],['B10 · balloon','−$8,000'],['B11 · payments','24'],['B12 · type','1']],exampleFormula:'B13=RATE(B11,B9,B8,B10,B12) · B14=B13*12',answer:'0.35004% monthly · 4.20% APR',interpretation:'B15 is about 4.28% EAR. B16 compares the implied nominal APR with the 9.6% valuation rate.',check:'B16 is about −5.40 percentage points.',
+  definitionNote:'Define an implied rate as a solution to the payment contract, distinct from a discount rate chosen for corporate valuation.',functionNote:'Read RATE argument order, including the balloon as fv and beginning-payment timing as type one. Opposite cash-flow signs are essential.',useNote:'A quote audit separates the offer’s actual implied cost from the hurdle or valuation assumption used to compare alternatives.',exampleNote:'Students complete B13:B16, then explain why these payment terms cannot honestly be labeled a 9.6 percent borrowing APR.'
+});
 
-    slide('6', 'A timeline makes the contract visible', 'cream timeline-slide', `
-      <div class="header-row"><h2>A timeline turns a payment promise into model inputs</h2><div class="eyebrow">Dates before formulas</div></div><div class="rule"></div>
-      <div class="timeline" role="img" aria-label="A five-year cash-flow timeline showing negative ten thousand dollars today and positive fourteen thousand dollars at year five"><div class="timeline-line"></div>
-        <article class="outflow"><time>Today · t=0</time><i></i><strong>−$10,000</strong><span>Cash invested</span></article>
-        <article><time>Year 1</time><i></i><span>No cash flow</span></article><article><time>Year 2</time><i></i><span>No cash flow</span></article><article><time>Year 3</time><i></i><span>No cash flow</span></article><article><time>Year 4</time><i></i><span>No cash flow</span></article>
-        <article class="inflow"><time>Year 5 · t=5</time><i></i><strong>+$14,000</strong><span>Cash received</span></article>
-      </div><div class="timeline-audit"><span>Valuation date: today</span><span>Spacing: annual</span><span>Direction: outflow → inflow</span></div>`,
-      'Trace the timeline from left to right. The initial payment is at time zero and therefore is not discounted. The promised receipt is five annual periods away. Likely misconception: counting the endpoints and entering six periods. Ask: how many compounding intervals lie between today and Year 5? Five. Time: 3 minutes.'),
+block({
+  name:'NPER',slug:'reserve-horizon',source:'PPTX 11,15',
+  definitionTitle:'NPER solves how long a target takes',definition:'Given periodic growth, a starting balance, and a target, NPER finds the number of periods. The exact solution may include part of a period.',
+  alt:'An 80000 dollar reserve grows toward a 100000 dollar target at 0.8 percent monthly',diagram:[['Reserve today','$80,000'],'0.8% monthly →',['Target','$100,000'],'at',['Whole month','?']],definitionTakeaway:'Round up when the decision must occur on a whole month.',
+  functionTitle:'NPER returns the exact period count',formulas:['=NPER(rate,pmt,pv,fv,type)','=NPER(B22,0,-B20,B21)'],functionRule:'With no monthly additions, pmt = 0.',functionDetail:'The invested reserve is a negative pv input and the future target is positive. ROUNDUP finds the first whole month after the exact solution.',functionTakeaway:'Verify the target using FV at the rounded month.',
+  useTitle:'Plan the replacement-reserve date',useIntro:'An equipment manager asks when an invested $80,000 reserve could cover a hypothetical $100,000 future purchase.',useAlt:'Reserve growth reaches a target after a whole number of months',cards:[['Reserve','$80,000','Invested today'],['Target','$100,000','Replacement budget'],['Decision date','Calculate','First whole month at target']],useTakeaway:'Check Month 28 and Month 29 balances after solving.',
+  exampleTitle:'Calculate the first month at target',sheet:'5 Rate-Applications',address:'B23:B24',prompt:'Link the monthly assumption in B22; solve the horizon and round up.',inputs:[['B20 · reserve','$80,000'],['B21 · target','$100,000'],['B22 · growth','0.8% monthly'],['Monthly deposits','$0']],exampleFormula:'B23=NPER(B22,0,-B20,B21) · B24=ROUNDUP(B23,0)',answer:'28.004 months · Month 29',interpretation:'The exact horizon falls just after Month 28; Month 29 clears the target under the assumed rate.',check:'FV at Month 28 is still below $100,000.',
+  definitionNote:'Distinguish a mathematical fractional-period result from an actual whole-month purchasing date.',functionNote:'Show the zero recurring payment and opposite signs for amount invested and target received; rounding down misses the goal.',useNote:'The reserve horizon informs capital spending plans, but the date depends on the assumed monthly growth rate.',exampleNote:'Students calculate B23 and B24, then independently check the balances in Months 28 and 29 with FV.'
+});
 
-    slide('7', 'Compounding moves value forward', 'cream compound-slide', `
-      <div class="header-row"><h2>Compounding pays a return on prior returns</h2><div class="eyebrow">Move cash forward</div></div><div class="rule"></div>
-      <div class="growth-bars" role="img" aria-label="Ten thousand dollars grows at eight percent to fourteen thousand six hundred ninety-three dollars over five years">
-        <article style="--h:46%"><span>Today</span><i></i><strong>$10,000</strong></article><article style="--h:53%"><span>Year 1</span><i></i><strong>$10,800</strong></article><article style="--h:61%"><span>Year 2</span><i></i><strong>$11,664</strong></article><article style="--h:70%"><span>Year 3</span><i></i><strong>$12,597</strong></article><article style="--h:81%"><span>Year 4</span><i></i><strong>$13,605</strong></article><article style="--h:94%"><span>Year 5</span><i></i><strong>$14,693</strong></article>
-      </div><div class="concept-rule"><code>FV = PV × (1 + r)<sup>n</sup></code><span>Time and return amplify each other.</span></div>`,
-      'Point to the widening dollar increments. At eight percent, the first year adds eight hundred dollars; the fifth year adds more than one thousand dollars because the base has grown. This is interest on interest. Ask students whether the bars would form a straight line at zero percent. Yes: no compounding. Time: 2 minutes.'),
+block({
+  name:'Real versus nominal rates',slug:'real-rates',source:'PPTX 35',
+  definitionTitle:'A real rate measures purchasing-power growth',definition:'A nominal effective return includes price growth. A real return adjusts that growth for inflation using rates over the same annual period.',
+  alt:'An effective annual nominal return adjusted for annual inflation gives real purchasing power growth',diagram:[['Nominal EAR','10.03%'],'adjust for',['Inflation','3.00%'],'→',['Real annual','?']],definitionTakeaway:'Use an annual effective rate with annual inflation.',
+  functionTitle:'Excel applies the exact Fisher relationship',formulas:['=(1+nominal)/(1+inflation)-1','=(1+B30)/(1+B29)-1'],functionRule:'Both inputs must refer to the same year.',functionDetail:'Subtracting inflation is a quick approximation. Dividing growth factors gives the exact purchasing-power rate.',functionTakeaway:'Simple subtraction overstates the result here by about 0.20 points.',
+  useTitle:'Judge what a reserve can really buy',useIntro:'A manager planning future equipment replacement needs the return after inflation, not only the reported nominal return.',useAlt:'Annual effective growth adjusted for annual inflation yields a real rate to calculate',cards:[['Nominal EAR','10.03%','Compounded annual growth'],['Inflation','3.00%','Hypothetical annual assumption'],['Real growth','Calculate','Purchasing power']],useTakeaway:'A balance can grow in dollars while buying less than its nominal growth suggests.',
+  exampleTitle:'Calculate the exact real annual rate',sheet:'5 Rate-Applications',address:'B31:B33',prompt:'Link the EAR in B30 and use the 3% annual inflation assumption in B29.',inputs:[['B29 · inflation','3.00%'],['B30 · nominal EAR','10.03%'],['Period match','annual / annual']],exampleFormula:'B31=(1+B30)/(1+B29)-1 · B32=B30-B29',answer:'6.83% exact real annual rate',interpretation:'The subtraction shortcut gives about 7.03%. B33 measures the approximately −0.20-point gap.',check:'Do not pair annual inflation with the 9.6% nominal quote.',
+  definitionNote:'Define real return in purchasing power and insist that the two rates describe the same annual interval.',functionNote:'Write the growth-factor formula before the subtraction shortcut; the shortcut misses the compound interaction.',useNote:'Link purchasing-power growth to the real cost of replacing equipment later.',exampleNote:'Students complete B31:B33 and explain why the effective annual rate, rather than the nominal quote, is the correct input.'
+});
 
-    slide('8', 'Discounting moves value back', 'cream discount-slide', `
-      <div class="header-row"><h2>Discounting removes the return required for waiting</h2><div class="eyebrow">Move cash backward</div></div><div class="rule"></div>
-      <div class="discount-funnel" role="img" aria-label="Twenty thousand dollars in five years passes backward through an eight percent required return to equal thirteen thousand six hundred twelve dollars today"><div class="future-cash"><span>Year 5</span><strong>$20,000</strong></div><div class="funnel"><span>÷ 1.08</span><span>÷ 1.08</span><span>÷ 1.08</span><span>÷ 1.08</span><span>÷ 1.08</span></div><div class="present-cash"><span>Today</span><strong>$13,611.66</strong></div></div>
-      <div class="concept-rule"><code>PV = FV ÷ (1 + r)<sup>n</sup></code><span>A higher required return produces a lower present value.</span></div>`,
-      'Read the visual from right to left. Each step removes one year of required return. Explain that the discount rate is an opportunity-cost and risk-adjustment input, not a penalty applied mechanically. Check the arithmetic: twenty thousand divided by 1.08 to the fifth power equals 13,611.66. Time: 2 minutes.'),
+block({
+  name:'Preferred stock perpetuity',slug:'preferred-perpetuity',source:'PPTX 25-28',
+  definitionTitle:'A level perpetuity pays forever',definition:'A perpetuity pays a constant amount each period with no end date. The simple preferred-stock formula assumes the first dividend arrives one full period from today.',
+  alt:'A 2.50 dollar dividend arrives next quarter and repeats indefinitely',diagram:[['Next quarter','$2.50'],'→',['Every quarter','$2.50'],'→',['No end date','∞']],definitionTakeaway:'The finite equipment loan cannot use the perpetuity shortcut.',
+  functionTitle:'Excel divides payment by periodic return',formulas:['=dividend_per_period/rate_per_period','=B8/B12'],functionRule:'There is no dedicated Excel perpetuity function.',functionDetail:'Convert 10% nominal annual required return to 2.5% per quarter. The first $2.50 dividend must arrive next quarter.',functionTakeaway:'If the first payment is today or payments end, this formula changes.',
+  useTitle:'Value a hypothetical preferred share',useIntro:'A Berkshire treasury team considers a teaching-case preferred share with a level quarterly dividend and no specified final payment.',useAlt:'Quarterly dividends and required return determine a preferred share value',cards:[['Dividend','$2.50','Per quarter per share'],['Required return','2.5%','Per quarter'],['Share value','Calculate','Today per share']],useTakeaway:'Use the $100,000 budget to calculate whole shares after finding share value.',
+  exampleTitle:'Value preferred stock in Excel',sheet:'6 Preferred-Stock',address:'B12:B20',prompt:'Confirm next-quarter timing, then calculate periodic return, share value, and whole shares.',inputs:[['B8 · dividend','$2.50'],['B9 · annual nominal','10%'],['B10 · quarters/year','4'],['B19 · budget','$100,000']],exampleFormula:'B12=B9/B10 · B13=B8/B12 · B20=INT(B19/B13)',answer:'$100 per share · 1,000 shares',interpretation:'B14 gives $10 annual dividends per share; B15 checks a 10% annual dividend yield.',check:'Level forever; first dividend next quarter; quarterly rate.',
+  definitionNote:'Define the strict cash-flow pattern and contrast it with the finite twenty-four-payment equipment financing stream.',functionNote:'Explain the direct Excel division and rate-frequency match. The dividend and required return must both be quarterly.',useNote:'The preferred share is a hypothetical teaching quote, not a real Berkshire security. Add the practical whole-share budget constraint.',exampleNote:'Students complete the preferred-stock tab, then articulate the timing and level-payment conditions that make the shortcut valid.'
+});
 
-    slide('7,8', 'Compounding and discounting are inverse moves', 'dark inverse-slide', `
-      <div class="eyebrow">One relationship · two directions</div><h2>Use the direction that lands on the decision date</h2>
-      <div class="inverse-flow" role="img" aria-label="Present value moves forward through compounding to future value and future value moves backward through discounting to present value"><article><span>Valuation date</span><strong>PV</strong><small>What is future cash worth today?</small></article><div class="inverse-arrows"><b>COMPOUND →</b><i></i><b>← DISCOUNT</b></div><article><span>Future date</span><strong>FV</strong><small>What will today’s cash become?</small></article></div>`,
-      'Ask students to say the destination before naming a formula. If the requested answer is on a future date, compound. If the requested answer is today, discount. This direction test is more reliable than memorizing isolated equations. Quick check: bond price today from future coupons requires discounting. Time: 2 minutes.'),
+slides.push(slide('starter workbook', 'Finish the model and explain the choice', 'dark tvm-close', `
+  <div class="gradient-bar"></div><div class="eyebrow">Decision-ready TVM</div><h2>Give the number, date, and assumption</h2>
+  <div class="tvm-close-grid"><article><span>Equipment</span><strong>Finance PV is $4,307.13 lower</strong><small>At the 9.6% company valuation rate</small></article><article><span>Rate audit</span><strong>Offer implies about 4.20% APR</strong><small>Separate offer terms from the discount rate</small></article><article><span>Transfer</span><strong>Choose by cash-flow pattern</strong><small>State timing, units, and value date</small></article></div>
+  <div class="tvm-takeaway">Next applications: bonds and equity; project cash-flow evaluation follows in Chapter 8.</div>`,note('Close with a concise recommendation in today dollars at the stated company valuation rate. Require students to distinguish the offer’s implied APR and name a contract detail that could reverse the choice.', 'Ask students for an evidence-based one-sentence recommendation.')));
 
-    slide('13,17', 'Excel starts with FV', 'cream excel-slide', `
-      <div class="header-row"><h2>Excel can calculate future value—if the inputs agree</h2><div class="eyebrow">Function first</div></div><div class="rule"></div>
-      <div class="excel-sheet" aria-label="Editable worksheet visual for a five-year future-value calculation">
-        <div class="excel-ribbon"><span>BUS311_TVM.xlsx</span><b>Home</b><b>Formulas</b><strong>Future Value</strong></div>
-        <div class="excel-formula-row"><span class="name-box">B10</span><b>ƒx</b><code>=FV(B5,B6,B7,B4,B8)</code></div>
-        <div class="excel-grid fv-grid"><span class="corner"></span><span>A</span><span>B</span><span>C</span><b>1</b><i></i><i></i><i></i><b>2</b><i></i><em class="sheet-title">Berkshire teaching scenario</em><i></i><b>3</b><i></i><i></i><i></i><b>4</b><label>Present value</label><data class="input">−$10,000.00</data><span>cash paid</span><b>5</b><label>Annual rate</label><data class="input">8.00%</data><span>annual</span><b>6</b><label>Periods</label><data class="input">5</data><span>years</span><b>7</b><label>Payment</label><data>0</data><span>lump sum</span><b>8</b><label>Type</label><data>0</data><span>end of period</span><b>9</b><i></i><i></i><i></i><b>10</b><label>Future value</label><data class="result">$14,693.28</data><span>cash received</span></div>
-        <div class="excel-status"><span>Rate and periods: annual</span><span>Signs: opposite directions</span><span>Result: Year 5 dollars</span></div>
-      </div>`,
-      'Introduce the FV function now, before manual arithmetic. Read the arguments from the worksheet rather than from memory: rate in B5, periods in B6, payment in B7, present value in B4, and type in B8. Because the ten thousand dollars is paid out, it is negative; Excel returns a positive receipt. Time: 4 minutes.'),
-
-    slide('11', 'Excel signs show cash-flow direction', 'cream sign-slide', `
-      <div class="header-row"><h2>Opposite signs tell Excel the cash changes hands</h2><div class="eyebrow">Cash-flow convention</div></div><div class="rule"></div>
-      <div class="sign-exchange" role="img" aria-label="A negative cash outflow today points from the company to the investment and a positive future cash inflow points back to the company"><article class="company"><span>Berkshire</span><strong>Cash owner</strong></article><div class="sign-arrows"><div class="out"><b>−$10,000 today</b><i>→</i></div><div class="in"><i>←</i><b>+$14,693 in Year 5</b></div></div><article class="investment"><span>Investment</span><strong>Cash user</strong></article></div>
-      <div class="warning-band">Same-sign inputs usually mean the model is describing two inflows or two outflows—not an exchange.</div>`,
-      'Explain signs from the viewpoint of the model owner. The present value is money leaving today, so it is negative. The future value is money returning later, so it is positive. Excel may display a negative result when all entered cash flows have the same sign; that is a diagnostic, not a software defect. Time: 2 minutes.'),
-
-    slide('11', 'Activity: diagnose the sign error', 'cream activity-slide sign-activity', `
-      <div class="header-row"><h2>Which formula returns a positive future receipt?</h2><div class="eyebrow">Pairs · 2 minutes</div></div><div class="rule"></div>
-      <div class="activity-prompt"><strong>Click one formula, then check.</strong><span>Assume $10,000 leaves today and the investment returns cash in five years.</span></div>
-      <div class="formula-options" data-interactive="signs"><button type="button" data-correct="false" aria-pressed="false"><code>=FV(8%,5,0,10000)</code><small>PV entered positive</small></button><button type="button" data-correct="true" aria-pressed="false"><code>=FV(8%,5,0,-10000)</code><small>PV entered as an outflow</small></button><button type="button" data-correct="false" aria-pressed="false"><code>=FV(8%,5,-10000,0)</code><small>Amount entered as a payment</small></button></div>
-      <div class="activity-actions"><button type="button" class="check-button" data-action="check-signs">Check choice</button><output id="sign-feedback" aria-live="polite">Required deliverable: formula + one-sentence sign rationale.</output></div>`,
-      'Answer: =FV(8%,5,0,-10000). The first option produces a negative future value because Excel sees the present value as cash received today. The third incorrectly treats ten thousand dollars as a recurring annual payment. Likely misconception: a negative sign means the investment loses money. Debrief: negative relative to whose perspective? Time: 2 minutes.'),
-
-    slide('9', 'Rates and periods', 'dark section', `<div class="gradient-bar"></div><div class="eyebrow">Model integrity</div><h2>The rate and the period count must speak the same language</h2><p>Annual with annual. Monthly with monthly.</p>`,
-      'Transition to the most common mechanical source of TVM error. State that a correct function with inconsistent units is still a wrong model. The next activity distinguishes a quoted annual rate from the periodic rate actually used in the calculation. Time: 1 minute.'),
-
-    slide('10', 'APR and EAR answer different questions', 'cream rate-map-slide', `
-      <div class="header-row"><h2>A quoted annual rate is not always the model’s periodic rate</h2><div class="eyebrow">Read the label</div></div><div class="rule"></div>
-      <div class="rate-map" role="img" aria-label="A nominal APR converts to a periodic rate for each month while compounding the periodic rate produces an effective annual rate"><article class="apr"><span>Quoted rate</span><strong>12.00% APR</strong><small>Nominal annual rate</small></article><i>÷ 12</i><article class="periodic"><span>Model rate</span><strong>1.00% per month</strong><small>Use with monthly periods</small></article><i>compound</i><article class="ear"><span>Annual outcome</span><strong>12.68% EAR</strong><small>Actual one-year growth</small></article></div>
-      <div class="formula-band light"><code>EAR = (1 + 12% ÷ 12)<sup>12</sup> − 1 = 12.68%</code></div>`,
-      'Distinguish nominal APR, periodic rate, and effective annual rate. Dividing by twelve is appropriate for a nominal APR with monthly compounding, not for an already-effective annual rate. The periodic rate belongs with monthly n. Ask students what evidence they need from a source: rate definition and compounding frequency. Time: 3 minutes.'),
-
-    slide('10', 'Activity: match the model units', 'cream activity-slide rate-activity', `
-      <div class="header-row"><h2>Build the inputs for a 24-month investment</h2><div class="eyebrow">Pairs · 3 minutes</div></div><div class="rule"></div>
-      <div class="activity-prompt"><strong>Choose one complete input pair.</strong><span>Quoted return: 12% nominal APR, compounded monthly. Holding period: 24 months.</span></div>
-      <div class="rate-options" data-interactive="rates"><button type="button" data-correct="false" aria-pressed="false"><b>Rate 12%</b><span>n = 2</span></button><button type="button" data-correct="false" aria-pressed="false"><b>Rate 12%</b><span>n = 24</span></button><button type="button" data-correct="true" aria-pressed="false"><b>Rate 1%</b><span>n = 24</span></button><button type="button" data-correct="false" aria-pressed="false"><b>Rate 12.68%</b><span>n = 24</span></button></div>
-      <div class="activity-actions"><button type="button" class="check-button" data-action="check-rates">Check pair</button><output id="rate-feedback" aria-live="polite">Required deliverable: the rate, n, and unit attached to each.</output></div>`,
-      'Answer: rate equals one percent per month and n equals twenty-four months. Rationale: both inputs describe the same monthly period. Likely misconception: use twelve percent with twenty-four because both numbers appear in the prompt. Debrief by asking how the setup changes if the source gives a 12.68 percent EAR instead. Time: 3 minutes.'),
-
-    slide('10', 'Reveal: matched units produce the right growth', 'cream reveal-slide', `
-      <div class="header-row"><h2>At 1% per month, $5,000 grows to $6,348.67</h2><div class="eyebrow">Reveal and debrief</div></div><div class="rule"></div>
-      <div class="unit-equation" role="img" aria-label="Five thousand dollars compounded at one percent for twenty-four monthly periods equals six thousand three hundred forty-eight dollars and sixty-seven cents"><article><span>PV</span><strong>−$5,000</strong></article><b>×</b><article><span>Monthly growth</span><strong>(1.01)<sup>24</sup></strong></article><b>=</b><article class="result"><span>FV</span><strong>$6,348.67</strong></article></div>
-      <div class="formula-band light"><code>=FV(12%/12,24,0,-5000)</code><span>Rate unit = period-count unit = month</span></div>`,
-      'Confirm the result independently: five thousand times 1.01 to the twenty-fourth power equals 6,348.67. Compare with the wildly overstated result from using twelve percent as a monthly rate. Ask: what two labels should appear beside any TVM input? The value and its period unit. Time: 2 minutes.'),
-
-    slide('12', 'Evidence needs an audit trail', 'cream evidence-slide', `
-      <div class="header-row"><h2>A rate is usable only when its definition travels with it</h2><div class="eyebrow">Public workflow mockup</div></div><div class="rule"></div>
-      <div class="evidence-pipeline" role="img" aria-label="A public data workflow from source to definition to units to retrieval date to model cell"><article><span>Source</span><strong>SEC filing · treasury data · company terms</strong></article><i>→</i><article><span>Definition</span><strong>APR, EAR, yield, or required return?</strong></article><i>→</i><article><span>Units</span><strong>Annual, monthly, currency, scale</strong></article><i>→</i><article><span>As of</span><strong>Retrieval date and market date</strong></article><i>→</i><article class="model"><span>Model cell</span><strong>Documented input</strong></article></div>
-      <div class="evidence-note">Record the field, definition, period, units, currency, supplier, and retrieval date.</div>`,
-      'Treat the workflow as a platform-neutral audit habit. Do not imply that a source label alone makes an input auditable. Ask students why “interest rate = 8%” is incomplete. They should identify definition, period, and as-of date. Time: 2 minutes.'),
-
-    slide('14,15,16', 'Worked setup: map the future-value decision', 'cream setup-slide', `
-      <div class="header-row"><h2>One timeline supplies every FV input</h2><div class="eyebrow">Berkshire teaching scenario</div></div><div class="rule"></div>
-      <div class="worked-map"><div class="mini-timeline" role="img" aria-label="Negative ten thousand dollars at time zero compounds at eight percent annually to an unknown future value at year five"><article class="outflow"><span>Today · B4</span><strong>−$10,000</strong></article><div class="arrow-track"><b>8% each year · B5</b><i></i><i></i><i></i><i></i><i></i></div><article class="inflow"><span>Year 5 · B10</span><strong>FV = ?</strong></article></div><div class="input-audit"><article><span>Periods · B6</span><strong>5 years</strong></article><article><span>Payment · B7</span><strong>$0</strong></article><article><span>Type · B8</span><strong>0 · period-end</strong></article></div></div>
-      <div class="decision-banner">Question: how much cash must return in Year 5 to equal an 8% annual opportunity?</div>`,
-      'Name the cells before calculating. B4 is the present outflow, B5 the annual rate, B6 the number of annual periods, B7 zero because this is a lump sum, and B8 zero for end-of-period convention. The result belongs in B10 and is measured in Year 5 dollars. Time: 3 minutes.'),
-
-    slide('14,15,16,17', 'Student attempt: build the FV formula', 'cream activity-slide formula-build', `
-      <div class="header-row"><h2>Write the function from the timeline—not from memory</h2><div class="eyebrow">Individual → pair · 4 minutes</div></div><div class="rule"></div>
-      <div class="formula-builder"><div class="formula-shell"><span>=FV(</span><b>rate</b><span>,</span><b>nper</b><span>,</span><b>pmt</b><span>,</span><b>pv</b><span>,</span><b>type</b><span>)</span></div><div class="cell-bank"><code>B4 = −$10,000</code><code>B5 = 8%</code><code>B6 = 5</code><code>B7 = 0</code><code>B8 = 0</code></div></div>
-      <div class="attempt-steps compact"><article><b>Write</b><p>Replace each argument with a cell.</p></article><article><b>Audit</b><p>Label the unit and sign.</p></article><article><b>Deliver</b><p>Formula + expected result direction.</p></article></div>`,
-      'Answer: =FV(B5,B6,B7,B4,B8). A formula that hard-codes the numbers can calculate correctly but is less auditable and harder to stress-test. Likely misconception: placing present value first because it occurs first in time. Debrief by asking students to predict whether the answer should be positive and larger than ten thousand dollars. Time: 4 minutes.'),
-
-    slide('17,18', 'Reveal: Excel returns the Year 5 value', 'cream excel-slide result-excel', `
-      <div class="header-row"><h2>The correct model returns $14,693.28 in Year 5 dollars</h2><div class="eyebrow">Reveal and interpret</div></div><div class="rule"></div>
-      <div class="excel-sheet compact-sheet" aria-label="Editable worksheet visual highlighting the FV formula and result">
-        <div class="excel-ribbon"><span>BUS311_TVM.xlsx</span><b>Formulas</b><strong>Future Value</strong></div><div class="excel-formula-row"><span class="name-box">B10</span><b>ƒx</b><code>=FV(B5,B6,B7,B4,B8)</code></div>
-        <div class="result-sheet"><div><span>PV · B4</span><strong>−$10,000.00</strong></div><i>→</i><div><span>Rate · B5</span><strong>8.00%</strong></div><i>×</i><div><span>Periods · B6</span><strong>5</strong></div><i>→</i><div class="selected"><span>FV · B10</span><strong>$14,693.28</strong></div></div>
-        <div class="excel-status"><span>Manual check: $10,000 × 1.08<sup>5</sup></span><span>Answer date: end of Year 5</span></div>
-      </div><div class="interpret-strip"><strong>The number is not “profit.”</strong><span>It is the future amount economically equivalent to $10,000 today at an 8% required return.</span></div>`,
-      'Reveal the formula and result. The manual check is 10,000 times 1.08 to the fifth power, which equals 14,693.28. Stress that the difference is not automatically accounting profit; it is required future value under the assumed return. Ask students to state the answer date before the amount. Time: 4 minutes.'),
-
-    slide('23', 'Sensitivity shows which assumption matters', 'cream sensitivity-chart-slide', `
-      <div class="header-row"><h2>More time makes the required return more consequential</h2><div class="eyebrow">Same cells · varied B5 and B6</div></div><div class="rule"></div>
-      <div class="sensitivity-chart" role="img" aria-label="Future value of ten thousand dollars across annual returns from four to twelve percent after three, five, and seven years">
-        <div class="y-label">Future value</div><div class="grid-lines"><span>$22k</span><span>$19k</span><span>$16k</span><span>$13k</span><span>$10k</span></div>
-        <svg viewBox="0 0 1200 500" aria-hidden="true"><path class="line three" d="M80 406 L330 383 L580 359 L830 334 L1080 308"/><path class="line five" d="M80 374 L330 332 L580 286 L830 236 L1080 183"/><path class="line seven" d="M80 339 L330 274 L580 200 L830 118 L1080 26"/><g class="dots"><circle cx="80" cy="374" r="12"/><circle cx="330" cy="332" r="12"/><circle cx="580" cy="286" r="12"/><circle cx="830" cy="236" r="12"/><circle cx="1080" cy="183" r="12"/></g></svg>
-        <div class="x-labels"><span>4%</span><span>6%</span><span>8%</span><span>10%</span><span>12%</span></div><div class="legend"><span class="three">3 years</span><span class="five">5 years</span><span class="seven">7 years</span></div>
-      </div>`,
-      'Describe the chart as a sensitivity map, not a forecast. Every line uses the same ten-thousand-dollar present value. The slope becomes steeper with more time because the rate compounds over more periods. The five-year values at four, six, eight, ten, and twelve percent are 12,166.53; 13,382.26; 14,693.28; 16,105.10; and 17,623.42. Time: 3 minutes.'),
-
-    slide('23', 'Activity: stress-test the FV model', 'cream activity-slide slider-slide', `
-      <div class="header-row"><h2>Find the rate that pushes Year 5 value above $16,000</h2><div class="eyebrow">Pairs · 3 minutes</div></div><div class="rule"></div>
-      <div class="slider-lab" data-interactive="sensitivity"><div class="slider-control"><label for="fv-rate">Annual required return</label><input id="fv-rate" type="range" min="4" max="12" step="1" value="8"><output id="fv-rate-value">8%</output></div><div class="slider-result"><span>Year 5 future value</span><strong id="fv-output">$14,693.28</strong><small id="fv-decision">Below the $16,000 threshold</small></div></div>
-      <div class="deliverable">Required deliverable: the lowest whole-percent rate that clears $16,000, plus one sentence explaining why.</div>`,
-      'Answer: ten percent is the lowest whole-percent rate that produces more than sixteen thousand dollars after five years; the output is 16,105.10. At nine percent the value is 15,386.24. Likely misconception: interpreting the higher required future value as automatically better. Debrief: a higher hurdle makes an investment harder to justify because it must produce more future cash. Time: 3 minutes.'),
-
-    slide('18,23', 'Debrief: sensitivity is a decision test', 'dark debrief-slide', `
-      <div class="eyebrow">Interpret the model</div><h2>A result is useful only with its value date and required return</h2>
-      <div class="debrief-equation"><article><span>Calculated amount</span><strong>$14,693.28</strong></article><b>+</b><article><span>Value date</span><strong>End of Year 5</strong></article><b>+</b><article><span>Decision assumption</span><strong>8% annual return</strong></article><b>=</b><article class="result"><span>Defensible statement</span><strong>Economic equivalent</strong></article></div>`,
-      'Model the complete interpretation: “At an eight percent annual required return, ten thousand dollars today is economically equivalent to 14,693.28 at the end of Year 5.” Ask students what would make the statement incomplete. Missing date, rate, direction, or scenario. Time: 1 minute.'),
-
-    slide('19', 'Cash-flow patterns', 'dark section', `<div class="gradient-bar"></div><div class="eyebrow">Transfer the grammar</div><h2>The shape of the cash flows selects the function</h2><p>One payment, a repeated stream, or a stream with no planned end.</p>`,
-      'Transition from the lump-sum model to reusable cash-flow patterns. Emphasize that the timeline still comes first; the pattern simply determines whether a lump-sum function, annuity function, or perpetuity shortcut is appropriate. Time: 1 minute.'),
-
-    slide('20,21,22', 'Choose the function from the pattern', 'cream pattern-tree-slide', `
-      <div class="header-row"><h2>Start with the cash-flow shape—not the equation</h2><div class="eyebrow">Pattern decision tree</div></div><div class="rule"></div>
-      <div class="pattern-tree" role="img" aria-label="Decision tree selecting lump sum for one dated cash flow, annuity for a finite equal stream, and perpetuity for an equal stream with no end date"><div class="tree-root">How many promised cash flows?</div><div class="tree-branches"><article><span>One dated payment</span><strong>Lump sum</strong><code>PV or FV</code></article><article><span>Equal payments · finite</span><strong>Annuity</strong><code>PV, FV, or PMT</code></article><article><span>Equal payments · no end</span><strong>Perpetuity</strong><code>PV = C ÷ r</code></article></div></div>`,
-      'Walk from the question at the top to each branch. A bond is not a pure annuity because it combines a coupon annuity with a lump-sum principal repayment. A growing perpetuity is a separate pattern and requires growth below the required return. Time: 3 minutes.'),
-
-    slide('20', 'A lump sum follows one path', 'cream lump-slide', `
-      <div class="header-row"><h2>One future payment needs one discounting path</h2><div class="eyebrow">Apple note teaching example</div></div><div class="rule"></div>
-      <div class="lump-path" role="img" aria-label="A twenty-thousand-dollar maturity payment in five years discounted at eight percent to a present value of thirteen thousand six hundred eleven dollars and sixty-six cents"><article class="future"><span>Single maturity payment</span><strong>$20,000</strong><small>Year 5</small></article><div class="discount-steps"><b>÷ 1.08<sup>5</sup></b><i>← discount to today</i></div><article class="present"><span>Equivalent today</span><strong>$13,611.66</strong><small>Today</small></article></div>
-      <div class="formula-band light"><code>=PV(8%,5,0,-20000)</code><span>One payment · no recurring PMT</span></div>`,
-      'This is a teaching example framed around a single promised payment, not a quote for a specific Apple security. The payment is entered negative so Excel returns a positive present value. Link this directly to bond valuation: principal is a lump sum, while coupons form a separate stream. Time: 3 minutes.'),
-
-    slide('21', 'Prediction: does payment timing matter?', 'dark annuity-predict-slide', `
-      <div class="eyebrow">Prediction setup · lease payments</div><h2>Same five $4,000 payments. Which stream is worth more today?</h2>
-      <div class="annuity-compare" role="img" aria-label="An ordinary annuity pays four thousand dollars at the end of years one through five while an annuity due pays at the beginning of years zero through four"><article><span>Ordinary annuity</span><div class="cash-dots end"><i></i><i>$4k</i><i>$4k</i><i>$4k</i><i>$4k</i><i>$4k</i></div><small>Payments at period-end</small></article><article><span>Annuity due</span><div class="cash-dots due"><i>$4k</i><i>$4k</i><i>$4k</i><i>$4k</i><i>$4k</i><i></i></div><small>Payments at period-beginning</small></article></div>`,
-      'Do not reveal the values. Ask students to predict which stream has greater present value at an eight percent required return and to identify the single timing difference. A show of hands is enough before pair work. Likely misconception: equal totals imply equal values. Time: 2 minutes.'),
-
-    slide('21', 'Student attempt: defend the timing choice', 'cream activity-slide', `
-      <div class="header-row"><h2>Explain the direction before calculating</h2><div class="eyebrow">Pairs · 3 minutes</div></div><div class="rule"></div>
-      <div class="attempt-board"><div class="attempt-question"><span>Your task</span><strong>Choose ordinary or due, then explain the valuation logic.</strong></div><div class="attempt-steps"><article><b>Compare</b><p>Locate the first payment.</p></article><article><b>Reason</b><p>Count how long each cash flow is discounted.</p></article><article><b>Deliver</b><p>Choice + one timing sentence.</p></article></div></div>
-      <div class="deliverable">Required deliverable: “The ___ annuity is worth more because ___.”</div>`,
-      'Answer: the annuity due is worth more because every payment arrives one period earlier and is discounted for one fewer period. Accept a timeline explanation before requiring a formula. Debrief with one pair that used time-zero language and one that used the one-fewer-period logic. Time: 3 minutes.'),
-
-    slide('21', 'Reveal: one period earlier raises value', 'cream reveal-slide annuity-reveal', `
-      <div class="header-row"><h2>The annuity due is worth $1,277.67 more today</h2><div class="eyebrow">Reveal and debrief</div></div><div class="rule"></div>
-      <div class="annuity-results"><article><span>Ordinary annuity · type 0</span><strong>$15,970.84</strong><code>=PV(8%,5,-4000,0,0)</code></article><div class="timing-shift"><b>× 1.08</b><span>Every payment shifts one period earlier</span></div><article class="due"><span>Annuity due · type 1</span><strong>$17,248.51</strong><code>=PV(8%,5,-4000,0,1)</code></article></div>
-      <div class="interpret-strip"><strong>Same total cash: $20,000.</strong><span>Different timing creates different present value.</span></div>`,
-      'Reveal the two present values. The ordinary annuity is 15,970.84. Multiplying by 1.08 gives the annuity-due value of 17,248.51 because the entire stream moves one period earlier. Likely misconception: type equals the number of payments. Clarify that type zero means end-of-period and type one means beginning-of-period. Time: 3 minutes.'),
-
-    slide('22', 'A perpetuity needs strict conditions', 'cream perpetuity-slide', `
-      <div class="header-row"><h2>A perpetuity is simple only when its assumptions are strong</h2><div class="eyebrow">Level cash forever</div></div><div class="rule"></div>
-      <div class="perpetuity-system" role="img" aria-label="A five-hundred-thousand-dollar annual cash flow beginning in one year and continuing forever has a present value of six million two hundred fifty thousand dollars at eight percent"><div class="perp-timeline"><span>Today</span><i></i><b>Year 1 · $500k</b><b>Year 2 · $500k</b><b>Year 3 · $500k</b><em>… forever</em></div><div class="perp-formula"><span>Level perpetuity</span><code>PV = C ÷ r</code><strong>$500,000 ÷ 8% = $6.25M</strong></div></div>
-      <div class="condition-row"><span>First payment: one period from today</span><span>Cash flow: level</span><span>Required return: stable</span></div>`,
-      'State the conditions before using the shortcut. If the first payment is today, add it separately. If cash flow grows, use the growing-perpetuity formula and require growth below the discount rate. Ask why an infinite stream can have finite value: distant payments are heavily discounted. Time: 3 minutes.'),
-
-    slide('20,21,22,24', 'Activity: classify the cash-flow pattern', 'cream activity-slide pattern-activity', `
-      <div class="header-row"><h2>Choose the valuation pattern for each business promise</h2><div class="eyebrow">Teams · 4 minutes</div></div><div class="rule"></div>
-      <div class="pattern-options" data-interactive="patterns">
-        <button type="button" data-correct="lump" aria-pressed="false"><span>Supplier rebate</span><strong>One $2M payment in Year 3</strong><small>Choose: lump · annuity · perpetuity</small></button>
-        <button type="button" data-correct="annuity" aria-pressed="false"><span>Equipment lease</span><strong>$450k each year for 6 years</strong><small>Choose: lump · annuity · perpetuity</small></button>
-        <button type="button" data-correct="perpetuity" aria-pressed="false"><span>Endowment policy</span><strong>$300k annually with no planned end</strong><small>Choose: lump · annuity · perpetuity</small></button>
-      </div><div class="pattern-controls"><div class="choice-buttons"><button type="button" data-pattern="lump">Lump</button><button type="button" data-pattern="annuity">Annuity</button><button type="button" data-pattern="perpetuity">Perpetuity</button></div><button type="button" class="check-button" data-action="check-patterns">Check classifications</button><output id="pattern-feedback" aria-live="polite">Select a scenario, then assign a pattern.</output></div>
-      <div class="deliverable">Required deliverable: three classifications and the timeline feature that justifies each.</div>`,
-      'Answers: supplier rebate is a lump sum; equipment lease is a finite annuity; endowment policy is a perpetuity. Likely misconception: calling any repeated payment a perpetuity. Require students to identify whether the stream has an end date. Debrief: a coupon bond combines which two patterns? An annuity of coupons plus a lump-sum principal. Time: 4 minutes.'),
-
-    slide('25', 'Three safeguards protect every TVM model', 'cream recap-slide', `
-      <div class="header-row"><h2>Trust the result only after three audits</h2><div class="eyebrow">Close the loop</div></div><div class="rule"></div>
-      <div class="audit-loop" role="img" aria-label="A three-part audit loop checks the timeline, units, and cash-flow direction before interpreting the result"><article><span>Timeline</span><strong>Where does each cash flow occur?</strong></article><i>→</i><article><span>Units</span><strong>Do rate and periods match?</strong></article><i>→</i><article><span>Direction</span><strong>Do inflows and outflows use opposite signs?</strong></article><i>↺</i></div>
-      <div class="decision-banner">Then state the amount, the value date, and the required-return assumption.</div>`,
-      'Have students restate each safeguard without looking at their notes. Ask for one example of a plausible-looking output that fails each audit. Reinforce that the final sentence must include amount, date, and rate assumption. Time: 2 minutes.'),
-
-    slide('24,26,27', 'Exit ticket: make the valuation decision-ready', 'dark close exit-slide', `
-      <div class="gradient-bar"></div><div class="eyebrow">Exit ticket · 3 minutes</div><h2>Finish one sentence that a CFO could use</h2>
-      <div class="exit-prompt">“At ___% per ___, $___ today is equivalent to $___ at ___.”</div>
-      <div class="exit-actions" data-interactive="exit"><button type="button" data-exit="timeline">I can map the timeline</button><button type="button" data-exit="excel">I can audit the Excel function</button><button type="button" data-exit="decision">I can defend the decision</button></div>
-      <output id="exit-feedback" aria-live="polite">Choose the skill you can defend most clearly, then complete the sentence on paper.</output>
-      <div class="next-band"><span>Next</span><strong>Apply TVM to coupon bonds and yield to maturity.</strong></div>`,
-      'Required answer components: a periodic rate with its unit, a present amount, a future amount, and the future value date. Ask students to circle the skill they can defend and underline the assumption they would stress-test. Collect the sentence as the deliverable. Preview the next lesson: a coupon bond is an annuity plus a lump sum. Time: 3 minutes.')
-  ]
-};
+export const tvmM05L01Deck = { title: 'Time Value of Money', slides };

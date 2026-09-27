@@ -94,24 +94,26 @@ export function buildM05StarterWorkbook() {
   const model = workbook.worksheets.add('2 Build-Compare');
   const sensitivity = workbook.worksheets.add('3 Sensitivity');
   const checks = workbook.worksheets.add('4 Checks-Decision');
+  const rateApplications = workbook.worksheets.add('5 Rate-Applications');
+  const preferred = workbook.worksheets.add('6 Preferred-Stock');
 
   // START HERE
   styleBody(start, 'A1:H34');
   setTitle(start, 'Time Value of Money — Decision Model');
   start.getRange('A3:H3').merge();
-  start.getRange('A3').values = [['BUS311 · Valuation M05 · Student starter · Version 2026-07-28']];
+  start.getRange('A3').values = [['BUS311 · Valuation M05 · Student starter · Version 2026-09-27']];
   start.getRange('A3:H3').format = { fill: colors.terra, font: { bold: true, color: colors.white }, verticalAlignment: 'center' };
   start.getRange('A5:H6').merge();
   start.getRange('A5').values = [[
-    'Decision objective: compare a cash purchase with beginning-of-month financing on the same valuation date. Complete the timeline before selecting functions, then normalize rates and periods, value both alternatives, stress-test the result, and state the choice in today’s dollars.'
+    'Compare a cash purchase with beginning-of-month financing on the same valuation date. Then use the same terms to solve for an implied financing rate, test a reserve horizon and real return, and value a separate hypothetical preferred share.'
   ]];
   start.getRange('A5:H6').format = { fill: colors.paper, font: { size: 11 }, wrapText: true, verticalAlignment: 'center', borders: { preset: 'outside', style: 'thin', color: colors.border } };
   setSection(start, 8, 'Required decision sequence');
   const steps = [
     ['Map', 'Place each signed cash flow on the timeline and identify the valuation date.'],
     ['Diagnose', 'Explain the sign, unit, period-count, APR/EAR, and payment-timing errors in the broken formulas.'],
-    ['Normalize', 'Convert the quoted nominal APR to a periodic rate and calculate the EAR.'],
-    ['Model', 'Use Excel PV and FV functions with linked cells; do not hard-code formula arguments.'],
+    ['Normalize', 'Convert the annual valuation discount rate to a monthly rate and calculate the EAR.'],
+    ['Model', 'Use linked PV and FV inputs; then use RATE and NPER on the rate-applications sheet.'],
     ['Compare', 'Put the cash and financing alternatives in today’s dollars before choosing.'],
     ['Stress-test', 'Write one linked sensitivity formula, then copy it across and down.'],
     ['Decide', 'State the recommendation, evidence, and one assumption that could reverse it.'],
@@ -123,7 +125,7 @@ export function buildM05StarterWorkbook() {
   setSection(start, 17, 'Deliverables');
   start.getRange('A18:B22').values = [
     ['Timeline', 'Complete all cash-flow positions, directions, first-payment timing, and pattern labels.'],
-    ['Model', 'Use real cell references for the rate, nper, pmt, pv/fv, and type arguments.'],
+    ['Model', 'Use linked PV, FV, RATE, and NPER inputs; value the preferred dividend separately.'],
     ['Sensitivity', 'Complete the 4 × 5 linked block and verify that the base case ties to the decision model.'],
     ['Checks', 'Clear each reasonableness, direction, sign, and tie-out check.'],
     ['Decision output', 'Write a short choice in today’s dollars with evidence and a reversal trigger.'],
@@ -146,7 +148,7 @@ export function buildM05StarterWorkbook() {
   setSection(start, 29, 'Source and scope note');
   start.getRange('A30:H32').merge();
   start.getRange('A30').values = [[
-    'This is a clearly labeled Berkshire Hathaway teaching scenario; the cash amounts and financing quote are instructional assumptions, not company disclosures or an offer. If your instructor substitutes a FactSet-backed rate, record the field name, company, fiscal period, units, currency, retrieval date, and rate definition before using it.'
+    'This Berkshire Hathaway equipment scenario is hypothetical. The 9.6% annual rate is a valuation discount-rate assumption, not the financing offer’s stated APR. The cash amounts and preferred-share terms are teaching inputs, not company disclosures. Document the definition, units, period and source before replacing any rate.'
   ]];
   start.getRange('A30:H32').format = { fill: colors.paper, wrapText: true, verticalAlignment: 'center', borders: { preset: 'outside', style: 'thin', color: colors.border } };
   start.getRange('A:A').format.columnWidth = 18;
@@ -169,11 +171,11 @@ export function buildM05StarterWorkbook() {
   ]];
   timeline.getRange('A3:H4').format = { fill: colors.paper, wrapText: true, verticalAlignment: 'center', borders: { preset: 'outside', style: 'thin', color: colors.border } };
   setSection(timeline, 6, 'Given assumptions', 'A', 'C');
-  setSection(timeline, 6, 'Normalize the quote and choose functions', 'E', 'H');
+  setSection(timeline, 6, 'Normalize the valuation rate and choose functions', 'E', 'H');
   timeline.getRange('A7:C14').values = [
     ['Input', 'Value', 'Unit / definition'],
     ['Cash price today', -80000, 'Company cash outflow at t = 0'],
-    ['Quoted nominal APR', 0.096, 'Compounded monthly'],
+    ['Annual valuation discount rate', 0.096, 'Nominal annual; compounded monthly'],
     ['Compounding periods per year', 12, 'Months per year'],
     ['Term', 24, 'Months'],
     ['Monthly payment', -3150, 'Company cash outflow'],
@@ -337,12 +339,12 @@ export function buildM05StarterWorkbook() {
   setTitle(sensitivity, 'Stress-test the financing alternative', 'G');
   sensitivity.getRange('A3:G4').merge();
   sensitivity.getRange('A3').values = [[
-    'Write one linked formula in B8 using the APR header in row 7 and monthly-payment input in column A. Lock only the rows/columns that should stay fixed, then copy the formula across and down. Every cell must recalculate the full payment-stream PV plus balloon PV.'
+    'Write one linked formula in B8 using the annual discount-rate header in row 7 and monthly-payment input in column A. Lock only the rows/columns that should stay fixed, then copy the formula across and down. Every cell must recalculate the payment-stream PV plus balloon PV.'
   ]];
   sensitivity.getRange('A3:G4').format = { fill: colors.paper, wrapText: true, verticalAlignment: 'center', borders: { preset: 'outside', style: 'thin', color: colors.border } };
   setSection(sensitivity, 6, 'Present cost of financing — today dollars', 'A', 'F');
   sensitivity.getRange('A7:F11').values = [
-    ['Monthly payment \ Nominal APR', 0.06, 0.08, 0.096, 0.12, 0.14],
+    ['Monthly payment \ Annual discount rate', 0.06, 0.08, 0.096, 0.12, 0.14],
     [-3000, null, null, null, null, null],
     [-3150, null, null, null, null, null],
     [-3300, null, null, null, null, null],
@@ -353,12 +355,12 @@ export function buildM05StarterWorkbook() {
   setInput(sensitivity.getRange('B7:F7'), percent);
   setStudentCell(sensitivity.getRange('B8:F11'), money);
   sensitivity.getRange('A13:F13').merge();
-  sensitivity.getRange('A13').values = [['Copy audit: the base case is the intersection of −$3,150 per month and 9.60% APR. It must tie to the financing present cost on the model sheet.']];
+  sensitivity.getRange('A13').values = [['Copy audit: the base case uses −$3,150 per month and a 9.60% annual discount rate. It must tie to the financing present cost on the model sheet.']];
   sensitivity.getRange('A13:F13').format = { fill: colors.warning, font: { bold: true, color: colors.terra }, wrapText: true, borders: { preset: 'outside', style: 'thin', color: colors.terra } };
   setSection(sensitivity, 15, 'Interpret the sensitivity — do not stop at the table', 'A', 'F');
   sensitivity.getRange('A16:F23').values = [
     ['Prompt', 'Student interpretation', null, null, null, null],
-    ['Across a row, what happens to PV cost as APR rises? Why?', null, null, null, null, null],
+    ['Across a row, what happens to PV cost as the discount rate rises? Why?', null, null, null, null, null],
     [null, null, null, null, null, null],
     ['Down a column, what happens as the payment becomes more negative? Why?', null, null, null, null, null],
     [null, null, null, null, null, null],
@@ -402,7 +404,7 @@ export function buildM05StarterWorkbook() {
     ['PV/FV round trip', null, 'approximately 0', 0.01, null, '2 Build-Compare H8:H10', 'Inverse moves should return the same today value.'],
     ['Payment-timing direction', null, 'due PV > ordinary PV', 0, null, '2 Build-Compare H16:H18', 'Earlier payments are discounted for one fewer period.'],
     ['Sensitivity base tie', null, 'approximately 0', 0.01, null, '3 Sensitivity D9', 'The copied block must recalculate the same base model.'],
-    ['Sensitivity rate direction', null, 'PV cost decreases as APR rises', null, null, '3 Sensitivity row 9', 'The direction check catches bad anchors and units.'],
+    ['Sensitivity rate direction', null, 'PV cost falls as discount rate rises', null, null, '3 Sensitivity row 9', 'Fixed future payments have a lower PV at a higher discount rate.'],
   ];
   setHeader(checks.getRange('A7:G7'));
   checks.getRange('B8').formulas = [["=COUNTBLANK('1 Timeline-Diagnose'!B18:H20)"]];
@@ -411,7 +413,7 @@ export function buildM05StarterWorkbook() {
   checks.getRange('B11').formulas = [["=IF(COUNT('2 Build-Compare'!H8:H10)<3,\"\",'2 Build-Compare'!H10-'2 Build-Compare'!H8)"]];
   checks.getRange('B12').formulas = [["=IF(COUNT('2 Build-Compare'!H16:H18)<3,\"\",'2 Build-Compare'!H18)"]];
   checks.getRange('B13').formulas = [["=IF(COUNT('3 Sensitivity'!B8:F11)<20,\"\",'3 Sensitivity'!D9-'2 Build-Compare'!H14)"]];
-  checks.getRange('B14').formulas = [["=IF(COUNT('3 Sensitivity'!B8:F11)<20,\"\",IF(AND('3 Sensitivity'!B9>'3 Sensitivity'!C9,'3 Sensitivity'!C9>'3 Sensitivity'!D9,'3 Sensitivity'!D9>'3 Sensitivity'!E9,'3 Sensitivity'!E9>'3 Sensitivity'!F9),\"PV cost decreases as APR rises\",\"CHECK\"))"]];
+  checks.getRange('B14').formulas = [["=IF(COUNT('3 Sensitivity'!B8:F11)<20,\"\",IF(AND('3 Sensitivity'!B9>'3 Sensitivity'!C9,'3 Sensitivity'!C9>'3 Sensitivity'!D9,'3 Sensitivity'!D9>'3 Sensitivity'!E9,'3 Sensitivity'!E9>'3 Sensitivity'!F9),\"PV cost falls as discount rate rises\",\"CHECK\"))"]];
   checks.getRange('E8').formulas = [['=IF(B8=0,"OK","INCOMPLETE")']];
   checks.getRange('E9').formulas = [['=IF(B9="","INCOMPLETE",IF(B9=C9,"OK","CHECK"))']];
   checks.getRange('E10').formulas = [['=IF(B10=C10,"OK","CHECK")']];
@@ -458,11 +460,149 @@ export function buildM05StarterWorkbook() {
   checks.getRange('17:25').format.rowHeight = 27;
   checks.getRange('26:26').format.rowHeight = 34;
 
+  // 5 Rate-Applications
+  styleBody(rateApplications, 'A1:H36');
+  setTitle(rateApplications, 'Solve the rate and time, then adjust for inflation');
+  rateApplications.getRange('A3:H4').merge();
+  rateApplications.getRange('A3').values = [[
+    'The equipment terms are hypothetical. Treat 9.6% as the company’s annual valuation discount rate, compounded monthly. RATE finds the financing offer’s implied APR; NPER finds the time to a reserve target. Use effective annual rates with annual inflation.'
+  ]];
+  rateApplications.getRange('A3:H4').format = { fill: colors.paper, wrapText: true, verticalAlignment: 'center', borders: { preset: 'outside', style: 'thin', color: colors.border } };
+  setSection(rateApplications, 6, 'Implied rate of the equipment financing offer');
+  rateApplications.getRange('A7:C16').values = [
+    ['Offer input or result', 'Student cell', 'Unit and meaning'],
+    ['Amount financed today', null, 'Positive company cash received at t = 0'],
+    ['Beginning-of-month payment', null, 'Negative company cash flow each month'],
+    ['Month 24 balloon', null, 'Negative company cash flow at the end'],
+    ['Number of payments', null, 'Monthly intervals'],
+    ['Payment type', null, '1 = beginning of month'],
+    ['Implied monthly rate', null, 'RATE output per month'],
+    ['Implied nominal APR', null, 'Monthly rate multiplied by 12'],
+    ['Implied effective annual rate', null, 'Compounded financing cost'],
+    ['Implied APR minus valuation rate', null, 'Percentage-point difference'],
+  ];
+  setHeader(rateApplications.getRange('A7:C7'));
+  rateApplications.getRange('B8').formulas = [["=-'1 Timeline-Diagnose'!B8"]];
+  rateApplications.getRange('B9:B12').formulas = [
+    ["='1 Timeline-Diagnose'!B12"],
+    ["='1 Timeline-Diagnose'!B13"],
+    ["='1 Timeline-Diagnose'!B11"],
+    ["='1 Timeline-Diagnose'!B14"],
+  ];
+  rateApplications.getRange('B8:B12').format = { fill: colors.outputFill, font: { color: colors.linkFont }, borders: { preset: 'outside', style: 'thin', color: colors.border } };
+  rateApplications.getRange('B8:B10').format.numberFormat = money;
+  rateApplications.getRange('B11:B12').format.numberFormat = integer;
+  setStudentCell(rateApplications.getRange('B13:B16'), percent);
+  setSection(rateApplications, 18, 'Replacement reserve horizon');
+  rateApplications.getRange('A19:C24').values = [
+    ['Reserve input or result', 'Student cell', 'Unit and meaning'],
+    ['Amount invested today', null, 'Positive balance; enter as an outflow in NPER'],
+    ['Replacement target', 100000, 'Hypothetical equipment reserve target'],
+    ['Monthly growth assumption', null, 'Teaching assumption linked to the monthly model rate'],
+    ['Months to reach target', null, 'NPER may return part of a month'],
+    ['First whole month at target', null, 'Round up; then check the future balance'],
+  ];
+  setHeader(rateApplications.getRange('A19:C19'));
+  rateApplications.getRange('B20').formulas = [["=-'1 Timeline-Diagnose'!B8"]];
+  rateApplications.getRange('B22').formulas = [["=IF('1 Timeline-Diagnose'!F8=\"\",\"\",'1 Timeline-Diagnose'!F8)"]];
+  rateApplications.getRange('B20').format = { fill: colors.outputFill, font: { color: colors.linkFont }, numberFormat: money };
+  rateApplications.getRange('B22').format = { fill: colors.outputFill, font: { color: colors.linkFont }, numberFormat: percent };
+  setInput(rateApplications.getRange('B21'), money);
+  setStudentCell(rateApplications.getRange('B23'), '0.000');
+  setStudentCell(rateApplications.getRange('B24'), integer);
+  setSection(rateApplications, 27, 'Real annual return after inflation');
+  rateApplications.getRange('A28:C33').values = [
+    ['Annual input or result', 'Student cell', 'Unit and meaning'],
+    ['Inflation assumption', 0.03, 'Hypothetical annual inflation rate'],
+    ['Effective nominal annual rate', null, 'Link to the annual effective valuation rate'],
+    ['Exact real annual rate', null, 'Use annual rates in both numerator and denominator'],
+    ['Nominal less inflation', null, 'Approximation for comparison'],
+    ['Exact minus approximate', null, 'Percentage-point gap'],
+  ];
+  setHeader(rateApplications.getRange('A28:C28'));
+  setInput(rateApplications.getRange('B29'), percent);
+  rateApplications.getRange('B30').formulas = [["=IF('1 Timeline-Diagnose'!F10=\"\",\"\",'1 Timeline-Diagnose'!F10)"]];
+  rateApplications.getRange('B30').format = { fill: colors.outputFill, font: { color: colors.linkFont }, numberFormat: percent };
+  setStudentCell(rateApplications.getRange('B31:B33'), percent);
+  rateApplications.getRange('A35:H36').merge();
+  rateApplications.getRange('A35').values = [[
+    'Audit: RATE is the financing offer’s implied rate. The 9.6% rate values fixed cash flows for the company. Changing a valuation discount rate while holding payments fixed does not describe a repriced loan quote.'
+  ]];
+  rateApplications.getRange('A35:H36').format = { fill: colors.warning, font: { color: colors.terra, bold: true }, wrapText: true, verticalAlignment: 'center' };
+  rateApplications.getRange('A:A').format.columnWidth = 42;
+  rateApplications.getRange('B:B').format.columnWidth = 23;
+  rateApplications.getRange('C:C').format.columnWidth = 65;
+  rateApplications.getRange('D:H').format.columnWidth = 13;
+  rateApplications.getRange('3:4').format.rowHeight = 27;
+  rateApplications.getRange('7:16').format.rowHeight = 29;
+  rateApplications.getRange('19:24').format.rowHeight = 30;
+  rateApplications.getRange('28:33').format.rowHeight = 30;
+  rateApplications.getRange('35:36').format.rowHeight = 29;
+
+  // 6 Preferred-Stock
+  styleBody(preferred, 'A1:H29');
+  setTitle(preferred, 'Value a level preferred dividend');
+  preferred.getRange('A3:H4').merge();
+  preferred.getRange('A3').values = [[
+    'A Berkshire treasury team considers a hypothetical preferred share. The first level dividend arrives next quarter and payments continue indefinitely. These terms are teaching assumptions, not a real security quote.'
+  ]];
+  preferred.getRange('A3:H4').format = { fill: colors.paper, wrapText: true, verticalAlignment: 'center', borders: { preset: 'outside', style: 'thin', color: colors.border } };
+  setSection(preferred, 6, 'Quarterly dividend and required return');
+  preferred.getRange('A7:C15').values = [
+    ['Preferred-share input or result', 'Student cell', 'Unit and meaning'],
+    ['Dividend each quarter', 2.5, 'Cash paid per share next quarter and thereafter'],
+    ['Nominal annual required return', 0.10, 'Compounded quarterly'],
+    ['Quarters per year', 4, 'Match rate and dividend frequency'],
+    ['First dividend', 'Next quarter', 'The level-perpetuity formula assumes one period from now'],
+    ['Required return per quarter', null, 'Annual nominal rate divided by four'],
+    ['Value per share today', null, 'Quarterly dividend divided by quarterly return'],
+    ['Annual dividends per share', null, 'Four level dividends'],
+    ['Annual dividend yield at calculated value', null, 'Reasonableness check'],
+  ];
+  setHeader(preferred.getRange('A7:C7'));
+  setInput(preferred.getRange('B8'), money);
+  setInput(preferred.getRange('B9'), percent);
+  setInput(preferred.getRange('B10'), integer);
+  setInput(preferred.getRange('B11'), '@');
+  setStudentCell(preferred.getRange('B12'), percent);
+  setStudentCell(preferred.getRange('B13:B14'), money);
+  setStudentCell(preferred.getRange('B15'), percent);
+  setSection(preferred, 17, 'Treasury investment size');
+  preferred.getRange('A18:C20').values = [
+    ['Investment input or result', 'Student cell', 'Unit and meaning'],
+    ['Available investment budget', 100000, 'Hypothetical treasury allocation'],
+    ['Whole shares affordable', null, 'Do not exceed the budget'],
+  ];
+  setHeader(preferred.getRange('A18:C18'));
+  setInput(preferred.getRange('B19'), money);
+  setStudentCell(preferred.getRange('B20'), integer);
+  setSection(preferred, 22, 'Check the perpetuity conditions');
+  preferred.getRange('A23:H24').merge();
+  preferred.getRange('A23').values = [[
+    'The shortcut requires level payments forever, a first payment one quarter from today, and a quarterly required return. The 24-payment equipment loan is finite and cannot use this shortcut.'
+  ]];
+  preferred.getRange('A23:H24').format = { fill: colors.paper, wrapText: true, verticalAlignment: 'center', borders: { preset: 'outside', style: 'thin', color: colors.border } };
+  preferred.getRange('A26:A28').merge();
+  preferred.getRange('A26').values = [['Interpretation']];
+  preferred.getRange('A26:A28').format = { fill: colors.soft, font: { bold: true, color: colors.navy }, verticalAlignment: 'center' };
+  preferred.getRange('B26:H28').merge();
+  setStudentCell(preferred.getRange('B26:H28'));
+  preferred.getRange('A:A').format.columnWidth = 44;
+  preferred.getRange('B:B').format.columnWidth = 23;
+  preferred.getRange('C:C').format.columnWidth = 67;
+  preferred.getRange('D:H').format.columnWidth = 13;
+  preferred.getRange('3:4').format.rowHeight = 27;
+  preferred.getRange('7:15').format.rowHeight = 31;
+  preferred.getRange('18:20').format.rowHeight = 31;
+  preferred.getRange('23:24').format.rowHeight = 28;
+  preferred.getRange('26:28').format.rowHeight = 28;
+
   return workbook;
 }
 
 async function exportWorkbook() {
   const workbook = buildM05StarterWorkbook();
+  workbook.recalculate();
   const outputPath = path.join(publicRoot, '02-VALUATION/M05/bus311-valuation-m05-l01-starter.xlsx');
   await fs.mkdir(path.dirname(outputPath), { recursive: true });
   const blob = await SpreadsheetFile.exportXlsx(workbook);

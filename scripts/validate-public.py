@@ -43,6 +43,13 @@ def workbook_checks(path, errors, require_lesson_contract=True):
                     marker in lowered for marker in ("illustrative", "supplied inputs", "inventory")
                 ):
                     errors.append(f"Workbook lacks the M03 supplied-data case structure: {path.relative_to(ROOT)}")
+            elif path.name == "bus311-valuation-m05-l01-starter.xlsx":
+                # M05 is an explicitly hypothetical equipment and preferred-share exercise.
+                required_sheets = {"START HERE", "1 Timeline-Diagnose", "2 Build-Compare", "3 Sensitivity", "4 Checks-Decision", "5 Rate-Applications", "6 Preferred-Stock"}
+                if not required_sheets.issubset({name for name, _ in workbook_sheets(path)}) or not all(
+                    marker in lowered for marker in ("valuation discount rate", "implied nominal apr", "preferred share")
+                ):
+                    errors.append(f"Workbook lacks the M05 TVM teaching-case structure: {path.relative_to(ROOT)}")
             elif "factset" not in lowered:
                 errors.append(f"Workbook lacks identified FactSet inputs: {path.relative_to(ROOT)}")
             if not any(marker in lowered for marker in ("decision output", "recommendation", "decision, evidence")):
@@ -125,9 +132,9 @@ def deck_checks(path, errors):
                 and text.count('role="img"') >= 18
                 and all(marker in text for marker in (
                     'class="clock-orbit"',
-                    'class="excel-sheet',
-                    'class="sensitivity-chart"',
-                    'class="pattern-tree"',
+                    'class="tvm-diagram"',
+                    'class="tvm-excel"',
+                    'class="tvm-use-cards"',
                 ))
             )
             or (
@@ -198,8 +205,9 @@ def deck_checks(path, errors):
             )
             or (
                 is_approved_tvm
-                and 'class="evidence-pipeline"' in text
-                and "Record the field, definition, period, units, currency, supplier, and retrieval date." in text
+                and "hypothetical Berkshire equipment decision" in text
+                and "Company valuation rate" in text
+                and "The 9.6% valuation rate is not the offer’s implied loan APR." in text
             )
             or (
                 is_approved_ratio_analysis
@@ -243,9 +251,9 @@ def deck_checks(path, errors):
             )
             or (
                 is_approved_tvm
-                and "=FV(B5,B6,B7,B4,B8)" in text
-                and 'class="excel-sheet"' in text
-                and "$14,693.28" in text
+                and "=FV(C9,D9,E9,F9,G9)" in text
+                and "=RATE(B11,B9,B8,B10,B12)" in text
+                and 'class="tvm-excel"' in text
             )
             or (
                 is_approved_ratio_analysis
@@ -301,8 +309,8 @@ def deck_checks(path, errors):
             or (
                 is_approved_tvm
                 and 'data-interactive="sensitivity"' in text
-                and 'id="fv-rate"' in text
-                and 'id="fv-output"' in text
+                and 'id="finance-apr"' in text
+                and 'id="finance-pv-output"' in text
             )
             or (
                 is_approved_ratio_analysis
@@ -355,9 +363,9 @@ def deck_checks(path, errors):
             )
             or (
                 is_approved_tvm
-                and 'data-interactive="exit"' in text
-                and "Finish one sentence that a CFO could use" in text
-                and "Apply TVM to coupon bonds and yield to maturity." in text
+                and "Compare both paths on today’s date" in text
+                and "Finance PV is $4,307.13 lower" in text
+                and "project cash-flow evaluation follows in Chapter 8." in text
             )
             or (
                 is_approved_ratio_analysis
@@ -653,7 +661,7 @@ def main():
     for track_root in (ROOT / "01-INTRO", ROOT / "02-VALUATION", ROOT / "03-FIRM-DECISIONS"):
         for module_dir in track_root.glob("M??"):
             for path in module_dir.iterdir():
-                if not path.is_file() or path.name == "index.html" or path.suffix.lower() not in {".html", ".xlsx", ".docx", ".pdf"}:
+                if not path.is_file() or path.name.startswith("~$") or path.name == "index.html" or path.suffix.lower() not in {".html", ".xlsx", ".docx", ".pdf"}:
                     continue
                 relative = path.relative_to(ROOT).as_posix()
                 if relative not in modeled_paths:

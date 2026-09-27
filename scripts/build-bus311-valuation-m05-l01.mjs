@@ -28,7 +28,7 @@ const html = [
   '<!doctype html><html lang="en"><head>',
   '<meta charset="utf-8">',
   '<meta name="viewport" content="width=device-width,initial-scale=1">',
-  '<meta name="description" content="BUS311 M05 time value of money lesson with editable timelines, Excel-style PV and FV models, sensitivity analysis, and classroom activities.">',
+  '<meta name="description" content="BUS311 M05 time value of money lesson with starter-workbook examples for rates, FV, PV, annuities, RATE, NPER, real returns, and preferred stock.">',
   '<title>BUS311 · Valuation M05 · ', esc(tvmM05L01Deck.title), '</title>',
   '<link rel="icon" href="data:,">',
   '<link rel="preconnect" href="https://fonts.googleapis.com">',

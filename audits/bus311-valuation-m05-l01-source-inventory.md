@@ -1,46 +1,25 @@
 # BUS311 M05 source inventory
 
-## Source
+## Source material
 
-- Supplied public presentation: `02-VALUATION/M05/bus311-valuation-m05-l01-slides.html`
-- Source slide count: 27
-- Source media: embedded artwork and one shared worksheet screenshot
-- Public rebuild policy: preserve substantive concepts and sequence; rebuild instructional visuals and worksheet content as editable HTML/CSS/SVG; do not retain embedded raster artwork or screenshot-dependent calculations.
+- Attached presentation: `CorpFin311 -Chapter 5- TVM .pptx` (47 pages), held outside the public repository.
+- Existing public HTML lesson: reusable opening visual components, retained in `scripts/decks/bus311-valuation-m05-l01-components.mjs`.
+- Numerical and cell-address authority: M05 student starter and its maintained workbook builder.
+- Generated public presentation: `02-VALUATION/M05/bus311-valuation-m05-l01-slides.html`.
 
-## Slide audit and disposition
+## Topic disposition
 
-| Source | Likely topic | Text | Images | Visual treatment | Disposition / rebuilt slides |
-|---:|---|---:|---:|---|---|
-| 1 | Title and decision frame | low | 1 | HTML/SVG-led | Rebuild as timing-orbit title, slide 1 |
-| 2 | 75-minute agenda | medium | 0 | HTML/SVG-led | Rebuild as proportional route, slide 2 |
-| 3 | Learning objectives | medium | 0 | HTML/SVG-led | Rebuild as timeline → model → decision system, slide 3 |
-| 4 | Decision bridge | medium | 0 | HTML/SVG-led | Split into prediction, attempt, and break-even reveal, slides 4–6 |
-| 5 | Valuation grammar section | low | 0 | sparse text | Rebuild as section transition, slide 7 |
-| 6 | Timeline first | medium | 0 | HTML/SVG-led | Rebuild as dated cash-flow timeline, slide 8 |
-| 7 | Compounding | medium | 0 | data-led | Rebuild as editable growth bars, slides 9 and 11 |
-| 8 | Discounting | medium | 0 | HTML/SVG-led | Rebuild as discount funnel, slides 10 and 11 |
-| 9 | Rates and periods section | low | 0 | sparse text | Rebuild as section transition, slide 15 |
-| 10 | Periodic rate | medium | 0 | data-led | Split into rate map, attempt, and reveal, slides 16–18 |
-| 11 | Sign convention | medium | 0 | HTML/SVG-led | Split into cash-direction visual and diagnosis activity, slides 13–14 |
-| 12 | Evidence workflow | high | 0 | HTML/SVG-led | Rebuild as platform-neutral audit pipeline, slide 19 |
-| 13 | Excel model | low | 1 | data-led | Replace screenshot with editable worksheet, slide 12 |
-| 14 | Calculation step: timeline | low | 0 | HTML/SVG-led | Combine into worked map and attempt, slides 20–21 |
-| 15 | Calculation step: match units | low | 0 | HTML/SVG-led | Combine into worked map and attempt, slides 20–21 |
-| 16 | Calculation step: compound | low | 0 | HTML/SVG-led | Combine into worked map and attempt, slides 20–21 |
-| 17 | FV formula | low | 0 | data-led | Rebuild as early worksheet plus result reveal, slides 12, 21–22 |
-| 18 | Model result | medium | 0 | data-led | Rebuild as result interpretation and debrief, slides 22 and 25 |
-| 19 | Cash-flow patterns section | low | 0 | sparse text | Rebuild as section transition, slide 26 |
-| 20 | Lump sum | medium | 0 | HTML/SVG-led | Rebuild as decision tree and single-payment path, slides 27–28 |
-| 21 | Annuity | medium | 0 | data-led | Split into prediction, attempt, and reveal, slides 29–31 |
-| 22 | Perpetuity | medium | 0 | HTML/SVG-led | Rebuild as condition-first timeline, slides 27 and 32 |
-| 23 | Sensitivity | low | 1 | data-led | Replace screenshot with editable chart and slider, slides 23–25 |
-| 24 | Discussion | medium | 0 | HTML/SVG-led | Integrate questions into interactive debriefs, slides 18, 24, 33, and 35 |
-| 25 | Takeaways | medium | 0 | HTML/SVG-led | Rebuild as a three-part audit loop, slide 34 |
-| 26 | Up next | low | 1 | sparse text | Integrate into exit slide, slide 35 |
-| 27 | Questions and exit | low | 0 | interactive | Rebuild as decision-ready exit ticket, slide 35 |
+| PowerPoint pages | Topic | M05 HTML pages | Workbook example |
+|---|---|---|---|
+| 2–3, 5–7, 34, 37 | Why timing and cash flows matter to a company | 1–3, 20–21, 38 | Equipment decision |
+| 10–15, 21 | Rate and compounding conventions | 4–7 | `1 Timeline-Diagnose!F8:F10` |
+| 10–11, 18–21 | Future value | 8–11 | `2 Build-Compare!H9` |
+| 10–11, 22–24 | Present value and discounting | 12–15 | `2 Build-Compare!H13` |
+| 25, 31–33 | Equal payment streams and timing | 16–19 | `2 Build-Compare!H12`, H16:H18 |
+| 11 | RATE | 22–25 | `5 Rate-Applications!B13:B16` |
+| 11, 15 | NPER and period count | 26–29 | `5 Rate-Applications!B23:B24` |
+| 35 | Real versus nominal rates | 30–33 | `5 Rate-Applications!B31:B33` |
+| 25–28 | Perpetuity and preferred stock | 34–37 | `6 Preferred-Stock!B12:B20` |
+| 38–46 | Project cash-flow evaluation | Deferred to Chapter 8 | No M05 workbook tab or slide |
 
-All 27 source slides are represented through `data-source-slides` metadata in the generated deck.
-
-## Asset record
-
-No raster assets are used in the public rebuild. The instructional value of the legacy artwork and worksheet screenshot is carried by editable HTML/CSS/SVG visuals. This avoids unreadable projected labels and removes dependency on embedded base64 media.
+The PowerPoint's unrelated historical and lottery examples were replaced by one coherent equipment case and a separate hypothetical preferred share. The public deck uses editable HTML/CSS diagrams and worksheet views. No slide screenshot, rasterized source page, publisher asset, or completed private workbook is embedded. `data-source-slides` records the relevant source pages without putting production notes in speaker guidance.

@@ -2,54 +2,44 @@
 
 ## Delivery
 
-- Course: BUS311 Corporate Finance
-- Display module: M05
-- Lesson: L01
-- Class length: 75 minutes
-- Mode: Presenter mode with substantive teaching notes
-- Maintained output: `02-VALUATION/M05/bus311-valuation-m05-l01-slides.html`
-- Maintained content: `scripts/decks/bus311-valuation-m05-l01-content.mjs`
-- Maintained styles and behavior: `02-VALUATION/M05/assets/deck.css` and `activities.js`
+- Course: BUS311 Corporate Finance · Valuation M05 L01 · 75-minute class
+- Student deck: `02-VALUATION/M05/bus311-valuation-m05-l01-slides.html` (38 pages)
+- Deck source: `scripts/decks/bus311-valuation-m05-l01-content.mjs`; the first three visual components are drawn from `bus311-valuation-m05-l01-components.mjs`
+- Workbook source: `scripts/build-bus311-valuation-m05-workbooks.mjs`
+- Student workbook: `02-VALUATION/M05/bus311-valuation-m05-l01-starter.xlsx`
+- Private key source and workbook remain in the separate instructor repository.
 
-## Source decision
+## Source and scope
 
-The supplied 27-slide public HTML deck is the available presentation source. No PPTX is stored in the repository or the local course folders. The deck is used as content and sequence evidence; the approved BUS311 standard and existing M06–M08 deck system control the rebuilt design and runtime.
+The attached 47-slide Chapter 5 PowerPoint supplies the topic map. The current M05 starter supplies the classroom case, all numerical inputs, cell locations, and Excel tasks. The PowerPoint is reference material only; its slides and media are not copied into the public repository. The hypothetical Berkshire equipment and preferred-share terms are labeled as teaching assumptions.
 
-## Teaching architecture
+The Chapter 5 block includes rate conventions, FV, PV, annuity due, an integrated equipment choice, RATE, NPER, real versus nominal rates, and a level preferred-stock perpetuity. Project cash-flow evaluation is reserved for Chapter 8.
 
-| Segment | Minutes | Teaching move | Student evidence |
-|---|---:|---|---|
-| Opening prediction | 5 | Compare cash today with a larger future payment | Conditional decision rule |
-| Timeline and direction | 18 | Map dates, compounding, discounting, and signs | Timeline and sign diagnosis |
-| Excel and rate alignment | 15 | Introduce `FV`, then match rate and period units | Audited function arguments |
-| Worked model and sensitivity | 12 | Build one consistent worksheet and stress-test it | Formula plus threshold explanation |
-| Cash-flow patterns | 20 | Distinguish lump sums, annuities, and perpetuities | Three classifications with timing rationale |
-| Exit ticket | 5 | State amount, value date, rate, and assumption | Decision-ready valuation sentence |
+## Teaching flow
 
-Total: 75 minutes.
+| Pages | Topic | Repeated sequence | Starter evidence |
+|---|---|---|---|
+| 1–3 | Decision frame and one timeline check | Scenario → timeline | `1 Timeline-Diagnose!B18:H20` |
+| 4–7 | Rate conventions | Definition → Excel function → corporate use → Excel example | `1 Timeline-Diagnose!F8:F10` |
+| 8–11 | Future value | Same four steps | `2 Build-Compare!H9` |
+| 12–15 | Present value | Same four steps | `2 Build-Compare!H13`, round-trip H10 |
+| 16–19 | Annuity due | Same four steps | `2 Build-Compare!H12`, timing audit H16:H18 |
+| 20–21 | Integrated decision | Common-date comparison → sensitivity and checks | H14, B22:B24; `3 Sensitivity`; `4 Checks-Decision` |
+| 22–25 | RATE | Four steps | `5 Rate-Applications!B13:B16` |
+| 26–29 | NPER | Four steps | `5 Rate-Applications!B23:B24` |
+| 30–33 | Real versus nominal | Four steps | `5 Rate-Applications!B31:B33` |
+| 34–37 | Preferred-stock perpetuity | Four steps | `6 Preferred-Stock!B12:B20` |
+| 38 | Decision-ready close | Explain number, date, and assumption | Written recommendation |
 
-## Quantitative model
+Worked results on example pages are hidden until the instructor selects **Reveal result**. The editable student workbook keeps those result cells blank. The private key contains corresponding completed formulas at the same addresses.
 
-The primary worksheet keeps the same cells throughout:
+## Quantitative guardrails
 
-- `B4`: present value, `−$10,000`
-- `B5`: annual rate, `8%`
-- `B6`: periods, `5`
-- `B7`: recurring payment, `0`
-- `B8`: type, `0`
-- `B10`: future value, `=FV(B5,B6,B7,B4,B8)` = `$14,693.28`
+- The given 9.6% is the company **valuation discount rate**, nominal annually with monthly compounding. The fixed financing terms imply their own approximately 4.20% nominal APR. The rate scenario in the sensitivity grid does not reprice the loan.
+- The 24 beginning-of-month installments occur in Months 0–23; the $8,000 balloon is in Month 24.
+- Cash FV is $96,859.62 in Month 24. Today-dollar financing cost is $69,085.37 for installments plus $6,607.50 for the balloon, or $75,692.87. It is $4,307.13 below the $80,000 cash cost under the stated valuation assumption.
+- The reserve target is reached in the first whole Month 29 under 0.8% monthly growth. The real annual rate uses the 10.03% effective annual rate and 3% annual inflation. Preferred-share value requires a next-quarter first dividend and level payments forever.
 
-Sensitivity slides vary only `B5` and `B6`. Other independently checked examples cover a five-year present value, nominal APR to monthly rate and EAR, ordinary annuity versus annuity due, and a level perpetuity.
+## Local verification targets
 
-## Public/private boundary
-
-- No publisher slide assets, proprietary FactSet screens, assessment keys, workbook solutions, student data, or instructor-only grading material are included.
-- All instructional diagrams, tables, worksheet views, formulas, and interactions are editable HTML, CSS, or SVG.
-- The company and security references are contextual teaching examples; no third-party logo assets are required.
-
-## First-pass review targets
-
-- Check the density of the full worksheet at `#slide-12` on the classroom projector.
-- Confirm the five-percent-to-twelve-percent sensitivity chart remains legible at the smaller review viewport.
-- Test every interactive at its direct URL hash and verify that keyboard navigation does not steal input-range interaction.
-- Inspect notes for formative answers, misconceptions, timing, and debrief questions without production commentary.
+Build from the maintained sources, run the lesson validator and the public and private repository validators, inspect saved workbook formulas and alignment, render both workbook versions, and check all pages and reveals in Chrome at 1920 × 1080. No commit, push, Canvas update, or publication is in scope.
