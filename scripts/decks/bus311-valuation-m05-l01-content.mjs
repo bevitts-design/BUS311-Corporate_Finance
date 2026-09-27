@@ -11,16 +11,16 @@ export const tvmM05L01Deck = {
       </div>`,
       'Open with the clock visual. Ask students for one business decision where timing changes value: acquiring equipment, reserving cash for a debt maturity, funding a pension, or choosing payment terms. Frame the lesson as decision discipline, not formula memorization. Time: 2 minutes.'),
 
-    slide('2', 'The 75-minute decision path', 'cream roadmap-slide', `
-      <div class="header-row"><h2>The class moves from timing to judgment</h2><div class="eyebrow">75-minute route</div></div><div class="rule"></div>
+    slide('2', 'The decision path', 'cream roadmap-slide', `
+      <div class="header-row"><h2>The class moves from timing to judgment</h2><div class="eyebrow">Today’s route</div></div><div class="rule"></div>
       <div class="route" role="img" aria-label="Lesson route from a cash timing prediction through timelines, Excel functions, rate alignment, sensitivity, and cash-flow patterns">
-        <article><span>Opening · 5 min</span><strong>Predict</strong><small>Is future cash actually better?</small></article><i>→</i>
-        <article><span>Foundations · 18 min</span><strong>Map</strong><small>Timeline, compounding, discounting</small></article><i>→</i>
-        <article><span>Model · 27 min</span><strong>Build</strong><small>FV, signs, rates, sensitivity</small></article><i>→</i>
-        <article><span>Transfer · 20 min</span><strong>Choose</strong><small>Lump sum, annuity, perpetuity</small></article><i>→</i>
-        <article><span>Close · 5 min</span><strong>Defend</strong><small>State the value and the assumption</small></article>
+        <article><span>Opening</span><strong>Predict</strong><small>Is future cash actually better?</small></article><i>→</i>
+        <article><span>Foundations</span><strong>Map</strong><small>Timeline, compounding, discounting</small></article><i>→</i>
+        <article><span>Model</span><strong>Build</strong><small>FV, signs, rates, sensitivity</small></article><i>→</i>
+        <article><span>Transfer</span><strong>Choose</strong><small>Lump sum, annuity, perpetuity</small></article><i>→</i>
+        <article><span>Close</span><strong>Defend</strong><small>State the value and the assumption</small></article>
       </div>`,
-      'Preview the route and the time boxes. The two student deliverables are a formula-audited Excel result and a short decision statement that names the assumption most likely to change the answer. Keep transitions crisp so the final pattern activity receives the full twenty minutes. Time: 2 minutes.'),
+      'Preview the route. Keep the pacing plan in these notes: 5 minutes for the opening, 18 for foundations, 27 for the model, 20 for transfer, and 5 to close. The two student deliverables are a formula-audited Excel result and a short decision statement that names the assumption most likely to change the answer. Keep transitions crisp so the final pattern activity receives the full twenty minutes. Time: 2 minutes.'),
 
     slide('3', 'Learning goals', 'cream goal-slide', `
       <div class="header-row"><h2>By the end, you can audit a valuation before trusting it</h2><div class="eyebrow">LO4</div></div><div class="rule"></div>
