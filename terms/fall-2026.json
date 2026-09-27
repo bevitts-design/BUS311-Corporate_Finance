@@ -48,7 +48,7 @@
     "source" : "CAPSTONE\/source\/bus311-capstone.json",
     "targetPresentersPerDate" : 5
   },
-  "currentLessonId" : "intro-m03-l01",
+  "currentLessonId" : "valuation-m01-l01",
   "id" : "fall-2026",
   "label" : "Fall 2026",
   "location" : "Gerrish School of Business · Room 349",
@@ -81,13 +81,13 @@
     {
       "dateLabel" : "October 7",
       "lessonId" : "valuation-m01-l01",
-      "releaseState" : "Locked",
+      "releaseState" : "Available",
       "week" : 6
     },
     {
       "dateLabel" : "October 14–19",
       "lessonId" : "valuation-m02-l01",
-      "releaseState" : "Locked",
+      "releaseState" : "Available",
       "week" : 7
     },
     {
