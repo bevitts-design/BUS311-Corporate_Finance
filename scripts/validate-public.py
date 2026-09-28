@@ -526,8 +526,22 @@ def site_hub_checks(course_map, term, errors):
         card = matching[0]
         is_available = lesson["id"] in available_lesson_ids
         is_locked = "locked-card" in card.split(">", 1)[0]
-        if is_locked == is_available or (is_available and 'class="primary-action"' not in card):
+        show_lesson_link = lesson.get("cardDisplay", {}).get("showLessonLink") is not False
+        has_primary_action = 'class="primary-action"' in card
+        if is_locked == is_available or has_primary_action != (is_available and show_lesson_link):
             errors.append(f"Generated homepage access does not match term release state: {lesson['id']}")
+        if is_available and not show_lesson_link:
+            expected_links = [
+                material.get("linkUrl") or material.get("path") or material.get("url")
+                for material in lesson["materials"]
+                if material.get("cardLabel") and not material.get("deferred")
+            ]
+            actual_links = re.findall(r'<a\b[^>]*href="([^"]+)"', unescape(card))
+            if not expected_links or actual_links != expected_links:
+                errors.append(f"Generated homepage card links do not match resources: {lesson['id']}")
+        show_schedule = lesson.get("cardDisplay", {}).get("showSchedule") is not False
+        if ('class="lesson-date"' in card) != show_schedule:
+            errors.append(f"Generated homepage card schedule does not match course map: {lesson['id']}")
         if ('data-current="true"' in card) != (lesson["id"] == current_lesson_id):
             errors.append(f"Generated homepage current lesson does not match the term: {lesson['id']}")
     locked_card_bodies = re.findall(r'<article class="lesson-card[^"]*locked-card[^"]*"[^>]*>(.*?)</article>', index_text, re.S)

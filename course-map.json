@@ -309,6 +309,10 @@
       "displayOrder": 5,
       "displayModule": "M05",
       "title": "Time Value of Money",
+      "cardDisplay": {
+        "showLessonLink": false,
+        "showSchedule": false
+      },
       "outcomes": [
         "LO4"
       ],
@@ -331,6 +335,8 @@
           "type": "Slides",
           "label": "View lesson slides",
           "path": "02-VALUATION/M05/bus311-valuation-m05-l01-slides.html",
+          "linkUrl": "https://canva.link/aepd6ok1vak3p7d",
+          "cardLabel": "View slides",
           "stage": "Learn",
           "description": "Cash-flow timelines, Excel valuation functions, and rate conventions."
         },

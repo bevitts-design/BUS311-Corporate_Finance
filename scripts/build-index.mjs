@@ -103,7 +103,8 @@ function lessonHref(lesson) {
 }
 
 function materialHref(material, fromLessonPage = false) {
-  return `${fromLessonPage ? '../../' : ''}${material.path || material.url}`;
+  if (material.linkUrl) return material.linkUrl;
+  return `${fromLessonPage && material.path ? '../../' : ''}${material.path || material.url}`;
 }
 
 function materialLink(material, lesson, fromLessonPage = false) {
@@ -119,6 +120,8 @@ function lessonCard(lesson) {
   const termInfo = schedule.get(lesson.id) || { week: '—', dateLabel: 'Schedule in Canvas', releaseState: 'Available' };
   const isCurrent = lesson.id === current.id;
   const isAvailable = termInfo.releaseState === 'Available';
+  const showLessonLink = isAvailable && lesson.cardDisplay?.showLessonLink !== false;
+  const showSchedule = lesson.cardDisplay?.showSchedule !== false;
   const cardMaterialButton = isAvailable
     ? lesson.materials.filter((material) => material.cardLabel && !material.deferred).map((material) => {
       const localDownload = material.path && /\.(xlsx|docx|pdf)$/i.test(material.path);
@@ -131,16 +134,16 @@ function lessonCard(lesson) {
     : `<details class="locked-preview"><summary>Preview lesson</summary><div><p class="case-study">Case: ${esc(lesson.caseStudy)}</p><p class="lesson-summary">${esc(lesson.summary)}</p></div></details>`;
   return `<article class="lesson-card track-${esc(lesson.track)}${isCurrent ? ' current-card' : ''}${isAvailable ? '' : ' locked-card'}" data-lesson-card data-current="${isCurrent ? 'true' : 'false'}">
     <div class="lesson-meta">
-      <span>Week ${esc(termInfo.week)} · ${esc(lesson.displayModule)}</span>
+      <span>${showSchedule ? `Week ${esc(termInfo.week)} · ` : ''}${esc(lesson.displayModule)}</span>
       <span class="availability">${isCurrent ? 'Current lesson' : esc(termInfo.releaseState)}</span>
-    </div>
-    <p class="lesson-date">${esc(termInfo.dateLabel)}</p>
-    <h3>${isAvailable ? `<a href="${esc(lessonHref(lesson))}">${esc(lesson.title)}</a>` : esc(lesson.title)}</h3>
-    ${cardContent}
+    </div>${showSchedule ? `
+    <p class="lesson-date">${esc(termInfo.dateLabel)}</p>` : ''}
+    <h3>${showLessonLink ? `<a href="${esc(lessonHref(lesson))}">${esc(lesson.title)}</a>` : esc(lesson.title)}</h3>
+    ${cardContent}${showLessonLink || !isAvailable ? `
     <div class="lesson-actions">
-      ${isAvailable ? `<a class="primary-action" href="${esc(lessonHref(lesson))}">Open lesson</a>` : '<span class="locked-action" aria-label="Lesson materials are locked until released">🔒 Locked until released</span>'}
+      ${showLessonLink ? `<a class="primary-action" href="${esc(lessonHref(lesson))}">Open lesson</a>` : '<span class="locked-action" aria-label="Lesson materials are locked until released">🔒 Locked until released</span>'}
       <span>${lesson.materials.length} resource${lesson.materials.length === 1 ? '' : 's'}</span>
-    </div>${cardMaterialButton ? `\n    ${cardMaterialButton}` : ''}
+    </div>` : ''}${cardMaterialButton ? `\n    ${cardMaterialButton}` : ''}
   </article>`;
 }
 
