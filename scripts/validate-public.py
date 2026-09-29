@@ -539,7 +539,7 @@ def site_hub_checks(course_map, term, errors):
             actual_links = re.findall(r'<a\b[^>]*href="([^"]+)"', unescape(card))
             if not expected_links or actual_links != expected_links:
                 errors.append(f"Generated homepage card links do not match resources: {lesson['id']}")
-        show_schedule = lesson.get("cardDisplay", {}).get("showSchedule") is not False
+        show_schedule = lesson.get("cardDisplay", {}).get("showSchedule") is True
         if ('class="lesson-date"' in card) != show_schedule:
             errors.append(f"Generated homepage card schedule does not match course map: {lesson['id']}")
         if ('data-current="true"' in card) != (lesson["id"] == current_lesson_id):

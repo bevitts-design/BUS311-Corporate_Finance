@@ -121,7 +121,7 @@ function lessonCard(lesson) {
   const isCurrent = lesson.id === current.id;
   const isAvailable = termInfo.releaseState === 'Available';
   const showLessonLink = isAvailable && lesson.cardDisplay?.showLessonLink !== false;
-  const showSchedule = lesson.cardDisplay?.showSchedule !== false;
+  const showSchedule = lesson.cardDisplay?.showSchedule === true;
   const cardMaterialButton = isAvailable
     ? lesson.materials.filter((material) => material.cardLabel && !material.deferred).map((material) => {
       const localDownload = material.path && /\.(xlsx|docx|pdf)$/i.test(material.path);
