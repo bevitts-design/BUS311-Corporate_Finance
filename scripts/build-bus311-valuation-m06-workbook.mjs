@@ -21,6 +21,12 @@ const percent = '0.00%;[Red](0.00%);-';
 const multiple = '0.00x;[Red](0.00x);-';
 const perShare = '$0.00;[Red]($0.00);-';
 
+export const M06_CASH_FLOW_EXAMPLES = Object.freeze([
+  { name: 'Example 1 - At Par', marketYield: 0.05, label: '5% yield' },
+  { name: 'Example 2 - Premium', marketYield: 0.03, label: '3% yield' },
+  { name: 'Example 3 - Discount', marketYield: 0.07, label: '7% yield' },
+]);
+
 function body(sheet, range) {
   sheet.showGridLines = false;
   sheet.getRange(range).format.font = { name: 'Aptos', size: 10, color: '#000000' };
@@ -81,10 +87,10 @@ function setWidths(sheet, widths) {
 
 function addStart(workbook) {
   const s = workbook.worksheets.add('START HERE');
-  body(s, 'A1:H38');
+  body(s, 'A1:H41');
   title(s, 'BUS311 M06 — Bond Valuation, Interest Rates, and YTM');
   s.getRange('A3:H3').merge();
-  s.getRange('A3').values = [['Meridian Industrial Corp. · student starter · $ thousands unless noted · Version 2026-07-28']];
+  s.getRange('A3').values = [['Meridian Industrial Corp. · student starter · $ thousands unless noted · Version 2026-09-29']];
   s.getRange('A3:H3').format = { fill: colors.terra, font: { bold: true, color: colors.white }, horizontalAlignment: 'center' };
   s.getRange('A5:H7').merge();
   s.getRange('A5').values = [['Decision objective: price Meridian’s bond with PV, PRICE, YIELD, and RATE; reconcile gross proceeds to issuance costs and every use; build closing-date balance sheets and first-year earnings; test financing capacity; and make a CFO recommendation that distinguishes “best full-size scenario” from “acceptable financing plan.”']];
@@ -137,6 +143,69 @@ function addStart(workbook) {
   s.getRange('21:24').format.rowHeight = 38;
   s.getRange('27:30').format.rowHeight = 38;
   s.getRange('33:36').format.rowHeight = 24;
+  section(s, 38, 'Canva cash-flow warm-up');
+  s.getRange('A39:H41').merge();
+  s.getRange('A39').values = [['Complete the three-year bond examples at 5%, 3%, and 7% market yields before building Meridian’s ten-year bond. Keep the $1,000 face value and 5% coupon fixed; use each tab to show how discounting changes the price.']];
+  note(s.getRange('A39:H41'), colors.paper);
+  s.getRange('39:41').format.rowHeight = 25;
+}
+
+function addCashFlowExample(workbook, example) {
+  const s = workbook.worksheets.add(example.name);
+  body(s, 'A1:H32');
+  title(s, `Three-Year Bond — ${example.label}`);
+  s.getRange('A3:H3').merge();
+  s.getRange('A3').values = [['Canva M06 example · annual coupons · enter formulas in yellow cells · compare price with par']];
+  s.getRange('A3:H3').format = { fill: colors.terra, font: { bold: true, color: colors.white }, horizontalAlignment: 'center' };
+  section(s, 5, 'Given contract and market yield');
+  s.getRange('A6:B10').values = [
+    ['Face value ($)', 1000],
+    ['Annual coupon rate', 0.05],
+    ['Market yield (annual)', example.marketYield],
+    ['Years to maturity', 3],
+    ['Coupon payments per year', 1],
+  ];
+  s.getRange('A6:A10').format = { font: { bold: true, color: colors.navy }, borders: { preset: 'all', style: 'thin', color: colors.border } };
+  input(s.getRange('B6'), money2);
+  input(s.getRange('B7:B8'), percent);
+  input(s.getRange('B9:B10'), integer);
+  s.getRange('D6:H10').merge();
+  s.getRange('D6').values = [['Price the bond with Excel PV(rate, nper, pmt, fv). Use the yearly cash-flow table to check the result: calculate each promised payment, discount it at the market yield, and add its present value. Only the market yield changes across these examples.']];
+  note(s.getRange('D6:H10'), colors.paper);
+
+  section(s, 12, 'Discount each promised cash flow');
+  s.getRange('A13:F13').values = [['Year', 'Coupon ($)', 'Principal ($)', 'Total cash flow ($)', 'Discount factor', 'Present value ($)']];
+  header(s.getRange('A13:F13'));
+  s.getRange('A14:A16').values = [[1], [2], [3]];
+  s.getRange('A14:A16').format = { fill: colors.soft, horizontalAlignment: 'center', borders: { preset: 'all', style: 'thin', color: colors.border } };
+  student(s.getRange('B14:D16'), money2);
+  student(s.getRange('E14:E16'), '0.0000');
+  student(s.getRange('F14:F16'), money2);
+
+  section(s, 18, 'Bond price and interpretation');
+  s.getRange('A19:B23').values = [
+    ['Bond price — Excel PV function', null],
+    ['Sum of discounted cash flows', null],
+    ['Difference between the methods', null],
+    ['Price relative to par', null],
+    ['Premium / (discount) dollars', null],
+  ];
+  s.getRange('A19:A23').format = { font: { bold: true, color: colors.navy }, borders: { preset: 'all', style: 'thin', color: colors.border } };
+  student(s.getRange('B19:B21'), money2);
+  student(s.getRange('B22'), '@');
+  student(s.getRange('B23'), money2);
+  section(s, 25, 'Explain the price');
+  s.getRange('A26:H28').merge();
+  student(s.getRange('A26:H28'), '@');
+  s.getRange('A30:H31').merge();
+  s.getRange('A30').values = [['After all three examples: compare the coupon and principal cash flows, then compare the discount factors and prices. What stays fixed, and what moves when market yield changes?']];
+  note(s.getRange('A30:H31'), colors.paper);
+  setWidths(s, { 'A:A': 37, 'B:B': 22, 'C:C': 20, 'D:D': 25, 'E:E': 20, 'F:F': 23, 'G:H': 14 });
+  s.getRange('6:10').format.rowHeight = 27;
+  s.getRange('13:16').format.rowHeight = 30;
+  s.getRange('19:23').format.rowHeight = 28;
+  s.getRange('26:28').format.rowHeight = 26;
+  s.getRange('30:31').format.rowHeight = 26;
 }
 
 function addAssumptions(workbook) {
@@ -684,6 +753,7 @@ function addGuide(workbook) {
 export function buildM06StarterWorkbook() {
   const workbook = Workbook.create();
   addStart(workbook);
+  for (const example of M06_CASH_FLOW_EXAMPLES) addCashFlowExample(workbook, example);
   addAssumptions(workbook);
   addBondPricing(workbook);
   addSourcesUses(workbook);
