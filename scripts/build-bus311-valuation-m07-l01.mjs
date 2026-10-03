@@ -35,3 +35,7 @@ const html = [
 
 await fs.writeFile(output, html);
 console.log('Built ' + output + ' (' + slides.length + ' slides).');
+
+const starter = path.join(lessonDir, 'bus311-valuation-m07-l01-starter.xlsx');
+await fs.copyFile(starter, path.join(lessonDir, 'bus311-valuation-m07-l01-apex-ipo-activity.xlsx'));
+console.log('Synchronized Apex activity download with the maintained starter.');

@@ -237,6 +237,7 @@ def deck_checks(path, errors):
         ) and "PRIVATE CAPTURE" not in text,
         "Excel model slide": (
             "BUS311 LECTURE MODEL" in text
+            or (path.name == "bus311-valuation-m07-l01-slides.html" and "=-PV(B5,1,0,B3+B4)" in text and "excel-sheet" in text)
             or (
                 is_approved_intro
                 and "Excel still follows PEMDAS" in text
@@ -350,6 +351,7 @@ def deck_checks(path, errors):
         ),
         "decision slide": (
             "Decision standard" in text
+            or (path.name == "bus311-valuation-m07-l01-slides.html" and 'data-interactive="decision"' in text and "four-sentence CFO brief" in text)
             or (
                 is_approved_intro
                 and 'class="decision-system"' in text

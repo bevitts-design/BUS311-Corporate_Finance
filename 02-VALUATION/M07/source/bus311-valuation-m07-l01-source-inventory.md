@@ -33,3 +33,22 @@ Repeated generic concept cards, unsupported company claims, and ornamental numer
 | IPO registration and prospectus evidence | Current SEC investor bulletin | U.S. Securities and Exchange Commission | IPO process and evidence limits. |
 
 No proprietary FactSet screen, licensed publisher material, private answer key, student information, or live market-price claim is included. The deck presents a clearly labeled `FACTSET WORKFLOW MOCKUP` using public evidence fields.
+
+
+## October 2, 2026 review revision
+
+The requested six improvements are authored in the maintained M07 content module and regenerated HTML. The prior 21-slide candidate is expanded to 28 slides to preserve attempt/reveal separation. Source-slide metadata remains a reference to the inherited source sequence, not a claim that every original topic is taught in full.
+
+| Revision content | Source / basis | Current slides |
+|---|---|---|
+| Claim and discount-rate matching | NYU Stern valuation guidance; Apex starter inputs | 6–7 |
+| Constructed terminal value | DDM logic; lecture assumptions | 14–15 |
+| Reinvestment and growth value | Original growth example, independently reconstructed | 17–18 |
+| Model disagreement and scenarios | Coca-Cola public dividend/EPS; explicit teaching assumptions | 19–20 |
+| Reconciled IPO and ratio effects | Maintained Apex starter, Scenario C | 22–23 |
+| Ownership, EPS and earnings hurdle | Maintained shares/earnings; illustrative founder holds 20M shares | 24–25 |
+| Investment hurdle and conditional recommendation | Workbook capex recognition assumption; NPV principle | 26–28 |
+
+The maintained starter XLSX is the shared-layout source for both public workbook links. The deck builder synchronizes the IPO-activity compatibility copy. No solution cells are added to the public workbooks; worked lecture examples are separate formative content. The private key retains solutions at matching student response addresses. Existing assignment-guide case facts already match the maintained starter and were preserved.
+
+Model reference: https://pages.stern.nyu.edu/~adamodar/New_Home_Page/lectures/val.html
