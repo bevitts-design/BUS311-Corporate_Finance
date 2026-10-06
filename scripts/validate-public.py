@@ -50,6 +50,13 @@ def workbook_checks(path, errors, require_lesson_contract=True):
                     marker in lowered for marker in ("valuation discount rate", "implied nominal apr", "preferred share")
                 ):
                     errors.append(f"Workbook lacks the M05 TVM teaching-case structure: {path.relative_to(ROOT)}")
+            elif path.name == "bus311-valuation-m07-l01-starter.xlsx":
+                # Apex supplies the case inputs; source logs are not required for given facts.
+                required_sheets = {"Tab 1 – Assumptions", "Tab 2 – Valuation", "Tab 2a – Earnings", "Tab 3 – Ratio Analysis", "Tab 4 – Scenario Analysis"}
+                if not required_sheets.issubset({name for name, _ in workbook_sheets(path)}) or not all(
+                    marker in lowered for marker in ("fictional case", "scenario deployment assumptions", "sources &amp; uses check")
+                ):
+                    errors.append(f"Workbook lacks the M07 supplied-data case structure: {path.relative_to(ROOT)}")
             elif "factset" not in lowered:
                 errors.append(f"Workbook lacks identified FactSet inputs: {path.relative_to(ROOT)}")
             if not any(marker in lowered for marker in ("decision output", "recommendation", "decision, evidence")):
