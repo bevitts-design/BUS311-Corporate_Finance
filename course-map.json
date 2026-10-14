@@ -452,11 +452,20 @@
           "description": "Equity markets, valuation models, IPO mechanics, and scenario judgment."
         },
         {
+          "type": "Excel Activity",
+          "label": "Download revised Apex workbook",
+          "cardLabel": "Download Apex workbook",
+          "path": "02-VALUATION/M07/Apex-IPO-student-activity.xlsx",
+          "stage": "Apply",
+          "description": "Revised student workbook for equity valuation, earnings, scenarios, and ratio analysis."
+        },
+        {
           "type": "Starter Workbook",
           "label": "Download equity starter workbook",
           "path": "02-VALUATION/M07/bus311-valuation-m07-l01-starter.xlsx",
           "stage": "Practice",
-          "description": "Starter model for equity valuation and IPO analysis."
+          "description": "Starter model for equity valuation and IPO analysis.",
+          "deferred": true
         },
         {
           "type": "Assignment Guide",
@@ -470,7 +479,8 @@
           "label": "Download Apex IPO activity",
           "path": "02-VALUATION/M07/bus311-valuation-m07-l01-apex-ipo-activity.xlsx",
           "stage": "Apply",
-          "description": "Student workbook for valuation, ratio, and IPO proceeds scenarios."
+          "description": "Student workbook for valuation, ratio, and IPO proceeds scenarios.",
+          "deferred": true
         },
         {
           "type": "Class Activity",
