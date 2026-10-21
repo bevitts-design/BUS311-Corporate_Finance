@@ -544,10 +544,10 @@
         },
         {
           "type": "Excel Practice",
-          "label": "Download in-class NPV practice",
+          "label": "Download Chapter 8 in-class practice",
           "path": "02-VALUATION/M08/bus311-valuation-m08-l01-npv-practice.xlsx",
           "stage": "Practice",
-          "description": "Two focused in-class capital-budgeting questions."
+          "description": "Chapter 8 student workbook: capital-budgeting calculations and project comparison."
         }
       ]
     },
