@@ -123,7 +123,7 @@ function lessonCard(lesson) {
   const showLessonLink = isAvailable && lesson.cardDisplay?.showLessonLink !== false;
   const showSchedule = lesson.cardDisplay?.showSchedule === true;
   const cardMaterialButton = isAvailable
-    ? lesson.materials.filter((material) => material.cardLabel && !material.deferred).map((material) => {
+    ? lesson.materials.filter((material) => material.cardLabel && !material.deferred && !material.hidden).map((material) => {
       const localDownload = material.path && /\.(xlsx|docx|pdf)$/i.test(material.path);
       return `<a class="card-resource-action" href="${esc(materialHref(material))}"${localDownload ? ' download' : ''} aria-label="${esc(`${material.cardLabel} for ${lesson.title}`)}">${esc(material.cardLabel)}</a>`;
     }).join('\n    ')
@@ -234,8 +234,8 @@ for (const [index, lesson] of lessons.entries()) {
   const previous = lessons[index - 1];
   const next = lessons[index + 1];
   const lessonOutcomes = lesson.outcomes.map((id) => `<li><strong>${esc(id)}</strong><span>${esc(outcomes.get(id))}</span></li>`).join('');
-  const lessonMaterials = lesson.materials.filter((material) => !material.deferred).map((material) => materialLink(material, lesson, true)).join('');
-  const deferredMaterials = lesson.materials.filter((material) => material.deferred);
+  const lessonMaterials = lesson.materials.filter((material) => !material.deferred && !material.hidden).map((material) => materialLink(material, lesson, true)).join('');
+  const deferredMaterials = lesson.materials.filter((material) => material.deferred && !material.hidden);
   const laterResources = deferredMaterials.length ? `<details class="guide-panel"><summary>Reserved for later use — not assigned in this lesson</summary><p>These materials are retained for a later application. No work is required unless your instructor assigns it.</p><div class="material-grid">${deferredMaterials.map((material) => materialLink(material, lesson, true)).join('')}</div></details>` : '';
   const lessonHtml = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="${esc(lesson.summary)}"><title>${esc(courseMap.course.code)} · ${esc(lesson.displayModule)} · ${esc(lesson.title)}</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../../assets/index.css?v=${siteAssetVersion}"></head>

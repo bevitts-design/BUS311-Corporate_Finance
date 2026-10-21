@@ -529,6 +529,7 @@
         {
           "type": "Starter Workbook",
           "label": "Download capital-budgeting starter workbook",
+          "hidden": true,
           "path": "02-VALUATION/M08/bus311-valuation-m08-l01-starter.xlsx",
           "stage": "Practice",
           "description": "Starter model for the Harborside capital-budgeting decision."
@@ -536,6 +537,7 @@
         {
           "type": "Excel Activity",
           "label": "Download NPV project activity",
+          "hidden": true,
           "path": "02-VALUATION/M08/bus311-valuation-m08-l01-npv-project-activity.xlsx",
           "stage": "Apply",
           "description": "Student project workbook for NPV, IRR, PI, and recommendation analysis."
