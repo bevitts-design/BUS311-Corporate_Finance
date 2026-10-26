@@ -579,17 +579,18 @@
       "materials": [
         {
           "type": "Slides",
-          "label": "View lesson slides",
+          "label": "View lesson slides in Canva",
           "path": "03-FIRM-DECISIONS/M12/bus311-decisions-m12-l01-slides.html",
           "stage": "Learn",
-          "description": "Risk, diversification, beta, CAPM, and project hurdle-rate decisions."
+          "description": "Risk, diversification, beta, CAPM, and project hurdle-rate decisions.",
+          "linkUrl": "https://www.canva.com/d/_iWRXKQcyWwQY3r"
         },
         {
           "type": "Starter Workbook",
-          "label": "Download CAPM starter workbook",
+          "label": "Download Beta and CAPM student workbook",
           "path": "03-FIRM-DECISIONS/M12/bus311-decisions-m12-l01-starter.xlsx",
           "stage": "Apply",
-          "description": "Starter model for beta sensitivity and CAPM recommendations."
+          "description": "Student workbook for beta estimation, CAPM, and capital budgeting."
         }
       ]
     },
