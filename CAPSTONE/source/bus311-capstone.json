@@ -1,10 +1,10 @@
 {
   "meta": {
     "schemaId": "bus311-individual-company-capstone",
-    "sourceVersion": "2.0.0",
+    "sourceVersion": "2.2.0",
     "status": "approved",
     "effectiveTerm": "Fall 2026",
-    "updated": "2026-09-06",
+    "updated": "2026-10-27",
     "maintainedSource": "CAPSTONE/source/bus311-capstone.json",
     "canvasAuthority": "Canvas remains the authority for live submission links and any later instructor-announced change."
   },
@@ -14,7 +14,7 @@
     "ownership": "Individual",
     "companyEligibility": "Choose one U.S.-listed public company with usable public financial statements.",
     "audience": "The selected company's CFO and Board",
-    "decision": "Recommend one growth/efficiency investment or working-capital improvement, compared with the status quo.",
+    "decision": "Recommend whether to pursue, pilot, or postpone one company-specific revenue opportunity, supported by operating evidence and financial comparison.",
     "projectPoints": 100,
     "courseWeightPercent": 25,
     "courseGradePoints": 25,
@@ -66,14 +66,14 @@
     },
     {
       "milestoneId": "M02",
-      "title": "Explain sales and the decision",
+      "title": "Follow the Dollar—Find the Next Dollar",
       "points": 8,
       "due": "2026-09-30T12:30:00-04:00",
       "dueLabel": "September 30 at 12:30 p.m. ET"
     },
     {
       "milestoneId": "M03",
-      "title": "Model, challenge, and revise",
+      "title": "Compare, Evaluate, and Recommend",
       "points": 12,
       "due": "2026-11-04T12:30:00-05:00",
       "dueLabel": "November 4 at 12:30 p.m. ET"
@@ -88,7 +88,7 @@
     "canvasAssignmentsUrl": "https://endicott.instructure.com/courses/58525/assignments",
     "factSetSetupUrl": "https://endicott.instructure.com/courses/58525/pages/activate-factset-and-add-it-to-excel",
     "factSetSetupApiUrl": "https://endicott.instructure.com/api/v1/courses/58525/pages/activate-factset-and-add-it-to-excel",
-    "purpose": "Use company evidence and an Excel model to recommend one financial decision.",
+    "purpose": "Explain how your company earns revenue, evaluate a growth opportunity, and use financial comparisons to recommend its next move.",
     "centralQuestion": "Should this company make the proposed change, and under what conditions?",
     "stages": [
       {
@@ -105,42 +105,44 @@
           "Start"
         ],
         "grade": "Company and snapshot 2; specific FactSet learning 1; a plausible tentative decision 2.",
-        "hours": "About 1\u20132 focused hours."
+        "hours": "About 1–2 focused hours."
       },
       {
         "stageId": "S02_REVENUE",
         "milestoneId": "M02",
         "label": "Stage 2",
-        "title": "Explain sales and the decision",
+        "title": "Follow the Dollar—Find the Next Dollar",
         "points": 8,
         "due": "2026-09-30T12:30:00-04:00",
         "dateLabel": "September 30 at 12:30 p.m. ET",
-        "work": "Complete Revenue and Sources: three comparable years of sales, two drivers, one peer comparison, two risks, and one forecast claim.",
-        "submit": "Upload the same workbook with Revenue and Sources updated.",
+        "work": "Trace the company’s current revenue engine, explain recent sales, and develop one evidence-supported revenue opportunity that you can evaluate financially in Milestone 3.",
+        "submit": "Submit one completed .xlsx workbook with all three tabs. Use your approved project company. No separate report, slide deck, peer-ratio analysis, or full valuation is required for Milestone 2.",
         "tabs": [
-          "Revenue",
-          "Sources"
+          "Follow the dollar",
+          "Revenue history",
+          "Next dollar"
         ],
-        "grade": "Revenue history 2; two drivers 2; peer and risks 2; forecast claim and sources 2.",
-        "hours": "About 3\u20134 focused hours, including class work."
+        "grade": "Revenue engine 2; history and drivers 2; growth opportunity and estimate 2; feasibility, challenge, and revision 2.",
+        "hours": "About 3–4 focused hours including class work. Bring your company’s latest annual filing or annual report and access to FactSet if available."
       },
       {
         "stageId": "S03_VALUE",
         "milestoneId": "M03",
         "label": "Stage 3",
-        "title": "Model, challenge, and revise",
+        "title": "Compare, Evaluate, and Recommend",
         "points": 12,
         "due": "2026-11-04T12:30:00-05:00",
         "dateLabel": "November 4 at 12:30 p.m. ET",
-        "work": "Complete Model, Sources, and Revision. Compare base, upside, and downside NPV; vary one important assumption; check one meaningful challenge and record your judgment.",
-        "submit": "Upload the same workbook. The challenge record is inside it; there is no separate revision assignment.",
+        "work": "Evaluate how effectively your company turns revenue into financial performance. Compare two defensible peers, use a brief P/E estimate for market context, and revise your growth recommendation.",
+        "submit": "Submit one completed .xlsx workbook with Recommendation, Company ratios, Peer comparison, and P-E check complete. Keep the same approved company and bring forward the chosen Milestone 2 opportunity. No separate report or full valuation model is required.",
         "tabs": [
-          "Model",
-          "Sources",
-          "Revision"
+          "Recommendation",
+          "Company ratios",
+          "Peer comparison",
+          "P-E check"
         ],
-        "grade": "Cash-flow model and assumptions 4; scenarios and sensitivity 4; verified challenge and judgment 4.",
-        "hours": "About 4\u20136 focused hours, including the worked example and class support."
+        "grade": "Peer selection and inputs 3; ratios and interpretation 3; P/E check 2; recommendation and revision 4.",
+        "hours": "About 4–5 focused hours, including class work."
       },
       {
         "stageId": "S05_BOARD",
@@ -148,75 +150,51 @@
         "title": "Recommend and present",
         "points": 75,
         "due": "2026-11-30T12:30:00-05:00",
-        "dateLabel": "PowerPoint: November 30 at 12:30 p.m. ET; presentations: November 30\u2013December 9",
+        "dateLabel": "PowerPoint: November 30 at 12:30 p.m. ET; presentations: November 30–December 9",
         "work": "Use six core slides to explain your decision, evidence, numbers, risks, and next step. Put supporting calculations and sources in an optional appendix.",
         "submit": "Upload one editable PowerPoint, then present that file live. Up to 7 minutes presenting and 3 minutes answering questions.",
         "tabs": [],
         "grade": "PowerPoint 50; Oral Presentation 25.",
-        "hours": "About 3\u20134 focused hours to prepare and rehearse."
+        "hours": "About 3–4 focused hours to prepare and rehearse."
       }
     ]
   },
   "scope": {
     "historyYears": 3,
     "drivers": 2,
-    "peers": 1,
-    "risks": 2,
+    "peers": 2,
+    "risks": 1,
     "forecastClaims": 1,
-    "scenarios": [
-      "Base",
-      "Upside",
-      "Downside"
-    ],
-    "sensitivityCount": 1,
+    "scenarios": [],
+    "sensitivityCount": 0,
     "challengeCount": 1,
     "coreSlides": 6,
     "workbookSheets": [
-      "Start",
-      "Revenue",
-      "Model",
-      "Sources",
-      "Revision",
-      "Example"
-    ]
+      "Follow the dollar",
+      "Revenue history",
+      "Next dollar"
+    ],
+    "workbookStage": "M02"
   },
-  "decisionPaths": [
-    {
-      "id": "INVESTMENT",
-      "title": "Growth or efficiency investment",
-      "question": "Should the company fund a specific capacity, technology, or process improvement?",
-      "method": "Incremental after-tax cash flow and NPV versus doing nothing.",
-      "inputs": "Initial equipment and setup cash cost; annual additional sales or cost savings; operating costs; tax; additional working capital; end-of-project recovery. Use a bounded five-year project. Explain any estimated project cost using a public benchmark.",
-      "boundary": "Choose a project with a defensible public cost benchmark. A whole-company acquisition, buyback, debt restructuring, or full enterprise valuation is outside this project."
-    },
-    {
-      "id": "WORKING_CAPITAL",
-      "title": "Working-capital improvement",
-      "question": "Should the company reduce cash tied up in inventory or receivables without damaging service or sales?",
-      "method": "Incremental cash released, implementation and operating costs, and NPV versus current practice.",
-      "inputs": "For receivables, annual sales / 365 \u00d7 days reduced; for inventory, annual cost of goods sold / 365 \u00d7 days reduced. Use one lever. Count the release once, explain the duration, and include restoration if the improvement ends.",
-      "boundary": "Use one cash-conversion lever, with two service or revenue risks. Do not count the same cash release again as operating revenue or recurring savings."
-    }
-  ],
   "feedback": {
     "target": "November 11, 2026",
     "revision": "Revise the existing Stage 3 Canvas submission within seven calendar days of written feedback. The higher score replaces the original. If feedback arrives November 11, the revision window ends November 18. No separate revision file or assignment is required.",
-    "support": "Before the November 4 model deadline, use the Example tab and the short model instructions. The template calculates discounting and NPV; explain those calculations in your own words. Plan a model workshop before submission.",
-    "finalModel": "If feedback changes your numbers, replace the workbook in the original Stage 3 assignment and use that version in the slides. Identify the workbook version and model cell below each financial result."
+    "support": "Use the Milestone 2 guide and the Follow the Dollar workbook. Milestone 3 preparation will focus on consistent ratio definitions, peer selection, and a brief P/E check.",
+    "finalModel": "Use the most recent submitted workbook in your final slides and identify the supporting sheet and cells for financial results."
   },
   "policies": {
     "individualWork": "Research, assumptions, formulas, writing, and presentation are individual work. You must explain the submitted analysis yourself.",
     "stageOne": "Stage 1 is exploration. Use web research and/or AI plus FactSet. Name one FactSet learning and the feature used. Formal citations and proof are not required until Stage 2. The decision may change as the evidence develops.",
-    "sources": "From Stage 2, use one Sources tab. Record a source ID, exact SEC filing/table or FactSet report/metric, link or report locator, date and period, units, and the fact or assumption used. Put that ID beside the input or claim. Explain changed definitions or missing evidence where they matter.",
+    "sources": "Use credible company filings, annual reports, or FactSet reports to support company facts and historical figures. Name the relevant filing or report and useful page, section, or link in your written responses. Clearly label calculations, assumptions, and interpretations. AI output is not financial evidence.",
     "factSetPermission": "Students and the instructor may use FactSet evidence in BUS311 course deliverables. Raw exports and screenshots remain in approved course-restricted systems and are not committed publicly or uploaded to public AI tools.",
-    "challenge": "Complete one challenge before the Stage 3 submission. Use AI, a peer, or the provided self-review questions. Record the strongest challenge, what you checked, and what you changed or why you kept the original conclusion. AI output is not financial evidence.",
-    "aiPrivacy": "Give public AI tools only a short summary you wrote from public information. Do not upload workbooks, raw FactSet exports or screenshots, personal information, private teaching material, or nonpublic information. If AI is used, name the tool and purpose in Revision and disclose it briefly in the presentation appendix or source notes.",
+    "challenge": "Use a partner or self-review to challenge the Milestone 2 opportunity. Record the concern and response in Next dollar. Milestone 3 includes a financial challenge and revision. AI may assist the challenge but is never evidence.",
+    "aiPrivacy": "Give public AI tools only a short summary you wrote from public information. Do not upload workbooks, raw FactSet exports or screenshots, personal information, private teaching material, or nonpublic information. If AI is used, name the tool and purpose in the workbook revision response and disclose it briefly in the presentation appendix or source notes.",
     "missingEvidence": "Use the required minimum where evidence supports it. If no defensible peer or comparable historical figure exists, state why and discuss an appropriate limitation or proxy with the instructor. Never invent company facts. Label estimated project inputs as assumptions and explain their basis.",
     "lateWork": "Milestones remain eligible under the BUS311 syllabus late-work policy. A late milestone delays feedback and can make dependent project work harder; complete missing milestone work before relying on it in a later stage. Documented exceptions follow the applicable college and course process.",
-    "revision": "Stages 1\u20133 may each be revised once within seven calendar days of written feedback. Replace the workbook in the original assignment; the higher score replaces the original. Summarize the change in Revision.",
+    "revision": "Milestones 1–3 may each be revised once within seven calendar days of written feedback. Replace the workbook in the original assignment; the higher score replaces the original. For Milestone 2, summarize changes in Next dollar; for Milestone 3, summarize revisions in Recommendation.",
     "finalFileLock": "The PowerPoint company-analysis project file is due Monday, Nov. 30, 2026 at 12:30 p.m. ET, when class begins. The submitted .pptx locks at that time for every student regardless of Oral Presentation date. Only instructor-authorized accessibility or file-repair corrections that do not alter the analysis or recommendation are permitted afterward.",
     "absence": "Approved documented absences use the next protected slot or instructor-scheduled make-up. The live Oral Presentation, including responses to questions, remains required. Unexcused absences follow the BUS311 late-work policy and still require a make-up Oral Presentation.",
-    "submission": "Submit the continuing workbook at Stages 1, 2, and 3. Submit one editable .pptx at Stage 4. The Oral Presentation uses that same deck; no second final file is required. Canvas supplies the live upload links and presentation order."
+    "submission": "Keep submitted Milestone 1 work. Submit the dedicated Follow the Dollar workbook for Milestone 2 and the peer-comparison workbook for Milestone 3. The final submission remains one editable PowerPoint and a live presentation."
   },
   "challengePrompts": [
     "What assumption could most easily make this decision unattractive?",
@@ -225,40 +203,40 @@
   ],
   "slideOutline": [
     {
-      "title": "What should the company do?",
-      "prompt": "State the company, your name, the proposed action, and one clear recommendation.",
-      "evidence": "One sentence naming the decision and its scope.",
-      "notes": "About 45 seconds. Lead with your recommendation; identify the status quo."
+      "title": "Company and revenue engine",
+      "prompt": "Explain who pays, what they buy, and how the company charges.",
+      "evidence": "Revenue map and largest disclosed revenue source.",
+      "notes": "Planned final structure; template will be revised with Milestone 3."
     },
     {
-      "title": "Why this decision?",
-      "prompt": "Explain the business need and how the company makes money.",
-      "evidence": "A simple three-year sales chart and two drivers.",
-      "notes": "About 60 seconds. Connect sales or cash conversion to the proposed action."
+      "title": "Revenue history and drivers",
+      "prompt": "Explain the recent sales trend and its causes.",
+      "evidence": "Three-year revenue chart and two supported drivers.",
+      "notes": "Planned final structure; template will be revised with Milestone 3."
     },
     {
-      "title": "What evidence supports it?",
-      "prompt": "Show the decisive evidence and the assumption it supports.",
-      "evidence": "One peer comparison, one forecast claim, and source IDs.",
-      "notes": "About 60 seconds. Separate reported facts from your estimate."
+      "title": "Proposed growth opportunity",
+      "prompt": "Explain the customer, willingness to pay, and company fit.",
+      "evidence": "Simple revenue estimate with labeled assumptions and displaced sales.",
+      "notes": "Planned final structure; template will be revised with Milestone 3."
     },
     {
-      "title": "What do the numbers show?",
-      "prompt": "Compare doing nothing with the change in base, upside, and downside cases.",
-      "evidence": "Three scenario NPVs, one sensitivity, and the model version/cells.",
-      "notes": "About 90 seconds. Explain initial cash flow, annual cash flow, and discounting. The status quo has zero incremental NPV."
+      "title": "Financial comparison",
+      "prompt": "Explain what company trends and peer ratios imply for the proposal.",
+      "evidence": "Financial strength, constraint, and effect on the proposed action.",
+      "notes": "Planned final structure; template will be revised with Milestone 3."
     },
     {
-      "title": "What could go wrong?",
-      "prompt": "Explain two risks, the strongest challenge, and what you changed.",
-      "evidence": "One observable condition that would change your recommendation.",
-      "notes": "About 60 seconds. Acknowledge uncertainty without hiding the decision."
+      "title": "Brief P/E check",
+      "prompt": "Interpret the peer-based estimate and its limitations.",
+      "evidence": "Consistent EPS and share-price dates, selected multiple, and a small illustrative range.",
+      "notes": "Planned final structure; template will be revised with Milestone 3."
     },
     {
-      "title": "What happens next?",
-      "prompt": "Name the first action, responsible role, timing, and one measure to monitor.",
-      "evidence": "A practical next step and a stop, review, or expand trigger.",
-      "notes": "About 45 seconds. Restate the requested decision. Leave time for transitions."
+      "title": "Recommendation and next step",
+      "prompt": "Recommend pursue, pilot, or strengthen first. Explain risk and success measure.",
+      "evidence": "One practical next action and an observable reconsideration trigger.",
+      "notes": "Planned final structure; template will be revised with Milestone 3."
     }
   ],
   "rubric": {
@@ -286,10 +264,10 @@
       },
       {
         "criterionId": "M02_REVENUE",
-        "title": "Sales evidence and forecast claim",
+        "title": "Follow the Dollar",
         "points": 8,
         "stageId": "S02_REVENUE",
-        "description": "Comparable history 2; two drivers 2; peer and two risks 2; forecast claim and sources 2.",
+        "description": "Revenue engine 2; history and drivers 2; growth opportunity and estimate 2; feasibility, challenge, and revision 2.",
         "performanceLevels": {
           "COMPLETE": {
             "points": 8,
@@ -307,10 +285,10 @@
       },
       {
         "criterionId": "M03_MODEL",
-        "title": "Cash-flow model and uncertainty",
+        "title": "Financial comparison and P/E check",
         "points": 8,
         "stageId": "S03_VALUE",
-        "description": "Correct incremental cash flows and supported assumptions 4; three scenarios and one decision-relevant sensitivity 4.",
+        "description": "Peer selection and comparable inputs 3; five ratios, chart, and interpretation 3; brief P/E calculation and limitations 2.",
         "performanceLevels": {
           "COMPLETE": {
             "points": 8,
@@ -328,10 +306,10 @@
       },
       {
         "criterionId": "M03_REVISION",
-        "title": "Challenge and judgment",
+        "title": "Recommendation, challenge, and revision",
         "points": 4,
         "stageId": "S03_VALUE",
-        "description": "A specific challenge 1; independent evidence or recalculation 2; a justified change or decision to retain 1.",
+        "description": "Connect one financial strength and one constraint to the proposal (1). Justify a specific pursue, pilot, or strengthen-first recommendation and a resulting change or supported retention of the plan (1). Record a meaningful challenge, independent evidence/recalculation, and reasoned response (1). Specify an owner, timing, success measure, reconsideration trigger, and AI-use statement (1).",
         "performanceLevels": {
           "COMPLETE": {
             "points": 4,
@@ -373,7 +351,7 @@
         "title": "Financial evidence",
         "points": 20,
         "stageId": "S05_BOARD",
-        "description": "Company evidence 6; correct model reconciliation 8; interpretation of scenarios and sensitivity 6.",
+        "description": "Company revenue evidence 6; accurate financial comparisons and calculations 8; interpretation and connection to the recommendation 6.",
         "performanceLevels": {
           "COMPLETE": {
             "points": 20,
@@ -485,32 +463,39 @@
   ],
   "materials": [
     {
-      "materialId": "PROJECT_WORKBOOK",
-      "label": "Continuing project workbook",
-      "path": "CAPSTONE/bus311-capstone-project-workbook.xlsx",
+      "materialId": "M02_GUIDE",
+      "label": "Milestone 2 instructions (PDF)",
+      "path": "CAPSTONE/bus311-capstone-m02-follow-the-dollar.pdf",
       "public": true,
-      "description": "Use this one workbook for Stages 1\u20133. Includes the annotated teaching example."
+      "description": "One PDF with all Follow the Dollar instructions, formula locations, checklist, and eight-point rubric."
     },
     {
-      "materialId": "BOARD_TEMPLATE",
-      "label": "Six-slide presentation template",
-      "path": "CAPSTONE/bus311-capstone-board-deck-template.pptx",
+      "materialId": "M02_WORKBOOK",
+      "label": "Milestone 2 student workbook",
+      "path": "CAPSTONE/bus311-capstone-m02-follow-the-dollar.xlsx",
       "public": true,
-      "description": "Use for the final recommendation and live presentation."
+      "description": "Three blank student tabs for the Follow the Dollar milestone, with labeled response and fiscal-year columns."
     },
     {
       "materialId": "ASSIGNMENT",
-      "label": "Printable project brief",
-      "path": "CAPSTONE/bus311-capstone-assignment.pdf",
+      "label": "Revised project overview",
+      "path": "CAPSTONE/index.html",
       "public": true,
-      "description": "Optional print copy of this project page."
+      "description": "Milestone 2 materials and the planned Milestone 3 direction."
     },
     {
-      "materialId": "ASSIGNMENT_DOCX",
-      "label": "Editable project brief",
-      "path": "CAPSTONE/bus311-capstone-assignment.docx",
+      "materialId": "M03_GUIDE",
+      "label": "Milestone 3 student instructions",
+      "path": "CAPSTONE/bus311-capstone-m03-peer-comparison.html",
       "public": true,
-      "description": "Optional Word copy of this project page."
+      "description": "Twelve-point ratio comparison, brief P/E check, and recommendation directions."
+    },
+    {
+      "materialId": "M03_WORKBOOK",
+      "label": "Milestone 3 student workbook",
+      "path": "CAPSTONE/bus311-capstone-m03-peer-comparison.xlsx",
+      "public": true,
+      "description": "Four clearly labeled working sheets; no separate Sources tab or source IDs."
     }
   ],
   "unlistedLegacyMaterials": [
@@ -583,9 +568,424 @@
       "path": "CAPSTONE/bus311-capstone-red-team-record.xlsx",
       "status": "superseded-by-v2",
       "reason": "Historical material; not part of the current student pathway."
+    },
+    {
+      "path": "CAPSTONE/bus311-capstone-project-workbook.xlsx",
+      "reason": "Retain previous work; Model, Revenue, and Example requirements are superseded by the October 27 revision. Start remains usable for existing Milestone 1 work."
+    },
+    {
+      "path": "CAPSTONE/bus311-capstone-assignment.docx",
+      "reason": "Previous project brief. Revised current directions are generated in CAPSTONE/index.html."
+    },
+    {
+      "path": "CAPSTONE/bus311-capstone-assignment.pdf",
+      "reason": "Previous project brief. Revised current directions are generated in CAPSTONE/index.html."
+    },
+    {
+      "path": "CAPSTONE/bus311-capstone-board-deck-template.pptx",
+      "reason": "Previous template; revise with Milestone 3 before reuse."
     }
   ],
-  "example": {
+  "revisionPlan": {
+    "status": "Milestone 2 and Milestone 3 materials are complete. The optional final presentation template remains a separate follow-up.",
+    "scope": "The Follow the Dollar workbook replaces the earlier Revenue/Model workflow for Milestone 2. Prior NPV, full valuation, and cash-flow-model requirements are superseded in this revised project. Keep your Milestone 1 work.",
+    "dates": "Existing course milestone dates are retained as schedule references. Check Canvas for the applicable submission deadline and any instructor-announced change.",
+    "milestone3": {
+      "title": "Compare, Evaluate, and Recommend",
+      "status": "Ready",
+      "points": 12,
+      "requirements": [
+        "Use three comparable company fiscal years and the latest reasonably comparable completed year for each peer. Show exact year ends. Use the same accounting/ratio definitions and appropriate average balances. Name the actual selected-peer median, not an industry average. Two peers are a small descriptive sample.",
+        "Calculate and interpret five appropriate ratios and one comparison chart.",
+        "Complete the brief peer-based P/E range using consistent positive trailing earnings.",
+        "Revise the Milestone 2 opportunity using financial strengths, constraints, a checked challenge, and a measurable next step."
+      ],
+      "gradingPlan": "Peer selection and inputs 3; ratios and interpretation 3; P/E check 2; recommendation and revision 4.",
+      "boundary": "A full company valuation or NPV project model is not required. The P/E check offers market context; it does not measure the value created by the proposed initiative."
+    }
+  },
+  "milestone2": {
+    "title": "Follow the Dollar—Find the Next Dollar",
+    "points": 8,
+    "question": "How does your company earn revenue today, and what realistic opportunity could generate additional revenue in the future?",
+    "purpose": "Trace the company’s current revenue engine, explain recent sales, and develop one evidence-supported revenue opportunity that you can evaluate financially in Milestone 3.",
+    "submission": "Submit one completed .xlsx workbook with all three tabs. Use your approved project company. No separate report, slide deck, peer-ratio analysis, or full valuation is required for Milestone 2.",
+    "filename": "BUS311_M02_Lastname_Ticker.xlsx",
+    "time": "About 3–4 focused hours including class work. Bring your company’s latest annual filing or annual report and access to FactSet if available.",
+    "sourceStandard": "Use credible company filings, annual reports, or FactSet reports to support company facts and historical figures. Name the relevant filing or report and useful page, section, or link in your written responses. Clearly label calculations, assumptions, and interpretations. AI output is not financial evidence.",
+    "missingData": "If comparable history or a revenue breakdown is not disclosed, state the limitation and consult the instructor about an appropriate substitute. Do not invent company facts or a segment split. A forecast assumption is permitted when clearly labeled and explained.",
+    "formulaDirections": [
+      "Revenue history: enter fiscal years in B9:D9 and total revenues in B10:D10, oldest to newest. In C12, calculate middle-year revenue divided by oldest-year revenue minus 1. In D12, calculate latest-year revenue divided by middle-year revenue minus 1. Format both as percentages. If the prior year is zero or unavailable, report n.a. and explain why.",
+      "Next dollar: enter additional revenue units in B29 and recognized revenue per unit for the same forecast period in B30, using unscaled currency such as USD rather than USD millions. Enter existing sales displaced in B31 in the same currency. In B32, calculate B29 × B30 − B31 with an Excel formula. Document adoption timing and avoid counting the same revenue twice. A negative result is informative; reconsider the idea rather than forcing a positive number."
+    ],
+    "classActivity": [
+      {
+        "minutes": 10,
+        "title": "Follow the dollar",
+        "task": "Trace who pays, what they buy, how they buy, how the company charges, and what creates repeat revenue. Start the Follow the dollar tab."
+      },
+      {
+        "minutes": 10,
+        "title": "Find three possible next dollars",
+        "task": "Generate one idea for existing customers, one for new customers, and one new offering or payment model. Identify the payer and willingness to pay for each."
+      },
+      {
+        "minutes": 10,
+        "title": "Choose and estimate",
+        "task": "Choose one idea. Identify the driver, outline the revenue calculation, and flag costs, investment, and potentially displaced sales. Use labeled assumptions when evidence is still needed."
+      },
+      {
+        "minutes": 7,
+        "title": "Defend and revise",
+        "task": "A partner acts as skeptical CFO. Ask why customers would choose this, what assumption is weakest, and how demand could be tested. Self-review is an equivalent option."
+      },
+      {
+        "minutes": 3,
+        "title": "Exit claim",
+        "task": "Write the final revenue claim and identify the most important evidence still needed. Complete historical research, calculations, and revisions after class."
+      }
+    ],
+    "sheets": [
+      {
+        "name": "Follow the dollar",
+        "title": "Follow the dollar",
+        "intro": "Explain how your approved company earns revenue today. Enter responses in the yellow Your response cells.",
+        "fields": [
+          {
+            "id": "company",
+            "row": 5,
+            "label": "Company and ticker",
+            "prompt": "Name your approved company and ticker.",
+            "height": 40,
+            "kind": "text"
+          },
+          {
+            "id": "student",
+            "row": 7,
+            "label": "Student and date",
+            "prompt": "Enter your name and workbook date.",
+            "height": 40,
+            "kind": "text"
+          },
+          {
+            "id": "customer",
+            "row": 10,
+            "label": "Who pays?",
+            "prompt": "Identify the paying customer. Distinguish the customer from the end user when they differ.",
+            "height": 58,
+            "kind": "text"
+          },
+          {
+            "id": "offering",
+            "row": 13,
+            "label": "What do they buy?",
+            "prompt": "Name the major products or services and the customer need they meet.",
+            "height": 58,
+            "kind": "text"
+          },
+          {
+            "id": "channel",
+            "row": 16,
+            "label": "How do they buy?",
+            "prompt": "Identify the sales/distribution channel and any intermediary.",
+            "height": 58,
+            "kind": "text"
+          },
+          {
+            "id": "pricing",
+            "row": 19,
+            "label": "How does the company charge?",
+            "prompt": "Explain the pricing unit and payment model: unit, subscription, usage, advertising, fee, or another model.",
+            "height": 58,
+            "kind": "text"
+          },
+          {
+            "id": "repeat",
+            "row": 22,
+            "label": "What creates repeat revenue?",
+            "prompt": "Explain repeat purchases, renewals, usage, retention, or why the revenue is mostly one-time.",
+            "height": 58,
+            "kind": "text"
+          },
+          {
+            "id": "largest",
+            "row": 25,
+            "label": "Largest reported revenue source",
+            "prompt": "Name the largest disclosed segment, product group, or category. Include its amount, fiscal year,. If no breakdown is disclosed, explain the limitation.",
+            "height": 58,
+            "kind": "text"
+          },
+          {
+            "id": "summary",
+            "row": 28,
+            "label": "Follow the dollar summary",
+            "prompt": "My company earns revenue primarily by selling ___ to ___. Revenue changes mainly when ___ changes.",
+            "height": 70,
+            "kind": "text"
+          },
+          {
+            "id": "evidence",
+            "row": 31,
+            "label": "Evidence used",
+            "prompt": "Name the company filing or report supporting the revenue map. Include a useful page, section, or link. Separate reported facts from your interpretation.",
+            "height": 70,
+            "kind": "text"
+          }
+        ]
+      },
+      {
+        "name": "Revenue history",
+        "title": "Explain recent revenue",
+        "intro": "Use three completed, comparable fiscal years. Yellow cells are inputs. Pale green cells require your Excel formulas.",
+        "fields": [
+          {
+            "id": "units",
+            "row": 5,
+            "label": "Currency and units",
+            "prompt": "Use one reporting currency and scale, such as USD millions, for all three revenue amounts.",
+            "height": 40,
+            "kind": "text"
+          },
+          {
+            "id": "comparability",
+            "row": 15,
+            "label": "Are these years comparable?",
+            "prompt": "Explain fiscal-year changes, restatements, acquisitions, divestitures, or reporting changes. Note unavailable comparable figures.",
+            "height": 70,
+            "kind": "text"
+          },
+          {
+            "id": "trend",
+            "row": 18,
+            "label": "What does the trend show?",
+            "prompt": "Interpret the growth results. Is revenue accelerating, slowing, declining, or uneven? Cite the relevant years.",
+            "height": 70,
+            "kind": "text"
+          },
+          {
+            "id": "driver1",
+            "row": 21,
+            "label": "Revenue driver 1",
+            "prompt": "Name a company-specific driver, explain how it affects sales, and name the supporting company filing or report. Quantify only when the evidence permits.",
+            "height": 80,
+            "kind": "text"
+          },
+          {
+            "id": "driver2",
+            "row": 24,
+            "label": "Revenue driver 2",
+            "prompt": "Name a different driver with supporting company evidence. Distinguish recurring business effects from temporary or acquisition effects.",
+            "height": 80,
+            "kind": "text"
+          }
+        ]
+      },
+      {
+        "name": "Next dollar",
+        "title": "Find the next dollar",
+        "intro": "Generate three ideas, develop one, and revise it after a challenge. Keep reported facts and your assumptions distinct.",
+        "fields": [
+          {
+            "id": "existing",
+            "row": 5,
+            "label": "Idea 1: Existing customers",
+            "prompt": "What could existing customers buy more often, buy more of, or pay more for? Name the payer and why they would pay.",
+            "height": 85,
+            "kind": "text"
+          },
+          {
+            "id": "new",
+            "row": 8,
+            "label": "Idea 2: New customers",
+            "prompt": "Which specific customer group, geography, or channel could the company reach? Explain willingness to pay.",
+            "height": 85,
+            "kind": "text"
+          },
+          {
+            "id": "offering",
+            "row": 11,
+            "label": "Idea 3: New offering or payment model",
+            "prompt": "What additional product, service, subscription, or licensing arrangement could customers value? Name the payer.",
+            "height": 85,
+            "kind": "text"
+          },
+          {
+            "id": "chosen",
+            "row": 14,
+            "label": "Choose one opportunity",
+            "prompt": "State the chosen idea, why you selected it, the paying customer, and what that customer receives.",
+            "height": 80,
+            "kind": "text"
+          },
+          {
+            "id": "status",
+            "row": 17,
+            "label": "Is this already happening?",
+            "prompt": "Label the idea: your proposal, an announced company initiative, or an extension of an existing activity. Cite evidence for any company claim.",
+            "height": 65,
+            "kind": "text"
+          },
+          {
+            "id": "fit",
+            "row": 20,
+            "label": "Why does it fit this company?",
+            "prompt": "Use at least two pieces of company evidence to explain capabilities, customer relationships, demand, or another relevant advantage. Name the supporting company filing or report.",
+            "height": 85,
+            "kind": "text"
+          },
+          {
+            "id": "period",
+            "row": 23,
+            "label": "Forecast period and scope",
+            "prompt": "Define one full year or named 12-month period. Explain whether this is a first-year or steady-state estimate and how adoption timing is handled.",
+            "height": 65,
+            "kind": "text"
+          },
+          {
+            "id": "unit",
+            "row": 26,
+            "label": "What is one revenue unit?",
+            "prompt": "Define the unit in the calculation below: new customers, subscriptions, transactions, products, or another meaningful unit.",
+            "height": 55,
+            "kind": "text"
+          },
+          {
+            "id": "quantityBasis",
+            "row": 33,
+            "label": "Why this quantity?",
+            "prompt": "Explain the evidence or reasoning behind B29. Label it as an assumption, not a reported company forecast. Name the supporting report where available.",
+            "height": 75,
+            "kind": "text"
+          },
+          {
+            "id": "priceBasis",
+            "row": 36,
+            "label": "Why this revenue per unit?",
+            "prompt": "Explain the price/spending, annualization, and currency basis for B30. Match B30 to B29 and the period in B23. Name the supporting report where available.",
+            "height": 75,
+            "kind": "text"
+          },
+          {
+            "id": "replacedBasis",
+            "row": 39,
+            "label": "Could it replace current sales?",
+            "prompt": "Explain B31: include sales shifted from existing offerings so the estimate measures net additional revenue. Use 0 only with an explanation.",
+            "height": 75,
+            "kind": "text"
+          },
+          {
+            "id": "interpret",
+            "row": 42,
+            "label": "What does the estimate mean?",
+            "prompt": "Interpret B32 and its uncertainty. Explain why additional revenue may not produce additional profit or cash flow.",
+            "height": 75,
+            "kind": "text"
+          },
+          {
+            "id": "costs",
+            "row": 45,
+            "label": "Costs and investment required",
+            "prompt": "Identify the main operating costs and upfront investment. Explain the likely cash-flow effect; a full cost forecast is not required.",
+            "height": 75,
+            "kind": "text"
+          },
+          {
+            "id": "risk",
+            "row": 48,
+            "label": "Most important risk",
+            "prompt": "Name one company-specific demand or execution risk and explain how it could reduce the proposed revenue.",
+            "height": 70,
+            "kind": "text"
+          },
+          {
+            "id": "indicator",
+            "row": 51,
+            "label": "How would you test the idea?",
+            "prompt": "Specify a practical pilot or evidence check, one measurable indicator, and an observable result that would make you reconsider.",
+            "height": 80,
+            "kind": "text"
+          },
+          {
+            "id": "challenge",
+            "row": 54,
+            "label": "Skeptical CFO challenge",
+            "prompt": "Use a partner or self-review: Why would customers choose this? What is the weakest assumption? Record the strongest challenge.",
+            "height": 75,
+            "kind": "text"
+          },
+          {
+            "id": "revision",
+            "row": 57,
+            "label": "Your response and revision",
+            "prompt": "Explain what you checked and changed, or why you retained the original proposal. State any AI tool and purpose, or no AI used.",
+            "height": 75,
+            "kind": "text"
+          },
+          {
+            "id": "claim",
+            "row": 60,
+            "label": "Your final revenue claim",
+            "prompt": "Over [period], [company] could generate additional revenue through [opportunity] because [mechanism]. I would monitor [measure] and reconsider if [result].",
+            "height": 85,
+            "kind": "text"
+          }
+        ]
+      }
+    ],
+    "rubric": [
+      {
+        "id": "M02_MAP",
+        "title": "Explain the current revenue engine",
+        "points": 2,
+        "detail": "Identify payer, offering, channel, pricing, and repeat revenue (1); identify the largest disclosed source and connect the map to traceable evidence (1)."
+      },
+      {
+        "id": "M02_HISTORY",
+        "title": "Analyze revenue history and drivers",
+        "points": 2,
+        "detail": "Use three comparable fiscal years with currency, units, correct growth formulas, and a useful trend interpretation (1); explain two distinct company-specific revenue drivers with evidence (1)."
+      },
+      {
+        "id": "M02_OPPORTUNITY",
+        "title": "Develop a company-specific opportunity",
+        "points": 2,
+        "detail": "Generate three distinct routes with a specific payer and willingness to pay (0.5); choose one, identify its status, and support company fit with two pieces of evidence (0.75); provide a period-consistent revenue calculation and explained assumptions, including displaced sales (0.75)."
+      },
+      {
+        "id": "M02_JUDGMENT",
+        "title": "Evaluate feasibility and revise",
+        "points": 2,
+        "detail": "Explain costs/investment and why revenue differs from profit/cash flow (0.5); identify a material risk and a measurable test with a reconsideration trigger (0.75); record a meaningful challenge, justified response, final claim, and identified supporting evidence (0.75)."
+      }
+    ],
+    "checklist": [
+      "My map explains the paying customer, offering, channel, pricing, and repeat revenue, with a supported largest revenue source or disclosed limitation.",
+      "I entered three years of revenue, identified currency/units, calculated growth with Excel formulas, and explained two revenue drivers.",
+      "I generated three distinct ideas, selected one, labeled its status, and used two pieces of company evidence to explain its fit.",
+      "My revenue estimate uses matching quantity, price, period, and currency units, subtracts displaced revenue, and labels assumptions.",
+      "I addressed costs/investment, a material risk, a measurable test, the strongest challenge, and my resulting revision.",
+      "I identified the company filings or reports supporting my analysis. I can explain my formulas and final claim. I included an AI-use statement or no-AI statement."
+    ]
+  },
+  "legacyDecisionPaths": [
+    {
+      "id": "INVESTMENT",
+      "title": "Growth or efficiency investment",
+      "question": "Should the company fund a specific capacity, technology, or process improvement?",
+      "method": "Incremental after-tax cash flow and NPV versus doing nothing.",
+      "inputs": "Initial equipment and setup cash cost; annual additional sales or cost savings; operating costs; tax; additional working capital; end-of-project recovery. Use a bounded five-year project. Explain any estimated project cost using a public benchmark.",
+      "boundary": "Choose a project with a defensible public cost benchmark. A whole-company acquisition, buyback, debt restructuring, or full enterprise valuation is outside this project."
+    },
+    {
+      "id": "WORKING_CAPITAL",
+      "title": "Working-capital improvement",
+      "question": "Should the company reduce cash tied up in inventory or receivables without damaging service or sales?",
+      "method": "Incremental cash released, implementation and operating costs, and NPV versus current practice.",
+      "inputs": "For receivables, annual sales / 365 × days reduced; for inventory, annual cost of goods sold / 365 × days reduced. Use one lever. Count the release once, explain the duration, and include restoration if the improvement ends.",
+      "boundary": "Use one cash-conversion lever, with two service or revenue risks. Do not count the same cash release again as operating revenue or recurring savings."
+    }
+  ],
+  "legacyExample": {
     "company": "Harbor Supply Co. (fictional)",
     "decision": "Install order-handling equipment for a five-year project.",
     "history": [
@@ -622,6 +1022,423 @@
       "Annual depreciation is $8 million / 5 years; taxable operating savings are reduced by depreciation.",
       "The model compares incremental cash flow with doing nothing. It discounts cash received later.",
       "The downside and break-even test reveal what evidence would change the recommendation."
+    ]
+  },
+  "milestone3": {
+    "title": "Compare, Evaluate, and Recommend",
+    "points": 12,
+    "status": "Ready",
+    "question": "What do company trends, peer ratios, and a brief P/E check tell you about the growth opportunity you proposed in Milestone 2?",
+    "purpose": "Evaluate how effectively your company turns revenue into financial performance. Compare two defensible peers, use a brief P/E estimate for market context, and revise your growth recommendation.",
+    "submission": "Submit one completed .xlsx workbook with Recommendation, Company ratios, Peer comparison, and P-E check complete. Keep the same approved company and bring forward the chosen Milestone 2 opportunity. No separate report or full valuation model is required.",
+    "filename": "BUS311_M03_Lastname_Ticker.xlsx",
+    "time": "About 4–5 focused hours, including class work.",
+    "inputs": [
+      [
+        10,
+        "Fiscal year",
+        "Completed fiscal year, not quarter"
+      ],
+      [
+        11,
+        "Fiscal year-end date",
+        "State the exact reporting date"
+      ],
+      [
+        12,
+        "Revenue",
+        "Same currency and scale for each company"
+      ],
+      [
+        13,
+        "Operating income",
+        "Use operating income, not net income"
+      ],
+      [
+        14,
+        "Current assets",
+        "At fiscal year end"
+      ],
+      [
+        15,
+        "Current liabilities",
+        "At fiscal year end"
+      ],
+      [
+        16,
+        "Beginning total assets",
+        "Prior fiscal year-end balance"
+      ],
+      [
+        17,
+        "Ending total assets",
+        "Current fiscal year-end balance"
+      ],
+      [
+        18,
+        "Interest-bearing debt",
+        "Short- plus long-term borrowings; see guide"
+      ],
+      [
+        19,
+        "Industry-ratio numerator",
+        "Use one consistent fifth-ratio definition"
+      ],
+      [
+        20,
+        "Industry-ratio denominator",
+        "Use an average balance when required"
+      ]
+    ],
+    "ratios": [
+      {
+        "row": 27,
+        "label": "Operating margin",
+        "definition": "Operating income / revenue",
+        "format": "0.0%",
+        "unit": "Percent"
+      },
+      {
+        "row": 28,
+        "label": "Total asset turnover",
+        "definition": "Revenue / average total assets",
+        "format": "0.00\"x\"",
+        "unit": "Times"
+      },
+      {
+        "row": 29,
+        "label": "Current ratio",
+        "definition": "Current assets / current liabilities",
+        "format": "0.00\"x\"",
+        "unit": "Times"
+      },
+      {
+        "row": 30,
+        "label": "Debt-to-assets",
+        "definition": "Interest-bearing debt / ending total assets",
+        "format": "0.0%",
+        "unit": "Percent"
+      },
+      {
+        "row": 31,
+        "label": "Selected industry ratio",
+        "definition": "Chosen numerator / chosen denominator",
+        "format": "0.00",
+        "unit": "Set chosen unit"
+      }
+    ],
+    "sheets": [
+      {
+        "name": "Recommendation",
+        "title": "Recommend the next move",
+        "intro": "Complete this page after the ratio and P/E analysis. Yellow cells are your responses. Financial claims should refer to specific workbook results.",
+        "fields": [
+          {
+            "id": "company",
+            "row": 5,
+            "label": "Company and student",
+            "prompt": "Enter the project company, ticker, your name, and workbook date.",
+            "height": 44
+          },
+          {
+            "id": "opportunity",
+            "row": 8,
+            "label": "Milestone 2 opportunity",
+            "prompt": "Summarize the selected growth idea and its paying customer. Use the same idea or explain why the evidence requires a change.",
+            "height": 76
+          },
+          {
+            "id": "strength",
+            "row": 11,
+            "label": "Financial strength",
+            "prompt": "Name one ratio, company result, and peer/trend comparison that supports the opportunity. Explain the business connection.",
+            "height": 76
+          },
+          {
+            "id": "constraint",
+            "row": 14,
+            "label": "Financial constraint",
+            "prompt": "Name one financial or operating limitation with numerical evidence. Explain how it affects cost, investment, financing, timing, or risk.",
+            "height": 76
+          },
+          {
+            "id": "change",
+            "row": 17,
+            "label": "Change to the proposal",
+            "prompt": "Explain one specific change to the Milestone 2 proposal caused by your financial analysis. If retaining the plan, justify why the evidence supports it.",
+            "height": 76
+          },
+          {
+            "id": "decision",
+            "row": 20,
+            "label": "Your recommendation",
+            "prompt": "Choose Pursue, Pilot, or Strengthen first. Explain the main reason in the final claim below.",
+            "height": 44
+          },
+          {
+            "id": "challenge",
+            "row": 23,
+            "label": "Strongest challenge",
+            "prompt": "Use a peer, self-review, or AI to challenge one ratio interpretation, peer choice, P/E assumption, or recommendation. Record the strongest concern.",
+            "height": 76
+          },
+          {
+            "id": "checked",
+            "row": 26,
+            "label": "Independent check",
+            "prompt": "Name the filing/report or recalculation you checked. State the finding and any remaining limitation. AI output is not evidence.",
+            "height": 76
+          },
+          {
+            "id": "judgment",
+            "row": 29,
+            "label": "Your response and revision",
+            "prompt": "Accept, modify, or reject the challenge. Explain what changed, or why you retained the conclusion.",
+            "height": 76
+          },
+          {
+            "id": "nextstep",
+            "row": 32,
+            "label": "Next step and measure",
+            "prompt": "Specify a practical next action, who should own it, a timeframe, and one observable success measure.",
+            "height": 76
+          },
+          {
+            "id": "trigger",
+            "row": 35,
+            "label": "Reconsideration trigger",
+            "prompt": "State a measurable result or condition that would make management pause, change, or stop. Label proposed thresholds as assumptions.",
+            "height": 76
+          },
+          {
+            "id": "ai",
+            "row": 38,
+            "label": "AI-use statement",
+            "prompt": "Name any AI tool and its purpose, or write No AI used. Keep the final analysis and judgment your own.",
+            "height": 50
+          },
+          {
+            "id": "claim",
+            "row": 41,
+            "label": "Final recommendation",
+            "prompt": "In about 100–150 words, connect the opportunity, financial strength, constraint, P/E interpretation, and recommended next step. P/E does not establish the value created by the initiative.",
+            "height": 130
+          }
+        ]
+      },
+      {
+        "name": "Company ratios",
+        "title": "Company financial trends",
+        "intro": "Enter three completed fiscal years, oldest to newest. Yellow cells are inputs; pale green cells require your formulas. Use the guide for definitions.",
+        "fields": [
+          {
+            "id": "company",
+            "row": 5,
+            "label": "Company name and ticker",
+            "prompt": "Use the same approved company as Milestone 2.",
+            "height": 44
+          },
+          {
+            "id": "units",
+            "row": 7,
+            "label": "Currency and scale",
+            "prompt": "Use one currency and scale for all financial-statement amounts in this sheet, such as USD millions. Per-share P/E inputs use unscaled currency.",
+            "height": 44
+          },
+          {
+            "id": "trend",
+            "row": 34,
+            "label": "Interpret the company trend",
+            "prompt": "Discuss all five ratios across three years. Identify the most important improvement and concern. Explain why higher or lower is useful in this business.",
+            "height": 95
+          },
+          {
+            "id": "fifth",
+            "row": 37,
+            "label": "Chosen industry ratio",
+            "prompt": "Name the fifth ratio and its unit: times, percent, or days. Choose inventory turnover, receivables turnover, ROA, or another instructor-approved measure.",
+            "height": 55
+          },
+          {
+            "id": "definition",
+            "row": 40,
+            "label": "Fifth-ratio definition",
+            "prompt": "State numerator, denominator, and any averaging. Use the same definition for all three companies. Format row 31 and peer row 31 to match the chosen unit.",
+            "height": 65
+          },
+          {
+            "id": "evidence",
+            "row": 43,
+            "label": "Evidence and limitations",
+            "prompt": "Name the filing/report and useful page, table, or link. Explain period-length differences, restatements, acquisitions, missing inputs, and numerator/denominator definitions.",
+            "height": 85
+          }
+        ]
+      },
+      {
+        "name": "Peer comparison",
+        "title": "Compare two industry peers",
+        "intro": "Your company’s latest-year values link from Company ratios. Enter one comparable completed fiscal year for each peer. Pale green cells require formulas.",
+        "fields": [
+          {
+            "id": "peers",
+            "row": 5,
+            "label": "Peer scope",
+            "prompt": "Name the industry and the two chosen public-company peers. Explain the main basis for comparison.",
+            "height": 60
+          },
+          {
+            "id": "peer1",
+            "row": 34,
+            "label": "Why Peer 1 fits",
+            "prompt": "Explain customer/product/business-model overlap and one material difference. Being in the same broad sector is not sufficient.",
+            "height": 76
+          },
+          {
+            "id": "peer2",
+            "row": 37,
+            "label": "Why Peer 2 fits",
+            "prompt": "Explain why this is a useful comparator and what limits the comparison.",
+            "height": 76
+          },
+          {
+            "id": "periods",
+            "row": 40,
+            "label": "Periods, currency, and definitions",
+            "prompt": "State year-end differences and any currency translation or definition adjustments. Use consistent units within each ratio. Disclose when periods are not fully comparable.",
+            "height": 76
+          },
+          {
+            "id": "profit",
+            "row": 43,
+            "label": "Profitability comparison",
+            "prompt": "Compare operating margin and the fifth ratio if relevant. Explain the company result versus both peers and the selected-peer median.",
+            "height": 76
+          },
+          {
+            "id": "efficiency",
+            "row": 46,
+            "label": "Efficiency comparison",
+            "prompt": "Interpret asset turnover and the fifth ratio where appropriate. Relate the results to the proposed growth opportunity.",
+            "height": 76
+          },
+          {
+            "id": "risk",
+            "row": 49,
+            "label": "Liquidity and financing comparison",
+            "prompt": "Interpret current ratio and debt-to-assets. Explain a strength or constraint without assuming that the highest ratio is always best.",
+            "height": 76
+          },
+          {
+            "id": "chart",
+            "row": 52,
+            "label": "Chart interpretation",
+            "prompt": "Explain the current-ratio comparison below in one or two sentences. If using an approved substitute, update the chart and its labels to match.",
+            "height": 65
+          }
+        ]
+      },
+      {
+        "name": "P-E check",
+        "title": "A brief peer-based P/E check",
+        "intro": "Use share prices from one common observation date and consistent positive trailing diluted EPS. This is illustrative market context, not an initiative valuation.",
+        "fields": [
+          {
+            "id": "date",
+            "row": 5,
+            "label": "Common share-price date",
+            "prompt": "Enter the same observation date for all three companies. Use prices and earnings available as of that date.",
+            "height": 44
+          },
+          {
+            "id": "basis",
+            "row": 7,
+            "label": "EPS definition and currency",
+            "prompt": "Use GAAP diluted EPS for trailing 12 months throughout. Enter unscaled per-share amounts in the same currency as each company’s own price. Do not mix trailing and forward EPS.",
+            "height": 65
+          },
+          {
+            "id": "multiple",
+            "row": 26,
+            "label": "Why these multiples?",
+            "prompt": "Explain why growth, margins, risk, or business mix could justify a different multiple for your company. The two-peer median is a selected-peer benchmark, not an industry average.",
+            "height": 76
+          },
+          {
+            "id": "evidence",
+            "row": 29,
+            "label": "Price and EPS evidence",
+            "prompt": "Name the price source/date and earnings report or FactSet metric/period. Identify material one-time earnings effects or differences in fiscal periods.",
+            "height": 76
+          },
+          {
+            "id": "interpret",
+            "row": 32,
+            "label": "Interpret the estimate",
+            "prompt": "Compare the low/base/high implied prices with the observed company price. Explain the uncertainty. A difference does not automatically prove overvaluation or undervaluation.",
+            "height": 76
+          },
+          {
+            "id": "exceptions",
+            "row": 35,
+            "label": "Nonpositive or unavailable EPS",
+            "prompt": "If company or peer EPS is zero/negative, mark P/E n.m. and discuss an approved substitute or replacement peer with the instructor. Never turn a negative P/E into a valuation benchmark. Otherwise write Not applicable.",
+            "height": 80
+          }
+        ]
+      }
+    ],
+    "ratioGuidance": [
+      "Operating margin = operating income / revenue. It shows operating profit per sales dollar. Compare business mix and unusual items before attributing a difference to management quality.",
+      "Total asset turnover = revenue / average total assets. Average total assets = (beginning assets + ending assets) / 2. Three flow years therefore require four year-end asset balances. A high turnover may reflect business structure rather than superior performance.",
+      "Current ratio = current assets / current liabilities. It indicates short-term balance-sheet coverage, not cash available to spend. Inventory quality, timing, and business model matter.",
+      "Debt-to-assets = short- and long-term interest-bearing borrowings / ending total assets. Use borrowings rather than total liabilities. For this exercise exclude lease liabilities, applying that definition consistently to all companies; explain any source-definition difference.",
+      "Choose one fifth ratio relevant to the business. Inventory turnover = cost of goods sold / average inventory. Receivables turnover = revenue / average net receivables when credit sales are unavailable, with that proxy disclosed. ROA = net income / average total assets. Other measures require instructor approval. Document the numerator, denominator, averaging, and units."
+    ],
+    "comparability": "Use three comparable company fiscal years and the latest reasonably comparable completed year for each peer. Show exact year ends. Use the same accounting/ratio definitions and appropriate average balances. Name the actual selected-peer median, not an industry average. Two peers are a small descriptive sample.",
+    "industryExceptions": "For banks, insurers, REITs, or companies where the default ratios are not meaningful, obtain approval for suitable substitutions before calculation. Keep the five comparison positions, but update labels, input definitions, formulas, and the chart consistently. Do not force an unsuitable metric or invent missing data.",
+    "peGuidance": [
+      "P/E = observed share price / trailing-12-month diluted EPS. Use the same share-price observation date for all three companies and earnings information available on that date. Record each TTM end date. Currency units must match within each price/EPS pair.",
+      "Calculate the two peer P/Es. Low = the smaller positive peer P/E; base = MEDIAN of the two positive peer P/Es; high = the larger. With two observations, the median equals their mean. These are illustrative comparison cases, not forecasts or confidence bounds.",
+      "Illustrative company value per share = selected peer P/E × company trailing EPS. Percentage difference from observed price = implied price / observed company price − 1. Keep the calculation in unscaled per-share currency, even if statement inputs are in millions.",
+      "Both peers must have usable positive P/Es for this two-peer range. A zero/negative EPS makes P/E not meaningful (n.m.). Missing data is unavailable, not zero. Seek an approved alternative when needed and explain the limitation. Do not silently omit a peer or apply a negative multiple.",
+      "Explain what the estimate assumes about comparability. Historical earnings, unusual items, different growth prospects, and a small peer sample can change the conclusion. The P/E calculation does not determine the NPV or value created by the proposed growth project."
+    ],
+    "rubric": [
+      {
+        "id": "M03_PEERS",
+        "title": "Peer selection and comparable inputs",
+        "points": 3,
+        "detail": "Select and justify two defensible peers, naming limitations (1). Provide three years of company inputs and comparable latest-year peer inputs, with dates, currency/scale, definitions, average-balance inputs, and named evidence (2)."
+      },
+      {
+        "id": "M03_RATIOS",
+        "title": "Ratio calculations and interpretation",
+        "points": 3,
+        "detail": "Calculate five ratios, company trends, and the selected-peer median correctly (2). Interpret profitability, efficiency, liquidity, financing risk, and the chosen industry measure; use a correctly labeled comparison chart and connect findings to the opportunity (1)."
+      },
+      {
+        "id": "M03_PE",
+        "title": "Brief P/E calculation",
+        "points": 2,
+        "detail": "Use consistent price dates, EPS basis, periods, currency, and positive-earnings treatment (1). Calculate peer P/Es, the illustrative low/base/high range and percentage differences; interpret the estimate and its limitations (1)."
+      },
+      {
+        "id": "M03_RECOMMENDATION",
+        "title": "Recommendation, challenge, and revision",
+        "points": 4,
+        "detail": "Connect one financial strength and one constraint to the proposal (1). Justify a specific pursue, pilot, or strengthen-first recommendation and a resulting change or supported retention of the plan (1). Record a meaningful challenge, independent evidence/recalculation, and reasoned response (1). Specify an owner, timing, success measure, reconsideration trigger, and AI-use statement (1)."
+      }
+    ],
+    "checklist": [
+      "My workbook uses the same company and a clearly stated Milestone 2 opportunity.",
+      "My company has three fiscal years, two peers have one comparable fiscal year each, and exact periods, units, and definitions are clear.",
+      "I calculated average assets and all five ratios, used one consistent fifth measure, and explained the company trend and peer differences.",
+      "My comparison chart links to my calculated results and uses clear labels and units.",
+      "My P/E inputs use one share-price date, compatible trailing diluted EPS, appropriate positive-earnings treatment, and correct per-share units.",
+      "I interpreted the low/base/high estimate without treating it as proof of mispricing or project value.",
+      "My recommendation reflects a financial strength, a constraint, an independently checked challenge, and a measurable next step.",
+      "I named supporting filings/reports directly in my responses. There is no separate Sources tab or source-ID entry. I can explain every calculation."
     ]
   }
 }

@@ -1,34 +1,38 @@
 {
-  "sourceVersion": "2.0.0",
-  "sourceSha256": "cd231b895df70d8c76fdd27f4223e97c3b6318f863b389a6a0f8083e0e47091b",
+  "sourceVersion": "2.2.0",
+  "sourceSha256": "6fd98514a9bf93cd0ba8b4e0c73b5b9ab49525d969b0628a656001f9fdd20c47",
   "artifacts": [
     {
-      "path": "CAPSTONE/bus311-capstone-project-workbook.xlsx",
-      "sha256": "71845808c1ba63199b12d14fadc40575188719fc7e9f552496936c1ea6a3982f"
+      "path": "CAPSTONE/bus311-capstone-m02-follow-the-dollar.pdf",
+      "sha256": "f9793487ce7fdb649a869f4a60ce1c9c209da09bca567f754d40673dbba98729"
     },
     {
-      "path": "CAPSTONE/bus311-capstone-board-deck-template.pptx",
-      "sha256": "2cc88f0713fd57d31231a9f2999e0b2288081868e5aa575dc3db8f9e8a3a8464"
-    },
-    {
-      "path": "CAPSTONE/bus311-capstone-assignment.pdf",
-      "sha256": "a6e086e26524c5fc64eb661bb750e1bdde8c48cc3288ce56e114cfeff4d4b3f2"
-    },
-    {
-      "path": "CAPSTONE/bus311-capstone-assignment.docx",
-      "sha256": "ab4add7359993bb6a8cd370dacda99daeb5bd00c0df901fabdce80dcb6d5e346"
+      "path": "CAPSTONE/bus311-capstone-m02-follow-the-dollar.xlsx",
+      "sha256": "46cdc1f683b72211aca2c4a8ceb42225958aba73c463eee5b653c1dec9152672"
     },
     {
       "path": "CAPSTONE/index.html",
-      "sha256": "592580c1c70a87fcf43982acb15c4cb49a01329fd37934c59214bc70273dec00"
+      "sha256": "5bf631c50662a717717439ff64cb7057b3ba3a626ca2c9023ffcf254939b96b4"
+    },
+    {
+      "path": "CAPSTONE/bus311-capstone-m03-peer-comparison.html",
+      "sha256": "58709f9fd0c13b91805063f3c679c60de62b693da78c3371d2ed7470e86e7b8d"
+    },
+    {
+      "path": "CAPSTONE/bus311-capstone-m03-peer-comparison.xlsx",
+      "sha256": "9ce0f06022559d618d2d7e8b2023550d53187e876ac9c7f5eac488d5c6c42dd8"
     },
     {
       "path": "CAPSTONE/bus311-capstone-canvas.html",
-      "sha256": "facde1edb4d406815178b04ce41eab24f7499320a452fc0f0adb91dc381fa267"
+      "sha256": "1417e101153572d38229c54235aeea520ce12d3152122348381dea7c1647b0db"
     },
     {
       "path": "CAPSTONE/bus311-capstone-assignment.md",
-      "sha256": "1210582cd50f670bbc599f6864c9196a3655b5e3fc09b65df13b74cbd2e9cb3b"
+      "sha256": "8a5747c814d1924ecf54b3299940975e390cccd1ba25fed16b1c422a6f0e4478"
+    },
+    {
+      "path": "CAPSTONE/bus311-capstone-m02-follow-the-dollar.html",
+      "sha256": "f633232fdb490f8338845ed0d92f12c57c8f5eb1471c0fd0981d673758bf39a8"
     }
   ]
 }
