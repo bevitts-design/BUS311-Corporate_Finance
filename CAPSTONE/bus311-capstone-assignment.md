@@ -48,6 +48,16 @@ Submit: Upload one editable PowerPoint, then present that file live. Up to 7 min
 
 Grading: PowerPoint 50; Oral Presentation 25.
 
+## Milestone 1: Choose a company and decision
+
+Complete Start: company, ticker, a short company snapshot, one FactSet learning and feature used, and one tentative decision.
+
+Stage 1 is exploration. Use web research and/or AI plus FactSet. Name one FactSet learning and the feature used. Formal citations and proof are not required until Stage 2. The decision may change as the evidence develops.
+
+Original submission: Upload the continuing workbook with Start complete. Retain previously submitted work.
+
+Grading: Company and snapshot 2; specific FactSet learning 1; a plausible tentative decision 2.
+
 ## Milestone 2
 
 Download bus311-capstone-m02-follow-the-dollar.pdf for instructions and the matching .xlsx workbook.
