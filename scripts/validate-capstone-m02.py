@@ -4,7 +4,7 @@ from pathlib import Path
 from html.parser import HTMLParser
 ROOT=Path(__file__).resolve().parents[1]
 P=ROOT/'CAPSTONE';source=P/'source/bus311-capstone.json';d=json.loads(source.read_text());m=d['milestone2']
-assert d['meta']['sourceVersion']=='2.2.0'
+assert d['meta']['sourceVersion']in ('2.2.0','2.3.0')
 assert sum(c['points'] for c in m['rubric'])==m['points']==8
 assert sum(c['points'] for c in d['rubric']['criteria'])==100
 assert [s['points'] for s in d['hub']['stages']]==[5,8,12,75]

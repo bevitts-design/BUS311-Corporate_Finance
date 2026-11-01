@@ -1,10 +1,10 @@
 {
   "meta": {
     "schemaId": "bus311-individual-company-capstone",
-    "sourceVersion": "2.2.0",
+    "sourceVersion": "2.3.0",
     "status": "approved",
     "effectiveTerm": "Fall 2026",
-    "updated": "2026-10-27",
+    "updated": "2026-11-01",
     "maintainedSource": "CAPSTONE/source/bus311-capstone.json",
     "canvasAuthority": "Canvas remains the authority for live submission links and any later instructor-announced change."
   },
@@ -133,16 +133,15 @@
         "points": 12,
         "due": "2026-11-04T12:30:00-05:00",
         "dateLabel": "November 4 at 12:30 p.m. ET",
-        "work": "Evaluate how effectively your company turns revenue into financial performance. Compare two defensible peers, use a brief P/E estimate for market context, and revise your growth recommendation.",
-        "submit": "Submit one completed .xlsx workbook with Recommendation, Company ratios, Peer comparison, and P-E check complete. Keep the same approved company and bring forward the chosen Milestone 2 opportunity. No separate report or full valuation model is required.",
+        "work": "Use one recent annual peer snapshot and a brief P/E check to evaluate the Milestone 2 revenue idea. Test the idea with an AI red team, independently check one criticism, and recommend a next step.",
+        "submit": "Submit one completed .xlsx workbook with Peer comparison, P-E check, and AI challenge complete. Use the same approved company and the selected Milestone 2 revenue idea. No separate report, three-year ratio history, or full valuation model is required.",
         "tabs": [
-          "Recommendation",
-          "Company ratios",
           "Peer comparison",
-          "P-E check"
+          "P-E check",
+          "AI challenge"
         ],
-        "grade": "Peer selection and inputs 3; ratios and interpretation 3; P/E check 2; recommendation and revision 4.",
-        "hours": "About 4–5 focused hours, including class work."
+        "grade": "Peer comparison and interpretation 6; brief P/E check 2; AI red team and revised recommendation 4.",
+        "hours": "About 2-3 focused hours including class work; allow additional time if comparable data is difficult to find."
       },
       {
         "stageId": "S05_BOARD",
@@ -187,11 +186,11 @@
     "stageOne": "Stage 1 is exploration. Use web research and/or AI plus FactSet. Name one FactSet learning and the feature used. Formal citations and proof are not required until Stage 2. The decision may change as the evidence develops.",
     "sources": "Use credible company filings, annual reports, or FactSet reports to support company facts and historical figures. Name the relevant filing or report and useful page, section, or link in your written responses. Clearly label calculations, assumptions, and interpretations. AI output is not financial evidence.",
     "factSetPermission": "Students and the instructor may use FactSet evidence in BUS311 course deliverables. Raw exports and screenshots remain in approved course-restricted systems and are not committed publicly or uploaded to public AI tools.",
-    "challenge": "Use a partner or self-review to challenge the Milestone 2 opportunity. Record the concern and response in Next dollar. Milestone 3 includes a financial challenge and revision. AI may assist the challenge but is never evidence.",
+    "challenge": "Use a partner or self-review to challenge the Milestone 2 opportunity. For Milestone 3 use an AI red team to challenge the proposed revenue idea, independently check its strongest objection, and record your response in AI challenge. AI output is never evidence.",
     "aiPrivacy": "Give public AI tools only a short summary you wrote from public information. Do not upload workbooks, raw FactSet exports or screenshots, personal information, private teaching material, or nonpublic information. If AI is used, name the tool and purpose in the workbook revision response and disclose it briefly in the presentation appendix or source notes.",
     "missingEvidence": "Use the required minimum where evidence supports it. If no defensible peer or comparable historical figure exists, state why and discuss an appropriate limitation or proxy with the instructor. Never invent company facts. Label estimated project inputs as assumptions and explain their basis.",
     "lateWork": "Milestones remain eligible under the BUS311 syllabus late-work policy. A late milestone delays feedback and can make dependent project work harder; complete missing milestone work before relying on it in a later stage. Documented exceptions follow the applicable college and course process.",
-    "revision": "Milestones 1–3 may each be revised once within seven calendar days of written feedback. Replace the workbook in the original assignment; the higher score replaces the original. For Milestone 2, summarize changes in Next dollar; for Milestone 3, summarize revisions in Recommendation.",
+    "revision": "Milestones 1–3 may each be revised once within seven calendar days of written feedback. Replace the workbook in the original assignment; the higher score replaces the original. For Milestone 2, summarize changes in Next dollar; for Milestone 3, summarize revisions in AI challenge.",
     "finalFileLock": "The PowerPoint company-analysis project file is due Monday, Nov. 30, 2026 at 12:30 p.m. ET, when class begins. The submitted .pptx locks at that time for every student regardless of Oral Presentation date. Only instructor-authorized accessibility or file-repair corrections that do not alter the analysis or recommendation are permitted afterward.",
     "absence": "Approved documented absences use the next protected slot or instructor-scheduled make-up. The live Oral Presentation, including responses to questions, remains required. Unexcused absences follow the BUS311 late-work policy and still require a make-up Oral Presentation.",
     "submission": "Keep submitted Milestone 1 work. Submit the dedicated Follow the Dollar workbook for Milestone 2 and the peer-comparison workbook for Milestone 3. The final submission remains one editable PowerPoint and a live presentation."
@@ -288,7 +287,7 @@
         "title": "Financial comparison and P/E check",
         "points": 8,
         "stageId": "S03_VALUE",
-        "description": "Peer selection and comparable inputs 3; five ratios, chart, and interpretation 3; brief P/E calculation and limitations 2.",
+        "description": "Peer choices and comparable evidence 3; ratio medians, one calculation check and interpretation 3; brief peer-median P/E calculation and limitation 2.",
         "performanceLevels": {
           "COMPLETE": {
             "points": 8,
@@ -306,10 +305,10 @@
       },
       {
         "criterionId": "M03_REVISION",
-        "title": "Recommendation, challenge, and revision",
+        "title": "AI red team and revised recommendation",
         "points": 4,
         "stageId": "S03_VALUE",
-        "description": "Connect one financial strength and one constraint to the proposal (1). Justify a specific pursue, pilot, or strengthen-first recommendation and a resulting change or supported retention of the plan (1). Record a meaningful challenge, independent evidence/recalculation, and reasoned response (1). Specify an owner, timing, success measure, reconsideration trigger, and AI-use statement (1).",
+        "description": "Use a relevant AI prompt and identify its strongest objection to the proposed revenue idea (1). Independently check one objection with named evidence or a calculation (1). Explain accept, modify or reject and a specific revision or justified retention of the idea (1). Give a 100-150-word recommendation with a responsible role, timing, measure, reconsideration rule and AI-use disclosure (1).",
         "performanceLevels": {
           "COMPLETE": {
             "points": 4,
@@ -488,14 +487,14 @@
       "label": "Milestone 3 student instructions",
       "path": "CAPSTONE/bus311-capstone-m03-peer-comparison.html",
       "public": true,
-      "description": "Twelve-point ratio comparison, brief P/E check, and recommendation directions."
+      "description": "Simplified three-tab instructions, one-year peer snapshot, brief P/E check, AI challenge and twelve-point rubric."
     },
     {
       "materialId": "M03_WORKBOOK",
       "label": "Milestone 3 student workbook",
       "path": "CAPSTONE/bus311-capstone-m03-peer-comparison.xlsx",
       "public": true,
-      "description": "Four clearly labeled working sheets; no separate Sources tab or source IDs."
+      "description": "Three student tabs: Peer comparison, P-E check, and AI challenge. One annual snapshot, one P/E estimate and a checked AI critique of the revenue idea."
     }
   ],
   "unlistedLegacyMaterials": [
@@ -595,12 +594,12 @@
       "status": "Ready",
       "points": 12,
       "requirements": [
-        "Use three comparable company fiscal years and the latest reasonably comparable completed year for each peer. Show exact year ends. Use the same accounting/ratio definitions and appropriate average balances. Name the actual selected-peer median, not an industry average. Two peers are a small descriptive sample.",
-        "Calculate and interpret five appropriate ratios and one comparison chart.",
-        "Complete the brief peer-based P/E range using consistent positive trailing earnings.",
-        "Revise the Milestone 2 opportunity using financial strengths, constraints, a checked challenge, and a measurable next step."
+        "Use one recent completed annual period for each company and show exact fiscal year ends. Prefer the same fiscal year where practical. Use the same ratio definitions and units. State important period or business-model differences. The selected-peer median uses only the two peers; it is not an industry average.",
+        "Retrieve five consistently defined ratios from FactSet or credible reports, calculate selected-peer medians, verify one ratio and explain a strength, constraint and implication.",
+        "Calculate one brief peer-median P/E estimate; low/high estimates are optional.",
+        "Use AI to challenge the proposed revenue idea, independently check one objection, and revise the recommendation with a measurable next step."
       ],
-      "gradingPlan": "Peer selection and inputs 3; ratios and interpretation 3; P/E check 2; recommendation and revision 4.",
+      "gradingPlan": "Peer comparison and interpretation 6; brief P/E check 2; AI red team and revised recommendation 4.",
       "boundary": "A full company valuation or NPV project model is not required. The P/E check offers market context; it does not measure the value created by the proposed initiative."
     }
   },
@@ -1028,99 +1027,42 @@
     "title": "Compare, Evaluate, and Recommend",
     "points": 12,
     "status": "Ready",
-    "question": "What do company trends, peer ratios, and a brief P/E check tell you about the growth opportunity you proposed in Milestone 2?",
-    "purpose": "Evaluate how effectively your company turns revenue into financial performance. Compare two defensible peers, use a brief P/E estimate for market context, and revise your growth recommendation.",
-    "submission": "Submit one completed .xlsx workbook with Recommendation, Company ratios, Peer comparison, and P-E check complete. Keep the same approved company and bring forward the chosen Milestone 2 opportunity. No separate report or full valuation model is required.",
     "filename": "BUS311_M03_Lastname_Ticker.xlsx",
-    "time": "About 4–5 focused hours, including class work.",
-    "inputs": [
-      [
-        10,
-        "Fiscal year",
-        "Completed fiscal year, not quarter"
-      ],
-      [
-        11,
-        "Fiscal year-end date",
-        "State the exact reporting date"
-      ],
-      [
-        12,
-        "Revenue",
-        "Same currency and scale for each company"
-      ],
-      [
-        13,
-        "Operating income",
-        "Use operating income, not net income"
-      ],
-      [
-        14,
-        "Current assets",
-        "At fiscal year end"
-      ],
-      [
-        15,
-        "Current liabilities",
-        "At fiscal year end"
-      ],
-      [
-        16,
-        "Beginning total assets",
-        "Prior fiscal year-end balance"
-      ],
-      [
-        17,
-        "Ending total assets",
-        "Current fiscal year-end balance"
-      ],
-      [
-        18,
-        "Interest-bearing debt",
-        "Short- plus long-term borrowings; see guide"
-      ],
-      [
-        19,
-        "Industry-ratio numerator",
-        "Use one consistent fifth-ratio definition"
-      ],
-      [
-        20,
-        "Industry-ratio denominator",
-        "Use an average balance when required"
-      ]
-    ],
+    "question": "How does your company compare with two peers, and how should that evidence and an AI red-team challenge change your proposed revenue idea?",
+    "purpose": "Use one recent annual peer snapshot and a brief P/E check to evaluate the Milestone 2 revenue idea. Test the idea with an AI red team, independently check one criticism, and recommend a next step.",
+    "submission": "Submit one completed .xlsx workbook with Peer comparison, P-E check, and AI challenge complete. Use the same approved company and the selected Milestone 2 revenue idea. No separate report, three-year ratio history, or full valuation model is required.",
+    "time": "About 2-3 focused hours including class work; allow additional time if comparable data is difficult to find.",
     "ratios": [
       {
-        "row": 27,
+        "row": 12,
         "label": "Operating margin",
         "definition": "Operating income / revenue",
         "format": "0.0%",
         "unit": "Percent"
       },
       {
-        "row": 28,
+        "row": 13,
         "label": "Total asset turnover",
         "definition": "Revenue / average total assets",
         "format": "0.00\"x\"",
         "unit": "Times"
       },
       {
-        "row": 29,
+        "row": 14,
         "label": "Current ratio",
         "definition": "Current assets / current liabilities",
         "format": "0.00\"x\"",
         "unit": "Times"
       },
       {
-        "row": 30,
+        "row": 15,
         "label": "Debt-to-assets",
         "definition": "Interest-bearing debt / ending total assets",
         "format": "0.0%",
         "unit": "Percent"
       },
       {
-        "row": 31,
+        "row": 16,
         "label": "Selected industry ratio",
         "definition": "Chosen numerator / chosen denominator",
         "format": "0.00",
@@ -1129,316 +1071,239 @@
     ],
     "sheets": [
       {
-        "name": "Recommendation",
-        "title": "Recommend the next move",
-        "intro": "Complete this page after the ratio and P/E analysis. Yellow cells are your responses. Financial claims should refer to specific workbook results.",
+        "name": "Peer comparison",
+        "title": "One annual peer snapshot",
+        "intro": "Enter five ratios for your company and two peers. Yellow cells are inputs and responses; pale green cells require your formulas. Use one completed annual period per company.",
         "fields": [
           {
             "id": "company",
             "row": 5,
             "label": "Company and student",
-            "prompt": "Enter the project company, ticker, your name, and workbook date.",
-            "height": 44
+            "prompt": "Enter your approved company, ticker, name and workbook date.",
+            "height": 80
           },
           {
-            "id": "opportunity",
-            "row": 8,
-            "label": "Milestone 2 opportunity",
-            "prompt": "Summarize the selected growth idea and its paying customer. Use the same idea or explain why the evidence requires a change.",
-            "height": 76
-          },
-          {
-            "id": "strength",
-            "row": 11,
-            "label": "Financial strength",
-            "prompt": "Name one ratio, company result, and peer/trend comparison that supports the opportunity. Explain the business connection.",
-            "height": 76
-          },
-          {
-            "id": "constraint",
-            "row": 14,
-            "label": "Financial constraint",
-            "prompt": "Name one financial or operating limitation with numerical evidence. Explain how it affects cost, investment, financing, timing, or risk.",
-            "height": 76
-          },
-          {
-            "id": "change",
-            "row": 17,
-            "label": "Change to the proposal",
-            "prompt": "Explain one specific change to the Milestone 2 proposal caused by your financial analysis. If retaining the plan, justify why the evidence supports it.",
-            "height": 76
-          },
-          {
-            "id": "decision",
-            "row": 20,
-            "label": "Your recommendation",
-            "prompt": "Choose Pursue, Pilot, or Strengthen first. Explain the main reason in the final claim below.",
-            "height": 44
-          },
-          {
-            "id": "challenge",
-            "row": 23,
-            "label": "Strongest challenge",
-            "prompt": "Use a peer, self-review, or AI to challenge one ratio interpretation, peer choice, P/E assumption, or recommendation. Record the strongest concern.",
-            "height": 76
-          },
-          {
-            "id": "checked",
-            "row": 26,
-            "label": "Independent check",
-            "prompt": "Name the filing/report or recalculation you checked. State the finding and any remaining limitation. AI output is not evidence.",
-            "height": 76
-          },
-          {
-            "id": "judgment",
-            "row": 29,
-            "label": "Your response and revision",
-            "prompt": "Accept, modify, or reject the challenge. Explain what changed, or why you retained the conclusion.",
-            "height": 76
-          },
-          {
-            "id": "nextstep",
-            "row": 32,
-            "label": "Next step and measure",
-            "prompt": "Specify a practical next action, who should own it, a timeframe, and one observable success measure.",
-            "height": 76
-          },
-          {
-            "id": "trigger",
-            "row": 35,
-            "label": "Reconsideration trigger",
-            "prompt": "State a measurable result or condition that would make management pause, change, or stop. Label proposed thresholds as assumptions.",
-            "height": 76
-          },
-          {
-            "id": "ai",
-            "row": 38,
-            "label": "AI-use statement",
-            "prompt": "Name any AI tool and its purpose, or write No AI used. Keep the final analysis and judgment your own.",
-            "height": 50
-          },
-          {
-            "id": "claim",
-            "row": 41,
-            "label": "Final recommendation",
-            "prompt": "In about 100–150 words, connect the opportunity, financial strength, constraint, P/E interpretation, and recommended next step. P/E does not establish the value created by the initiative.",
-            "height": 130
-          }
-        ]
-      },
-      {
-        "name": "Company ratios",
-        "title": "Company financial trends",
-        "intro": "Enter three completed fiscal years, oldest to newest. Yellow cells are inputs; pale green cells require your formulas. Use the guide for definitions.",
-        "fields": [
-          {
-            "id": "company",
-            "row": 5,
-            "label": "Company name and ticker",
-            "prompt": "Use the same approved company as Milestone 2.",
-            "height": 44
-          },
-          {
-            "id": "units",
-            "row": 7,
-            "label": "Currency and scale",
-            "prompt": "Use one currency and scale for all financial-statement amounts in this sheet, such as USD millions. Per-share P/E inputs use unscaled currency.",
-            "height": 44
-          },
-          {
-            "id": "trend",
-            "row": 34,
-            "label": "Interpret the company trend",
-            "prompt": "Discuss all five ratios across three years. Identify the most important improvement and concern. Explain why higher or lower is useful in this business.",
-            "height": 95
+            "id": "peers",
+            "row": 19,
+            "label": "Why these two peers?",
+            "prompt": "For each peer, explain the business-model/customer/product overlap and one important difference.",
+            "height": 100
           },
           {
             "id": "fifth",
-            "row": 37,
-            "label": "Chosen industry ratio",
-            "prompt": "Name the fifth ratio and its unit: times, percent, or days. Choose inventory turnover, receivables turnover, ROA, or another instructor-approved measure.",
-            "height": 55
-          },
-          {
-            "id": "definition",
-            "row": 40,
-            "label": "Fifth-ratio definition",
-            "prompt": "State numerator, denominator, and any averaging. Use the same definition for all three companies. Format row 31 and peer row 31 to match the chosen unit.",
-            "height": 65
+            "row": 22,
+            "label": "Fifth ratio and definition",
+            "prompt": "Name one relevant fifth ratio and its unit. Explain its numerator, denominator and any average balance. Use the same definition for all three companies.",
+            "height": 100
           },
           {
             "id": "evidence",
-            "row": 43,
-            "label": "Evidence and limitations",
-            "prompt": "Name the filing/report and useful page, table, or link. Explain period-length differences, restatements, acquisitions, missing inputs, and numerator/denominator definitions.",
-            "height": 85
-          }
-        ]
-      },
-      {
-        "name": "Peer comparison",
-        "title": "Compare two industry peers",
-        "intro": "Your company’s latest-year values link from Company ratios. Enter one comparable completed fiscal year for each peer. Pale green cells require formulas.",
-        "fields": [
-          {
-            "id": "peers",
-            "row": 5,
-            "label": "Peer scope",
-            "prompt": "Name the industry and the two chosen public-company peers. Explain the main basis for comparison.",
-            "height": 60
+            "row": 25,
+            "label": "Sources and comparability",
+            "prompt": "Name the FactSet report/metric or filing and useful page, section or link. Identify fiscal year ends and definition differences. Check average assets and the debt numerator before using a provider ratio.",
+            "height": 110
           },
           {
-            "id": "peer1",
+            "id": "strength",
+            "row": 28,
+            "label": "Where is your company stronger?",
+            "prompt": "Use specific company and peer values. Explain the business reason rather than assuming higher is always better.",
+            "height": 90
+          },
+          {
+            "id": "constraint",
+            "row": 31,
+            "label": "What is the main constraint?",
+            "prompt": "Use specific values to explain one financial constraint or uncertainty. A small peer gap may have little practical importance.",
+            "height": 90
+          },
+          {
+            "id": "implication",
             "row": 34,
-            "label": "Why Peer 1 fits",
-            "prompt": "Explain customer/product/business-model overlap and one material difference. Being in the same broad sector is not sufficient.",
-            "height": 76
+            "label": "What does this mean for the idea?",
+            "prompt": "Connect the comparison to your proposed revenue idea: demand, costs, investment, timing or funding. Company ratios do not prove the idea will work.",
+            "height": 90
           },
           {
-            "id": "peer2",
-            "row": 37,
-            "label": "Why Peer 2 fits",
-            "prompt": "Explain why this is a useful comparator and what limits the comparison.",
-            "height": 76
+            "id": "checkratio",
+            "row": 38,
+            "label": "One ratio to verify",
+            "prompt": "Choose one of your company ratios above. Name it and the unit. Obtain its numerator and denominator from the same period and definition.",
+            "height": 70
           },
           {
-            "id": "periods",
-            "row": 40,
-            "label": "Periods, currency, and definitions",
-            "prompt": "State year-end differences and any currency translation or definition adjustments. Use consistent units within each ratio. Disclose when periods are not fully comparable.",
-            "height": 76
-          },
-          {
-            "id": "profit",
-            "row": 43,
-            "label": "Profitability comparison",
-            "prompt": "Compare operating margin and the fifth ratio if relevant. Explain the company result versus both peers and the selected-peer median.",
-            "height": 76
-          },
-          {
-            "id": "efficiency",
-            "row": 46,
-            "label": "Efficiency comparison",
-            "prompt": "Interpret asset turnover and the fifth ratio where appropriate. Relate the results to the proposed growth opportunity.",
-            "height": 76
-          },
-          {
-            "id": "risk",
-            "row": 49,
-            "label": "Liquidity and financing comparison",
-            "prompt": "Interpret current ratio and debt-to-assets. Explain a strength or constraint without assuming that the highest ratio is always best.",
-            "height": 76
-          },
-          {
-            "id": "chart",
-            "row": 52,
-            "label": "Chart interpretation",
-            "prompt": "Explain the current-ratio comparison below in one or two sentences. If using an approved substitute, update the chart and its labels to match.",
-            "height": 65
+            "id": "checkexplain",
+            "row": 45,
+            "label": "Does your calculation agree?",
+            "prompt": "Compare B43 with B44. Explain rounding, averages, provider definitions or a remaining mismatch. Apply percent/times/days formatting to match the ratio.",
+            "height": 80
           }
         ]
       },
       {
         "name": "P-E check",
-        "title": "A brief peer-based P/E check",
-        "intro": "Use share prices from one common observation date and consistent positive trailing diluted EPS. This is illustrative market context, not an initiative valuation.",
+        "title": "One brief P/E estimate",
+        "intro": "Use one common share-price date and compatible positive trailing diluted EPS. Calculate one peer-median benchmark; low/high estimates are optional.",
         "fields": [
           {
             "id": "date",
             "row": 5,
             "label": "Common share-price date",
-            "prompt": "Enter the same observation date for all three companies. Use prices and earnings available as of that date.",
-            "height": 44
+            "prompt": "Use one observation date for all three prices and earnings information available on that date.",
+            "height": 60
           },
           {
             "id": "basis",
             "row": 7,
-            "label": "EPS definition and currency",
-            "prompt": "Use GAAP diluted EPS for trailing 12 months throughout. Enter unscaled per-share amounts in the same currency as each company’s own price. Do not mix trailing and forward EPS.",
-            "height": 65
-          },
-          {
-            "id": "multiple",
-            "row": 26,
-            "label": "Why these multiples?",
-            "prompt": "Explain why growth, margins, risk, or business mix could justify a different multiple for your company. The two-peer median is a selected-peer benchmark, not an industry average.",
-            "height": 76
+            "label": "EPS definition",
+            "prompt": "Use reported/GAAP diluted EPS for the trailing twelve months, labeled TTM or LTM. Check the field definition, currency and share class. Do not mix trailing and forward EPS.",
+            "height": 80
           },
           {
             "id": "evidence",
-            "row": 29,
-            "label": "Price and EPS evidence",
-            "prompt": "Name the price source/date and earnings report or FactSet metric/period. Identify material one-time earnings effects or differences in fiscal periods.",
-            "height": 76
+            "row": 25,
+            "label": "Price and EPS sources",
+            "prompt": "Name the price source/date and EPS source/metric. Record TTM end dates in row 13. Identify material unusual earnings effects.",
+            "height": 95
           },
           {
             "id": "interpret",
-            "row": 32,
-            "label": "Interpret the estimate",
-            "prompt": "Compare the low/base/high implied prices with the observed company price. Explain the uncertainty. A difference does not automatically prove overvaluation or undervaluation.",
-            "height": 76
+            "row": 28,
+            "label": "What does the estimate tell you?",
+            "prompt": "Compare the one implied price with the observed price. Explain one limitation. This does not value the new revenue idea or prove overvaluation/undervaluation.",
+            "height": 90
           },
           {
             "id": "exceptions",
-            "row": 35,
-            "label": "Nonpositive or unavailable EPS",
-            "prompt": "If company or peer EPS is zero/negative, mark P/E n.m. and discuss an approved substitute or replacement peer with the instructor. Never turn a negative P/E into a valuation benchmark. Otherwise write Not applicable.",
+            "row": 31,
+            "label": "Unusable EPS, if applicable",
+            "prompt": "If company or peer EPS is zero/negative, mark P/E n.m. Missing data is unavailable, not zero. Discuss an alternative with the instructor; otherwise write Not applicable.",
             "height": 80
+          }
+        ]
+      },
+      {
+        "name": "AI challenge",
+        "title": "Red-team the proposed revenue idea",
+        "intro": "Ask AI to challenge your Milestone 2 idea. Independently check its strongest objection, then make your own recommendation. AI output is not evidence.",
+        "fields": [
+          {
+            "id": "idea",
+            "row": 5,
+            "label": "Idea and paying customer",
+            "prompt": "Briefly state the Milestone 2 proposal, who pays and how the company earns additional revenue.",
+            "height": 80
+          },
+          {
+            "id": "prompt",
+            "row": 8,
+            "label": "Your AI prompt",
+            "prompt": "Use the suggested prompt below with a short summary you wrote from public information. Include the idea, customer, one strength and one constraint. Do not upload this workbook or raw FactSet material.",
+            "height": 110
+          },
+          {
+            "id": "challenge",
+            "row": 11,
+            "label": "Strongest AI objection",
+            "prompt": "Name the most important objection about demand, pricing, displaced sales, costs or execution. Summarize it in your own words; do not paste the full chat.",
+            "height": 100
+          },
+          {
+            "id": "checked",
+            "row": 14,
+            "label": "Independent evidence check",
+            "prompt": "Check one important objection using a company filing, other credible public evidence or your own calculation. Name the source/calculation, finding and remaining uncertainty. Another AI answer is not an independent check.",
+            "height": 110
+          },
+          {
+            "id": "revision",
+            "row": 17,
+            "label": "Accept, modify or reject",
+            "prompt": "Explain your response to the objection and the specific change to your idea. If retaining the idea, justify why.",
+            "height": 95
+          },
+          {
+            "id": "decision",
+            "row": 20,
+            "label": "Your decision",
+            "prompt": "Choose Pursue, Pilot or Strengthen first. Your recommendation should follow the evidence, not AI authority.",
+            "height": 60
+          },
+          {
+            "id": "nextstep",
+            "row": 23,
+            "label": "Next step and reconsideration rule",
+            "prompt": "Specify an action, responsible role, timeframe, success measure and observable result that would make you pause, change or stop. Label proposed thresholds as assumptions.",
+            "height": 110
+          },
+          {
+            "id": "tool",
+            "row": 26,
+            "label": "AI tool and use",
+            "prompt": "Name the AI tool and when you used it. State its role and which parts you independently checked. If access fails, contact the instructor for an alternative.",
+            "height": 70
+          },
+          {
+            "id": "claim",
+            "row": 29,
+            "label": "Final recommendation: 100-150 words",
+            "prompt": "Connect the idea, one financial strength, one constraint, the P/E interpretation, the checked AI criticism and the next step. Keep the final judgment your own.",
+            "height": 210
           }
         ]
       }
     ],
+    "comparability": "Use one recent completed annual period for each company and show exact fiscal year ends. Prefer the same fiscal year where practical. Use the same ratio definitions and units. State important period or business-model differences. The selected-peer median uses only the two peers; it is not an industry average.",
+    "industryExceptions": "For banks, insurers, REITs or other businesses where a default ratio is unsuitable, obtain approval for a relevant replacement. Keep five meaningful comparison positions with consistent labels, definitions and units. Do not force an unsuitable metric or invent missing values.",
     "ratioGuidance": [
       "Operating margin = operating income / revenue. It shows operating profit per sales dollar. Compare business mix and unusual items before attributing a difference to management quality.",
-      "Total asset turnover = revenue / average total assets. Average total assets = (beginning assets + ending assets) / 2. Three flow years therefore require four year-end asset balances. A high turnover may reflect business structure rather than superior performance.",
+      "Total asset turnover = revenue / average total assets. Average total assets = (beginning assets + ending assets) / 2. One annual turnover ratio uses the asset balances at the beginning and end of that year. A high turnover may reflect business structure rather than superior performance.",
       "Current ratio = current assets / current liabilities. It indicates short-term balance-sheet coverage, not cash available to spend. Inventory quality, timing, and business model matter.",
       "Debt-to-assets = short- and long-term interest-bearing borrowings / ending total assets. Use borrowings rather than total liabilities. For this exercise exclude lease liabilities, applying that definition consistently to all companies; explain any source-definition difference.",
       "Choose one fifth ratio relevant to the business. Inventory turnover = cost of goods sold / average inventory. Receivables turnover = revenue / average net receivables when credit sales are unavailable, with that proxy disclosed. ROA = net income / average total assets. Other measures require instructor approval. Document the numerator, denominator, averaging, and units."
     ],
-    "comparability": "Use three comparable company fiscal years and the latest reasonably comparable completed year for each peer. Show exact year ends. Use the same accounting/ratio definitions and appropriate average balances. Name the actual selected-peer median, not an industry average. Two peers are a small descriptive sample.",
-    "industryExceptions": "For banks, insurers, REITs, or companies where the default ratios are not meaningful, obtain approval for suitable substitutions before calculation. Keep the five comparison positions, but update labels, input definitions, formulas, and the chart consistently. Do not force an unsuitable metric or invent missing data.",
     "peGuidance": [
-      "P/E = observed share price / trailing-12-month diluted EPS. Use the same share-price observation date for all three companies and earnings information available on that date. Record each TTM end date. Currency units must match within each price/EPS pair.",
-      "Calculate the two peer P/Es. Low = the smaller positive peer P/E; base = MEDIAN of the two positive peer P/Es; high = the larger. With two observations, the median equals their mean. These are illustrative comparison cases, not forecasts or confidence bounds.",
-      "Illustrative company value per share = selected peer P/E × company trailing EPS. Percentage difference from observed price = implied price / observed company price − 1. Keep the calculation in unscaled per-share currency, even if statement inputs are in millions.",
-      "Both peers must have usable positive P/Es for this two-peer range. A zero/negative EPS makes P/E not meaningful (n.m.). Missing data is unavailable, not zero. Seek an approved alternative when needed and explain the limitation. Do not silently omit a peer or apply a negative multiple.",
-      "Explain what the estimate assumes about comparability. Historical earnings, unusual items, different growth prospects, and a small peer sample can change the conclusion. The P/E calculation does not determine the NPV or value created by the proposed growth project."
+      "P/E = observed share price / positive trailing-12-month diluted EPS. Use the same price date for all three companies and earnings available on that date. Record each TTM end date. Match price/EPS currency and share class.",
+      "Use MEDIAN of the two positive peer P/Es for one benchmark. With two observations median equals mean. Implied company price = peer median P/E × your company EPS. Percentage difference = implied price / observed company price - 1.",
+      "If either peer multiple is unavailable or not positive, a complete two-peer benchmark is unavailable. Zero/negative company EPS makes P/E and the implied estimate not meaningful. Discuss an alternative with the instructor.",
+      "Low/high estimates using the smaller/larger peer P/E are optional enrichment, not required work or extra credit. The required result is one median-based estimate and its interpretation.",
+      "Business mix, growth, risk and unusual earnings can limit comparability. This is market context, not a project valuation, NPV or definitive fair value."
     ],
+    "aiPrompt": "Act as a skeptical CFO. Challenge my proposed revenue idea using the company context and financial findings below. Identify weaknesses in customer demand, pricing, displaced existing sales, costs and execution. Give me three important objections and one practical test. Distinguish questions from facts and do not invent company information.",
     "rubric": [
       {
         "id": "M03_PEERS",
-        "title": "Peer selection and comparable inputs",
+        "title": "Peer choices and comparable evidence",
         "points": 3,
-        "detail": "Select and justify two defensible peers, naming limitations (1). Provide three years of company inputs and comparable latest-year peer inputs, with dates, currency/scale, definitions, average-balance inputs, and named evidence (2)."
+        "detail": "Select two defensible peers and explain a useful similarity and limitation for each (1). Provide five comparable annual ratios for all three companies with dates, units, definitions and traceable evidence; explain unavailable or unsuitable metrics (2)."
       },
       {
         "id": "M03_RATIOS",
-        "title": "Ratio calculations and interpretation",
+        "title": "Ratio comparison and interpretation",
         "points": 3,
-        "detail": "Calculate five ratios, company trends, and the selected-peer median correctly (2). Interpret profitability, efficiency, liquidity, financing risk, and the chosen industry measure; use a correctly labeled comparison chart and connect findings to the opportunity (1)."
+        "detail": "Calculate the selected-peer medians and independently verify one company ratio using its numerator and denominator (1). Explain one strength and one constraint using specific values and business reasoning (1). Connect the findings to the proposed revenue idea (1). A chart and three-year ratio history are not required."
       },
       {
         "id": "M03_PE",
-        "title": "Brief P/E calculation",
+        "title": "Brief P/E check",
         "points": 2,
-        "detail": "Use consistent price dates, EPS basis, periods, currency, and positive-earnings treatment (1). Calculate peer P/Es, the illustrative low/base/high range and percentage differences; interpret the estimate and its limitations (1)."
+        "detail": "Use consistent dates, compatible trailing diluted EPS and appropriate treatment of nonpositive/missing inputs; calculate the three P/Es (1). Calculate one peer-median implied company price and percentage difference, and explain a limitation (1). Low/high estimates are optional."
       },
       {
         "id": "M03_RECOMMENDATION",
-        "title": "Recommendation, challenge, and revision",
+        "title": "AI red team and revised recommendation",
         "points": 4,
-        "detail": "Connect one financial strength and one constraint to the proposal (1). Justify a specific pursue, pilot, or strengthen-first recommendation and a resulting change or supported retention of the plan (1). Record a meaningful challenge, independent evidence/recalculation, and reasoned response (1). Specify an owner, timing, success measure, reconsideration trigger, and AI-use statement (1)."
+        "detail": "Use a relevant AI prompt and identify its strongest objection to the proposed revenue idea (1). Independently check one objection with named evidence or a calculation (1). Explain accept, modify or reject and a specific revision or justified retention of the idea (1). Give a 100-150-word recommendation with a responsible role, timing, measure, reconsideration rule and AI-use disclosure (1)."
       }
     ],
     "checklist": [
-      "My workbook uses the same company and a clearly stated Milestone 2 opportunity.",
-      "My company has three fiscal years, two peers have one comparable fiscal year each, and exact periods, units, and definitions are clear.",
-      "I calculated average assets and all five ratios, used one consistent fifth measure, and explained the company trend and peer differences.",
-      "My comparison chart links to my calculated results and uses clear labels and units.",
-      "My P/E inputs use one share-price date, compatible trailing diluted EPS, appropriate positive-earnings treatment, and correct per-share units.",
-      "I interpreted the low/base/high estimate without treating it as proof of mispricing or project value.",
-      "My recommendation reflects a financial strength, a constraint, an independently checked challenge, and a measurable next step.",
-      "I named supporting filings/reports directly in my responses. There is no separate Sources tab or source-ID entry. I can explain every calculation."
+      "I used one recent completed annual period for my company and each of two defensible peers, with exact year ends.",
+      "All five ratio positions use comparable definitions and units, with named sources and explained limitations.",
+      "I calculated the two-peer medians and verified one company ratio from its numerator and denominator.",
+      "I explained a financial strength, a constraint and what they mean for my Milestone 2 idea.",
+      "My P/E check uses one price date, compatible trailing diluted EPS, three P/Es and one peer-median implied price with its percentage difference and limitation.",
+      "AI challenged the revenue idea itself. I checked its strongest criticism independently and explained my response.",
+      "My final 100-150-word recommendation names a next step, owner, timeframe, measure, reconsideration rule and AI tool/use."
     ]
   }
 }

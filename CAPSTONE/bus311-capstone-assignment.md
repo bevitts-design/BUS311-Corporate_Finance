@@ -32,11 +32,11 @@ Grading: Revenue engine 2; history and drivers 2; growth opportunity and estimat
 
 12 points. Existing schedule reference: November 4 at 12:30 p.m. ET.
 
-Evaluate how effectively your company turns revenue into financial performance. Compare two defensible peers, use a brief P/E estimate for market context, and revise your growth recommendation.
+Use one recent annual peer snapshot and a brief P/E check to evaluate the Milestone 2 revenue idea. Test the idea with an AI red team, independently check one criticism, and recommend a next step.
 
-Submit: Submit one completed .xlsx workbook with Recommendation, Company ratios, Peer comparison, and P-E check complete. Keep the same approved company and bring forward the chosen Milestone 2 opportunity. No separate report or full valuation model is required.
+Submit: Submit one completed .xlsx workbook with Peer comparison, P-E check, and AI challenge complete. Use the same approved company and the selected Milestone 2 revenue idea. No separate report, three-year ratio history, or full valuation model is required.
 
-Grading: Peer selection and inputs 3; ratios and interpretation 3; P/E check 2; recommendation and revision 4.
+Grading: Peer comparison and interpretation 6; brief P/E check 2; AI red team and revised recommendation 4.
 
 ## Stage 4: Recommend and present
 
@@ -59,16 +59,16 @@ Download bus311-capstone-m02-follow-the-dollar.pdf for instructions and the matc
 
 ## Milestone 3
 
-- Use three comparable company fiscal years and the latest reasonably comparable completed year for each peer. Show exact year ends. Use the same accounting/ratio definitions and appropriate average balances. Name the actual selected-peer median, not an industry average. Two peers are a small descriptive sample.
-- Calculate and interpret five appropriate ratios and one comparison chart.
-- Complete the brief peer-based P/E range using consistent positive trailing earnings.
-- Revise the Milestone 2 opportunity using financial strengths, constraints, a checked challenge, and a measurable next step.
+- Use one recent completed annual period for each company and show exact fiscal year ends. Prefer the same fiscal year where practical. Use the same ratio definitions and units. State important period or business-model differences. The selected-peer median uses only the two peers; it is not an industry average.
+- Retrieve five consistently defined ratios from FactSet or credible reports, calculate selected-peer medians, verify one ratio and explain a strength, constraint and implication.
+- Calculate one brief peer-median P/E estimate; low/high estimates are optional.
+- Use AI to challenge the proposed revenue idea, independently check one objection, and revise the recommendation with a measurable next step.
 
 A full company valuation or NPV project model is not required. The P/E check offers market context; it does not measure the value created by the proposed initiative.
 
 See bus311-capstone-m03-peer-comparison.html and its matching workbook.
 
-- Peer selection and comparable inputs (3): Select and justify two defensible peers, naming limitations (1). Provide three years of company inputs and comparable latest-year peer inputs, with dates, currency/scale, definitions, average-balance inputs, and named evidence (2).
-- Ratio calculations and interpretation (3): Calculate five ratios, company trends, and the selected-peer median correctly (2). Interpret profitability, efficiency, liquidity, financing risk, and the chosen industry measure; use a correctly labeled comparison chart and connect findings to the opportunity (1).
-- Brief P/E calculation (2): Use consistent price dates, EPS basis, periods, currency, and positive-earnings treatment (1). Calculate peer P/Es, the illustrative low/base/high range and percentage differences; interpret the estimate and its limitations (1).
-- Recommendation, challenge, and revision (4): Connect one financial strength and one constraint to the proposal (1). Justify a specific pursue, pilot, or strengthen-first recommendation and a resulting change or supported retention of the plan (1). Record a meaningful challenge, independent evidence/recalculation, and reasoned response (1). Specify an owner, timing, success measure, reconsideration trigger, and AI-use statement (1).
+- Peer choices and comparable evidence (3): Select two defensible peers and explain a useful similarity and limitation for each (1). Provide five comparable annual ratios for all three companies with dates, units, definitions and traceable evidence; explain unavailable or unsuitable metrics (2).
+- Ratio comparison and interpretation (3): Calculate the selected-peer medians and independently verify one company ratio using its numerator and denominator (1). Explain one strength and one constraint using specific values and business reasoning (1). Connect the findings to the proposed revenue idea (1). A chart and three-year ratio history are not required.
+- Brief P/E check (2): Use consistent dates, compatible trailing diluted EPS and appropriate treatment of nonpositive/missing inputs; calculate the three P/Es (1). Calculate one peer-median implied company price and percentage difference, and explain a limitation (1). Low/high estimates are optional.
+- AI red team and revised recommendation (4): Use a relevant AI prompt and identify its strongest objection to the proposed revenue idea (1). Independently check one objection with named evidence or a calculation (1). Explain accept, modify or reject and a specific revision or justified retention of the idea (1). Give a 100-150-word recommendation with a responsible role, timing, measure, reconsideration rule and AI-use disclosure (1).
