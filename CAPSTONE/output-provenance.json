@@ -1,6 +1,6 @@
 {
-  "sourceVersion": "2.3.0",
-  "sourceSha256": "853bdf616d0d8099a449c6fba85cc2a0c5dd6db6c6d5ccf6ce57baa13a8bc5f7",
+  "sourceVersion": "2.3.1",
+  "sourceSha256": "f5522c4f19e0e0add987e975fd0ca4cc18d1dee48a72fd7a1da0f1ebe825d08c",
   "artifacts": [
     {
       "path": "CAPSTONE/bus311-capstone-m02-follow-the-dollar.pdf",
@@ -12,11 +12,11 @@
     },
     {
       "path": "CAPSTONE/index.html",
-      "sha256": "a06d1753146e16f9b9e35b415fb9d88af17ee9122d4b607e843dab0b573569f6"
+      "sha256": "a26671a110db1ea0be8f71949754b80c6d056b9dd1d75adcfca28daa22b498ca"
     },
     {
       "path": "CAPSTONE/bus311-capstone-m03-peer-comparison.html",
-      "sha256": "fcf2c7e97b10e6bf793c45843e01479350b5c4e6c2dae64948760b8b55df3960"
+      "sha256": "0eab0d811058a66e66e6b75e2f9f3769585bd37d1ac4f042007d02f2bfdfb3c8"
     },
     {
       "path": "CAPSTONE/bus311-capstone-m03-peer-comparison.xlsx",
@@ -24,15 +24,15 @@
     },
     {
       "path": "CAPSTONE/bus311-capstone-canvas.html",
-      "sha256": "947eca82bb00b62fb45a4a8c9a67eda9ef28e901933e61d2ffcb59efe15667c0"
+      "sha256": "df79a7d49c93e89ceaa4bdc4d9d54c9c87b976be1da0ed36734818ea6dbfcb3c"
     },
     {
       "path": "CAPSTONE/bus311-capstone-assignment.md",
-      "sha256": "3b459cc8bf5dae718d1695d06a3759de67b3299153363ffdd4a213359b48a161"
+      "sha256": "8d218ac2c4efa0c90fa873c442c7b1179e5c0410f8b4e6a50cef21588f911cac"
     },
     {
       "path": "CAPSTONE/bus311-capstone-m02-follow-the-dollar.html",
-      "sha256": "705674934974b296f8d50690095fc4433a2e7260396c28f8b95ac1809695f001"
+      "sha256": "64a9a411a6f2fae6d7692d8f6a0b65891791386d70bbced407af546febece9e4"
     }
   ]
 }

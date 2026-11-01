@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaId": "bus311-individual-company-capstone",
-    "sourceVersion": "2.3.0",
+    "sourceVersion": "2.3.1",
     "status": "approved",
     "effectiveTerm": "Fall 2026",
     "updated": "2026-11-01",
@@ -150,7 +150,7 @@
         "points": 75,
         "due": "2026-11-30T12:30:00-05:00",
         "dateLabel": "PowerPoint: November 30 at 12:30 p.m. ET; presentations: November 30–December 9",
-        "work": "Use six core slides to explain your decision, evidence, numbers, risks, and next step. Put supporting calculations and sources in an optional appendix.",
+        "work": "Use seven core slides to synthesize Milestones 1-3: explain the company, revenue, proposed opportunity, peer evidence, brief P/E result, checked AI challenge, and final recommendation. Put supporting calculations, sources, and disclosure in an appendix when useful.",
         "submit": "Upload one editable PowerPoint, then present that file live. Up to 7 minutes presenting and 3 minutes answering questions.",
         "tabs": [],
         "grade": "PowerPoint 50; Oral Presentation 25.",
@@ -167,7 +167,7 @@
     "scenarios": [],
     "sensitivityCount": 0,
     "challengeCount": 1,
-    "coreSlides": 6,
+    "coreSlides": 7,
     "workbookSheets": [
       "Follow the dollar",
       "Revenue history",
@@ -203,39 +203,45 @@
   "slideOutline": [
     {
       "title": "Company and revenue engine",
-      "prompt": "Explain who pays, what they buy, and how the company charges.",
-      "evidence": "Revenue map and largest disclosed revenue source.",
-      "notes": "Planned final structure; template will be revised with Milestone 3."
+      "prompt": "Introduce the company, ticker, and brief business snapshot. Explain who pays, what they buy, the sales channel, how the company charges, and what creates repeat revenue.",
+      "evidence": "Name the largest disclosed revenue source with its amount and fiscal year. Distinguish the payer from the user when relevant.",
+      "notes": "Synthesize Milestone 1 company exploration and Milestone 2 Follow the dollar. The initial FactSet learning can remain in supporting documentation."
     },
     {
       "title": "Revenue history and drivers",
-      "prompt": "Explain the recent sales trend and its causes.",
-      "evidence": "Three-year revenue chart and two supported drivers.",
-      "notes": "Planned final structure; template will be revised with Milestone 3."
+      "prompt": "Show three completed fiscal years of revenue and growth, and explain two company-specific drivers.",
+      "evidence": "Use a readable three-year revenue chart with currency, units, fiscal years, and relevant comparability limitations. Separate supported drivers from assumptions.",
+      "notes": "Synthesize Milestone 2 Revenue history. The three-year revenue history remains required; a three-year ratio history is not required."
     },
     {
-      "title": "Proposed growth opportunity",
-      "prompt": "Explain the customer, willingness to pay, and company fit.",
-      "evidence": "Simple revenue estimate with labeled assumptions and displaced sales.",
-      "notes": "Planned final structure; template will be revised with Milestone 3."
+      "title": "Proposed revenue opportunity",
+      "prompt": "Name the paying customer, willingness to pay, company fit, and whether the idea is your proposal, an announced initiative, or an extension of an existing activity.",
+      "evidence": "Use two pieces of company evidence supporting fit. Show a period-consistent annual revenue estimate with quantity, revenue per unit, adoption timing and displaced sales. Identify major operating costs and upfront investment, and distinguish revenue from profit and cash flow.",
+      "notes": "Synthesize the chosen Milestone 2 opportunity. The other two brainstormed ideas and detailed assumptions can remain in the workbook."
     },
     {
-      "title": "Financial comparison",
-      "prompt": "Explain what company trends and peer ratios imply for the proposal.",
-      "evidence": "Financial strength, constraint, and effect on the proposed action.",
-      "notes": "Planned final structure; template will be revised with Milestone 3."
+      "title": "Peer comparison",
+      "prompt": "Introduce two defensible peers and show a five-ratio annual snapshot for the company and peers. Explain one strength, one constraint, and the implication for the proposed idea.",
+      "evidence": "Use one recent completed annual period per company, consistent definitions and units, exact year ends, and the selected-peer median. Briefly identify why the peers are useful and a material comparison limitation.",
+      "notes": "Synthesize Milestone 3 Peer comparison. Detailed peer rationales, ratio definitions and the one-ratio verification can go in the appendix or remain in the workbook. No new ratio history or chart is required."
     },
     {
       "title": "Brief P/E check",
-      "prompt": "Interpret the peer-based estimate and its limitations.",
-      "evidence": "Consistent EPS and share-price dates, selected multiple, and a small illustrative range.",
-      "notes": "Planned final structure; template will be revised with Milestone 3."
+      "prompt": "Explain the one peer-median implied company share price, compare it with the observed price, and state a meaningful limitation.",
+      "evidence": "Show the common price date, compatible trailing diluted EPS periods, the two peer P/Es, selected median, implied company price and percentage difference. Explain an approved alternative if P/E is not meaningful.",
+      "notes": "Synthesize Milestone 3 P-E check. One median-based estimate is required; low/high estimates are optional. The result does not establish the value created by the proposed initiative."
     },
     {
-      "title": "Recommendation and next step",
-      "prompt": "Recommend pursue, pilot, or strengthen first. Explain risk and success measure.",
-      "evidence": "One practical next action and an observable reconsideration trigger.",
-      "notes": "Planned final structure; template will be revised with Milestone 3."
+      "title": "AI challenge and revision",
+      "prompt": "Summarize the strongest AI objection to the proposed revenue idea, what you independently checked, and your accept, modify, or reject judgment.",
+      "evidence": "Name the evidence or calculation used to check the concern and explain the resulting change or justified retention of the idea. Make the evolution from the earlier tentative proposal clear.",
+      "notes": "Synthesize Milestone 3 AI challenge and relevant prior challenge work. A ratio-only or peer-choice-only challenge does not replace the required critique of the revenue idea. The full prompt and transcript do not belong on the core slide."
+    },
+    {
+      "title": "Final recommendation and next step",
+      "prompt": "Recommend pursue, pilot, or strengthen first. Explain the choice relative to continuing the current approach and identify two key risks.",
+      "evidence": "Specify the next action, responsible role, timeframe, success measure and an observable reconsideration trigger. Label proposed thresholds as assumptions and acknowledge important remaining uncertainty.",
+      "notes": "Bring together the final Milestone 2/3 judgment. Retain the existing final rubric expectations for comparison with the status quo and two risks. Use the same submitted PowerPoint for the oral presentation."
     }
   ],
   "rubric": {
@@ -392,7 +398,7 @@
         "title": "Communication",
         "points": 10,
         "stageId": "S05_BOARD",
-        "description": "Clear six-slide story 4; readable visuals and labels 3; usable source notes, model references, and applicable AI disclosure 3.",
+        "description": "Clear seven-slide story 4; readable visuals and labels 3; usable source notes, model references, and applicable AI disclosure 3.",
         "performanceLevels": {
           "COMPLETE": {
             "points": 10,
@@ -451,7 +457,7 @@
       "title": "PowerPoint company-analysis project submission",
       "points": 50,
       "format": "PPTX upload",
-      "limit": "Six core slides plus optional supporting appendix."
+      "limit": "Seven core slides plus optional supporting appendix."
     },
     {
       "title": "Oral Presentation",
@@ -1304,6 +1310,17 @@
       "My P/E check uses one price date, compatible trailing diluted EPS, three P/Es and one peer-median implied price with its percentage difference and limitation.",
       "AI challenged the revenue idea itself. I checked its strongest criticism independently and explained my response.",
       "My final 100-150-word recommendation names a next step, owner, timeframe, measure, reconsideration rule and AI tool/use."
+    ]
+  },
+  "finalPresentation": {
+    "title": "Milestone 4: Final PowerPoint and oral presentation",
+    "purpose": "Synthesize the work already completed in Milestones 1-3. Build a clear company-specific recommendation rather than reproduce every worksheet response. Submit one editable PowerPoint and use that same file for the oral presentation.",
+    "supportingGuidance": [
+      "Cite company reports, dates, units and material assumptions on the relevant slides or in an appendix. Include usable sources and disclosure of the AI tool and its role. AI output is not company evidence.",
+      "Use an appendix for detailed peer-selection explanations, ratio definitions, the one-ratio verification, supporting calculations, and source/AI disclosure when these would crowd the core slides. Be ready to explain them in questions.",
+      "The Milestone 1 FactSet learning, three initial Milestone 2 revenue ideas, and full Milestone 3 AI prompt can remain in the completed workbooks. Do not add separate core slides for every worksheet answer or paste an entire AI chat.",
+      "One annual peer-ratio snapshot and one median-based P/E estimate are sufficient. No new three-year ratio history, required low/high range, full valuation, DCF, DDM or NPV model is added.",
+      "Submit one .pptx file and present that same file live. No separate executive-summary report or duplicate presentation file is required."
     ]
   }
 }

@@ -3,7 +3,7 @@ import json,zipfile,xml.etree.ElementTree as ET,re
 from pathlib import Path
 from html.parser import HTMLParser
 ROOT=Path(__file__).resolve().parents[1];P=ROOT/'CAPSTONE';d=json.loads((P/'source/bus311-capstone.json').read_text());m=d['milestone3']
-assert d['meta']['sourceVersion']=='2.3.0' and m['status']=='Ready'
+assert d['meta']['sourceVersion']in ('2.3.0','2.3.1') and m['status']=='Ready'
 assert [s['name'] for s in m['sheets']]==['Peer comparison','P-E check','AI challenge']
 assert sum(c['points'] for c in m['rubric'])==m['points']==12
 assert [c['points'] for c in m['rubric']]==[3,3,2,4]
