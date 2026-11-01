@@ -590,7 +590,8 @@
           "label": "Download Beta and CAPM student workbook",
           "path": "03-FIRM-DECISIONS/M12/bus311-decisions-m12-l01-starter.xlsx",
           "stage": "Apply",
-          "description": "Student workbook for beta estimation, CAPM, and capital budgeting."
+          "description": "Class activity: build monthly stock and SPY returns, estimate beta and correlation, calculate CAPM cost of equity, and evaluate a project with NPV and IRR.",
+          "cardLabel": "Beta and CAPM activity"
         }
       ]
     },
