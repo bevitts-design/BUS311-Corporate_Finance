@@ -624,10 +624,11 @@
       "materials": [
         {
           "type": "Slides",
-          "label": "View lesson slides",
+          "label": "View lesson slides in Canva",
           "path": "03-FIRM-DECISIONS/M13/bus311-decisions-m13-l01-slides.html",
           "stage": "Learn",
-          "description": "Component returns, market-value weights, project fit, and enterprise valuation."
+          "description": "Component returns, market-value weights, project fit, and enterprise valuation.",
+          "linkUrl": "https://canva.link/7kqtmdccz7u71jm"
         },
         {
           "type": "Starter Workbook",
