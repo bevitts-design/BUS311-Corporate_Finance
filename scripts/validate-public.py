@@ -57,6 +57,13 @@ def workbook_checks(path, errors, require_lesson_contract=True):
                     marker in lowered for marker in ("fictional case", "scenario deployment assumptions", "sources &amp; uses check")
                 ):
                     errors.append(f"Workbook lacks the M07 supplied-data case structure: {path.relative_to(ROOT)}")
+            elif path.name == "bus311-decisions-m13-l01-starter.xlsx":
+                # ADK uses supplied classroom assumptions to connect WACC with NPV and IRR.
+                required_sheets = {"ADK Component Costs", "ADK WACC", "ADK Project Decision"}
+                if not required_sheets.issubset({name for name, _ in workbook_sheets(path)}) or not all(
+                    marker in lowered for marker in ("project hurdle rate", "net present value", "internal rate of return")
+                ):
+                    errors.append(f"Workbook lacks the M13 WACC project activity: {path.relative_to(ROOT)}")
             elif "factset" not in lowered:
                 errors.append(f"Workbook lacks identified FactSet inputs: {path.relative_to(ROOT)}")
             if not any(marker in lowered for marker in ("decision output", "recommendation", "decision, evidence")):

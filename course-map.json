@@ -618,9 +618,9 @@
       "estimatedMinutes": 75,
       "readingPath": "03-FIRM-DECISIONS/M13/source/bus311-decisions-m13-l01-prereading.md",
       "prepare": "Review CAPM, current debt yield, market-value weights, and the debt tax shield.",
-      "practice": "Build each component cost and combine the rows with SUMPRODUCT.",
-      "apply": "Decide whether the company WACC is appropriate for a proposed project or valuation.",
-      "deliverable": "A formula-audited WACC model and a risk-fit recommendation.",
+      "practice": "Estimate component costs, calculate market-value weights, and sum the weighted contributions.",
+      "apply": "Use ADK’s WACC as the hurdle rate for a production-line upgrade and evaluate it with NPV and IRR.",
+      "deliverable": "A completed WACC model and an accept-or-reject recommendation supported by NPV and IRR.",
       "materials": [
         {
           "type": "Slides",
@@ -631,10 +631,11 @@
         },
         {
           "type": "Starter Workbook",
-          "label": "Download WACC starter workbook",
+          "label": "Download WACC and project decision activity",
+          "cardLabel": "Download Excel activity",
           "path": "03-FIRM-DECISIONS/M13/bus311-decisions-m13-l01-starter.xlsx",
           "stage": "Apply",
-          "description": "Starter model for WACC and company valuation decisions."
+          "description": "Estimate financing costs, calculate WACC, and decide whether ADK should invest using NPV and IRR."
         },
         {
           "type": "Excel Practice",
