@@ -81,25 +81,25 @@
     {
       "dateLabel" : "October 7",
       "lessonId" : "valuation-m01-l01",
-      "releaseState" : "Locked",
+      "releaseState" : "Available",
       "week" : 6
     },
     {
       "dateLabel" : "October 14–19",
       "lessonId" : "valuation-m02-l01",
-      "releaseState" : "Locked",
+      "releaseState" : "Available",
       "week" : 7
     },
     {
       "dateLabel" : "October 26–28",
       "lessonId" : "valuation-m03-l01",
-      "releaseState" : "Locked",
+      "releaseState" : "Available",
       "week" : 9
     },
     {
       "dateLabel" : "November 2",
       "lessonId" : "valuation-m04-l01",
-      "releaseState" : "Locked",
+      "releaseState" : "Available",
       "week" : 10
     },
     {
@@ -117,7 +117,7 @@
     {
       "dateLabel" : "November 16–18",
       "lessonId" : "decisions-m03-l01",
-      "releaseState" : "Locked",
+      "releaseState" : "Available",
       "week" : 12
     }
   ],
