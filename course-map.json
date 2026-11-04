@@ -708,6 +708,14 @@
           "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-corporate-decision-activity.xlsx",
           "stage": "Apply",
           "description": "Student workbook for WACC, project metrics, and a financing recommendation."
+        },
+        {
+          "type": "Excel Activity",
+          "label": "Download student DCF worksheet",
+          "cardLabel": "Download DCF worksheet",
+          "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-dcf-activity.xlsx",
+          "stage": "Practice",
+          "description": "Build free cash flow from EBITDA, discount five years of cash flows and the horizon value, and estimate intrinsic value per share."
         }
       ]
     }
