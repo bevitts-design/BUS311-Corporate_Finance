@@ -676,10 +676,11 @@
       "materials": [
         {
           "type": "Slides",
-          "label": "View lesson slides",
+          "label": "View lesson slides in Canva",
           "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-slides.html",
           "stage": "Learn",
-          "description": "Capital-structure trade-offs, financing capacity, scenario analysis, and CFO recommendations."
+          "description": "Capital-structure trade-offs, financing capacity, scenario analysis, and CFO recommendations.",
+          "linkUrl": "https://canva.link/02gyubt5zahdrh4"
         },
         {
           "type": "Starter Workbook",
