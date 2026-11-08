@@ -700,7 +700,8 @@
           "label": "Download equity-accounts activity",
           "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-equity-accounts-activity.xlsx",
           "stage": "Practice",
-          "description": "Student workbook for equity-account mechanics and transaction analysis."
+          "description": "Student workbook for equity-account mechanics and transaction analysis.",
+          "cardLabel": "Download equity-accounts activity"
         },
         {
           "type": "Excel Activity",
@@ -716,6 +717,14 @@
           "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-dcf-activity.xlsx",
           "stage": "Practice",
           "description": "Build free cash flow from EBITDA, discount five years of cash flows and the horizon value, and estimate intrinsic value per share."
+        },
+        {
+          "type": "Excel Activity",
+          "label": "Download company valuation exercise",
+          "cardLabel": "Download company valuation exercise",
+          "path": "03-FIRM-DECISIONS/M14/bus311-decisions-m14-l01-company-valuation-activity.xlsx",
+          "stage": "Practice",
+          "description": "Student exercise connecting WACC, projected free cash flow, horizon value, enterprise value, and equity value per share."
         }
       ]
     }
